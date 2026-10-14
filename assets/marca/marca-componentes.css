@@ -1,0 +1,204 @@
+/* ============================================================================
+   MARCA RUBÉN PONCE · Componentes base
+   Requiere marca.tokens.css cargado antes.
+   Todo componente funciona en [data-tema="claro"] y [data-tema="noche"].
+   v1.0
+   ============================================================================ */
+
+/* ---- Reset mínimo --------------------------------------------------------- */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--rp-fondo);
+  color:var(--rp-texto);
+  font-family:var(--rp-fuente-texto);
+  font-size:var(--rp-t-16);
+  line-height:var(--rp-alto-texto);
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,video{display:block;max-width:100%;}
+a{color:var(--rp-azul);text-decoration:none;}
+a:hover{text-decoration:underline;}
+[data-tema="noche"] a{color:var(--rp-azul-claro);}
+:focus-visible{outline:2px solid var(--rp-azul);outline-offset:3px;border-radius:var(--rp-radio-xs);}
+[data-tema="noche"] :focus-visible{outline-color:#fff;}
+
+/* ---- Tipografía ----------------------------------------------------------- */
+.rp-display{                       /* Titular grande. Barlow SemiBold.         */
+  font-family:var(--rp-fuente-display);
+  font-weight:600;
+  line-height:var(--rp-alto-titulo);
+  letter-spacing:var(--rp-track-titulo);
+  margin:0;
+}
+h1,h2,h3,h4{
+  font-family:var(--rp-fuente-texto);
+  font-weight:var(--rp-peso-fuerte);
+  line-height:1.2;
+  letter-spacing:var(--rp-track-titulo);
+  color:var(--rp-texto);
+  margin:0 0 var(--rp-e-3);
+}
+h1{font-size:var(--rp-t-38);}
+h2{font-size:var(--rp-t-30);}
+h3{font-size:var(--rp-t-20);}
+h4{font-size:var(--rp-t-16);}
+p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
+.rp-guia{                          /* Versalita de sección: "// Catálogo"      */
+  font-size:var(--rp-t-12);
+  font-weight:var(--rp-peso-medio);
+  letter-spacing:var(--rp-track-etiqueta);
+  text-transform:uppercase;
+  color:var(--rp-texto-2);
+  margin:0 0 var(--rp-e-3);
+}
+.rp-entradilla{font-size:var(--rp-t-18);color:var(--rp-texto-2);}
+.rp-pie{font-size:var(--rp-t-12);color:var(--rp-texto-2);}
+
+/* ---- Marca ---------------------------------------------------------------- */
+.rp-marca{display:inline-flex;align-items:center;gap:var(--rp-e-3);}
+.rp-marca svg,.rp-marca img{width:32px;height:32px;flex:none;}
+.rp-marca-nombre{font-weight:var(--rp-peso-fuerte);font-size:var(--rp-t-18);letter-spacing:-.01em;}
+.rp-marca-descriptor{
+  display:block;font-size:10.5px;font-weight:var(--rp-peso-medio);
+  letter-spacing:var(--rp-track-etiqueta);text-transform:uppercase;color:var(--rp-texto-2);
+}
+
+/* ---- Botones -------------------------------------------------------------- */
+.rp-btn{
+  display:inline-flex;align-items:center;gap:var(--rp-e-2);
+  padding:10px 18px;
+  border:1px solid transparent;border-radius:var(--rp-radio-pastilla);
+  font-family:inherit;font-size:var(--rp-t-14);font-weight:var(--rp-peso-fuerte);
+  line-height:1;cursor:pointer;text-decoration:none;
+  transition:transform var(--rp-dur-rapida) var(--rp-ease),
+             background var(--rp-dur-rapida) var(--rp-ease),
+             opacity var(--rp-dur-rapida) var(--rp-ease);
+}
+.rp-btn:hover{transform:translateY(-1px);text-decoration:none;}
+.rp-btn-primario{background:var(--rp-acento);color:var(--rp-acento-texto);}
+.rp-btn-primario:hover{background:var(--rp-azul-profundo);color:#fff;}
+[data-tema="noche"] .rp-btn-primario:hover{background:#fff;color:#000;opacity:.9;}
+.rp-btn-secundario{background:transparent;color:var(--rp-texto);border-color:var(--rp-borde);}
+.rp-btn-secundario:hover{background:var(--rp-superficie-2);}
+.rp-btn-texto{background:none;padding:10px 4px;color:var(--rp-azul);}
+[data-tema="noche"] .rp-btn-texto{color:#fff;}
+
+/* ---- Chips / etiquetas de marco ------------------------------------------- */
+.rp-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:var(--rp-radio-pastilla);
+  background:var(--rp-azul-aire);color:var(--rp-azul-profundo);
+  border:1px solid transparent;
+  font-size:var(--rp-t-12);font-weight:var(--rp-peso-medio);line-height:1.4;
+}
+[data-tema="noche"] .rp-chip{
+  background:var(--rp-noche-vidrio);color:var(--rp-noche-texto-2);
+  border-color:var(--rp-noche-linea);
+}
+.rp-chip-acento{background:var(--rp-laton-aire);color:var(--rp-laton-texto);}
+[data-tema="noche"] .rp-chip-acento{background:rgba(195,154,94,.14);color:var(--rp-laton);border-color:rgba(195,154,94,.3);}
+
+/* ---- Tarjeta -------------------------------------------------------------- */
+.rp-tarjeta{
+  background:var(--rp-superficie);
+  border:1px solid var(--rp-borde);
+  border-radius:var(--rp-radio-m);
+  padding:var(--rp-e-5);
+}
+[data-tema="claro"] .rp-tarjeta{box-shadow:var(--rp-sombra-s);}
+.rp-tarjeta-titulo{font-size:var(--rp-t-20);font-weight:var(--rp-peso-fuerte);margin:0 0 var(--rp-e-2);}
+
+/* Vidrio líquido: solo en modo noche y solo sobre imagen o fondo con textura. */
+.rp-vidrio{
+  position:relative;overflow:hidden;
+  background:rgba(255,255,255,.01);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.12);
+  border-radius:var(--rp-radio-l);
+}
+.rp-vidrio::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;
+  background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 40%,
+             rgba(255,255,255,0) 60%,rgba(255,255,255,.45));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+}
+
+/* ---- Cita al estándar (el sello de la marca) ------------------------------ */
+/* Toda afirmación normativa lleva su referencia exacta. Este es el componente. */
+.rp-cita{
+  border-left:3px solid var(--rp-azul);
+  background:var(--rp-azul-aire);
+  padding:var(--rp-e-3) var(--rp-e-4);
+  border-radius:0 var(--rp-radio-s) var(--rp-radio-s) 0;
+  font-size:var(--rp-t-14);
+  color:var(--rp-tinta);
+}
+[data-tema="noche"] .rp-cita{
+  background:var(--rp-noche-vidrio);color:var(--rp-noche-texto-2);
+  border-left-color:var(--rp-laton);
+}
+.rp-cita-fuente{
+  display:block;margin-top:var(--rp-e-2);
+  font-family:var(--rp-fuente-mono);font-size:var(--rp-t-12);
+  color:var(--rp-tinta-media);
+}
+[data-tema="noche"] .rp-cita-fuente{color:var(--rp-noche-texto-3);}
+
+/* ---- Nivel de madurez ------------------------------------------------------ */
+.rp-nivel{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:26px;padding:3px 10px;border-radius:var(--rp-radio-pastilla);
+  font-size:var(--rp-t-12);font-weight:var(--rp-peso-fuerte);
+}
+.rp-nivel-1{background:var(--rp-nivel-1);color:var(--rp-nivel-1-texto);}
+.rp-nivel-2{background:var(--rp-nivel-2);color:var(--rp-nivel-2-texto);}
+.rp-nivel-3{background:var(--rp-nivel-3);color:var(--rp-nivel-3-texto);}
+.rp-nivel-4{background:var(--rp-nivel-4);color:var(--rp-nivel-4-texto);}
+
+/* ---- Estados --------------------------------------------------------------- */
+.rp-estado{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;
+  border-radius:var(--rp-radio-xs);font-size:var(--rp-t-12);font-weight:var(--rp-peso-medio);}
+.rp-estado-ok{background:var(--rp-ok-aire);color:var(--rp-ok);}
+.rp-estado-alerta{background:var(--rp-alerta-aire);color:var(--rp-alerta);}
+.rp-estado-riesgo{background:var(--rp-riesgo-aire);color:var(--rp-riesgo);}
+[data-tema="noche"] .rp-estado-ok{background:rgba(127,209,168,.12);color:var(--rp-ok-noche);}
+[data-tema="noche"] .rp-estado-alerta{background:rgba(245,201,122,.12);color:var(--rp-alerta-noche);}
+[data-tema="noche"] .rp-estado-riesgo{background:rgba(242,184,181,.12);color:var(--rp-riesgo-noche);}
+
+/* ---- Tabla ----------------------------------------------------------------- */
+.rp-tabla{width:100%;border-collapse:collapse;font-size:var(--rp-t-14);}
+.rp-tabla th{
+  text-align:left;padding:10px 12px;
+  font-size:var(--rp-t-12);font-weight:var(--rp-peso-fuerte);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--rp-texto-2);
+  border-bottom:1px solid var(--rp-borde);
+}
+.rp-tabla td{padding:12px;border-bottom:1px solid var(--rp-borde);vertical-align:top;}
+.rp-tabla tbody tr:hover{background:var(--rp-superficie-2);}
+.rp-tabla .num{text-align:right;font-variant-numeric:tabular-nums;}
+
+/* ---- Cifra destacada -------------------------------------------------------- */
+.rp-cifra{font-family:var(--rp-fuente-display);font-weight:600;
+  font-variant-numeric:tabular-nums;
+  font-size:var(--rp-t-60);line-height:1;letter-spacing:-.03em;color:var(--rp-texto);}
+.rp-cifra-pie{font-size:var(--rp-t-14);color:var(--rp-texto-2);margin-top:var(--rp-e-2);}
+
+/* ---- Estructura -------------------------------------------------------------- */
+.rp-contenedor{max-width:var(--rp-ancho-pagina);margin:0 auto;padding:0 var(--rp-e-5);}
+.rp-seccion{padding:var(--rp-e-9) 0;}
+.rp-separador{height:1px;background:var(--rp-borde);border:0;margin:var(--rp-e-7) 0;}
+.rp-rejilla{display:grid;gap:var(--rp-e-5);}
+@media (min-width:760px){ .rp-rejilla-2{grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1000px){ .rp-rejilla-3{grid-template-columns:repeat(3,1fr);} }
+
+/* ---- Impresión ---------------------------------------------------------------- */
+@media print{
+  body{background:#fff;color:#000;}
+  .rp-no-imprimir{display:none !important;}
+  .rp-tarjeta{box-shadow:none;border-color:#ccc;}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;color:#555;}
+}
