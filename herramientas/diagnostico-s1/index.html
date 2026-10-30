@@ -501,19 +501,19 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
 
 <div class="sending-overlay" id="sending-overlay">
   <div class="spinner"></div>
-  <span class="sending-text">Guardando respuestas, comentarios y resultados en Google Sheets…</span>
+  <span class="sending-text">Guardando tus respuestas…</span>
 </div>
 
 <!-- ═══ INTRO ═══ -->
 <div id="screen-intro">
   <a class="rp-home" href="../../" title="Ir al inicio de Rubén Ponce"><svg class="rp-iso" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><defs><clipPath id="rpDiscS12p"><circle cx="50" cy="50" r="40.75"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="4.9"><circle cx="50" cy="50" r="43.2"/><path d="M 2 50 C 8 60 14 68.4 24 68.9 C 34 69.4 41 64.5 50 58.7 C 58.5 53.2 66 47.9 76 47.9 C 85 47.9 91 51.5 98 60" clip-path="url(#rpDiscS12p)"/></g></svg><span class="rp-home-texto"><b>Rubén Ponce</b><i>Sostenibilidad corporativa</i></span></a>
 
-  <span class="intro-badge">Diagnóstico Técnico Intensivo · NIIF S1 · ISSB Junio 2023</span>
+  <span class="intro-badge">NIIF S1 · norma del ISSB publicada en junio de 2023</span>
   <div class="intro-logo">
     <span class="norm-badge norm-s1">NIIF S1</span>
   </div>
   <h1 class="intro-title">Autodiagnóstico de<br>preparación <em>NIIF S1</em></h1>
-  <p class="intro-desc">Evaluación de los requerimientos generales de la NIIF S1 para la información a revelar sobre sostenibilidad —gobernanza, estrategia, gestión del riesgo, métricas y objetivos—, con referencia directa a párrafos, campo de comentarios por pregunta y plan de acción. Cuando un requisito tiene su equivalente en la NIIF S2, se indica al pie de la pregunta.</p>
+  <p class="intro-desc">Evalúa qué tan preparada está tu organización para divulgar información de sostenibilidad conforme a la NIIF S1. Las preguntas recorren los cuatro pilares de la norma —gobernanza, estrategia, gestión del riesgo, y métricas y objetivos— y cada una cita el párrafo que la sustenta. Al terminar ves tu nivel por pilar y un plan de acción ordenado por prioridad. Si un requisito tiene equivalente en la NIIF S2, se indica al pie de la pregunta.</p>
   <div class="intro-stats">
     <div class="stat"><span class="stat-n">4</span><span class="stat-label">Pilares</span></div>
     <div class="stat"><span class="stat-n" id="stat-areas">—</span><span class="stat-label">Áreas de Revelación</span></div>
@@ -535,8 +535,8 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
 
     <div class="register-header">
       <div class="reg-logos"><span class="reg-badge reg-s1">NIIF S1</span></div>
-      <h2>Registro previo</h2>
-      <p>Tus datos son <strong>privados y confidenciales</strong>. Solo el administrador tendrá acceso a esta información.</p>
+      <h2>Antes de empezar</h2>
+      <p>Estos datos se guardan junto con tus resultados. Solo Rubén Ponce tiene acceso a ellos.</p>
     </div>
     <div class="form-row">
       <div class="form-group"><label>Nombre *</label><input type="text" id="f-name" placeholder="Ana García"></div>
@@ -576,7 +576,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
     </div>
     <div class="register-privacy">
       <input type="checkbox" id="f-privacy" onchange="checkPrivacy()">
-      <span>Acepto que esta información sea registrada exclusivamente para fines del diagnóstico NIIF S1. Los datos, respuestas y comentarios no serán compartidos con terceros.</span>
+      <span>Acepto que mis datos, respuestas y comentarios se guarden para este diagnóstico. No se comparten con terceros.</span>
     </div>
     <button class="btn-register" id="btn-register" onclick="submitRegister()" disabled>Comenzar diagnóstico →</button>
     <div class="reg-msg reg-error" id="reg-error"></div>
@@ -623,8 +623,8 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
   <div class="results-content">
 
     <div class="sheets-info">
-      <strong>✅ Datos guardados en Google Sheets</strong>
-      Tus respuestas, comentarios, puntuaciones por pregunta y resultados completos han sido registrados automáticamente en la hoja de cálculo del administrador. También puedes imprimir o guardar este reporte como PDF usando el botón al final de la página.
+      <strong>Tus resultados se enviaron para su registro</strong>
+      Para conservar una copia, usa «Imprimir / PDF» al final de la página. Este autodiagnóstico orienta sobre tu nivel de preparación; no certifica el cumplimiento de la NIIF S1 ni sustituye una revisión independiente.
     </div>
 
     <h3 class="section-title">📊 Puntuación por pilar</h3>
@@ -643,7 +643,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
     <div class="index-section">
       <div class="index-header">
         <h3>Tabla índice completa</h3>
-        <p>Código de identificación · Párrafo exacto de NIIF S1 · Puntuación obtenida · Comentarios registrados · Formato: PIL·ÁREA·§XX·Qn</p>
+        <p>Todas las preguntas con su código, la referencia de la NIIF S1, tu respuesta y tus comentarios. El código se lee: pilar · área · párrafo · número de pregunta.</p>
       </div>
       <div class="index-legend">
         <div class="legend-item"><div class="legend-dot" style="background:var(--lv0)"></div> No implementado (0)</div>
@@ -727,7 +727,7 @@ const pillars=[
    text:'Identificación de riesgos y oportunidades relacionados con la sostenibilidad',
    questions:[
     {text:'¿La organización ha identificado y descrito todos los riesgos y oportunidades relacionados con la sostenibilidad que podrían afectar razonablemente sus perspectivas?',para:'S1·§30a',ref:'NIIF S1 §30a — Descripción de riesgos y oportunidades materiales identificados',norm:'S1',eq:'NIIF S2 §10a'},
-    {text:'¿Se han especificado los horizontes temporales (corto, medio, largo plazo) para cada riesgo y oportunidad, con definiciones propias vinculadas a los horizontes de planificación estratégica?',para:'S1·§30b-c',ref:'NIIF S1 §30b-c — Horizontes temporales y sus definiciones en la organización',norm:'S1',eq:'NIIF S2 §10c-d'},
+    {text:'¿Se han especificado los horizontes temporales (corto, mediano y largo plazo) para cada riesgo y oportunidad, con definiciones propias vinculadas a los horizontes de planificación estratégica?',para:'S1·§30b-c',ref:'NIIF S1 §30b-c — Horizontes temporales y sus definiciones en la organización',norm:'S1',eq:'NIIF S2 §10c-d'},
     {text:'¿Se utiliza toda la información razonable y sustentable disponible para identificar los riesgos y oportunidades, sin incurrir en costos o esfuerzos desproporcionados?',para:'S1·§B8-B10',ref:'NIIF S1 §B8-B10 — Información razonable y sustentable sin esfuerzo desproporcionado',norm:'S1',eq:'NIIF S2 §11'},
     {text:'¿Se han consultado y documentado las Normas SASB y otras fuentes de guía del Apéndice C (GRI, ESRS) al identificar los riesgos y oportunidades sectoriales relevantes?',para:'S1·§55',ref:'NIIF S1 §55 + §C2 — Uso de Normas SASB, GRI y ESRS como fuentes de guía aplicables',norm:'S1',eq:'NIIF S2 §12'}
    ]},
@@ -749,7 +749,7 @@ const pillars=[
    questions:[
     {text:'¿Se describen los efectos actuales de los riesgos y oportunidades relacionados con la sostenibilidad sobre la situación financiera, el rendimiento financiero y los flujos de efectivo del periodo?',para:'S1·§35a',ref:'NIIF S1 §35a — Efectos financieros actuales en el periodo sobre el que se informa',norm:'S1',eq:'NIIF S2 §16a'},
     {text:'¿Se identifican los riesgos y oportunidades para los cuales existe riesgo significativo de ajuste material en los importes en libros de activos y pasivos en el próximo periodo anual?',para:'S1·§35b',ref:'NIIF S1 §35b — Riesgo de ajuste material en activos/pasivos en el próximo periodo',norm:'S1',eq:'NIIF S2 §16b'},
-    {text:'¿Se revela cómo se espera que cambie la situación financiera a corto, medio y largo plazo, considerando planes de inversión, desinversión y fuentes de financiación para implementar la estrategia?',para:'S1·§35c',ref:'NIIF S1 §35c — Efectos financieros previstos: inversiones, desinversiones y financiación futura',norm:'S1',eq:'NIIF S2 §16c'},
+    {text:'¿Se revela cómo se espera que cambie la situación financiera a corto, mediano y largo plazo, considerando planes de inversión, desinversión y fuentes de financiación para implementar la estrategia?',para:'S1·§35c',ref:'NIIF S1 §35c — Efectos financieros previstos: inversiones, desinversiones y financiación futura',norm:'S1',eq:'NIIF S2 §16c'},
     {text:'¿Se proporciona información cuantitativa sobre efectos financieros, o se justifica explícitamente su omisión (efectos no identificables por separado, alto nivel de incertidumbre, o falta de capacidades)?',para:'S1·§38-40',ref:'NIIF S1 §38-40 — Información cuantitativa o justificación documentada de su omisión',norm:'S1',eq:'NIIF S2 §19-21'},
     {text:'¿La información sobre efectos financieros es congruente con los datos y supuestos de los estados financieros relacionados, con explicación de diferencias significativas?',para:'S1·§23',ref:'NIIF S1 §23 + §B42 — Congruencia entre revelaciones de sostenibilidad y estados financieros',norm:'S1'}
    ]}
@@ -1170,7 +1170,7 @@ function buildActionPlans(pillarScores, normPct) {
         </div>
         <div class="plan-score plan-score-${lo}">${normPct}%</div>
       </div>
-      <div class="plan-items">${plan||`<div class="plan-empty">🎉 No se detectaron brechas críticas en NIIF ${NORMA}</div>`}</div>
+      <div class="plan-items">${plan||`<div class="plan-empty">No hay brechas: todas las preguntas están en «Parcialmente» o «Implementado».</div>`}</div>
     </div>`;
 }
 
@@ -1231,7 +1231,7 @@ function buildNormPlan(norm, pct, lowItems) {
       A: 'Clasifica cada riesgo climático como físico (agudo/crónico) o de transición (político, legal, tecnológico, de mercado, reputacional) (§10b + §3a), y especifica los horizontes temporales para cada riesgo y oportunidad climática (§10c-d).',
       B: 'Describe los efectos actuales y previstos de los riesgos y oportunidades climáticos sobre el modelo de negocio y cadena de valor, con identificación de concentraciones geográficas e instalaciones específicas (§13a-b).',
       C: 'Desarrolla un plan de transición climática formal con objetivos, acciones, recursos, supuestos clave y dependencias (§14a(iv)). Describe los esfuerzos directos e indirectos de reducción (§14a(ii-iii)) y reporta el progreso cuantitativo hacia planes anteriores (§14c).',
-      D: 'Cuantifica los efectos financieros actuales de los riesgos climáticos (§16a-b), planifica la revelación de efectos previstos a corto, medio y largo plazo incluyendo planes de inversión y desinversión (§16c), y justifica explícitamente si no se proporciona información cuantitativa (§19-21).',
+      D: 'Cuantifica los efectos financieros actuales de los riesgos climáticos (§16a-b), planifica la revelación de efectos previstos a corto, mediano y largo plazo incluyendo planes de inversión y desinversión (§16c), y justifica explícitamente si no se proporciona información cuantitativa (§19-21).',
       E: 'Inicia el análisis de escenarios climáticos con escenarios cualitativos proporcionales a tus capacidades (§22 + §B1-B7). Incluye al menos un escenario alineado con el Acuerdo de París (§22b(i)(2-4)). Documenta datos de entrada, supuestos clave y horizontes temporales (§22b). Alinea el ciclo del análisis con tu planificación estratégica y realiza evaluaciones anuales de resiliencia (§B18).'
     },
     'S2_RIE': {
@@ -1267,7 +1267,7 @@ function buildNormPlan(norm, pct, lowItems) {
       <div class="plan-item-body">
         <h4>${getPriorityLabel(priority)} · ${grp.pilarName} — Área ${discLetter}</h4>
         <h4 style="font-weight:400;color:var(--text-light);font-size:.78rem;margin-bottom:.35rem">${grp.discText}</h4>
-        <p>${actionText||`Revisa las ${grp.items.length} pregunta(s) con brecha en este área (val < 2). Desarrolla un plan de acción específico con responsables y plazos concretos para cada requerimiento identificado.`}</p>
+        <p>${actionText||`Esta área tiene ${grp.items.length} pregunta(s) respondidas como «No» o «En evaluación». Asigna un responsable y una fecha a cada requisito pendiente.`}</p>
         <div class="para-refs">${refsHtml}</div>
       </div>
     </div>`;
@@ -1279,7 +1279,7 @@ function buildNormPlan(norm, pct, lowItems) {
       <div class="plan-item-icon pi-urgent">📅</div>
       <div class="plan-item-body">
         <h4>🔴 URGENTE · Hoja de ruta de adopción ${norm}</h4>
-        <p>Con un ${pct}% de preparación, se recomienda desarrollar una hoja de ruta formal de adopción de NIIF ${norm} con hitos trimestrales, asignación de recursos y responsables. Considera solicitar apoyo externo especializado para acelerar el proceso.</p>
+        <p>Con ${pct} % de preparación, el primer paso es una hoja de ruta de adopción de la NIIF ${norm}: hitos trimestrales, presupuesto y un responsable por pilar. Si nadie en el equipo ha trabajado antes con la norma, conviene apoyarse en un asesor externo para definir el alcance inicial.</p>
         <div class="para-refs"><span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">${norm==='S1'?'S1 §72':'S2 §C1'}</span></div>
       </div>
     </div>`;
@@ -1287,9 +1287,9 @@ function buildNormPlan(norm, pct, lowItems) {
     html+=`<div class="plan-item">
       <div class="plan-item-icon pi-medium">🔍</div>
       <div class="plan-item-body">
-        <h4>🔵 MEDIA · Revisión de materialidad y assurance externo</h4>
-        <p>Con las brechas identificadas cerradas, el siguiente nivel requiere una revisión formal de materialidad (NIIF ${norm==='S1'?'S1 §17-19':'S2 §11'}) y buscar assurance externo (limited assurance) sobre las principales métricas, para elevar la credibilidad y comparabilidad de las revelaciones.</p>
-        <div class="para-refs"><span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">${norm==='S1'?'S1 §17-19':'S2 §11'}</span></div>
+        <h4>🔵 MEDIA · Revisión de materialidad y aseguramiento externo</h4>
+        <p>Cuando cierres las brechas de arriba, revisa formalmente qué información es material (NIIF S1 §17-19${norm==='S2'?', criterio que también rige para la NIIF S2':''}) y evalúa contratar un aseguramiento limitado de las métricas principales con un tercero independiente.</p>
+        <div class="para-refs"><span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">S1 §17-19</span></div>
       </div>
     </div>`;
   } else {
@@ -1297,8 +1297,8 @@ function buildNormPlan(norm, pct, lowItems) {
       <div class="plan-item-icon pi-low">✅</div>
       <div class="plan-item-body">
         <h4>🟢 BAJA · Declaración de cumplimiento NIIF ${norm}</h4>
-        <p>${norm==='S1'?'Tu organización está cercana a poder emitir una declaración explícita y sin reservas de cumplimiento con las Normas NIIF de Información a Revelar sobre Sostenibilidad (NIIF S1 §72). Cierra las brechas restantes antes de hacerla.':'Considera publicar las revelaciones climáticas completas y evalúa la alineación con CSRD/ESRS E1 si tienes actividades en la Unión Europea (NIIF S1 §C2).'}</p>
-        <div class="para-refs"><span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">${norm==='S1'?'S1 §72':'S2 §32'}</span></div>
+        <p>${norm==='S1'?'Tu organización está cerca de poder declarar, de forma explícita y sin reservas, que cumple las Normas NIIF de Información a Revelar sobre Sostenibilidad (NIIF S1 §72). Esa declaración exige cumplir todos los requisitos aplicables, así que primero cierra las brechas restantes.':'Ya puedes preparar la publicación completa de tus revelaciones climáticas. Si tienes operaciones en la Unión Europea, revisa también lo que exige la ESRS E1, que la NIIF S1 reconoce como fuente de guía (§C2).'}</p>
+        <div class="para-refs"><span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">${norm==='S1'?'S1 §72':'S1 §C2'}</span></div>
       </div>
     </div>`;
   }

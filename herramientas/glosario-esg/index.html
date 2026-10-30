@@ -15,7 +15,7 @@
 <meta property="og:title" content="Glosario ESG · Rubén Ponce">
 <meta property="og:description" content="Sostenibilidad, clima y naturaleza, con referencia cruzada al estándar que define cada término.">
 <meta name="twitter:card" content="summary">
-<meta name="description" content="Glosario de términos de sostenibilidad, clima y naturaleza, con las definiciones exactas de GRI, NIIF S1/S2, TCFD, TNFD, ESRS/CSRD, SASB, CDP y SBTi.">
+<meta name="description" content="Glosario de términos de sostenibilidad, clima y naturaleza, con el marco de origen de cada término: GRI, NIIF S1/S2, TCFD, TNFD, ESRS/CSRD, SASB, CDP y SBTi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -206,8 +206,8 @@
   <section class="hero">
     <div class="rp-hero">
     <p class="eyebrow">Glosario ESG · v1.0</p>
-    <h1>El lenguaje de la <em>sostenibilidad</em>, sin vueltas.</h1>
-    <p class="lede">Reúno aquí los términos que uso todos los días: los conceptos base de clima, naturaleza y sostenibilidad, y las definiciones puntuales de GRI, NIIF S1/S2, TCFD, TNFD, ESRS/CSRD, SASB, CDP y SBTi. Todo explicado como se lo explicaría a un cliente.</p>
+    <h1>Términos de <em>sostenibilidad</em> con el marco que los define.</h1>
+    <p class="lede">Conceptos de clima, naturaleza y sostenibilidad, y los términos propios de GRI, NIIF S1/S2, TCFD, TNFD, ESRS/CSRD, SASB, CDP y SBTi. Cada definición indica de qué marco viene, para que sepas en qué contexto usarla. Filtra por tema o busca por palabra.</p>
     </div>
 
     <div class="node-field">
@@ -229,7 +229,7 @@
 
   <footer>
     <div class="foot-meta">
-      <span>Rubén Ponce · Consultoría en Sostenibilidad Corporativa</span>
+      <span>Rubén Ponce · Sostenibilidad corporativa</span>
       <a href="mailto:ruben.isai.ponce.barcelo@gmail.com">ruben.isai.ponce.barcelo@gmail.com</a>
     </div>
   </footer>
@@ -281,7 +281,7 @@ const TERMS = [
 {id:"captura-almacenamiento-carbono", term:"Captura y almacenamiento de carbono (CCS)", fw:["GRAL"], def:"La tecnología que atrapa el CO2 emitido por una planta industrial antes de que llegue a la atmósfera y lo inyecta en formaciones geológicas para almacenarlo de forma permanente.", source:"Concepto general"},
 {id:"energias-renovables", term:"Energías renovables", fw:["GRAL"], def:"Las fuentes de energía que se regeneran de forma natural a un ritmo mayor al de su consumo: solar, eólica, hidráulica, geotérmica y biomasa.", source:"Concepto general"},
 {id:"eficiencia-energetica", term:"Eficiencia energética", fw:["GRAL"], def:"Lograr el mismo resultado, producto o servicio, usando menos energía, sin sacrificar calidad ni producción.", source:"Concepto general"},
-{id:"economia-baja-carbono", term:"Economía baja en carbono", fw:["GRAL"], def:"Un modelo económico que reduce de forma sostenida su dependencia de combustibles fósiles y sus emisiones de gases de efecto invernadero, sin frenar el crecimiento.", source:"Concepto general"},
+{id:"economia-baja-carbono", term:"Economía baja en carbono", fw:["GRAL"], def:"Un modelo económico que reduce de forma sostenida su dependencia de combustibles fósiles y sus emisiones de gases de efecto invernadero.", source:"Concepto general"},
 {id:"greenwashing", term:"Greenwashing (lavado de imagen ambiental)", fw:["GRAL"], def:"Cuando una organización comunica un desempeño ambiental mejor del que realmente tiene, ya sea exagerando logros, usando datos parciales o dejando fuera la información incómoda.", source:"Concepto general"},
 {id:"taxonomia-verde", term:"Taxonomía verde", fw:["GRAL"], def:"Un sistema de clasificación que define, con criterios técnicos, qué actividades económicas pueden considerarse ambientalmente sostenibles. La más conocida es la Taxonomía de la Unión Europea.", source:"Concepto general"},
 {id:"bono-verde", term:"Bono verde (green bond)", fw:["GRAL"], def:"Un instrumento de deuda cuyos recursos se destinan, de forma exclusiva y verificable, a financiar proyectos con beneficio ambiental.", source:"Concepto general"},
@@ -371,7 +371,7 @@ const TERMS = [
 {id:"efrag", term:"EFRAG", fw:["ESRS"], def:"El organismo técnico designado por la Comisión Europea para desarrollar y mantener los estándares ESRS.", source:"ESRS, Introducción"},
 
 // ---- SASB ----
-{id:"sics", term:"SICS", fw:["SASB"], def:"El sistema de clasificación de SASB que agrupa a las empresas en industrias según su modelo de negocio y perfil de sostenibilidad, no solo por su sector económico tradicional.", source:"SASB Standards, Metodología"},
+{id:"sics", term:"SICS", fw:["SASB"], def:"El sistema de clasificación de SASB que agrupa a las empresas en industrias según su modelo de negocio y su perfil de sostenibilidad. Por eso puede separar empresas que una clasificación sectorial tradicional pondría juntas.", source:"SASB Standards, Metodología"},
 {id:"mapa-materialidad", term:"Mapa de materialidad", fw:["SASB"], def:"La herramienta que muestra qué temas de sostenibilidad son probablemente materiales, desde una perspectiva financiera, para cada industria.", source:"SASB Materiality Map"},
 {id:"normas-por-industria", term:"Normas por industria", fw:["SASB"], def:"Estándares específicos por sector que definen qué métricas de sostenibilidad son financieramente relevantes para cada industria.", source:"SASB Standards"},
 
@@ -403,7 +403,7 @@ const TERMS = [
   {id:"ocde", term:"OCDE · Líneas Directrices", fw:["SIGLA","GRAL"], def:"Recomendaciones de la Organización para la Cooperación y el Desarrollo Económicos sobre conducta empresarial responsable. No son obligatorias, pero varias normas de diligencia debida se apoyan en ellas.", source:"OCDE · Líneas Directrices para Empresas Multinacionales"},
   {id:"isae3000", term:"ISAE 3000", fw:["SIGLA","GRAL"], def:"La norma internacional que se usa para dar aseguramiento sobre información distinta de la financiera histórica. Es la que suele respaldar la verificación de un informe de sostenibilidad.", source:"IAASB · ISAE 3000 (Revisada)"},
   {id:"esrs", term:"ESRS", fw:["SIGLA","ESRS"], def:"Estándares Europeos de Información sobre Sostenibilidad: el contenido concreto que debe reportar quien está sujeto a la CSRD. En español se les llama NEIS.", source:"Reglamento Delegado (UE) 2023/2772"},
-  {id:"neis", term:"NEIS", fw:["SIGLA","ESRS"], def:"Normas Europeas de Información sobre Sostenibilidad. Es simplemente el nombre en español de los ESRS; no son un cuerpo normativo distinto.", source:"Equivalencia en español de los ESRS"},
+  {id:"neis", term:"NEIS", fw:["SIGLA","ESRS"], def:"Normas Europeas de Información sobre Sostenibilidad. Es el nombre en español de los ESRS, no un cuerpo normativo distinto.", source:"Equivalencia en español de los ESRS"},
   {id:"cs3d", term:"CS3D / CSDDD", fw:["SIGLA","ESRS"], def:"Directiva europea de diligencia debida en sostenibilidad corporativa. A diferencia de la CSRD, que obliga a informar, esta obliga a actuar sobre los impactos adversos en la cadena de actividades.", source:"Directiva (UE) 2024/1760"},
   {id:"eurlex", term:"EUR-Lex", fw:["SIGLA"], def:"El portal oficial donde se publica el Derecho de la Unión Europea. Es la fuente a la que hay que ir para leer el texto vigente de la CSRD, los ESRS o la CS3D.", source:"eur-lex.europa.eu"},
   {id:"aa1000", term:"AA1000", fw:["SIGLA","GRAL"], def:"Familia de estándares de AccountAbility sobre rendición de cuentas: principios de actuación (AP), aseguramiento de informes (AS) y participación de grupos de interés (SES).", source:"AccountAbility · serie AA1000"},

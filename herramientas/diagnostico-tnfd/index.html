@@ -470,17 +470,17 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
 
 <div class="sending-overlay" id="sending-overlay">
   <div class="spinner"></div>
-  <span class="sending-text">Guardando respuestas, comentarios y resultados en Google Sheets…</span>
+  <span class="sending-text">Guardando tus respuestas…</span>
 </div>
 
 <!-- ═══ INTRO ═══ -->
 <div id="screen-intro">
   <a class="rp-home" href="../../" title="Ir al inicio de Rubén Ponce"><svg class="rp-iso" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><defs><clipPath id="rpDiscTnfp"><circle cx="50" cy="50" r="40.75"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="4.9"><circle cx="50" cy="50" r="43.2"/><path d="M 2 50 C 8 60 14 68.4 24 68.9 C 34 69.4 41 64.5 50 58.7 C 58.5 53.2 66 47.9 76 47.9 C 85 47.9 91 51.5 98 60" clip-path="url(#rpDiscTnfp)"/></g></svg><span class="rp-home-texto"><b>Rubén Ponce</b><i>Sostenibilidad corporativa</i></span></a>
 
-  <span class="intro-badge">Diagnóstico Técnico Intensivo · TNFD v1.0 Septiembre 2023</span>
+  <span class="intro-badge">TNFD v1.0 · recomendaciones publicadas en septiembre de 2023</span>
   <div class="intro-logo"><div class="logo-block"><span>T</span><span>N</span><span>F</span><span>D</span></div></div>
-  <h1 class="intro-title">Autodiagnóstico integral de<br>preparación <em>TNFD</em></h1>
-  <p class="intro-desc">Evaluación exhaustiva de los 4 pilares, 14 áreas de revelación y 73 sub-requerimientos del marco TNFD v1.0, con código de identificación por párrafo, campo de comentarios por pregunta y plan de acción detallado por pilar.</p>
+  <h1 class="intro-title">Autodiagnóstico de<br>preparación <em>TNFD</em></h1>
+  <p class="intro-desc">Evalúa qué tan preparada está tu organización para divulgar sus dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza conforme al TNFD v1.0. Las 73 preguntas recorren los cuatro pilares y las 14 divulgaciones recomendadas; cada una cita el párrafo que la sustenta y admite un comentario. Al terminar ves tu nivel por pilar y un plan de acción para cada uno.</p>
   <div class="intro-stats">
     <div class="stat"><span class="stat-n">4</span><span class="stat-label">Pilares</span></div>
     <div class="stat"><span class="stat-n">14</span><span class="stat-label">Áreas de Revelación</span></div>
@@ -502,8 +502,8 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
 
     <div class="register-header">
       <div class="logo-sm"><span>T</span><span>N</span><span>F</span><span>D</span></div>
-      <h2>Registro previo</h2>
-      <p>Tus datos son <strong>privados y confidenciales</strong>. Solo el administrador tendrá acceso a esta información.</p>
+      <h2>Antes de empezar</h2>
+      <p>Estos datos se guardan junto con tus resultados. Solo Rubén Ponce tiene acceso a ellos.</p>
     </div>
     <div class="form-row">
       <div class="form-group"><label>Nombre *</label><input type="text" id="f-name" placeholder="Ana García"></div>
@@ -543,7 +543,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
     </div>
     <div class="register-privacy">
       <input type="checkbox" id="f-privacy" onchange="checkPrivacy()">
-      <span>*Acepto compartir mis datos de contacto con y podré recibir información relacionada con sostenibilidad, naturaleza y servicios de asesoría. Los datos no serán cedidos a terceros.*.</span>
+      <span>Acepto que mis datos, respuestas y comentarios se guarden para este diagnóstico y que Rubén Ponce me envíe información sobre sostenibilidad, naturaleza y sus servicios de asesoría. No se comparten con terceros.</span>
     </div>
     <button class="btn-register" id="btn-register" onclick="submitRegister()" disabled>Comenzar diagnóstico →</button>
     <div class="reg-msg reg-error" id="reg-error"></div>
@@ -590,8 +590,8 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
   <div class="results-content">
 
     <div class="sheets-info">
-      <strong>✅ Datos guardados en Google Sheets</strong>
-      Tus respuestas, comentarios, puntuaciones por pregunta y resultados completos han sido registrados automáticamente. También puedes imprimir o exportar este reporte como PDF usando el botón al final de la página.
+      <strong>Tus resultados se enviaron para su registro</strong>
+      Para conservar una copia, usa «Imprimir / PDF» al final de la página. Este autodiagnóstico orienta sobre tu nivel de preparación frente al TNFD; no certifica la adopción del marco ni sustituye una revisión independiente.
     </div>
 
     <h3 class="section-title">📊 Puntuación por pilar</h3>
@@ -610,7 +610,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
     <div class="index-section">
       <div class="index-header">
         <h3>Tabla índice completa</h3>
-        <p>Código de identificación · Párrafo del requerimiento TNFD v1.0 · Puntuación · Comentarios · Formato: PIL·ÁREA·§XX·Qn</p>
+        <p>Todas las preguntas con su código, la referencia del TNFD v1.0, tu respuesta y tus comentarios. El código se lee: pilar · área · párrafo · número de pregunta.</p>
       </div>
       <div class="index-legend">
         <div class="legend-item"><div class="legend-dot" style="background:var(--lv0)"></div>No implementado (0)</div>
@@ -643,7 +643,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
     <div class="results-actions">
       <button class="btn-action btn-primary" onclick="window.print()">🖨 Imprimir / PDF</button>
       <button class="btn-action btn-secondary" onclick="restartQuiz()">↩ Nuevo diagnóstico</button>
-      <a href="https://tnfd.global" target="_blank" class="btn-action btn-secondary">🌿 tnfd.global</a>
+      <a href="https://tnfd.global" target="_blank" class="btn-action btn-secondary">📄 tnfd.global</a>
     </div>
   </div>
 </div>
@@ -699,7 +699,7 @@ const pillars=[
  tags:['TNFD Rec. Estrategia A-D','TCFD Strategy','LEAP Localizar/Evaluar'],
  disclosures:[
   {letter:'A',para:'§58-70',ref:'TNFD v1.0 · Estrategia Rec. A · §58-70',
-   text:'Dependencias, impactos, riesgos y oportunidades identificados a corto, medio y largo plazo',
+   text:'Dependencias, impactos, riesgos y oportunidades identificados a corto, mediano y largo plazo',
    questions:[
     {text:'¿La organización ha aplicado documentadamente el enfoque LEAP del TNFD (Localizar, Evaluar, Analizar, Prepararse) para identificar cuestiones de naturaleza materiales?',para:'§58',ref:'Rec. Estrategia A §58 — Aplicación del enfoque LEAP para análisis de materialidad'},
     {text:'¿Se han identificado y documentado las principales dependencias de servicios ecosistémicos (agua, polinización, regulación del clima, formación del suelo) críticas para el negocio?',para:'§60',ref:'Rec. Estrategia A §60 — Identificación de dependencias de servicios ecosistémicos (ENCORE)'},
@@ -720,7 +720,7 @@ const pillars=[
   {letter:'C',para:'§83-95',ref:'TNFD v1.0 · Estrategia Rec. C · §83-95',
    text:'Resiliencia de la estrategia organizacional ante diferentes escenarios de naturaleza',
    questions:[
-    {text:'¿La organización ha desarrollado escenarios de naturaleza cuantitativos o cualitativos con horizontes temporales de corto, medio y largo plazo?',para:'§83',ref:'Rec. Estrategia C §83 — Desarrollo de escenarios de naturaleza con horizontes temporales'},
+    {text:'¿La organización ha desarrollado escenarios de naturaleza cuantitativos o cualitativos con horizontes temporales de corto, mediano y largo plazo?',para:'§83',ref:'Rec. Estrategia C §83 — Desarrollo de escenarios de naturaleza con horizontes temporales'},
     {text:'¿Los escenarios contemplan al menos dos trayectorias: alta pérdida de naturaleza (BAU) y transición hacia economía nature-positive?',para:'§86',ref:'Rec. Estrategia C §86 — Escenarios contrastados: alta pérdida de naturaleza vs. nature-positive'},
     {text:'¿El análisis de escenarios de naturaleza está integrado y es coherente con el análisis de escenarios climáticos TCFD para una visión conjunta clima-naturaleza?',para:'§89',ref:'Rec. Estrategia C §89 — Integración de escenarios naturaleza-clima (TCFD alignment)'},
     {text:'¿Los resultados del análisis de escenarios son comunicados al consejo y utilizados activamente en decisiones estratégicas y de inversión?',para:'§91',ref:'Rec. Estrategia C §91 — Uso de escenarios en toma de decisiones estratégicas'},
@@ -1203,7 +1203,7 @@ function buildPillarPlan(p,pi,s){
       <div class="plan-item-body">
         <h4>${getPriorityLabel(priority)} · Área ${letter}</h4>
         <h4 class="sub">${grp.discText}</h4>
-        <p>${actionText||`Revisa las ${grp.items.length} pregunta(s) con brecha en esta área. Desarrolla un plan de acción específico con responsables, plazos y métricas de seguimiento.`}</p>
+        <p>${actionText||`Esta área tiene ${grp.items.length} pregunta(s) respondidas como «No» o «En evaluación». Asigna un responsable, una fecha y un indicador de avance a cada requisito pendiente.`}</p>
         <div class="para-refs">${refsHtml}</div>
       </div>
     </div>`;
@@ -1211,14 +1211,14 @@ function buildPillarPlan(p,pi,s){
 
   // Ítem de cierre según nivel
   if(!itemsHtml){
-    itemsHtml=`<div class="plan-empty">🎉 Sin brechas críticas en ${p.name}</div>`;
+    itemsHtml=`<div class="plan-empty">Sin brechas en ${p.name}: todas las preguntas están en «Parcialmente» o «Implementado».</div>`;
   } else {
     if(s.pct<40){
       itemsHtml+=`<div class="plan-item">
         <div class="plan-item-icon pi-urgent">📅</div>
         <div class="plan-item-body">
           <h4>🔴 URGENTE · Hoja de ruta de adopción — ${p.name}</h4>
-          <p>Con un ${s.pct}% en este pilar, se recomienda una hoja de ruta formal con hitos trimestrales, asignación de recursos y responsables. Considera solicitar apoyo externo especializado en naturaleza y biodiversidad para acelerar el proceso de implementación.</p>
+          <p>Con ${s.pct} % en este pilar, el primer paso es una hoja de ruta con hitos trimestrales, presupuesto y un responsable. Si el equipo no tiene experiencia evaluando naturaleza y biodiversidad, conviene apoyarse en un asesor externo para aplicar el enfoque LEAP la primera vez.</p>
         </div>
       </div>`;
     } else if(s.pct<70){
@@ -1226,7 +1226,7 @@ function buildPillarPlan(p,pi,s){
         <div class="plan-item-icon pi-medium">🔍</div>
         <div class="plan-item-body">
           <h4>🔵 MEDIA · Revisión y ampliación del alcance — ${p.name}</h4>
-          <p>Con las brechas identificadas cerradas, el siguiente nivel implica ampliar el análisis a la cadena de valor completa, mejorar la calidad de los datos (datos primarios vs. secundarios), y establecer un ciclo de revisión anual documentado.</p>
+          <p>Cuando cierres las brechas de arriba, amplía el análisis a toda la cadena de valor, sustituye datos secundarios por datos primarios donde sea posible y documenta una revisión anual.</p>
         </div>
       </div>`;
     } else {
@@ -1234,7 +1234,7 @@ function buildPillarPlan(p,pi,s){
         <div class="plan-item-icon pi-low">✅</div>
         <div class="plan-item-body">
           <h4>🟢 BAJA · Formalizar y registrar la adopción con el TNFD</h4>
-          <p>Tu organización está en condiciones de registrarse como Organización Adoptante del TNFD en tnfd.global y publicar sus primeras revelaciones formales alineadas con el marco para este pilar.</p>
+          <p>Este pilar ya tiene base para publicar divulgaciones alineadas con el TNFD. Si los demás pilares están en un nivel parecido, puedes registrarte como organización adoptante en tnfd.global.</p>
         </div>
       </div>`;
     }
