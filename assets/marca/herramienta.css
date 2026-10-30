@@ -332,9 +332,12 @@ html[data-theme="dark"][data-rp-herramienta="tracker"]{
 [data-theme="dark"][data-rp-herramienta="tracker"] .dot[style*="#0F4A7F" i]{background:#8FC4F2 !important;}
 
 /* ============================================================================
-   5. AVISO DE USO (herramientas sin registro)
+   5. DESCARGO (pie discreto de cada herramienta)
    ----------------------------------------------------------------------------
-   <p class="rp-aviso-uso">Para mayores de 18 años… <a href="../../privacidad/">Aviso de privacidad</a></p>
+   <p class="rp-descargo">Para mayores de 18 años. Orientación general: …</p>
+   Va al final del <body> (o del pie). Pequeño y en gris: no debe llamar la atención.
    ============================================================================ */
-.rp-aviso-uso{font-family:var(--rp-fuente-texto,'DM Sans',sans-serif);font-size:13px;line-height:1.55;color:var(--rp-texto-2,#5C6B85);margin:18px 0 0;max-width:60ch;}
-.rp-aviso-uso a{color:var(--rp-enlace,#1567B0);}
+.rp-descargo{font-family:var(--rp-fuente-texto,'DM Sans',sans-serif);font-size:11px;line-height:1.5;color:var(--rp-texto-2,#5C6B85);
+  opacity:.8;max-width:72ch;margin:24px auto 0;padding:0 16px 20px;text-align:center;}
+.rp-descargo a{color:inherit;}
+@media print{.rp-descargo{display:none;}}

@@ -547,7 +547,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
     </div>
     <div class="register-privacy">
       <input type="checkbox" id="f-privacy" onchange="checkPrivacy()">
-      <label for="f-privacy">Soy mayor de 18 años y acepto el <a href="../../privacidad/" target="_blank" rel="noopener">aviso de privacidad</a>. Mis datos, respuestas y comentarios se guardan para este diagnóstico y no se comparten con terceros.</label>
+      <label for="f-privacy">Soy mayor de 18 años y acepto que mis datos, respuestas y comentarios se guarden para este diagnóstico. No se comparten con terceros.</label>
     </div>
     <button class="btn-register" id="btn-register" onclick="submitRegister()" disabled>Comenzar diagnóstico →</button>
     <div class="reg-msg reg-error" id="reg-error"></div>
@@ -1121,5 +1121,6 @@ function delay(ms){return new Promise(r=>setTimeout(r,ms));}
 document.getElementById('stat-areas').textContent=pillars.reduce((t,p)=>t+p.disclosures.length,0);
 document.getElementById('stat-preguntas').textContent=pillars.reduce((t,p)=>t+p.disclosures.reduce((u,d)=>u+d.questions.length,0),0);
 </script>
+<p class="rp-descargo">Para mayores de 18 años. Orientación general: no es asesoría profesional ni certifica el cumplimiento de ninguna norma. Tus datos y respuestas se usan solo para este diagnóstico y no se comparten con terceros; para corregirlos o borrarlos, escribe al <a href="mailto:ruben.isai.ponce.barcelo@gmail.com">correo de contacto</a>.</p>
 </body>
 </html>
