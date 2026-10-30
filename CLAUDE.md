@@ -9,7 +9,7 @@ Es HTML estático: no hay build, ni dependencias, ni framework. Cada página es 
 ```
 index.html                      landing (modo noche, marca v1.1)
 404.html                        página de error con la marca
-assets/marca/                   isotipo, favicons, og-image y tokens CSS de la marca v1.1
+assets/marca/                   isotipo, favicons, og-image, tokens CSS, capa de herramientas y tema.js
 assets/img/                     fotos del fondo de la landing (Wikimedia Commons, crédito en el pie)
 herramientas/<slug>/index.html  una carpeta por herramienta
 cursos/<slug>/index.html        una carpeta por curso

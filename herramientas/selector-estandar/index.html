@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es" data-rp-herramienta="selector">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/marca/tema.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selector de estándar · Rubén Ponce</title>
+<meta name="description" content="Responde cinco preguntas sobre tu organización y ve qué estándares de reporte de sostenibilidad te aplican: NIIF S1 y S2, GRI, ESRS, TNFD, CDP y Protocolo GEI.">
+<meta property="og:site_name" content="Rubén Ponce">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Selector de estándar · Rubén Ponce">
+<meta property="og:description" content="Qué estándares de reporte de sostenibilidad te aplican según tu país, tu mercado y quién te pide la información.">
+<meta property="og:image" content="https://rubenisaiponcebarcelo-wq.github.io/assets/marca/og-image.png">
+<link rel="icon" href="../../assets/marca/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../../assets/marca/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/marca/favicon-180.png">
+<meta name="theme-color" content="#1567B0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/marca/marca.tokens.css">
+<style>
+/* Layout: columna única (máx. 880px). Cabecera fija y banda azul de la capa compartida,
+   formulario de cinco preguntas, resultado en tarjetas por estándar y metodología al final. */
+:root{
+  --borde-fuerte:#C3D0E2;
+  --n1:var(--rp-nivel-1); --n2:var(--rp-nivel-2); --n3:var(--rp-nivel-3); --n4:var(--rp-nivel-4);
+  --n1-txt:var(--rp-nivel-1-texto); --n2-txt:var(--rp-nivel-2-texto); --n3-txt:var(--rp-nivel-3-texto); --n4-txt:var(--rp-nivel-4-texto);
+}
+:root[data-theme="dark"]{
+  --borde-fuerte:#33445F;
+  --n1:#1B2A42; --n1-txt:#C9D2E0; --n2:#2A4F7A; --n2-txt:#E8EEF7; --n3:#3F82C4; --n3-txt:#FFFFFF; --n4:#8FC3EE; --n4-txt:#0B1220;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--rp-fondo);color:var(--rp-texto);font-family:var(--rp-fuente-texto);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--rp-enlace)}
+:focus-visible{outline:2px solid var(--rp-enlace);outline-offset:3px;border-radius:4px}
+.envoltura{max-width:880px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left,0px)) 64px}
+
+header.site .nav-row{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:880px;margin:0 auto;padding:14px 16px}
+header.site .brand{color:var(--rp-enlace);display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+.rp-home-texto b{font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.rp-home-texto i{font-style:normal;font-size:10px;letter-spacing:.04em;text-transform:uppercase}
+
+h1,h2,h3{font-family:var(--rp-fuente-display);letter-spacing:-.02em;text-wrap:balance}
+h2{font-weight:600;font-size:1.75rem;line-height:1.12;margin:0 0 8px}
+h3{font-weight:600;font-size:1.125rem;margin:0;letter-spacing:-.005em}
+section{padding-block:36px;border-bottom:1px solid var(--rp-borde)}
+section:last-of-type{border-bottom:0}
+.intro{color:var(--rp-texto-2);margin:0 0 22px;max-width:62ch}
+
+/* Formulario */
+.form{display:grid;gap:26px}
+.campo{display:grid;gap:8px;min-width:0;border:0;padding:0;margin:0}
+.etq{font-weight:600;font-size:.9375rem;display:flex;gap:10px;align-items:baseline;padding:0;margin:0 0 2px}
+.etq .paso{font-family:var(--rp-fuente-mono);font-size:.6875rem;color:var(--rp-enlace);font-weight:500;letter-spacing:.06em}
+.ayuda{font-size:.8125rem;color:var(--rp-texto-2);margin:0;max-width:62ch}
+select{width:100%;font:inherit;font-size:1rem;color:var(--rp-texto);background:var(--rp-superficie);border:1px solid var(--borde-fuerte);border-radius:10px;padding:12px 40px 12px 14px;appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--rp-texto-2) 50%),linear-gradient(135deg,var(--rp-texto-2) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.segmento{display:flex;border:1px solid var(--borde-fuerte);border-radius:10px;overflow:hidden;background:var(--rp-superficie)}
+.segmento input,.casillas input{position:absolute;opacity:0;pointer-events:none}
+.segmento label{flex:1;text-align:center;padding:10px 6px;font-size:.875rem;font-weight:500;cursor:pointer;color:var(--rp-texto-2);border-right:1px solid var(--rp-borde);user-select:none}
+.segmento label:last-of-type{border-right:0}
+.segmento input:checked + label{background:var(--rp-acento);color:var(--rp-acento-texto)}
+.segmento input:focus-visible + label,.casillas input:focus-visible + label{outline:2px solid var(--rp-enlace);outline-offset:-3px}
+.casillas{display:flex;flex-wrap:wrap;gap:8px}
+.casillas label{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--borde-fuerte);border-radius:999px;background:var(--rp-superficie);
+  font-size:.875rem;font-weight:500;color:var(--rp-texto-2);cursor:pointer;user-select:none}
+.casillas label::before{content:"";width:14px;height:14px;border-radius:4px;border:1.5px solid var(--borde-fuerte);flex:none}
+.casillas input:checked + label{border-color:var(--rp-acento);color:var(--rp-texto);background:var(--rp-acento-aire)}
+.casillas input:checked + label::before{background:var(--rp-acento);border-color:var(--rp-acento);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 7.2l2.6 2.6L11 4.4' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.sub-ue{display:grid;gap:8px;padding:14px 16px;border-radius:10px;background:var(--rp-superficie-2);border:1px solid var(--rp-borde)}
+.sub-ue[hidden]{display:none}
+.acciones{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font:inherit;font-size:.9375rem;font-weight:600;line-height:1;cursor:pointer;border:1px solid transparent}
+.btn.p{background:var(--rp-acento);color:var(--rp-acento-texto)}
+.btn.s{background:transparent;color:var(--rp-texto);border-color:var(--borde-fuerte)}
+.btn:hover{filter:brightness(1.06)}
+
+/* Resultado */
+.resumen{display:grid;gap:10px;padding:20px;border-radius:14px;background:var(--rp-superficie);border:1px solid var(--rp-borde);box-shadow:var(--rp-sombra-s)}
+.resumen .lin{font-size:1.125rem;line-height:1.45;margin:0;max-width:62ch}
+.resumen .lin b{font-weight:600}
+.resumen .nota{font-size:.875rem;color:var(--rp-texto-2);margin:0;max-width:62ch}
+.tag-ejemplo{justify-self:start;font-family:var(--rp-fuente-mono);font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;color:var(--rp-texto-2);border:1px dashed var(--borde-fuerte);padding:3px 8px;border-radius:6px}
+.tarjetas{display:grid;gap:12px;margin-top:20px}
+.tarjeta{display:grid;gap:8px;padding:18px 20px;border-radius:14px;background:var(--rp-superficie);border:1px solid var(--rp-borde)}
+.tarjeta .fila{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.tarjeta .quien{font-size:.8125rem;color:var(--rp-texto-2);margin:2px 0 0}
+.tarjeta p{margin:0;font-size:.9375rem;color:var(--rp-texto);max-width:66ch}
+.tarjeta .enlaces{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.875rem}
+.estado{flex:none;display:inline-flex;align-items:center;justify-content:center;padding:4px 11px;border-radius:999px;font-size:.75rem;font-weight:600;white-space:nowrap}
+.estado.e4{background:var(--n4);color:var(--n4-txt)}
+.estado.e3{background:var(--n3);color:var(--n3-txt)}
+.estado.e2{background:var(--n2);color:var(--n2-txt)}
+.estado.e1{background:var(--n1);color:var(--n1-txt)}
+.pais{margin:0;padding:12px 14px;border-left:3px solid var(--rp-azul);background:var(--rp-acento-aire);border-radius:0 10px 10px 0;font-size:.875rem;line-height:1.5;color:var(--rp-texto)}
+.pais .fuente{display:block;margin-top:6px;font-family:var(--rp-fuente-mono);font-size:.6875rem;color:var(--rp-texto-2)}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:16px;font-size:.75rem;color:var(--rp-texto-2);align-items:center}
+
+/* Metodología */
+#metodologia details{border-top:1px solid var(--rp-borde)}
+#metodologia details:last-of-type{border-bottom:1px solid var(--rp-borde)}
+summary{cursor:pointer;padding:16px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--rp-fuente-mono);color:var(--rp-texto-2)}
+details[open] summary::after{content:"–"}
+details .cuerpo{padding-bottom:18px;color:var(--rp-texto-2);font-size:.9375rem;max-width:66ch}
+details .cuerpo p{margin:0 0 10px}
+footer{padding-top:28px;font-size:.8125rem;color:var(--rp-texto-2);display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
+.mono{font-family:var(--rp-fuente-mono)}
+@media (prefers-reduced-motion:no-preference){
+  #resultado.actualizado .tarjetas,#resultado.actualizado .resumen{animation:entra .35s ease-out}
+  @keyframes entra{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+}
+@media print{header.site,.form .acciones,#entrada{display:none}}
+</style>
+<link rel="stylesheet" href="../../assets/marca/herramienta.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-row">
+    <a class="brand" href="../../" title="Ir al inicio de Rubén Ponce">
+      <svg class="rp-iso" viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><defs><clipPath id="rpDiscSel"><circle cx="50" cy="50" r="40.75"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="4.9"><circle cx="50" cy="50" r="43.2"/><path d="M 2 50 C 8 60 14 68.4 24 68.9 C 34 69.4 41 64.5 50 58.7 C 58.5 53.2 66 47.9 76 47.9 C 85 47.9 91 51.5 98 60" clip-path="url(#rpDiscSel)"/></g></svg>
+      <span class="rp-home-texto"><b>Rubén Ponce</b><i>Selector de estándar</i></span>
+    </a>
+    <div class="rp-acciones-cabecera"><a class="back-link" href="../../">← Volver al inicio</a><span data-rp-tema></span></div>
+  </div>
+</header>
+
+<div class="envoltura">
+
+<div class="rp-hero">
+  <p class="eyebrow">Reporte de sostenibilidad</p>
+  <h1>¿Con qué estándar reportar?</h1>
+  <p class="lede">Responde cinco preguntas sobre tu organización. Ves qué estándares te exigen, cuáles te convienen por quién te pide la información y cuáles puedes dejar para después, con la fuente oficial de cada uno.</p>
+</div>
+
+<main>
+
+<section id="entrada" aria-labelledby="t-entrada" style="padding-top:8px">
+  <h2 id="t-entrada">Tu organización</h2>
+  <p class="intro">El resultado se calcula en tu navegador: nada se guarda ni se envía.</p>
+
+  <form class="form" id="formulario" novalidate>
+    <div class="campo">
+      <label class="etq" for="pais"><span class="paso">01</span>País de tu sede o de tu operación principal</label>
+      <select id="pais" name="pais"></select>
+      <p class="ayuda">Define si tu país ya adoptó las NIIF S1 y S2 del ISSB y desde cuándo. Los datos vienen del Tracker del ISSB de este sitio.</p>
+    </div>
+
+    <fieldset class="campo">
+      <legend class="etq"><span class="paso">02</span>¿Tu organización cotiza en bolsa o emite deuda en el mercado de valores?</legend>
+      <div class="segmento">
+        <input type="radio" name="cotiza" id="cotiza-si" value="si"><label for="cotiza-si">Sí</label>
+        <input type="radio" name="cotiza" id="cotiza-no" value="no" checked><label for="cotiza-no">No</label>
+      </div>
+      <p class="ayuda">En varios países de América, la obligación de reportar con las NIIF S1 y S2 empieza por las emisoras de valores.</p>
+    </fieldset>
+
+    <fieldset class="campo">
+      <legend class="etq"><span class="paso">03</span>¿Quién te pide hoy información de sostenibilidad?</legend>
+      <div class="casillas">
+        <input type="checkbox" name="pide" id="pide-inv" value="inversion"><label for="pide-inv">Inversionistas o bancos</label>
+        <input type="checkbox" name="pide" id="pide-cli" value="clientes"><label for="pide-cli">Clientes que te compran</label>
+        <input type="checkbox" name="pide" id="pide-reg" value="regulador"><label for="pide-reg">Un regulador o autoridad</label>
+        <input type="checkbox" name="pide" id="pide-soc" value="sociedad"><label for="pide-soc">Comunidades, ONG o el público</label>
+      </div>
+      <p class="ayuda">Marca todas las que apliquen. Si nadie te la pide todavía, déjalas sin marcar.</p>
+    </fieldset>
+
+    <fieldset class="campo">
+      <legend class="etq"><span class="paso">04</span>¿Tu grupo tiene filiales o sucursales en la Unión Europea?</legend>
+      <div class="segmento">
+        <input type="radio" name="ue" id="ue-si" value="si"><label for="ue-si">Sí</label>
+        <input type="radio" name="ue" id="ue-no" value="no" checked><label for="ue-no">No</label>
+      </div>
+      <div class="sub-ue" id="sub-ue" hidden>
+        <p class="ayuda" style="color:var(--rp-texto)"><b>¿Tu grupo vende más de 450 millones de euros al año en la Unión Europea, y alguna filial o sucursal ahí más de 200 millones?</b></p>
+        <div class="segmento">
+          <input type="radio" name="umbral" id="umbral-si" value="si"><label for="umbral-si">Sí</label>
+          <input type="radio" name="umbral" id="umbral-no" value="no"><label for="umbral-no">No</label>
+          <input type="radio" name="umbral" id="umbral-ns" value="ns" checked><label for="umbral-ns">No lo sé</label>
+        </div>
+        <p class="ayuda">Son los umbrales de la CSRD para grupos de fuera de la Unión Europea tras la Directiva (UE) 2026/470. Las ventas en la UE deben superar los 450 millones de euros en cada uno de los dos últimos ejercicios.</p>
+      </div>
+    </fieldset>
+
+    <fieldset class="campo">
+      <legend class="etq"><span class="paso">05</span>¿Tu negocio depende directamente de recursos naturales?</legend>
+      <div class="segmento">
+        <input type="radio" name="natur" id="natur-si" value="si"><label for="natur-si">Sí</label>
+        <input type="radio" name="natur" id="natur-no" value="no"><label for="natur-no">No</label>
+        <input type="radio" name="natur" id="natur-ns" value="ns" checked><label for="natur-ns">No lo sé</label>
+      </div>
+      <p class="ayuda">Por ejemplo: agricultura, ganadería, alimentos y bebidas, pesca, minería, energía, agua, papel, construcción o turismo.</p>
+    </fieldset>
+
+    <div class="acciones">
+      <button class="btn p" type="submit">Ver mi resultado</button>
+      <button class="btn s" type="button" id="reiniciar">Reiniciar</button>
+    </div>
+  </form>
+</section>
+
+<section id="resultado" aria-labelledby="t-resultado" aria-live="polite">
+  <h2 id="t-resultado">Resultado</h2>
+  <div class="resumen">
+    <span class="tag-ejemplo" id="tag-ejemplo">Ejemplo precargado</span>
+    <p class="lin" id="res-linea"></p>
+    <p class="nota" id="res-nota"></p>
+  </div>
+  <div class="tarjetas" id="tarjetas"></div>
+  <div class="leyenda" aria-label="Qué significa cada estado">
+    <span class="estado e4">Te lo exigen</span><span class="estado e3">Te conviene</span><span class="estado e2">Complementario</span><span class="estado e1">Por ahora no</span>
+  </div>
+</section>
+
+<section id="metodologia" aria-labelledby="t-met">
+  <h2 id="t-met">Metodología</h2>
+  <p class="intro">Cómo decide la herramienta y qué no puede decirte.</p>
+  <details>
+    <summary>Cómo se decide cada estado</summary>
+    <div class="cuerpo">
+      <p><b>NIIF S1 y S2.</b> «Te lo exigen» cuando tu organización cotiza y la norma oficial de tu país incluye de forma expresa a las emisoras de valores: México, Brasil, Chile y Bolivia, que la extiende a todas las entidades. En los demás países con calendario obligatorio se marca «Te conviene» y se muestra el texto de la norma, porque el alcance cambia de un país a otro. Se marca «Te conviene» también cuando te piden información inversionistas o bancos.</p>
+      <p><b>ESRS.</b> «Te lo exigen» cuando confirmas los dos umbrales de la CSRD para grupos de fuera de la Unión Europea.</p>
+      <p><b>GRI.</b> «Te conviene» cuando te piden información comunidades, ONG, el público o un regulador, o cuando nadie te la pide aún y vas a publicar tu primer informe.</p>
+      <p><b>TNFD.</b> «Te conviene» cuando tu negocio depende directamente de recursos naturales.</p>
+      <p><b>CDP.</b> «Te conviene» cuando tus clientes te piden información, porque muchas cadenas de suministro la solicitan con el cuestionario de CDP.</p>
+      <p><b>Protocolo de GEI.</b> Siempre aparece: es el método para medir emisiones que exigen la NIIF S2 (§29a), los ESRS y CDP.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Fuentes</summary>
+    <div class="cuerpo">
+      <p>Adopción de las NIIF S1 y S2 por país: Tracker del ISSB de este sitio, que solo cita fuentes oficiales (gacetas, reguladores y la Fundación IFRS).</p>
+      <p>Alcance de la CSRD: Directiva (UE) 2026/470 (Ómnibus I), publicada en el Diario Oficial de la Unión Europea el 26 de febrero de 2026. Los Estados miembros tienen hasta el 19 de marzo de 2027 para incorporarla a su legislación.</p>
+      <p>Cada tarjeta enlaza a la página oficial del estándar.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Limitaciones</summary>
+    <div class="cuerpo">
+      <p>Es una orientación general. No revisa la ley de tu país completa, las reglas de tu bolsa de valores ni los contratos con tus clientes o bancos, que pueden pedir otros marcos.</p>
+      <p>Para la Unión Europea solo evalúa el caso de grupos con sede fuera de ella. Si tu sede está en la UE, los umbrales son otros: más de 1,000 empleados y más de 450 millones de euros de facturación neta.</p>
+      <p>El resultado no certifica cumplimiento con ninguna norma.</p>
+    </div>
+  </details>
+</section>
+
+<footer>
+  <span>Rubén Ponce · Sostenibilidad corporativa</span>
+  <span class="mono">Selector de estándar · v1.0 · oct 2026</span>
+  <p class="rp-aviso-uso" style="flex-basis:100%">Para mayores de 18 años. Esta herramienta no guarda datos personales: lo que eliges se procesa en tu navegador. <a href="../../privacidad/">Aviso de privacidad</a></p>
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- Adopción de las NIIF S1/S2 por país: copia de herramientas/tracker-issb (misma fecha de corte) ---------- */
+var FALLBACK_URL = null;
+function C(num, code, name, flag, region, ev, pr, nivel, nota, url){
+  return {code:code, name:name, region:region, ev:ev, pr:pr, nivel:nivel, nota:nota, url:url || null};
+}
+var COUNTRIES = [
+  C(124,'CAN','Canadá','🇨🇦','Norteamérica', 2025, null, 2,
+    'El CSSB emitió las CSDS 1 y 2 —adaptación canadiense de IFRS S1/S2— en diciembre de 2024, vigentes desde 2025 sobre base voluntaria. La CSA y la OSFI aún no las mandatan para el mercado regulado.',
+    'https://www.frascanada.ca/en/cssb/news-listings/csds1_csds2_launch'),
+
+  C(840,'USA','Estados Unidos','🇺🇸','Norteamérica', null, null, 1,
+    'Sin adopción del ISSB a nivel federal — la SEC retiró su propuesta de regla climática y no hay declaración oficial de intención de adoptar IFRS S1/S2. California exige un régimen climático propio (SB 253/261), pero no está basado en los estándares del ISSB.',
+    null),
+
+  C(484,'MEX','México','🇲🇽','Norteamérica', 2025, 2026, 3,
+    'La CNBV publicó, el 28 de enero de 2025 en el Diario Oficial de la Federación, la resolución que exige a las emisoras de valores reportes alineados a IFRS S1 e IFRS S2 desde el ejercicio fiscal 2025 (presentados en 2026); aseguramiento limitado desde 2027 y razonable desde 2028.',
+    'https://www.dof.gob.mx/nota_detalle.php?codigo=5747872&fecha=28/01/2025'),
+
+  C(320,'GTM','Guatemala','🇬🇹','Centroamérica', null, null, 0,
+    'Sin desarrollo de adopción del ISSB identificado a la fecha de corte.', null),
+  C(340,'HND','Honduras','🇭🇳','Centroamérica', 2025, 2028, 3,
+    'La Junta Técnica de Normas de Contabilidad y de Auditoría (JUNTEC), creada por ley como máxima autoridad contable del país, adoptó las NIIF S1/S2 mediante la Resolución JTNCA 006-01-2025, publicada en La Gaceta el 31 de enero de 2025. Obligatoria desde el 1 de enero de 2028 para entidades supervisadas por la CNBS y grandes contribuyentes según el SAR.',
+    'https://juntec.org.hn/2025/09/01/resolucion-jtnca-006-01-2025/'),
+  C(222,'SLV','El Salvador','🇸🇻','Centroamérica', 2024, null, 2,
+    'El Consejo de Vigilancia de la Profesión de Contaduría Pública y Auditoría (CVPCPA), regulador estatal de la profesión contable, autorizó mediante la Resolución N.º 82 del 8 de agosto de 2024 la implementación voluntaria de la NIIF S1 y la NIIF S2. Aún sin fecha de obligatoriedad establecida.',
+    'https://www.cvpcpa.gob.sv/wp-content/uploads/2024/08/RESOLUCION-82.pdf'),
+  C(558,'NIC','Nicaragua','🇳🇮','Centroamérica', null, null, 0,
+    'Sin desarrollo de adopción del ISSB identificado a la fecha de corte.', null),
+  C(188,'CRI','Costa Rica','🇨🇷','Centroamérica', 2024, 2028, 3,
+    'El Colegio de Contadores Públicos adoptó las NIIF S1/S2 mediante la Circular N.º 33-2023, ratificada en La Gaceta N.º 3 del 10 de enero de 2024, con aplicación voluntaria desde esa fecha. CONASSIF, el supervisor del sistema financiero, fijó mediante el Acuerdo 6-18 el reporte obligatorio para 2028 (datos del cierre fiscal 2027) para entidades reguladas y grandes contribuyentes.',
+    'https://www.sugef.fi.cr/normativa/normativa_transversal/documentos/CONASSIF%206-18%20(v25%208%20enero%202026).pdf'),
+  C(591,'PAN','Panamá','🇵🇦','Centroamérica', 2026, 2030, 3,
+    'La Junta Técnica de Contabilidad adoptó formalmente las NIIF de Información a Revelar sobre Sostenibilidad del ISSB mediante la Resolución N.º 012-2025, publicada en la Gaceta Oficial N.º 30480 el 11 de marzo de 2026. Aplicación voluntaria anticipada desde ya; obligatoria para entidades reguladas desde el 1 de enero de 2030.',
+    'https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480_C/98345.pdf'),
+
+  C(214,'DOM','Rep. Dominicana','🇩🇴','Caribe', null, null, 0,
+    'Sin desarrollo de adopción del ISSB identificado a la fecha de corte.', null),
+
+  C(76,'BRA','Brasil','🇧🇷','Sudamérica', 2025, 2026, 3,
+    'La CVM adoptó el estándar global del ISSB mediante las normas CBPS 01 y 02 (Resoluciones CVM 217/218/219): reporte alineado a IFRS S1/S2 obligatorio desde el ejercicio 2026 para compañías listadas y entidades reguladas.',
+    'https://www.ifrs.org/news-and-events/news/2023/10/brazil-adopts-issb-global-baseline/'),
+
+  C(152,'CHL','Chile','🇨🇱','Sudamérica', 2025, 2026, 3,
+    'La CMF confirmó la aplicación obligatoria de IFRS S1 e IFRS S2 desde 2026 para entidades listadas, sobre la base ya construida por la NCG 461 (TCFD/SASB).',
+    'https://www.ifrs.org/content/dam/ifrs/publications/sustainability-jurisdictions/pdf-profiles/chile-ifrs-profile.pdf'),
+
+  C(170,'COL','Colombia','🇨🇴','Sudamérica', null, null, 1,
+    'Sin mandato de adopción de la NIIF S1/S2 del ISSB. Desde 2021, la Superintendencia Financiera exige a los emisores del RNVE divulgar información climática y ASG bajo los estándares TCFD/SASB (Circular Externa 031), vigente desde 2024, pero distinta de la adopción formal del ISSB. El país participa además en la alianza de capacitación entre el BID y la Fundación IFRS, orientada a la adopción futura de los estándares.',
+    'https://www.ifrs.org/news-and-events/news/2025/04/idb-ifrs-foundation-adoption-sustainability-disclosure-standards/'),
+
+  C(862,'VEN','Venezuela','🇻🇪','Sudamérica', null, null, 0,
+    'Sin desarrollo de adopción del ISSB identificado a la fecha de corte.', null),
+  C(218,'ECU','Ecuador','🇪🇨','Sudamérica', null, null, 0,
+    'Sin desarrollo de adopción del ISSB identificado a la fecha de corte.', null),
+  C(604,'PER','Perú','🇵🇪','Sudamérica', 2026, 2029, 3,
+    'El Consejo Normativo de Contabilidad, órgano del Ministerio de Economía y Finanzas, aprobó la NIIF S1 y la NIIF S2 mediante la Resolución N.º 001-2026-EF/30 del 27 de marzo de 2026. Obligatoria desde el 1 de enero de 2029 para entidades de interés público no supervisadas con ingresos anuales ≥2,300 UIT; la SMV y la SBS definirán por separado el calendario para entidades bajo su supervisión.',
+    'https://www.gob.pe/institucion/mef/normas-legales/7937774-001-2026-ef-30'),
+  C(68,'BOL','Bolivia','🇧🇴','Sudamérica', 2024, 2027, 3,
+    'El Consejo Técnico Nacional de Auditoría y Contabilidad, del Colegio de Auditores o Contadores Públicos de Bolivia —entidad emisora de las normas contables del país—, adoptó las NIIF S1/S2 mediante la Resolución CTNAC N.º 01/2024 del 21 de marzo de 2024. Aplicación obligatoria desde el 1 de enero de 2027 para todas las entidades económicas del país, con aplicación anticipada permitida.',
+    'https://www.ifrs.org/content/dam/ifrs/publications/sustainability-jurisdictions/pdf-snapshots/bolivia-ifrs-snapshot.pdf'),
+  C(600,'PRY','Paraguay','🇵🇾','Sudamérica', null, null, 0,
+    'Sin desarrollo de adopción del ISSB identificado a la fecha de corte.', null),
+  C(32,'ARG','Argentina','🇦🇷','Sudamérica', null, null, 0,
+    'Sin desarrollo de adopción del ISSB ni declaración oficial de intención identificada a la fecha de corte.', null),
+  C(858,'URY','Uruguay','🇺🇾','Sudamérica', 2025, null, 2,
+    'El Colegio de Contadores, Economistas y Administradores del Uruguay (CCEAU), el organismo profesional que emite los pronunciamientos técnico-contables del país, adoptó la NIIF S1 y la NIIF S2 como referencia técnica mediante el Pronunciamiento N.º 22 (octubre de 2025), con implementación gradual prevista entre 2026 y 2028. No introduce, por sí mismo, una exigencia legal nueva.',
+    'https://ccea.com.uy/area-tecnica/normas/pronunciamientos/'),
+];
+var REGIONES = ["Norteamérica","Centroamérica","Caribe","Sudamérica"];
+/* Países cuya norma oficial incluye de forma expresa a las emisoras de valores (o a todas las entidades) */
+var ALCANCE_EMISORAS = ["MEX","BRA","CHL","BOL"];
+
+var ENLACES = {
+  issb:{t:"NIIF S1 y S2 (ifrs.org)", u:"https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/"},
+  sasb:{t:"Normas SASB por industria", u:"https://sasb.ifrs.org/standards/"},
+  gri:{t:"Estándares GRI (globalreporting.org)", u:"https://www.globalreporting.org/standards/"},
+  esrs:{t:"Directiva (UE) 2026/470 (EUR-Lex)", u:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026L0470"},
+  tnfd:{t:"Recomendaciones TNFD (tnfd.global)", u:"https://tnfd.global/"},
+  cdp:{t:"CDP (cdp.net)", u:"https://www.cdp.net/"},
+  ghg:{t:"Protocolo de GEI (ghgprotocol.org)", u:"https://ghgprotocol.org/corporate-standard"}
+};
+var INTERNOS = {
+  s1:{t:"Autodiagnóstico inicial NIIF S1", u:"../diagnostico-s1/"},
+  s2:{t:"Autodiagnóstico inicial NIIF S2", u:"../diagnostico-s2/"},
+  tnfd:{t:"Autodiagnóstico inicial TNFD", u:"../diagnostico-tnfd/"},
+  tracker:{t:"Tracker del ISSB", u:"../tracker-issb/"},
+  atlas:{t:"Atlas ESG: dónde se traslapan los estándares", u:"../atlas-esg/"}
+};
+var ESTADOS = {4:"Te lo exigen", 3:"Te conviene", 2:"Complementario", 1:"Por ahora no"};
+
+var $ = function(id){ return document.getElementById(id); };
+var esEjemplo = true;
+
+function llenarPaises(){
+  var sel = $("pais");
+  REGIONES.forEach(function(r){
+    var og = document.createElement("optgroup"); og.label = r;
+    COUNTRIES.filter(function(c){ return c.region === r; })
+      .sort(function(a,b){ return a.name.localeCompare(b.name, "es"); })
+      .forEach(function(c){ var o = document.createElement("option"); o.value = c.code; o.textContent = c.name; og.appendChild(o); });
+    sel.appendChild(og);
+  });
+  var og2 = document.createElement("optgroup"); og2.label = "Otros";
+  var o2 = document.createElement("option"); o2.value = "OTRO"; o2.textContent = "Otro país"; og2.appendChild(o2);
+  sel.appendChild(og2);
+  sel.value = "MEX";
+}
+
+function radio(n){ var r = document.querySelector('input[name="'+n+'"]:checked'); return r ? r.value : null; }
+function marcados(){ return Array.prototype.map.call(document.querySelectorAll('input[name="pide"]:checked'), function(i){ return i.value; }); }
+
+/* ---------- Reglas ---------- */
+function evaluar(){
+  var pais = COUNTRIES.filter(function(c){ return c.code === $("pais").value; })[0] || null;
+  var cotiza = radio("cotiza") === "si";
+  var pide = marcados();
+  var ue = radio("ue") === "si", umbral = radio("umbral");
+  var natur = radio("natur");
+  var pideInv = pide.indexOf("inversion") > -1, pideCli = pide.indexOf("clientes") > -1,
+      pideReg = pide.indexOf("regulador") > -1, pideSoc = pide.indexOf("sociedad") > -1;
+  var r = [];
+
+  /* NIIF S1 y S2 */
+  var e = 1, por = "";
+  var obligatorio = pais && pais.nivel === 3 && pais.pr;
+  if(obligatorio && cotiza && ALCANCE_EMISORAS.indexOf(pais.code) > -1){ e = 4; por = pais.name + " ya fijó un calendario obligatorio que incluye a las emisoras de valores, y tu organización cotiza. Abajo están las fechas y la fuente oficial."; }
+  else if(obligatorio){ e = 3; por = pais.name + " ya fijó un calendario obligatorio. Revisa abajo a quiénes alcanza: según el país incluye a emisoras, entidades reguladas o grandes contribuyentes."; }
+  else if(cotiza || pideInv){ e = 3; por = (cotiza ? "Cotizas en el mercado de valores" : "Te piden información inversionistas o bancos") + ", y las NIIF S1 y S2 son el estándar diseñado para ellos: piden los riesgos y oportunidades de sostenibilidad que afectan el valor de la empresa."; }
+  else { e = 2; por = "Nadie te las exige todavía. Conviene conocerlas porque son la base que están adoptando los países de América."; }
+  if(pais && pais.nivel === 2 && e < 4){ por += " En " + pais.name + " su aplicación ya está autorizada de forma voluntaria."; }
+  r.push({id:"issb", n:"NIIF S1 y NIIF S2 (ISSB)", quien:"Consejo de Normas Internacionales de Sostenibilidad", e:e, por:por,
+    pais: pais ? pais : null, ext:["issb","sasb"], int:["s1","s2","tracker"]});
+
+  /* ESRS */
+  var eE = 1, porE = "No tienes operaciones en la Unión Europea, así que la CSRD no te alcanza.";
+  if(ue && umbral === "si"){ eE = 4; porE = "Tu grupo supera los dos umbrales de la CSRD para empresas de fuera de la Unión Europea: más de 450 millones de euros de ventas en la UE y una filial o sucursal con más de 200 millones. La obligación depende de cómo cada país de la UE incorpore la directiva, con plazo al 19 de marzo de 2027."; }
+  else if(ue && umbral === "ns"){ eE = 2; porE = "Tienes operaciones en la Unión Europea. Revisa tus ventas ahí: si superas 450 millones de euros y alguna filial o sucursal supera 200 millones, la CSRD te alcanza con los ESRS."; }
+  else if(ue){ eE = 1; porE = "Tienes operaciones en la Unión Europea, pero no superas los umbrales de la CSRD para grupos de fuera de la UE."; }
+  r.push({id:"esrs", n:"ESRS (CSRD de la Unión Europea)", quien:"Comisión Europea, con EFRAG", e:eE, por:porE, ext:["esrs"], int:["atlas"]});
+
+  /* GRI */
+  var eG = 2, porG = "Sirve para identificar y reportar tus impactos en la economía, el ambiente y las personas. Se combina con las NIIF S1 y S2, que miran el efecto financiero sobre la empresa.";
+  if(pideSoc || pideReg){ eG = 3; porG = "Te piden información " + (pideSoc ? "comunidades, ONG o el público" : "un regulador") + ", y GRI es el estándar pensado para reportar tus impactos en la economía, el ambiente y las personas ante todos esos grupos."; }
+  else if(!pide.length && !cotiza){ eG = 3; porG = "Nadie te exige un estándar todavía. GRI es un buen primer informe: ordena tus impactos en la economía, el ambiente y las personas, y la información te servirá después para las NIIF S1 y S2."; }
+  r.push({id:"gri", n:"Estándares GRI", quien:"Global Reporting Initiative", e:eG, por:porG, ext:["gri"], int:["atlas"]});
+
+  /* TNFD */
+  var eT = 2, porT = "Aplica si descubres que tu negocio o tu cadena de suministro dependen de la naturaleza o la afectan de forma importante.";
+  if(natur === "si"){ eT = 3; porT = "Tu negocio depende directamente de recursos naturales. TNFD ordena cómo identificar y reportar esas dependencias, tus impactos y los riesgos que generan. La NIIF S1 ya pide divulgar los riesgos de sostenibilidad materiales, incluidos los de naturaleza."; }
+  else if(natur === "no"){ eT = 1; porT = "Tu negocio no depende directamente de recursos naturales. Revisa tu cadena de suministro antes de descartarlo."; }
+  r.push({id:"tnfd", n:"Recomendaciones TNFD", quien:"Taskforce on Nature-related Financial Disclosures", e:eT, por:porT, ext:["tnfd"], int:["tnfd"]});
+
+  /* CDP */
+  var eC = 1, porC = "Nadie en tu cadena de clientes te lo pide. Si llega un cuestionario de CDP, la información que prepares para la NIIF S2 te sirve para responderlo.";
+  if(pideCli){ eC = 3; porC = "Tus clientes te piden información, y muchas cadenas de suministro la solicitan con el cuestionario de CDP. Su módulo de clima está alineado con la NIIF S2, así que el trabajo sirve para ambos."; }
+  else if(pideInv){ eC = 2; porC = "Algunos inversionistas consultan las respuestas de CDP. No es obligatorio, pero la información que prepares para la NIIF S2 te sirve para responderlo."; }
+  r.push({id:"cdp", n:"Cuestionario CDP", quien:"CDP", e:eC, por:porC, ext:["cdp"], int:[]});
+
+  /* Protocolo de GEI */
+  r.push({id:"ghg", n:"Protocolo de GEI", quien:"World Resources Institute y WBCSD", e: (e >= 3 || eE >= 3 || eC >= 3) ? 3 : 2,
+    por:"Es el método para medir tus emisiones de gases de efecto invernadero (alcances 1, 2 y 3). La NIIF S2 lo exige para medirlas (§29a), y también lo usan los ESRS y CDP.",
+    ext:["ghg"], int:["s2"]});
+
+  return r;
+}
+
+/* ---------- Pintar ---------- */
+function enlace(o, externo){
+  var a = document.createElement("a"); a.href = o.u; a.textContent = o.t;
+  if(externo){ a.target = "_blank"; a.rel = "noopener"; }
+  return a;
+}
+
+function render(animar){
+  var res = evaluar();
+  $("tag-ejemplo").hidden = !esEjemplo;
+  var orden = res.slice().sort(function(a,b){ return b.e - a.e; });
+
+  var exige = orden.filter(function(x){ return x.e === 4; }).map(function(x){ return x.n; });
+  var conviene = orden.filter(function(x){ return x.e === 3; }).map(function(x){ return x.n; });
+  var linea = $("res-linea"); linea.textContent = "";
+  function lista(arr){ return arr.length > 1 ? arr.slice(0,-1).join(", ") + " y " + arr[arr.length-1] : arr[0]; }
+  if(exige.length){
+    linea.append("Te exigen ");
+    var b = document.createElement("b"); b.textContent = lista(exige); linea.appendChild(b);
+    linea.append(conviene.length ? ". Además te conviene trabajar con " : ".");
+    if(conviene.length){ var b2 = document.createElement("b"); b2.textContent = lista(conviene); linea.appendChild(b2); linea.append("."); }
+  } else if(conviene.length){
+    linea.append("Ningún estándar te es obligatorio por ahora. Te conviene empezar con ");
+    var b3 = document.createElement("b"); b3.textContent = lista(conviene); linea.appendChild(b3); linea.append(".");
+  } else {
+    linea.append("Ningún estándar te es obligatorio por ahora.");
+  }
+  $("res-nota").textContent = "Los estándares no se excluyen entre sí: la misma información de gobierno, riesgos y emisiones sirve para varios.";
+
+  var c = $("tarjetas"); c.textContent = "";
+  orden.forEach(function(x){
+    var t = document.createElement("article"); t.className = "tarjeta";
+    var f = document.createElement("div"); f.className = "fila";
+    var tit = document.createElement("div");
+    var h = document.createElement("h3"); h.textContent = x.n; tit.appendChild(h);
+    var q = document.createElement("p"); q.className = "quien"; q.textContent = x.quien; tit.appendChild(q);
+    var est = document.createElement("span"); est.className = "estado e" + x.e; est.textContent = ESTADOS[x.e];
+    f.appendChild(tit); f.appendChild(est); t.appendChild(f);
+    var p = document.createElement("p"); p.textContent = x.por; t.appendChild(p);
+    if(x.pais){
+      var pq = document.createElement("p"); pq.className = "pais"; pq.textContent = x.pais.nota;
+      if(x.pais.url){ var fs = document.createElement("span"); fs.className = "fuente"; fs.appendChild(enlace({t:"Fuente oficial", u:x.pais.url}, true)); pq.appendChild(fs); }
+      t.appendChild(pq);
+    }
+    var en = document.createElement("div"); en.className = "enlaces";
+    x.ext.forEach(function(k){ en.appendChild(enlace(ENLACES[k], true)); });
+    x.int.forEach(function(k){ en.appendChild(enlace(INTERNOS[k], false)); });
+    t.appendChild(en);
+    c.appendChild(t);
+  });
+
+  if(animar){ var r = $("resultado"); r.classList.remove("actualizado"); void r.offsetWidth; r.classList.add("actualizado"); }
+}
+
+/* ---------- Eventos ---------- */
+function alCambiar(){ esEjemplo = false; $("sub-ue").hidden = radio("ue") !== "si"; render(true); }
+$("formulario").addEventListener("submit", function(e){
+  e.preventDefault(); esEjemplo = false; render(true);
+  $("resultado").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
+});
+$("pais").addEventListener("change", alCambiar);
+document.querySelectorAll("#formulario input").forEach(function(i){ i.addEventListener("change", alCambiar); });
+$("reiniciar").addEventListener("click", function(){
+  $("formulario").reset(); $("pais").value = "MEX"; $("sub-ue").hidden = true; esEjemplo = true; render(true);
+});
+
+llenarPaises();
+render(false);
+})();
+</script>
+</body>
+</html>
