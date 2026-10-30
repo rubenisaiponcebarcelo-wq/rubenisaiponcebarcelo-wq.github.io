@@ -5,16 +5,16 @@
 <script src="../../assets/marca/tema.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Autodiagnóstico IFRS S1 · Rubén Ponce</title>
+<title>Autodiagnóstico inicial IFRS S1 · Rubén Ponce</title>
 <link rel="icon" href="../../assets/marca/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="../../assets/marca/favicon.svg">
 <link rel="apple-touch-icon" href="../../assets/marca/favicon-180.png">
 
 <meta name="theme-color" content="#1567B0">
-<meta name="description" content="Autodiagnóstico de madurez frente a IFRS S1: nivel por pilar, brechas y plan de acción, con la cita exacta de cada requisito.">
+<meta name="description" content="Autodiagnóstico inicial frente a IFRS S1: nivel por pilar y primeros pasos, con la cita de cada requisito.">
 <meta property="og:site_name" content="Rubén Ponce">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Autodiagnóstico IFRS S1 · Rubén Ponce">
+<meta property="og:title" content="Autodiagnóstico inicial IFRS S1 · Rubén Ponce">
 <meta property="og:description" content="Evalúa tu preparación frente a IFRS S1 y recibe un plan de acción por pilar.">
 <meta name="twitter:card" content="summary">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -515,13 +515,13 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
   <div class="intro-logo">
     <span class="norm-badge norm-s1">NIIF S1</span>
   </div>
-  <h1 class="intro-title">Autodiagnóstico de<br>preparación <em>NIIF S1</em></h1>
-  <p class="intro-desc">Evalúa qué tan preparada está tu organización para divulgar información de sostenibilidad conforme a la NIIF S1. Las preguntas recorren los cuatro pilares de la norma —gobernanza, estrategia, gestión del riesgo, y métricas y objetivos— y cada una cita el párrafo que la sustenta. Al terminar ves tu nivel por pilar y un plan de acción ordenado por prioridad. Si un requisito tiene equivalente en la NIIF S2, se indica al pie de la pregunta.</p>
+  <h1 class="intro-title">Autodiagnóstico inicial<br>de preparación <em>NIIF S1</em></h1>
+  <p class="intro-desc">Evalúa qué tan preparada está tu organización para divulgar información de sostenibilidad conforme a la NIIF S1. Las preguntas recorren los cuatro pilares de la norma —gobernanza, estrategia, gestión del riesgo, y métricas y objetivos— y cada una cita el párrafo que la sustenta. Es un primer diagnóstico: cubre los requisitos centrales de cada área de la norma, no todos. Al terminar ves tu nivel por pilar y los primeros pasos para tus brechas principales. Si un requisito tiene equivalente en la NIIF S2, se indica al pie de la pregunta.</p>
   <div class="intro-stats">
     <div class="stat"><span class="stat-n">4</span><span class="stat-label">Pilares</span></div>
     <div class="stat"><span class="stat-n" id="stat-areas">—</span><span class="stat-label">Áreas de Revelación</span></div>
     <div class="stat"><span class="stat-n" id="stat-preguntas">—</span><span class="stat-label">Preguntas</span></div>
-    <div class="stat"><span class="stat-n">~15'</span><span class="stat-label">Duración</span></div>
+    <div class="stat"><span class="stat-n">~10'</span><span class="stat-label">Duración</span></div>
   </div>
   <div class="intro-frameworks">
     <span class="fw-tag fw-s1">NIIF S1 · §1-86</span>
@@ -580,7 +580,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
     </div>
     <div class="register-privacy">
       <input type="checkbox" id="f-privacy" onchange="checkPrivacy()">
-      <span>Acepto que mis datos, respuestas y comentarios se guarden para este diagnóstico. No se comparten con terceros.</span>
+      <label for="f-privacy">Soy mayor de 18 años y acepto el <a href="../../privacidad/" target="_blank" rel="noopener">aviso de privacidad</a>. Mis datos, respuestas y comentarios se guardan para este diagnóstico y no se comparten con terceros.</label>
     </div>
     <button class="btn-register" id="btn-register" onclick="submitRegister()" disabled>Comenzar diagnóstico →</button>
     <div class="reg-msg reg-error" id="reg-error"></div>
@@ -619,7 +619,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
     <div class="rp-tema-esquina rp-tema-claro" data-rp-tema></div>
     <div class="results-hero-content">
       <div class="user-chip">👤 <strong id="chip-name">—</strong> · <span id="chip-empresa">—</span></div>
-      <span class="results-badge">Diagnóstico NIIF S1 completado</span>
+      <span class="results-badge">Autodiagnóstico inicial NIIF S1 completado</span>
       <h1 class="results-title">Tu perfil de preparación NIIF S1</h1>
       <div class="results-level" id="r-level">—</div>
       <div class="results-score-big" id="r-score">—</div>
@@ -642,40 +642,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy
       <div class="heatmap-grid" id="heatmap-grid"></div>
     </div>
 
-    <h3 class="section-title">🔍 Detalle por pilar</h3>
-    <div id="detail-sections"></div>
-
-    <h3 class="section-title">📋 Índice de referencia — Preguntas × Párrafos NIIF S1</h3>
-    <div class="index-section">
-      <div class="index-header">
-        <h3>Tabla índice completa</h3>
-        <p>Todas las preguntas con su código, la referencia de la NIIF S1, tu respuesta y tus comentarios. El código se lee: pilar · área · párrafo · número de pregunta.</p>
-      </div>
-      <div class="index-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv0)"></div> No implementado (0)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv1)"></div> En evaluación (1)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv2)"></div> Parcialmente (2)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv3)"></div> Implementado (3)</div>
-        <div class="legend-item" style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-light)">💬 = incluye comentario</div>
-      </div>
-      <div style="overflow-x:auto;">
-        <table class="index-table" id="index-table">
-          <thead>
-            <tr>
-              <th style="width:5px;padding:0"></th>
-              <th style="width:115px">Código</th>
-              <th>Pregunta y comentario</th>
-              <th style="width:210px">Referencia NIIF</th>
-              <th style="width:80px;text-align:center">Puntuación</th>
-              <th style="width:75px">Avance</th>
-            </tr>
-          </thead>
-          <tbody id="index-tbody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <h3 class="section-title">🎯 Plan de acción — NIIF S1</h3>
+    <h3 class="section-title">🎯 Primeros pasos — NIIF S1</h3>
     <div class="action-plan-grid" id="action-plan-grid"></div>
 
     <div class="results-actions">
@@ -710,19 +677,12 @@ const pillars=[
    text:'Supervisión del órgano de gobernanza sobre los riesgos y oportunidades relacionados con la sostenibilidad',
    questions:[
     {text:'¿El órgano de gobernanza tiene responsabilidades formalmente asignadas —en mandatos, términos de referencia o descripciones de funciones— sobre la supervisión de los riesgos y oportunidades relacionados con la sostenibilidad?',para:'S1·§27a(i)',ref:'NIIF S1 §27a(i) — Reflejo formal de responsabilidades en mandatos y políticas',norm:'S1',eq:'NIIF S2 §6a(i)'},
-    {text:'¿El consejo determina formalmente si dispone de las competencias adecuadas —o si las desarrollará— para supervisar las estrategias de respuesta a los riesgos y oportunidades relacionados con la sostenibilidad?',para:'S1·§27a(ii)',ref:'NIIF S1 §27a(ii) — Determinación de competencias del órgano de gobernanza',norm:'S1',eq:'NIIF S2 §6a(ii)'},
-    {text:'¿El órgano de gobernanza recibe información periódica, estructurada y con frecuencia definida sobre los riesgos y oportunidades relacionados con la sostenibilidad?',para:'S1·§27a(iii)',ref:'NIIF S1 §27a(iii) — Frecuencia y forma de la información al órgano de gobernanza',norm:'S1',eq:'NIIF S2 §6a(iii)'},
-    {text:'¿El consejo considera explícitamente los riesgos y oportunidades relacionados con la sostenibilidad al supervisar la estrategia, las transacciones importantes y los procesos de gestión de riesgos, incluyendo las compensaciones (trade-offs)?',para:'S1·§27a(iv)',ref:'NIIF S1 §27a(iv) — Integración en supervisión estratégica y consideración de trade-offs',norm:'S1',eq:'NIIF S2 §6a(iv)'},
-    {text:'¿El órgano de gobernanza supervisa el establecimiento de objetivos de sostenibilidad y controla el avance hacia su consecución?',para:'S1·§27a(v)',ref:'NIIF S1 §27a(v) — Supervisión del establecimiento y seguimiento de objetivos',norm:'S1',eq:'NIIF S2 §6a(v)'},
-    {text:'¿Las métricas de desempeño de sostenibilidad están formalmente vinculadas a las políticas de remuneración de consejeros y/o altos directivos?',para:'S1·§27a(v)',ref:'NIIF S1 §27a(v) — Métricas de sostenibilidad en las políticas de remuneración',norm:'S1',eq:'NIIF S2 §29g'}
+    {text:'¿El órgano de gobernanza recibe información periódica, estructurada y con frecuencia definida sobre los riesgos y oportunidades relacionados con la sostenibilidad?',para:'S1·§27a(iii)',ref:'NIIF S1 §27a(iii) — Frecuencia y forma de la información al órgano de gobernanza',norm:'S1',eq:'NIIF S2 §6a(iii)'}
    ]},
   {letter:'B',src:'B',norm:'S1',para:'§27b',ref:'NIIF S1 §27b',
    text:'Papel de la gerencia en la gestión de los riesgos y oportunidades relacionados con la sostenibilidad',
    questions:[
-    {text:'¿La responsabilidad de gestionar los riesgos y oportunidades relacionados con la sostenibilidad está delegada en un cargo específico o comité, con mecanismos de supervisión claramente definidos sobre dicho cargo?',para:'S1·§27b(i)',ref:'NIIF S1 §27b(i) — Delegación de responsabilidad a cargo/comité con supervisión definida',norm:'S1',eq:'NIIF S2 §6b(i)'},
-    {text:'¿La gerencia cuenta con controles y procedimientos formales para apoyar la supervisión de los riesgos y oportunidades relacionados con la sostenibilidad, integrados con otras funciones internas?',para:'S1·§27b(ii)',ref:'NIIF S1 §27b(ii) — Controles/procedimientos de gestión integrados con otras funciones internas',norm:'S1',eq:'NIIF S2 §6b(ii)'},
-    {text:'¿Se evita la duplicidad innecesaria en la información de gobernanza cuando los distintos riesgos de sostenibilidad se supervisan de forma integrada, proporcionando información consolidada?',para:'S1·§B42(b)',ref:'NIIF S1 §B42(b) — Evitar duplicidad en información de gobernanza integrada',norm:'S1',eq:'NIIF S2 §7'},
-    {text:'¿La gerencia reporta periódicamente al órgano de gobernanza sobre los riesgos, oportunidades, métricas y avances de sostenibilidad con información cuantitativa y cualitativa?',para:'S1·§27a(iii)',ref:'NIIF S1 §27a(iii) — Flujo de información estructurada de gerencia al órgano de gobernanza',norm:'S1',eq:'NIIF S2 §6a(iii)'}
+    {text:'¿La responsabilidad de gestionar los riesgos y oportunidades relacionados con la sostenibilidad está delegada en un cargo específico o comité, con mecanismos de supervisión claramente definidos sobre dicho cargo?',para:'S1·§27b(i)',ref:'NIIF S1 §27b(i) — Delegación de responsabilidad a cargo/comité con supervisión definida',norm:'S1',eq:'NIIF S2 §6b(i)'}
    ]}
  ]},
 {id:'EST',name:'Estrategia',color:'#0E6A6F',colorClass:'p2',icon:'🗺',
@@ -733,31 +693,22 @@ const pillars=[
    text:'Identificación de riesgos y oportunidades relacionados con la sostenibilidad',
    questions:[
     {text:'¿La organización ha identificado y descrito todos los riesgos y oportunidades relacionados con la sostenibilidad que podrían afectar razonablemente sus perspectivas?',para:'S1·§30a',ref:'NIIF S1 §30a — Descripción de riesgos y oportunidades materiales identificados',norm:'S1',eq:'NIIF S2 §10a'},
-    {text:'¿Se han especificado los horizontes temporales (corto, mediano y largo plazo) para cada riesgo y oportunidad, con definiciones propias vinculadas a los horizontes de planificación estratégica?',para:'S1·§30b-c',ref:'NIIF S1 §30b-c — Horizontes temporales y sus definiciones en la organización',norm:'S1',eq:'NIIF S2 §10c-d'},
-    {text:'¿Se utiliza toda la información razonable y sustentable disponible para identificar los riesgos y oportunidades, sin incurrir en costos o esfuerzos desproporcionados?',para:'S1·§B8-B10',ref:'NIIF S1 §B8-B10 — Información razonable y sustentable sin esfuerzo desproporcionado',norm:'S1',eq:'NIIF S2 §11'},
-    {text:'¿Se han consultado y documentado las Normas SASB y otras fuentes de guía del Apéndice C (GRI, ESRS) al identificar los riesgos y oportunidades sectoriales relevantes?',para:'S1·§55',ref:'NIIF S1 §55 + §C2 — Uso de Normas SASB, GRI y ESRS como fuentes de guía aplicables',norm:'S1',eq:'NIIF S2 §12'}
+    {text:'¿Se han especificado los horizontes temporales (corto, mediano y largo plazo) para cada riesgo y oportunidad, con definiciones propias vinculadas a los horizontes de planificación estratégica?',para:'S1·§30b-c',ref:'NIIF S1 §30b-c — Horizontes temporales y sus definiciones en la organización',norm:'S1',eq:'NIIF S2 §10c-d'}
    ]},
   {letter:'B',src:'B',norm:'S1',para:'§32',ref:'NIIF S1 §32',
    text:'Efectos sobre el modelo de negocio y la cadena de valor',
    questions:[
-    {text:'¿Se han descrito los efectos actuales y previstos de los riesgos y oportunidades relacionados con la sostenibilidad sobre el modelo de negocio y la cadena de valor?',para:'S1·§32a',ref:'NIIF S1 §32a — Efectos actuales y previstos sobre modelo de negocio y cadena de valor',norm:'S1',eq:'NIIF S2 §13a'},
-    {text:'¿Se han identificado las zonas geográficas, instalaciones o tipos de activos donde se concentran los riesgos y oportunidades en el modelo de negocio y la cadena de valor?',para:'S1·§32b',ref:'NIIF S1 §32b — Concentración por geografía, instalaciones y tipos de activos',norm:'S1',eq:'NIIF S2 §13b'},
-    {text:'¿El análisis de la cadena de valor considera tanto las interacciones directas (operaciones propias) como las indirectas (proveedores, distribuidores, clientes, entornos regulatorios y financieros)?',para:'S1·§B5',ref:'NIIF S1 §B5 — Alcance completo de la cadena de valor: directa e indirecta',norm:'S1'}
+    {text:'¿Se han descrito los efectos actuales y previstos de los riesgos y oportunidades relacionados con la sostenibilidad sobre el modelo de negocio y la cadena de valor?',para:'S1·§32a',ref:'NIIF S1 §32a — Efectos actuales y previstos sobre modelo de negocio y cadena de valor',norm:'S1',eq:'NIIF S2 §13a'}
    ]},
   {letter:'C',src:'C',norm:'S1',para:'§33',ref:'NIIF S1 §33',
    text:'Estrategia y toma de decisiones',
    questions:[
-    {text:'¿Se describe cómo la organización ha respondido y prevé responder a los riesgos y oportunidades relacionados con la sostenibilidad en su estrategia, incluyendo las compensaciones (trade-offs) consideradas?',para:'S1·§33a-c',ref:'NIIF S1 §33a-c — Respuesta estratégica y compensaciones entre riesgos y oportunidades',norm:'S1',eq:'NIIF S2 §14a'},
-    {text:'¿Se reporta el progreso cuantitativo y cualitativo alcanzado respecto a los planes revelados en periodos anteriores, con análisis de avances, revisiones y desviaciones?',para:'S1·§33b',ref:'NIIF S1 §33b — Progreso cuantitativo/cualitativo respecto a planes de periodos anteriores',norm:'S1',eq:'NIIF S2 §14c'}
+    {text:'¿Se describe cómo la organización ha respondido y prevé responder a los riesgos y oportunidades relacionados con la sostenibilidad en su estrategia, incluyendo las compensaciones (trade-offs) consideradas?',para:'S1·§33a-c',ref:'NIIF S1 §33a-c — Respuesta estratégica y compensaciones entre riesgos y oportunidades',norm:'S1',eq:'NIIF S2 §14a'}
    ]},
   {letter:'D',src:'D',norm:'S1',para:'§34-40',ref:'NIIF S1 §34-40',
    text:'Efectos sobre la situación financiera, el rendimiento financiero y los flujos de efectivo',
    questions:[
-    {text:'¿Se describen los efectos actuales de los riesgos y oportunidades relacionados con la sostenibilidad sobre la situación financiera, el rendimiento financiero y los flujos de efectivo del periodo?',para:'S1·§35a',ref:'NIIF S1 §35a — Efectos financieros actuales en el periodo sobre el que se informa',norm:'S1',eq:'NIIF S2 §16a'},
-    {text:'¿Se identifican los riesgos y oportunidades para los cuales existe riesgo significativo de ajuste material en los importes en libros de activos y pasivos en el próximo periodo anual?',para:'S1·§35b',ref:'NIIF S1 §35b — Riesgo de ajuste material en activos/pasivos en el próximo periodo',norm:'S1',eq:'NIIF S2 §16b'},
-    {text:'¿Se revela cómo se espera que cambie la situación financiera a corto, mediano y largo plazo, considerando planes de inversión, desinversión y fuentes de financiación para implementar la estrategia?',para:'S1·§35c',ref:'NIIF S1 §35c — Efectos financieros previstos: inversiones, desinversiones y financiación futura',norm:'S1',eq:'NIIF S2 §16c'},
-    {text:'¿Se proporciona información cuantitativa sobre efectos financieros, o se justifica explícitamente su omisión (efectos no identificables por separado, alto nivel de incertidumbre, o falta de capacidades)?',para:'S1·§38-40',ref:'NIIF S1 §38-40 — Información cuantitativa o justificación documentada de su omisión',norm:'S1',eq:'NIIF S2 §19-21'},
-    {text:'¿La información sobre efectos financieros es congruente con los datos y supuestos de los estados financieros relacionados, con explicación de diferencias significativas?',para:'S1·§23',ref:'NIIF S1 §23 + §B42 — Congruencia entre revelaciones de sostenibilidad y estados financieros',norm:'S1'}
+    {text:'¿Se describen los efectos actuales de los riesgos y oportunidades relacionados con la sostenibilidad sobre la situación financiera, el rendimiento financiero y los flujos de efectivo del periodo?',para:'S1·§35a',ref:'NIIF S1 §35a — Efectos financieros actuales en el periodo sobre el que se informa',norm:'S1',eq:'NIIF S2 §16a'}
    ]}
  ]},
 {id:'RIE',name:'Gestión del Riesgo',color:'#5B4B8B',colorClass:'p3',icon:'⚖️',
@@ -768,24 +719,17 @@ const pillars=[
    text:'Procesos para identificar, evaluar, priorizar y supervisar riesgos',
    questions:[
     {text:'¿Existen procesos y políticas formales para identificar, evaluar, priorizar y supervisar los riesgos relacionados con la sostenibilidad, con definición de datos de entrada, métricas y fuentes de datos?',para:'S1·§44a(i)',ref:'NIIF S1 §44a(i) — Procesos formales documentados con datos de entrada y métricas definidos',norm:'S1',eq:'NIIF S2 §25a(i)'},
-    {text:'¿La organización utiliza el análisis de escenarios para fundamentar la identificación de los riesgos relacionados con la sostenibilidad en sus procesos de gestión de riesgos?',para:'S1·§44a(ii)',ref:'NIIF S1 §44a(ii) — Uso de análisis de escenarios en identificación de riesgos',norm:'S1',eq:'NIIF S2 §25a(ii)'},
-    {text:'¿Se evalúan la naturaleza, probabilidad y magnitud de los efectos de los riesgos relacionados con la sostenibilidad con criterios cualitativos y/o cuantitativos definidos?',para:'S1·§44a(iii)',ref:'NIIF S1 §44a(iii) — Evaluación de naturaleza, probabilidad y magnitud con criterios definidos',norm:'S1',eq:'NIIF S2 §25a(iii)'},
-    {text:'¿Los riesgos relacionados con la sostenibilidad se priorizan en relación con otros riesgos corporativos, con criterios de comparación documentados?',para:'S1·§44a(iv)',ref:'NIIF S1 §44a(iv) — Priorización de riesgos de sostenibilidad frente a otros riesgos corporativos',norm:'S1',eq:'NIIF S2 §25a(iv)'},
-    {text:'¿Existe supervisión continua de los riesgos relacionados con la sostenibilidad, y se revelan los cambios en los procesos de identificación/evaluación respecto al periodo anterior?',para:'S1·§44a(v-vi)',ref:'NIIF S1 §44a(v)-(vi) — Supervisión continua y cambios en procesos respecto al periodo previo',norm:'S1',eq:'NIIF S2 §25a(v)-(vi)'}
+    {text:'¿Se evalúan la naturaleza, probabilidad y magnitud de los efectos de los riesgos relacionados con la sostenibilidad con criterios cualitativos y/o cuantitativos definidos?',para:'S1·§44a(iii)',ref:'NIIF S1 §44a(iii) — Evaluación de naturaleza, probabilidad y magnitud con criterios definidos',norm:'S1',eq:'NIIF S2 §25a(iii)'}
    ]},
   {letter:'B',src:'B',norm:'S1',para:'§44b',ref:'NIIF S1 §44b',
    text:'Procesos para identificar, evaluar, priorizar y supervisar oportunidades',
    questions:[
-    {text:'¿Existen procesos formales para identificar, evaluar, priorizar y supervisar las oportunidades relacionadas con la sostenibilidad, distinguibles de los procesos para riesgos?',para:'S1·§44b',ref:'NIIF S1 §44b — Procesos formales separados para identificación de oportunidades',norm:'S1',eq:'NIIF S2 §25b'},
-    {text:'¿Las oportunidades identificadas están documentadas, cuantificadas en la medida de lo posible, y vinculadas a planes de acción o decisiones de inversión concretas?',para:'S1·§44b',ref:'NIIF S1 §44b — Documentación y cuantificación de oportunidades identificadas',norm:'S1'}
+    {text:'¿Existen procesos formales para identificar, evaluar, priorizar y supervisar las oportunidades relacionadas con la sostenibilidad, distinguibles de los procesos para riesgos?',para:'S1·§44b',ref:'NIIF S1 §44b — Procesos formales separados para identificación de oportunidades',norm:'S1',eq:'NIIF S2 §25b'}
    ]},
   {letter:'C',src:'C',norm:'S1',para:'§44c',ref:'NIIF S1 §44c',
    text:'Integración en el proceso global de gestión de riesgos',
    questions:[
-    {text:'¿Los procesos de identificación, evaluación, priorización y seguimiento de riesgos y oportunidades relacionados con la sostenibilidad están formalmente integrados en el proceso global de gestión de riesgos (ERM)?',para:'S1·§44c',ref:'NIIF S1 §44c — Integración formal en el proceso global de gestión de riesgos (ERM)',norm:'S1',eq:'NIIF S2 §25c'},
-    {text:'¿El proceso de gestión de riesgos integrado retroalimenta activamente las decisiones estratégicas, operativas y de asignación de capital?',para:'S1·§44c',ref:'NIIF S1 §44c — Retroalimentación de gestión de riesgos en decisiones estratégicas y de capital',norm:'S1',eq:'NIIF S2 §25c'},
-    {text:'¿Se evita la duplicidad innecesaria en la información de gestión de riesgos cuando los procesos se gestionan de forma integrada, revelando información consolidada?',para:'S1·§B42(b)',ref:'NIIF S1 §B42(b) — Evitar duplicidad en información de gestión de riesgos integrada',norm:'S1',eq:'NIIF S2 §26'},
-    {text:'¿Los cambios en los procesos de gestión de riesgos relacionados con la sostenibilidad respecto al periodo anterior están documentados, justificados y revelados?',para:'S1·§44a(vi)',ref:'NIIF S1 §44a(vi) — Revelación de cambios en procesos respecto al periodo anterior',norm:'S1',eq:'NIIF S2 §25a(vi)'}
+    {text:'¿Los procesos de identificación, evaluación, priorización y seguimiento de riesgos y oportunidades relacionados con la sostenibilidad están formalmente integrados en el proceso global de gestión de riesgos (ERM)?',para:'S1·§44c',ref:'NIIF S1 §44c — Integración formal en el proceso global de gestión de riesgos (ERM)',norm:'S1',eq:'NIIF S2 §25c'}
    ]}
  ]},
 {id:'MET',name:'Métricas y Objetivos',color:'#4D6B1F',colorClass:'p4',icon:'📊',
@@ -795,23 +739,17 @@ const pillars=[
   {letter:'A',src:'A',norm:'S1',para:'§46-53',ref:'NIIF S1 §45-53',
    text:'Métricas de sostenibilidad: definición, divulgación y congruencia',
    questions:[
-    {text:'¿La organización revela las métricas requeridas por las NIIF de Información sobre Sostenibilidad aplicables, más las métricas propias para medir y supervisar cada riesgo y oportunidad material?',para:'S1·§46a-b',ref:'NIIF S1 §46a-b — Métricas requeridas por normas + métricas propias por riesgo/oportunidad',norm:'S1'},
-    {text:'¿Las métricas incluyen las asociadas a modelos de negocio o características sectoriales, con referencia explícita a las Normas SASB u otras fuentes de guía aplicables?',para:'S1·§48-49',ref:'NIIF S1 §48-49 + §59 — Métricas sectoriales con referencia a Normas SASB y fuentes del Apéndice C',norm:'S1'},
-    {text:'¿Para métricas propias (no de normas establecidas), se documenta: su definición, si son absolutas o de intensidad, si están validadas por terceros, y el método de cálculo con datos, limitaciones y supuestos?',para:'S1·§50',ref:'NIIF S1 §50 — Definición, tipo, validación y método de cálculo de métricas propias',norm:'S1'},
-    {text:'¿Las métricas se calculan de forma congruente a lo largo del tiempo, con etiquetas claras y significativas? ¿Los cambios o sustituciones se explican con importes comparativos revisados?',para:'S1·§52-53',ref:'NIIF S1 §52-53 + §B52 — Congruencia temporal, etiquetado y revisión de métricas sustituidas',norm:'S1'}
+    {text:'¿La organización revela las métricas requeridas por las NIIF de Información sobre Sostenibilidad aplicables, más las métricas propias para medir y supervisar cada riesgo y oportunidad material?',para:'S1·§46a-b',ref:'NIIF S1 §46a-b — Métricas requeridas por normas + métricas propias por riesgo/oportunidad',norm:'S1'}
    ]},
   {letter:'B',src:'D',norm:'S1',para:'§48-49',ref:'NIIF S1 §48-49',
    text:'Métricas basadas en el sector industrial',
    questions:[
-    {text:'¿La organización revela métricas basadas en el sector industrial (Normas SASB u otras fuentes reconocidas) asociadas a su modelo de negocio, actividades y rasgos del sector?',para:'S1·§48',ref:'NIIF S1 §48 — Métricas sectoriales de Normas SASB u otras fuentes reconocidas',norm:'S1',eq:'NIIF S2 §32'},
-    {text:'¿Las métricas sectoriales se identifican por su fuente, son comparables con las del sector, y se mantienen congruentes entre periodos con explicación de cambios?',para:'S1·§49',ref:'NIIF S1 §49 + §52 — Identificación de fuente, comparabilidad sectorial y congruencia temporal',norm:'S1'},
-    {text:'¿Se proporciona información comparativa del periodo anterior para las métricas sectoriales, que permita evaluar tendencias y cambios en el desempeño?',para:'S1·§70',ref:'NIIF S1 §70 + §B49-B54 — Información comparativa del periodo anterior para métricas sectoriales',norm:'S1'}
+    {text:'¿La organización revela métricas basadas en el sector industrial (Normas SASB u otras fuentes reconocidas) asociadas a su modelo de negocio, actividades y rasgos del sector?',para:'S1·§48',ref:'NIIF S1 §48 — Métricas sectoriales de Normas SASB u otras fuentes reconocidas',norm:'S1',eq:'NIIF S2 §32'}
    ]},
   {letter:'C',src:'E',norm:'S1',para:'§51',ref:'NIIF S1 §51',
    text:'Objetivos de sostenibilidad',
    questions:[
-    {text:'¿La organización ha establecido objetivos cuantitativos y/o cualitativos de sostenibilidad, incluyendo cualquier objetivo requerido por ley o regulación?',para:'S1·§51',ref:'NIIF S1 §51 — Establecimiento de objetivos cuantitativos/cualitativos de sostenibilidad',norm:'S1',eq:'NIIF S2 §33'},
-    {text:'¿Para cada objetivo se revela: la métrica utilizada, el objetivo específico, el periodo de aplicación, el periodo base, los hitos intermedios, los resultados obtenidos y cualquier revisión del objetivo?',para:'S1·§51a-g',ref:'NIIF S1 §51a-g — Características completas de cada objetivo: métrica, periodo, base, hitos, resultados',norm:'S1',eq:'NIIF S2 §33a-h'}
+    {text:'¿La organización ha establecido objetivos cuantitativos y/o cualitativos de sostenibilidad, incluyendo cualquier objetivo requerido por ley o regulación?',para:'S1·§51',ref:'NIIF S1 §51 — Establecimiento de objetivos cuantitativos/cualitativos de sostenibilidad',norm:'S1',eq:'NIIF S2 §33'}
    ]}
  ]}
 ];
@@ -853,7 +791,7 @@ async function submitRegister() {
     fecha:new Date().toLocaleString('es-MX')};
   if(APPS_SCRIPT_URL!=='PEGA_TU_URL_AQUI'){
     document.getElementById('sending-overlay').classList.add('active');
-    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tipo:'registro',diagnostico:'NIIF '+NORMA,...userData})});}catch(e){}
+    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tipo:'registro',diagnostico:'NIIF '+NORMA,version:'inicial',mayor_de_edad:'Sí',...userData})});}catch(e){}
     document.getElementById('sending-overlay').classList.remove('active');
     document.getElementById('reg-ok').style.display='block';
     await delay(1000);
@@ -1054,82 +992,6 @@ async function showResults() {
     });
   });
 
-  // Detalle
-  const det=document.getElementById('detail-sections');
-  det.innerHTML='';
-  pillars.forEach((p,pi)=>{
-    const s=pillarScores[pi];
-    let rows='';
-    s.discScores.forEach(d=>{
-      d.questions.forEach(q=>{
-        const labels=['No/No aplica','En evaluación','Parcialmente','Implementado'];
-        const barPct=Math.round((q.val/3)*100);
-        const nb=q.norm==='S1'?`<span class="reg-badge reg-s1" style="font-size:.55rem;padding:.1rem .3rem">S1</span>`:
-                 q.norm==='S2'?`<span class="reg-badge reg-s2" style="font-size:.55rem;padding:.1rem .3rem">S2</span>`:
-                 `<span class="reg-badge reg-s1" style="font-size:.55rem;padding:.1rem .3rem;margin-right:2px">S1</span><span class="reg-badge reg-s2" style="font-size:.55rem;padding:.1rem .3rem">S2</span>`;
-        const commentHtml=q.comment?`<div class="detail-comment">💬 ${q.comment}</div>`:'';
-        rows+=`<div class="detail-row">
-          <span class="detail-code ${codeClass(pi)}" style="border-color:${p.color}40;color:${p.color}">${q.code}</span>
-          <div class="detail-q">
-            <div class="detail-qtext">${q.text}</div>
-            <div class="detail-qref">${nb} 📎 ${q.ref}</div>
-            ${q.eq?`<div class="detail-eq">También se relaciona con ${q.eq}</div>`:''}
-            ${commentHtml}
-          </div>
-          <div class="detail-ans">
-            <span class="ans-chip ans-${q.val}">${labels[q.val]}</span>
-            <div class="detail-bar"><div class="detail-fill" style="width:${barPct}%;background:${p.color}"></div></div>
-          </div>
-        </div>`;
-      });
-    });
-    det.innerHTML+=`<div class="detail-section">
-      <div class="detail-header" onclick="toggleDetail(this)">
-        <span style="font-size:1.1rem">${p.icon}</span>
-        <h3 style="font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-weight:600;color:${p.color};font-size:1.1rem;">${p.name}</h3>
-        <span class="nivel-tag ${getLevel(s.pct).lc}" style="margin-left:.5rem">${s.pct}%</span>
-        <span class="detail-toggle">▼</span>
-      </div>
-      <div class="detail-body">${rows}</div>
-    </div>`;
-  });
-
-  // Tabla índice
-  const tbody=document.getElementById('index-tbody');
-  tbody.innerHTML='';
-  const ansLabels=['✗ No (0)','◔ En eval. (1)','◑ Parcial (2)','✓ Impl. (3)'];
-  const ansColors=[['var(--lv0-bg)','var(--lv0)'],['var(--lv1-bg)','var(--lv1)'],['var(--lv2-bg)','var(--lv2)'],['var(--lv3-bg)','var(--lv3)']];
-  pillars.forEach((p,pi)=>{
-    tbody.innerHTML+=`<tr class="idx-group-header"><td colspan="6">${p.icon} PILAR ${pi+1}: ${p.id} — ${p.name.toUpperCase()} · Score: ${pillarScores[pi].pct}%</td></tr>`;
-    p.disclosures.forEach((d,di)=>{
-      const ds=pillarScores[pi].discScores[di];
-      const nl=d.norm==='S1'?'NIIF S1':d.norm==='S2'?'NIIF S2':'NIIF S1 + S2';
-      tbody.innerHTML+=`<tr class="idx-disc-header" style="background:${p.color}10">
-        <td style="background:${p.color};width:5px;padding:0"></td>
-        <td colspan="2" style="color:${p.color}"><strong>${p.id}·${d.letter}·${d.para}</strong> · ${nl} — ${d.text}</td>
-        <td style="color:${p.color};font-size:.68rem;font-style:italic">${d.ref}</td>
-        <td style="text-align:center;color:${p.color};font-weight:700">${ds.pct}%</td>
-        <td><div style="height:5px;background:var(--sand);border-radius:2px;overflow:hidden"><div style="height:100%;width:${ds.pct}%;background:${p.color};border-radius:2px"></div></div></td>
-      </tr>`;
-      d.questions.forEach((q,qi)=>{
-        const key=`${pi}-${di}-${qi}`;
-        const val=answers[key]||0;
-        const code=makeCode(p.id,d.letter,q.para,qi);
-        const barW=Math.round((val/3)*100);
-        const cmnt=comments[key]||'';
-        const cmntHtml=cmnt?`<div class="idx-comment">💬 ${cmnt}</div>`:'';
-        tbody.innerHTML+=`<tr>
-          <td class="idx-pillar-band" style="background:${p.color}50"></td>
-          <td><span class="idx-code ${codeClass(pi)}" style="border-color:${p.color}35">${code}</span></td>
-          <td class="idx-qtext">${q.text}${cmntHtml}</td>
-          <td class="idx-ref">${q.ref}${q.eq?`<div class="idx-eq">↔ ${q.eq}</div>`:''}</td>
-          <td class="idx-score" style="background:${ansColors[val][0]};color:${ansColors[val][1]}">${ansLabels[val]}</td>
-          <td><div class="idx-bar"><div class="idx-bar-fill" style="width:${barW}%;background:${p.color}"></div></div></td>
-        </tr>`;
-      });
-    });
-  });
-
   // ═══ PLAN DE ACCIÓN DOBLE ═══
   buildActionPlans(pillarScores, normPct);
 
@@ -1144,7 +1006,7 @@ async function showResults() {
       if(comments[key]) detail[`comt_${code}`]=comments[key];
     })));
     try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({tipo:'resultados',diagnostico:'NIIF '+NORMA,...userData,
+      body:JSON.stringify({tipo:'resultados',diagnostico:'NIIF '+NORMA,version:'inicial',...userData,
         score_global:overall+'%',nivel:level,niif_s1:normPct+'%',
         gobernanza:pillarScores[0].pct+'%',estrategia:pillarScores[1].pct+'%',
         gestion_riesgos:pillarScores[2].pct+'%',metricas_objetivos:pillarScores[3].pct+'%',
@@ -1254,7 +1116,9 @@ function buildNormPlan(norm, pct, lowItems) {
   };
 
   // Generar ítems del plan
-  Object.entries(byDisc).forEach(([grpKey,grp])=>{
+  // Versión inicial: las cuatro áreas con más brecha
+  const promedio=items=>items.reduce((t,i)=>t+i.val,0)/items.length;
+  Object.entries(byDisc).sort((x,y)=>promedio(x[1].items)-promedio(y[1].items)).slice(0,4).forEach(([grpKey,grp])=>{
     const priority=getPriority(grp.items);
     const pilLetter=grp.pilarName.includes('Gobernanza')?'GOB':grp.pilarName.includes('Estrategia')?'EST':grp.pilarName.includes('Riesgo')?'RIE':'MET';
     const discLetter=grp.items[0].code.split('·')[1];

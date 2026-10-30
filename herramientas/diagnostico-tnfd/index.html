@@ -5,16 +5,16 @@
 <script src="../../assets/marca/tema.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diagnóstico TNFD · Rubén Ponce</title>
+<title>Autodiagnóstico inicial TNFD · Rubén Ponce</title>
 <link rel="icon" href="../../assets/marca/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="../../assets/marca/favicon.svg">
 <link rel="apple-touch-icon" href="../../assets/marca/favicon-180.png">
 
 <meta name="theme-color" content="#1567B0">
-<meta name="description" content="Autodiagnóstico de madurez frente a TNFD v1.0: nivel por pilar, brechas y plan de acción, con la cita exacta de cada recomendación.">
+<meta name="description" content="Autodiagnóstico inicial frente a TNFD v1.0: nivel por pilar y primeros pasos, con la cita de cada recomendación.">
 <meta property="og:site_name" content="Rubén Ponce">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Diagnóstico TNFD · Rubén Ponce">
+<meta property="og:title" content="Autodiagnóstico inicial TNFD · Rubén Ponce">
 <meta property="og:description" content="Evalúa tu preparación frente a TNFD v1.0 y recibe un plan de acción por pilar.">
 <meta name="twitter:card" content="summary">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -482,13 +482,13 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
 
   <span class="intro-badge">TNFD v1.0 · recomendaciones publicadas en septiembre de 2023</span>
   <div class="intro-logo"><div class="logo-block"><span>T</span><span>N</span><span>F</span><span>D</span></div></div>
-  <h1 class="intro-title">Autodiagnóstico de<br>preparación <em>TNFD</em></h1>
-  <p class="intro-desc">Evalúa qué tan preparada está tu organización para divulgar sus dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza conforme al TNFD v1.0. Las 73 preguntas recorren los cuatro pilares y las 14 divulgaciones recomendadas; cada una cita el párrafo que la sustenta y admite un comentario. Al terminar ves tu nivel por pilar y un plan de acción para cada uno.</p>
+  <h1 class="intro-title">Autodiagnóstico inicial<br>de preparación <em>TNFD</em></h1>
+  <p class="intro-desc">Evalúa qué tan preparada está tu organización para divulgar sus dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza conforme al TNFD v1.0. Es un primer diagnóstico: una pregunta por cada una de las 14 divulgaciones recomendadas, sobre los requisitos centrales. Cada pregunta cita el párrafo que la sustenta y admite un comentario. Al terminar ves tu nivel por pilar y un primer paso para cada uno.</p>
   <div class="intro-stats">
     <div class="stat"><span class="stat-n">4</span><span class="stat-label">Pilares</span></div>
-    <div class="stat"><span class="stat-n">14</span><span class="stat-label">Áreas de Revelación</span></div>
-    <div class="stat"><span class="stat-n">73</span><span class="stat-label">Preguntas</span></div>
-    <div class="stat"><span class="stat-n">~20'</span><span class="stat-label">Duración</span></div>
+    <div class="stat"><span class="stat-n" id="stat-areas">—</span><span class="stat-label">Áreas de Revelación</span></div>
+    <div class="stat"><span class="stat-n" id="stat-preguntas">—</span><span class="stat-label">Preguntas</span></div>
+    <div class="stat"><span class="stat-n">~10'</span><span class="stat-label">Duración</span></div>
   </div>
   <div class="intro-frameworks">
     <span class="fw-tag">TNFD v1.0</span><span class="fw-tag">LEAP</span><span class="fw-tag">TCFD</span>
@@ -547,7 +547,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
     </div>
     <div class="register-privacy">
       <input type="checkbox" id="f-privacy" onchange="checkPrivacy()">
-      <span>Acepto que mis datos, respuestas y comentarios se guarden para este diagnóstico y que Rubén Ponce me envíe información sobre sostenibilidad, naturaleza y sus servicios de asesoría. No se comparten con terceros.</span>
+      <label for="f-privacy">Soy mayor de 18 años y acepto el <a href="../../privacidad/" target="_blank" rel="noopener">aviso de privacidad</a>. Mis datos, respuestas y comentarios se guardan para este diagnóstico y no se comparten con terceros.</label>
     </div>
     <button class="btn-register" id="btn-register" onclick="submitRegister()" disabled>Comenzar diagnóstico →</button>
     <div class="reg-msg reg-error" id="reg-error"></div>
@@ -586,7 +586,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
     <div class="rp-tema-esquina rp-tema-claro" data-rp-tema></div>
     <div class="results-hero-content">
       <div class="user-chip">👤 <strong id="chip-name">—</strong> · <span id="chip-empresa">—</span></div>
-      <span class="results-badge">Diagnóstico TNFD v1.0 completado</span>
+      <span class="results-badge">Autodiagnóstico inicial TNFD completado</span>
       <h1 class="results-title">Tu perfil de preparación TNFD</h1>
       <div class="results-level" id="r-level">—</div>
       <div class="results-score-big" id="r-score">—</div>
@@ -609,40 +609,7 @@ body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--fore
       <div class="heatmap-grid" id="heatmap-grid"></div>
     </div>
 
-    <h3 class="section-title">🔍 Detalle por pilar</h3>
-    <div id="detail-sections"></div>
-
-    <h3 class="section-title">📋 Índice de referencia — Preguntas × Párrafos TNFD v1.0</h3>
-    <div class="index-section">
-      <div class="index-header">
-        <h3>Tabla índice completa</h3>
-        <p>Todas las preguntas con su código, la referencia del TNFD v1.0, tu respuesta y tus comentarios. El código se lee: pilar · área · párrafo · número de pregunta.</p>
-      </div>
-      <div class="index-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv0)"></div>No implementado (0)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv1)"></div>En evaluación (1)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv2)"></div>Parcialmente (2)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv3)"></div>Implementado (3)</div>
-        <div class="legend-item" style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-light)">💬 = incluye comentario</div>
-      </div>
-      <div style="overflow-x:auto;">
-        <table class="index-table" id="index-table">
-          <thead>
-            <tr>
-              <th style="width:5px;padding:0"></th>
-              <th style="width:115px">Código</th>
-              <th>Pregunta y comentario</th>
-              <th style="width:220px">Referencia TNFD</th>
-              <th style="width:80px;text-align:center">Puntuación</th>
-              <th style="width:75px">Avance</th>
-            </tr>
-          </thead>
-          <tbody id="index-tbody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <h3 class="section-title">🎯 Plan de acción por pilar TNFD</h3>
+    <h3 class="section-title">🎯 Primeros pasos — TNFD</h3>
     <div class="action-plan-grid" id="action-plan-grid-1"></div>
     <div class="action-plan-grid" id="action-plan-grid-2"></div>
 
@@ -674,30 +641,17 @@ const pillars=[
   {letter:'A',para:'§28-35',ref:'TNFD v1.0 · Gobernanza Rec. A · §28-35',
    text:'Supervisión del consejo sobre dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza',
    questions:[
-    {text:'¿El consejo de administración tiene asignada formalmente —en mandatos o reglamentos internos— la responsabilidad de supervisar las cuestiones relacionadas con la naturaleza?',para:'§28a',ref:'Rec. Gobernanza A §28a — Estructuras y procesos de supervisión del consejo'},
-    {text:'¿Con qué frecuencia y bajo qué formato recibe el consejo información estructurada sobre dependencias, impactos y riesgos relacionados con la naturaleza (al menos anualmente)?',para:'§28b',ref:'Rec. Gobernanza A §28b — Frecuencia y contenido de la información al consejo'},
-    {text:'¿Existe un comité del consejo con mandato explícito que incluya supervisión de cuestiones de naturaleza y biodiversidad?',para:'§29',ref:'Rec. Gobernanza A §29 — Comités de supervisión específicos de naturaleza'},
-    {text:'¿El consejo considera las cuestiones de naturaleza al aprobar la estrategia corporativa, planes financieros y presupuestos de capital (CAPEX)?',para:'§30',ref:'Rec. Gobernanza A §30 — Integración de naturaleza en decisiones estratégicas del consejo'},
-    {text:'¿Existen KPIs de naturaleza vinculados a la remuneración variable de consejeros y/o altos directivos?',para:'§31',ref:'Rec. Gobernanza A §31 — Incentivos ligados a metas de naturaleza'},
-    {text:'¿El consejo ha recibido formación o cuenta con asesoría experta en naturaleza y biodiversidad para ejercer su función de supervisión?',para:'§32',ref:'Rec. Gobernanza A §32 — Competencias del consejo en naturaleza y biodiversidad'}
+    {text:'¿El consejo de administración tiene asignada formalmente —en mandatos o reglamentos internos— la responsabilidad de supervisar las cuestiones relacionadas con la naturaleza?',para:'§28a',ref:'Rec. Gobernanza A §28a — Estructuras y procesos de supervisión del consejo'}
    ]},
   {letter:'B',para:'§36-43',ref:'TNFD v1.0 · Gobernanza Rec. B · §36-43',
    text:'Papel de la dirección en el análisis y gestión de cuestiones relacionadas con la naturaleza',
    questions:[
-    {text:'¿Existe un cargo ejecutivo C-suite con responsabilidad explícita y documentada sobre cuestiones de naturaleza?',para:'§36',ref:'Rec. Gobernanza B §36 — Asignación de responsabilidades directivas'},
-    {text:'¿Existe un comité de gestión o grupo de trabajo interdisciplinario (finanzas, riesgos, operaciones, sostenibilidad) para abordar cuestiones de naturaleza?',para:'§37',ref:'Rec. Gobernanza B §37 — Estructuras de gestión interdisciplinarias'},
-    {text:'¿La dirección reporta periódicamente al consejo sobre el avance en identificación, análisis y gestión de cuestiones de naturaleza con información cuantitativa y cualitativa?',para:'§38',ref:'Rec. Gobernanza B §38 — Flujo de información dirección-consejo'},
-    {text:'¿Los procesos operativos de due diligence (adquisiciones, inversiones, desarrollo de productos) incluyen evaluación de riesgos de naturaleza?',para:'§39',ref:'Rec. Gobernanza B §39 — Integración en due diligence operativo'},
-    {text:'¿Existe un proceso de escalada claro y documentado para que los riesgos de naturaleza lleguen a la alta dirección y al consejo?',para:'§40',ref:'Rec. Gobernanza B §40 — Mecanismos de escalada de riesgos de naturaleza'}
+    {text:'¿Existe un cargo ejecutivo C-suite con responsabilidad explícita y documentada sobre cuestiones de naturaleza?',para:'§36',ref:'Rec. Gobernanza B §36 — Asignación de responsabilidades directivas'}
    ]},
   {letter:'C',para:'§44-55',ref:'TNFD v1.0 · Gobernanza Rec. C · §44-55',
    text:'Políticas de participación con derechos humanos, pueblos indígenas y comunidades locales respecto a la naturaleza',
    questions:[
-    {text:'¿La organización cuenta con una política formal de derechos humanos que aborde comunidades afectadas por actividades que impactan la naturaleza?',para:'§44',ref:'Rec. Gobernanza C §44 — Política de DDHH y naturaleza (UNGP, OCDE)'},
-    {text:'¿Se aplica el principio de Consentimiento Libre, Previo e Informado (CLPI/FPIC) en decisiones que afectan territorios o recursos de pueblos indígenas y comunidades locales (IPLC)?',para:'§46',ref:'Rec. Gobernanza C §46 — CLPI/FPIC conforme DNUDPI y Convenio 169 OIT'},
-    {text:'¿Se realizan Evaluaciones de Impacto Social y Ambiental (EISA) antes de proyectos que puedan afectar ecosistemas o comunidades que dependen de la naturaleza?',para:'§48',ref:'Rec. Gobernanza C §48 — EISA y procesos de participación preventiva'},
-    {text:'¿Existe un mecanismo formal y accesible de quejas para que comunidades locales planteen preocupaciones sobre impactos en la naturaleza?',para:'§50',ref:'Rec. Gobernanza C §50 — Mecanismos de reclamo (Principio Rector 31 UNGP)'},
-    {text:'¿La organización reporta públicamente sus procesos de participación con partes interesadas en temas de naturaleza, incluyendo los resultados obtenidos?',para:'§53',ref:'Rec. Gobernanza C §53 — Transparencia en procesos de participación con stakeholders'}
+    {text:'¿La organización cuenta con una política formal de derechos humanos que aborde comunidades afectadas por actividades que impactan la naturaleza?',para:'§44',ref:'Rec. Gobernanza C §44 — Política de DDHH y naturaleza (UNGP, OCDE)'}
    ]}
  ]},
 {id:'EST',name:'Estrategia',color:'#0F4A7F',colorClass:'p2',icon:'🗺',
@@ -708,38 +662,22 @@ const pillars=[
    text:'Dependencias, impactos, riesgos y oportunidades identificados a corto, mediano y largo plazo',
    questions:[
     {text:'¿La organización ha aplicado documentadamente el enfoque LEAP del TNFD (Localizar, Evaluar, Analizar, Prepararse) para identificar cuestiones de naturaleza materiales?',para:'§58',ref:'Rec. Estrategia A §58 — Aplicación del enfoque LEAP para análisis de materialidad'},
-    {text:'¿Se han identificado y documentado las principales dependencias de servicios ecosistémicos (agua, polinización, regulación del clima, formación del suelo) críticas para el negocio?',para:'§60',ref:'Rec. Estrategia A §60 — Identificación de dependencias de servicios ecosistémicos (ENCORE)'},
-    {text:'¿Se han evaluado los impactos sobre los 5 impulsores de cambio de biodiversidad (cambio de uso del suelo, sobreexplotación, cambio climático, contaminación, especies invasoras)?',para:'§62',ref:'Rec. Estrategia A §62 — Impulsores de impacto sobre biodiversidad (IPBES 2019)'},
-    {text:'¿Los riesgos de naturaleza se han clasificado en sus tres tipos: físicos (agudos y crónicos), de transición (regulatorio, mercado, reputacional) y sistémicos?',para:'§64',ref:'Rec. Estrategia A §64 — Tipología de riesgos relacionados con la naturaleza'},
-    {text:'¿Se han identificado oportunidades de negocio relacionadas con la naturaleza (soluciones basadas en naturaleza, economía circular, créditos de biodiversidad)?',para:'§67',ref:'Rec. Estrategia A §67 — Identificación de oportunidades nature-positive'},
-    {text:'¿El análisis cubre toda la cadena de valor (equivalente a Alcance 1, 2 y 3 para naturaleza), y no solo operaciones directas?',para:'§69',ref:'Rec. Estrategia A §69 — Cobertura de la cadena de valor en el análisis LEAP'}
+    {text:'¿Se han identificado y documentado las principales dependencias de servicios ecosistémicos (agua, polinización, regulación del clima, formación del suelo) críticas para el negocio?',para:'§60',ref:'Rec. Estrategia A §60 — Identificación de dependencias de servicios ecosistémicos (ENCORE)'}
    ]},
   {letter:'B',para:'§71-82',ref:'TNFD v1.0 · Estrategia Rec. B · §71-82',
    text:'Efectos sobre el modelo de negocio, cadena de valor, estrategia y planificación financiera',
    questions:[
-    {text:'¿Se han cuantificado financieramente (al menos de forma estimada) los riesgos de naturaleza materiales y su potencial impacto en ingresos, costos, activos o acceso a capital?',para:'§71',ref:'Rec. Estrategia B §71 — Cuantificación financiera de riesgos de naturaleza'},
-    {text:'¿Los planes de negocio multianuales y presupuestos corporativos reflejan explícitamente los riesgos y oportunidades de naturaleza identificados?',para:'§73',ref:'Rec. Estrategia B §73 — Integración de naturaleza en planificación financiera'},
-    {text:'¿La organización ha desarrollado o está desarrollando un plan de transición hacia un modelo nature-positive, con hitos y compromisos concretos?',para:'§75',ref:'Rec. Estrategia B §75 — Planes de transición nature-positive'},
-    {text:'¿Se han identificado cambios en el modelo de negocio requeridos por regulaciones emergentes (CSRD/ESRS E4, Meta 15 GBF, Reglamento UE de deforestación)?',para:'§77',ref:'Rec. Estrategia B §77 — Implicaciones de regulaciones emergentes de naturaleza'},
-    {text:'¿Las decisiones de inversión de capital (CAPEX) y M&A consideran explícitamente los riesgos y oportunidades de naturaleza como criterio de evaluación?',para:'§80',ref:'Rec. Estrategia B §80 — Integración de naturaleza en CAPEX y M&A'}
+    {text:'¿Se han cuantificado financieramente (al menos de forma estimada) los riesgos de naturaleza materiales y su potencial impacto en ingresos, costos, activos o acceso a capital?',para:'§71',ref:'Rec. Estrategia B §71 — Cuantificación financiera de riesgos de naturaleza'}
    ]},
   {letter:'C',para:'§83-95',ref:'TNFD v1.0 · Estrategia Rec. C · §83-95',
    text:'Resiliencia de la estrategia organizacional ante diferentes escenarios de naturaleza',
    questions:[
-    {text:'¿La organización ha desarrollado escenarios de naturaleza cuantitativos o cualitativos con horizontes temporales de corto, mediano y largo plazo?',para:'§83',ref:'Rec. Estrategia C §83 — Desarrollo de escenarios de naturaleza con horizontes temporales'},
-    {text:'¿Los escenarios contemplan al menos dos trayectorias: alta pérdida de naturaleza (BAU) y transición hacia economía nature-positive?',para:'§86',ref:'Rec. Estrategia C §86 — Escenarios contrastados: alta pérdida de naturaleza vs. nature-positive'},
-    {text:'¿El análisis de escenarios de naturaleza está integrado y es coherente con el análisis de escenarios climáticos TCFD para una visión conjunta clima-naturaleza?',para:'§89',ref:'Rec. Estrategia C §89 — Integración de escenarios naturaleza-clima (TCFD alignment)'},
-    {text:'¿Los resultados del análisis de escenarios son comunicados al consejo y utilizados activamente en decisiones estratégicas y de inversión?',para:'§91',ref:'Rec. Estrategia C §91 — Uso de escenarios en toma de decisiones estratégicas'},
-    {text:'¿El proceso de análisis de escenarios involucra expertos externos independientes (ecólogos, científicos de biodiversidad, economistas ambientales)?',para:'§94',ref:'Rec. Estrategia C §94 — Participación de expertos externos en análisis de escenarios'}
+    {text:'¿La organización ha desarrollado escenarios de naturaleza cuantitativos o cualitativos con horizontes temporales de corto, mediano y largo plazo?',para:'§83',ref:'Rec. Estrategia C §83 — Desarrollo de escenarios de naturaleza con horizontes temporales'}
    ]},
   {letter:'D',para:'§96-108',ref:'TNFD v1.0 · Estrategia Rec. D · §96-108',
    text:'Sitios prioritarios con activos o actividades en operaciones directas y cadena de valor',
    questions:[
-    {text:'¿Se han georeferenciado todos los sitios de operación directa que interactúan con ecosistemas, incluyendo proximidad a áreas de alta biodiversidad o estrés hídrico?',para:'§96',ref:'Rec. Estrategia D §96 — Identificación y georreferenciación de sitios de operación directa'},
-    {text:'¿Se ha aplicado screening de biodiversidad por ubicación usando herramientas reconocidas (IBAT, WRI Aqueduct, ENCORE, SBTN Freshwater Tool, Global Forest Watch)?',para:'§99',ref:'Rec. Estrategia D §99 — Herramientas de screening de biodiversidad por ubicación (Catálogo TNFD)'},
-    {text:'¿Se han identificado y priorizado sitios en la cadena de valor aguas arriba considerando biomas críticos (bosques tropicales, humedales, arrecifes de coral)?',para:'§101',ref:'Rec. Estrategia D §101 — Sitios prioritarios en cadena de valor aguas arriba'},
-    {text:'¿Los sitios prioritarios se divulgan con información de ubicación (país, región o coordenadas) con nivel de precisión adecuado y justificado?',para:'§104',ref:'Rec. Estrategia D §104 — Divulgación de sitios prioritarios con información geoespacial'},
-    {text:'¿Existe un sistema de monitoreo continuo del estado de los ecosistemas en los sitios prioritarios, con indicadores de alerta temprana?',para:'§107',ref:'Rec. Estrategia D §107 — Monitoreo continuo del estado de ecosistemas en sitios prioritarios'}
+    {text:'¿Se han georeferenciado todos los sitios de operación directa que interactúan con ecosistemas, incluyendo proximidad a áreas de alta biodiversidad o estrés hídrico?',para:'§96',ref:'Rec. Estrategia D §96 — Identificación y georreferenciación de sitios de operación directa'}
    ]}
  ]},
 {id:'RIE',name:'Gestión de Riesgos e Impactos',color:'#4D6B1F',colorClass:'p3',icon:'⚖️',
@@ -749,38 +687,22 @@ const pillars=[
   {letter:'A(i)',para:'§112-122',ref:'TNFD v1.0 · Riesgos Rec. A(i) · §112-122',
    text:'Procesos para identificar, analizar y priorizar en operaciones directas',
    questions:[
-    {text:'¿Existe una metodología formal y documentada (basada en LEAP, ENCORE o equivalente) para evaluar dependencias e impactos de naturaleza en operaciones directas?',para:'§112',ref:'Rec. Riesgos A(i) §112 — Metodología documentada para evaluación en operaciones directas'},
-    {text:'¿La evaluación incluye análisis de materialidad con criterios y umbrales definidos (financiero, reputacional, regulatorio)?',para:'§115',ref:'Rec. Riesgos A(i) §115 — Análisis de materialidad con umbrales definidos'},
-    {text:'¿Se realizan Evaluaciones de Impacto sobre Biodiversidad (BIA) para proyectos de expansión, construcción o cambio de uso del suelo?',para:'§117',ref:'Rec. Riesgos A(i) §117 — BIA para proyectos con impacto en biodiversidad'},
-    {text:'¿Los resultados de la evaluación de naturaleza en operaciones directas se documentan formalmente y alimentan el registro corporativo de riesgos?',para:'§119',ref:'Rec. Riesgos A(i) §119 — Integración de resultados en registro de riesgos corporativo'},
-    {text:'¿La frecuencia de revisión y actualización del proceso de evaluación está definida (ej. anual) y se cumple de forma verificable?',para:'§121',ref:'Rec. Riesgos A(i) §121 — Periodicidad y gobernanza del proceso de evaluación'}
+    {text:'¿Existe una metodología formal y documentada (basada en LEAP, ENCORE o equivalente) para evaluar dependencias e impactos de naturaleza en operaciones directas?',para:'§112',ref:'Rec. Riesgos A(i) §112 — Metodología documentada para evaluación en operaciones directas'}
    ]},
   {letter:'A(ii)',para:'§123-134',ref:'TNFD v1.0 · Riesgos Rec. A(ii) · §123-134',
    text:'Procesos para identificar, analizar y priorizar en la cadena de valor',
    questions:[
-    {text:'¿Existe due diligence de naturaleza para la selección, evaluación y monitoreo de proveedores estratégicos, considerando sus impactos sobre ecosistemas?',para:'§123',ref:'Rec. Riesgos A(ii) §123 — Due diligence de naturaleza en gestión de proveedores'},
-    {text:'¿Se han identificado los commodities de alto impacto sobre la biodiversidad en la cadena de suministro (usando la Lista de Commodities de Alto Impacto SBTN)?',para:'§126',ref:'Rec. Riesgos A(ii) §126 — Commodities de alto impacto (SBTN High Impact Commodity List)'},
-    {text:'¿La organización recopila datos primarios de proveedores sobre sus impactos y dependencias de naturaleza, o se basa exclusivamente en datos secundarios?',para:'§129',ref:'Rec. Riesgos A(ii) §129 — Calidad de datos en cadena de valor: primarios vs. secundarios'},
-    {text:'¿Existe priorización de proveedores basada en perfil de riesgo de naturaleza (sector, bioma, ubicación, commodities) con planes diferenciados?',para:'§131',ref:'Rec. Riesgos A(ii) §131 — Priorización de proveedores por riesgo de naturaleza'},
-    {text:'¿Se establecen requisitos contractuales, cláusulas ambientales o códigos de conducta de naturaleza en contratos con proveedores de alto impacto?',para:'§133',ref:'Rec. Riesgos A(ii) §133 — Requisitos contractuales de naturaleza con proveedores'}
+    {text:'¿Existe due diligence de naturaleza para la selección, evaluación y monitoreo de proveedores estratégicos, considerando sus impactos sobre ecosistemas?',para:'§123',ref:'Rec. Riesgos A(ii) §123 — Due diligence de naturaleza en gestión de proveedores'}
    ]},
   {letter:'B',para:'§135-147',ref:'TNFD v1.0 · Riesgos Rec. B · §135-147',
    text:'Procesos para gestionar dependencias, impactos, riesgos y oportunidades',
    questions:[
-    {text:'¿La organización ha adoptado formalmente la jerarquía de mitigación de impactos de naturaleza (evitar → minimizar → restaurar → compensar) como política interna?',para:'§135',ref:'Rec. Riesgos B §135 — Jerarquía de mitigación de impactos (mitigation hierarchy)'},
-    {text:'¿Los planes de gestión de riesgos y oportunidades de naturaleza tienen responsables, plazos, presupuestos y métricas de seguimiento?',para:'§138',ref:'Rec. Riesgos B §138 — Planes de gestión con responsables, plazos y presupuestos'},
-    {text:'¿La organización ha adoptado el principio de No Pérdida Neta de Biodiversidad (No Net Loss) o Ganancia Neta (Net Gain) en sus operaciones e inversiones?',para:'§141',ref:'Rec. Riesgos B §141 — Política de No Net Loss / Net Gain de biodiversidad'},
-    {text:'¿Existen políticas sectoriales específicas de naturaleza implementadas (deforestación cero, gestión del agua, uso de químicos, residuos)?',para:'§143',ref:'Rec. Riesgos B §143 — Políticas sectoriales específicas de naturaleza'},
-    {text:'¿Las medidas de gestión se revisan periódicamente según indicadores de efectividad y se ajustan en caso de incumplimiento?',para:'§146',ref:'Rec. Riesgos B §146 — Revisión periódica de efectividad de medidas de gestión'}
+    {text:'¿La organización ha adoptado formalmente la jerarquía de mitigación de impactos de naturaleza (evitar → minimizar → restaurar → compensar) como política interna?',para:'§135',ref:'Rec. Riesgos B §135 — Jerarquía de mitigación de impactos (mitigation hierarchy)'}
    ]},
   {letter:'C',para:'§148-158',ref:'TNFD v1.0 · Riesgos Rec. C · §148-158',
    text:'Integración de los procesos de naturaleza en la gestión general de riesgos de la organización',
    questions:[
-    {text:'¿El Marco ERM de la organización incluye explícitamente categorías de riesgos de naturaleza con definiciones, criterios de valoración y procedimientos?',para:'§148',ref:'Rec. Riesgos C §148 — Integración de naturaleza en ERM corporativo'},
-    {text:'¿Los riesgos de naturaleza se evalúan con la misma metodología de probabilidad-impacto que otros riesgos corporativos, permitiendo comparación y priorización conjunta?',para:'§151',ref:'Rec. Riesgos C §151 — Homologación metodológica ERM: naturaleza vs. otros riesgos corporativos'},
-    {text:'¿Existe coordinación formal documentada entre las funciones de gestión de riesgos y de sostenibilidad/medioambiente para las cuestiones de naturaleza?',para:'§153',ref:'Rec. Riesgos C §153 — Coordinación formal entre riesgos y sostenibilidad/medioambiente'},
-    {text:'¿Los riesgos de naturaleza se incluyen en los informes regulares de riesgos presentados a la alta dirección, comité de auditoría y consejo?',para:'§155',ref:'Rec. Riesgos C §155 — Reporte de riesgos de naturaleza a dirección y consejo'},
-    {text:'¿La organización realiza pruebas de estrés (stress testing) o análisis de sensibilidad financiera ante escenarios de pérdida o degradación severa de ecosistemas?',para:'§157',ref:'Rec. Riesgos C §157 — Stress testing financiero ante pérdida de naturaleza'}
+    {text:'¿El Marco ERM de la organización incluye explícitamente categorías de riesgos de naturaleza con definiciones, criterios de valoración y procedimientos?',para:'§148',ref:'Rec. Riesgos C §148 — Integración de naturaleza en ERM corporativo'}
    ]}
  ]},
 {id:'MET',name:'Métricas y Objetivos',color:'#5B4B8B',colorClass:'p4',icon:'📊',
@@ -790,30 +712,17 @@ const pillars=[
   {letter:'A',para:'§162-174',ref:'TNFD v1.0 · Métricas Rec. A · §162-174',
    text:'Métricas para analizar y gestionar riesgos y oportunidades materiales relacionados con la naturaleza',
    questions:[
-    {text:'¿La organización utiliza las métricas principales (core metrics) del TNFD para riesgos y oportunidades, o métricas equivalentes de marcos reconocidos (CSRD/ESRS E4, GBF)?',para:'§162',ref:'Rec. Métricas A §162 — Core metrics TNFD para riesgos y oportunidades de naturaleza'},
-    {text:'¿Se estima la exposición financiera a riesgos de naturaleza (% de ingresos, EBITDA o activos expuestos a riesgos físicos de alta materialidad)?',para:'§165',ref:'Rec. Métricas A §165 — Exposición financiera a riesgos de naturaleza (Value at Risk)'},
-    {text:'¿Las métricas de riesgo y oportunidad de naturaleza se desglosan por geografía, unidad de negocio, clase de activo o tipo de riesgo?',para:'§168',ref:'Rec. Métricas A §168 — Desagregación de métricas por geografía y unidad de negocio'},
-    {text:'¿Las métricas de naturaleza son verificadas, auditadas o aseguradas externamente (limited o reasonable assurance) por un tercero independiente?',para:'§171',ref:'Rec. Métricas A §171 — Verificación externa (assurance) de métricas de naturaleza'},
-    {text:'¿Las métricas de naturaleza se reportan bajo el mismo ciclo y canales que los reportes financieros corporativos (informe anual, reporte ESG integrado)?',para:'§173',ref:'Rec. Métricas A §173 — Integración de métricas de naturaleza en reporte financiero corporativo'}
+    {text:'¿La organización utiliza las métricas principales (core metrics) del TNFD para riesgos y oportunidades, o métricas equivalentes de marcos reconocidos (CSRD/ESRS E4, GBF)?',para:'§162',ref:'Rec. Métricas A §162 — Core metrics TNFD para riesgos y oportunidades de naturaleza'}
    ]},
   {letter:'B',para:'§175-192',ref:'TNFD v1.0 · Métricas Rec. B · §175-192',
    text:'Métricas para analizar y gestionar dependencias e impactos sobre la naturaleza',
    questions:[
-    {text:'¿La organización mide y reporta el consumo de agua (m³) desglosado por fuente, calidad y estrés hídrico de las cuencas afectadas, en operaciones directas y cadena de valor?',para:'§175',ref:'Rec. Métricas B §175 — Métricas de agua: consumo y estrés hídrico (GRI 303, CDP Water)'},
-    {text:'¿Se cuantifica y reporta la huella de uso del suelo (ha) y el cambio de uso del suelo asociados a las operaciones e inversiones de la organización?',para:'§178',ref:'Rec. Métricas B §178 — Métricas de uso del suelo y cambio de uso (LUC)'},
-    {text:'¿Se monitorean y reportan métricas de contaminación con impacto en ecosistemas (cargas de nitrógeno, fósforo, químicos, plásticos en el entorno natural)?',para:'§181',ref:'Rec. Métricas B §181 — Métricas de contaminación con impacto en ecosistemas'},
-    {text:'¿Se reportan métricas del estado de los ecosistemas en sitios prioritarios (índice de integridad del ecosistema, cobertura vegetal, calidad del hábitat)?',para:'§184',ref:'Rec. Métricas B §184 — Métricas de estado de ecosistemas en sitios prioritarios (BHI, EII)'},
-    {text:'¿Se utilizan métricas cuantitativas de biodiversidad basadas en ciencia (Mean Species Abundance —MSA, Biodiversity Intactness Index —BII, PDF)?',para:'§187',ref:'Rec. Métricas B §187 — Métricas cuantitativas de biodiversidad (MSA, BII, PDF)'},
-    {text:'¿Las métricas de impacto cubren tanto impactos negativos (degradación) como positivos (restauración de ecosistemas, reforestación, proyectos de conservación)?',para:'§190',ref:'Rec. Métricas B §190 — Balance de impactos positivos y negativos sobre la naturaleza'}
+    {text:'¿La organización mide y reporta el consumo de agua (m³) desglosado por fuente, calidad y estrés hídrico de las cuencas afectadas, en operaciones directas y cadena de valor?',para:'§175',ref:'Rec. Métricas B §175 — Métricas de agua: consumo y estrés hídrico (GRI 303, CDP Water)'}
    ]},
   {letter:'C',para:'§193-208',ref:'TNFD v1.0 · Métricas Rec. C · §193-208',
    text:'Objetivos y metas para gestionar dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza',
    questions:[
-    {text:'¿La organización ha establecido objetivos formales de naturaleza con horizonte temporal definido, vinculados a sus impactos y dependencias materiales identificados?',para:'§193',ref:'Rec. Métricas C §193 — Establecimiento de objetivos formales de naturaleza con horizonte temporal'},
-    {text:'¿Los objetivos están alineados con las metas del Marco Mundial de Biodiversidad de Kunming-Montreal (GBF 2030), en particular la Meta 15 sobre divulgación corporativa?',para:'§196',ref:'Rec. Métricas C §196 — Alineación con GBF Kunming-Montreal, Meta 15 y 30x30'},
-    {text:'¿La organización está desarrollando o ha establecido Science Based Targets for Nature (SBTN) en las áreas de agua dulce, uso del suelo, mar u océanos?',para:'§199',ref:'Rec. Métricas C §199 — Science Based Targets for Nature (SBTN v1)'},
-    {text:'¿Existe un sistema de monitoreo, reporte y verificación (MRV) periódico del avance hacia los objetivos de naturaleza, con indicadores de progreso y mecanismos de corrección?',para:'§202',ref:'Rec. Métricas C §202 — Sistema MRV para monitoreo de objetivos de naturaleza'},
-    {text:'¿Los objetivos de naturaleza están integrados con los objetivos climáticos (net zero, TCFD) en una estrategia conjunta clima-naturaleza, evitando trade-offs negativos?',para:'§206',ref:'Rec. Métricas C §206 — Integración clima-naturaleza: net zero y objetivos SBTN coherentes'}
+    {text:'¿La organización ha establecido objetivos formales de naturaleza con horizonte temporal definido, vinculados a sus impactos y dependencias materiales identificados?',para:'§193',ref:'Rec. Métricas C §193 — Establecimiento de objetivos formales de naturaleza con horizonte temporal'}
    ]}
  ]}
 ];
@@ -847,7 +756,7 @@ async function submitRegister(){
     fecha:new Date().toLocaleString('es-MX')};
   if(APPS_SCRIPT_URL!=='PEGA_TU_URL_AQUI'){
     document.getElementById('sending-overlay').classList.add('active');
-    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tipo:'registro',...userData})});}catch(e){}
+    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tipo:'registro',version:'inicial',mayor_de_edad:'Sí',...userData})});}catch(e){}
     document.getElementById('sending-overlay').classList.remove('active');
     document.getElementById('reg-ok').style.display='block';
     await delay(1000);
@@ -1031,77 +940,6 @@ async function showResults(){
     });
   });
 
-  // Detalle
-  const det=document.getElementById('detail-sections');
-  det.innerHTML='';
-  pillars.forEach((p,pi)=>{
-    const s=pillarScores[pi];
-    let rows='';
-    s.discScores.forEach(d=>{
-      d.questions.forEach(q=>{
-        const labels=['No/No aplica','En evaluación','Parcialmente','Implementado'];
-        const barPct=Math.round((q.val/3)*100);
-        const commentHtml=q.comment?`<div class="detail-comment">💬 ${q.comment}</div>`:'';
-        rows+=`<div class="detail-row">
-          <span class="detail-code ${codeClass(pi)}" style="border-color:${p.color}40;color:${p.color}">${q.code}</span>
-          <div class="detail-q">
-            <div class="detail-qtext">${q.text}</div>
-            <div class="detail-qref">📎 ${q.ref}</div>
-            ${commentHtml}
-          </div>
-          <div class="detail-ans">
-            <span class="ans-chip ans-${q.val}">${labels[q.val]}</span>
-            <div class="detail-bar"><div class="detail-fill" style="width:${barPct}%;background:${p.color}"></div></div>
-          </div>
-        </div>`;
-      });
-    });
-    det.innerHTML+=`<div class="detail-section">
-      <div class="detail-header" onclick="toggleDetail(this)">
-        <span style="font-size:1.1rem">${p.icon}</span>
-        <h3 style="font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-weight:600;color:${p.color};font-size:1.1rem;">${p.name}</h3>
-        <span class="nivel-tag ${getLevel(s.pct).lc}" style="margin-left:.5rem">${s.pct}%</span>
-        <span class="detail-toggle">▼</span>
-      </div>
-      <div class="detail-body">${rows}</div>
-    </div>`;
-  });
-
-  // Tabla índice
-  const tbody=document.getElementById('index-tbody');
-  tbody.innerHTML='';
-  const ansLabels=['✗ No (0)','◔ En eval. (1)','◑ Parcial (2)','✓ Impl. (3)'];
-  const ansColors=[['var(--lv0-bg)','var(--lv0)'],['var(--lv1-bg)','var(--lv1)'],['var(--lv2-bg)','var(--lv2)'],['var(--lv3-bg)','var(--lv3)']];
-  pillars.forEach((p,pi)=>{
-    tbody.innerHTML+=`<tr class="idx-group-header"><td colspan="6">${p.icon} PILAR ${pi+1}: ${p.id} — ${p.name.toUpperCase()} · Score: ${pillarScores[pi].pct}%</td></tr>`;
-    p.disclosures.forEach((d,di)=>{
-      const ds=pillarScores[pi].discScores[di];
-      tbody.innerHTML+=`<tr class="idx-disc-header" style="background:${p.color}10">
-        <td style="background:${p.color};width:5px;padding:0"></td>
-        <td colspan="2" style="color:${p.color}"><strong>${p.id}·${d.letter}·${d.para}</strong> — ${d.text}</td>
-        <td style="color:${p.color};font-size:.68rem;font-style:italic">${d.ref}</td>
-        <td style="text-align:center;color:${p.color};font-weight:700">${ds.pct}%</td>
-        <td><div style="height:5px;background:var(--sand);border-radius:2px;overflow:hidden"><div style="height:100%;width:${ds.pct}%;background:${p.color};border-radius:2px"></div></div></td>
-      </tr>`;
-      d.questions.forEach((q,qi)=>{
-        const key=`${pi}-${di}-${qi}`;
-        const val=answers[key]||0;
-        const code=makeCode(p.id,d.letter,q.para,qi);
-        const barW=Math.round((val/3)*100);
-        const cmnt=comments[key]||'';
-        const cmntHtml=cmnt?`<div class="idx-comment">💬 ${cmnt}</div>`:'';
-        tbody.innerHTML+=`<tr>
-          <td class="idx-pillar-band" style="background:${p.color}50"></td>
-          <td><span class="idx-code ${codeClass(pi)}" style="border-color:${p.color}35">${code}</span></td>
-          <td class="idx-qtext">${q.text}${cmntHtml}</td>
-          <td class="idx-ref">${q.ref}</td>
-          <td class="idx-score" style="background:${ansColors[val][0]};color:${ansColors[val][1]}">${ansLabels[val]}</td>
-          <td><div class="idx-bar"><div class="idx-bar-fill" style="width:${barW}%;background:${p.color}"></div></div></td>
-        </tr>`;
-      });
-    });
-  });
-
   // ═══ PLANES DE ACCIÓN POR PILAR ═══
   buildActionPlans(pillarScores, overall);
 
@@ -1115,7 +953,7 @@ async function showResults(){
       if(comments[key])detail[`comt_${code}`]=comments[key];
     })));
     try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({tipo:'resultados',...userData,
+      body:JSON.stringify({tipo:'resultados',version:'inicial',...userData,
         score_global:overall+'%',nivel:level,
         gobernanza:pillarScores[0].pct+'%',estrategia:pillarScores[1].pct+'%',
         gestion_riesgos:pillarScores[2].pct+'%',metricas_objetivos:pillarScores[3].pct+'%',
@@ -1138,6 +976,10 @@ function buildActionPlans(pillarScores, overall){
     });
   });
 }
+
+// Versión inicial: un paso por pilar, el del área con más brecha
+function promedio(items){return items.reduce((t,i)=>t+i.val,0)/items.length;}
+function primerasOraciones(txt,n){if(!txt)return txt;const o=txt.match(/[^.]+(?:\.(?=\s|$)|$)/g)||[txt];return o.slice(0,n).join('').trim();}
 
 function buildPillarPlan(p,pi,s){
   // Recopilar preguntas con val < 2
@@ -1199,9 +1041,9 @@ function buildPillarPlan(p,pi,s){
   });
 
   let itemsHtml='';
-  Object.entries(byArea).forEach(([letter,grp])=>{
+  Object.entries(byArea).sort((x,y)=>promedio(x[1].items)-promedio(y[1].items)).slice(0,1).forEach(([letter,grp])=>{
     const priority=getPriority(grp.items);
-    const actionText=(actionMap[p.id]||{})[letter];
+    const actionText=primerasOraciones((actionMap[p.id]||{})[letter],2);
     const paraRefs=[...new Set(grp.items.map(i=>i.para))].slice(0,4);
     const refsHtml=paraRefs.map(pr=>`<span class="para-ref">§${pr}</span>`).join('');
     itemsHtml+=`<div class="plan-item">
@@ -1276,6 +1118,8 @@ function restartQuiz(){
   document.getElementById('screen-intro').style.display='flex';
 }
 function delay(ms){return new Promise(r=>setTimeout(r,ms));}
+document.getElementById('stat-areas').textContent=pillars.reduce((t,p)=>t+p.disclosures.length,0);
+document.getElementById('stat-preguntas').textContent=pillars.reduce((t,p)=>t+p.disclosures.reduce((u,d)=>u+d.questions.length,0),0);
 </script>
 </body>
 </html>
