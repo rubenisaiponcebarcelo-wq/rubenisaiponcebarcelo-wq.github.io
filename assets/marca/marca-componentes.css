@@ -2,6 +2,7 @@
    MARCA RUBÉN PONCE · Componentes base
    Requiere marca.tokens.css cargado antes.
    v2.0 · 2026-10-29 · componentes tomados de la landing publicada
+   Funcionan en modo claro y oscuro: se escriben contra los alias de marca.tokens.css.
    ============================================================================ */
 
 /* ---- Reset mínimo --------------------------------------------------------- */
@@ -17,7 +18,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 img,svg,video{display:block;max-width:100%;}
-a{color:var(--rp-azul);}
+a{color:var(--rp-enlace);}
 ::selection{background:var(--rp-azul);color:var(--rp-blanco);}
 :focus-visible{outline:2px solid var(--rp-azul);outline-offset:3px;border-radius:2px;}
 
@@ -51,26 +52,28 @@ p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
   color:var(--rp-texto-2);
   margin:0 0 var(--rp-e-3);
 }
-.rp-guia-acento{color:var(--rp-azul);}
+.rp-guia-acento{color:var(--rp-enlace);}
 .rp-entradilla{font-size:var(--rp-t-18);color:var(--rp-texto-2);}
 .rp-pie{font-size:var(--rp-t-12);color:var(--rp-texto-2);}
 
 /* ---- Marca ---------------------------------------------------------------- */
-.rp-marca{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--rp-tinta);}
+.rp-marca{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--rp-texto);}
 .rp-marca svg,.rp-marca img{width:27px;height:27px;flex:none;}
+/* En modo oscuro el isotipo azul pasa a blanco (regla de uso del logo sobre fondo oscuro) */
+[data-theme="dark"] .rp-marca img[src*="isotipo-azul"]{filter:brightness(0) invert(1);}
 .rp-marca-nombre{font-family:var(--rp-fuente-display);font-weight:var(--rp-peso-fuerte);font-size:17px;letter-spacing:-.01em;}
 
 /* ---- Cabecera fija (la de la landing) -------------------------------------- */
 .rp-cabecera{
   position:sticky;top:0;z-index:50;
-  background:rgba(251,252,254,.82);
+  background:var(--rp-cabecera);
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--rp-linea);
+  border-bottom:1px solid var(--rp-borde);
 }
 .rp-cabecera-fila{display:flex;align-items:center;justify-content:space-between;gap:var(--rp-e-4);min-height:64px;}
 
 /* ---- Banda azul (hero de landing y portada de herramienta) ----------------- */
-.rp-banda{background:var(--rp-azul);color:var(--rp-blanco);}
+.rp-banda{background:var(--rp-banda);color:var(--rp-blanco);}
 .rp-banda h1,.rp-banda h2,.rp-banda h3{color:var(--rp-blanco);}
 .rp-banda p{color:var(--rp-azul-tenue);}
 .rp-banda strong{color:var(--rp-blanco);}
@@ -91,7 +94,7 @@ p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
 .rp-btn:disabled,.rp-btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed;transform:none;}
 .rp-btn-primario{background:var(--rp-azul);color:var(--rp-blanco);}
 .rp-btn-primario:hover{background:var(--rp-azul-profundo);}
-.rp-btn-contorno{background:transparent;color:var(--rp-azul);border-color:var(--rp-azul);padding:10px 18px;font-size:14px;}
+.rp-btn-contorno{background:transparent;color:var(--rp-enlace);border-color:var(--rp-enlace);padding:10px 18px;font-size:14px;}
 .rp-btn-contorno:hover{background:var(--rp-azul);color:var(--rp-blanco);}
 .rp-btn-blanco{background:var(--rp-blanco);color:var(--rp-azul);}          /* sobre banda azul */
 .rp-btn-blanco:hover{transform:translateY(-2px);box-shadow:var(--rp-sombra-boton);}
@@ -105,13 +108,13 @@ p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
 .rp-chip{
   display:inline-flex;align-items:center;gap:6px;
   padding:8px 14px;border-radius:var(--rp-radio-pastilla);
-  background:var(--rp-azul-aire);color:var(--rp-tinta-media);
+  background:var(--rp-acento-aire);color:var(--rp-texto-2);
   font-size:13px;font-weight:var(--rp-peso-medio);line-height:1.3;
 }
-.rp-chip-contorno{background:var(--rp-papel-alt);border:1px solid var(--rp-linea);}
+.rp-chip-contorno{background:var(--rp-superficie-2);border:1px solid var(--rp-borde);}
 
 /* ---- Estado: activa / próximamente ------------------------------------------ */
-.rp-punto{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:var(--rp-peso-medio);color:var(--rp-tinta-media);}
+.rp-punto{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:var(--rp-peso-medio);color:var(--rp-texto-2);}
 .rp-punto::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--rp-azul);}
 .rp-punto-apagado::before{background:var(--rp-gris-apagado);}
 
@@ -122,43 +125,43 @@ p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
   border-radius:var(--rp-radio-l);
   padding:var(--rp-e-6);
 }
-.rp-tarjeta-destacada{background:var(--rp-azul-aire);border-color:transparent;}
+.rp-tarjeta-destacada{background:var(--rp-acento-aire);border-color:transparent;}
 .rp-tarjeta-titulo{font-family:var(--rp-fuente-display);font-size:var(--rp-t-24);font-weight:var(--rp-peso-fuerte);margin:0 0 var(--rp-e-2);}
 
 /* ---- Lista índice (filas separadas por línea, como el catálogo) -------------- */
-.rp-indice{border-top:1px solid var(--rp-linea);}
-.rp-indice > *{border-bottom:1px solid var(--rp-linea);padding:16px 0;transition:background var(--rp-dur-rapida) var(--rp-ease);}
+.rp-indice{border-top:1px solid var(--rp-borde);}
+.rp-indice > *{border-bottom:1px solid var(--rp-borde);padding:16px 0;transition:background var(--rp-dur-rapida) var(--rp-ease);}
 .rp-indice > *:hover{background:rgba(21,103,176,.035);}
 
 /* ---- Paso numerado (línea azul de 36px arriba) ------------------------------- */
 .rp-paso{position:relative;padding-top:26px;}
-.rp-paso::before{content:'';position:absolute;top:0;left:0;width:36px;height:2px;background:var(--rp-azul);}
-.rp-paso-n{font-family:var(--rp-fuente-display);font-size:13px;font-weight:var(--rp-peso-fuerte);color:var(--rp-azul);display:block;margin-bottom:14px;}
+.rp-paso::before{content:'';position:absolute;top:0;left:0;width:36px;height:2px;background:var(--rp-enlace);}
+.rp-paso-n{font-family:var(--rp-fuente-display);font-size:13px;font-weight:var(--rp-peso-fuerte);color:var(--rp-enlace);display:block;margin-bottom:14px;}
 
 /* ---- Cita al estándar (el sello de la marca) ---------------------------------- */
 .rp-cita{
   border-left:3px solid var(--rp-azul);
-  background:var(--rp-azul-aire);
+  background:var(--rp-acento-aire);
   padding:var(--rp-e-3) var(--rp-e-4);
   border-radius:0 var(--rp-radio-s) var(--rp-radio-s) 0;
   font-size:var(--rp-t-14);
-  color:var(--rp-tinta);
+  color:var(--rp-texto);
 }
 .rp-cita-fuente{
   display:block;margin-top:var(--rp-e-2);
   font-family:var(--rp-fuente-mono);font-size:var(--rp-t-12);
-  color:var(--rp-tinta-media);
+  color:var(--rp-texto-2);
 }
 
 /* ---- Campos de formulario ----------------------------------------------------- */
 .rp-campo{display:flex;flex-direction:column;gap:6px;}
-.rp-campo label{font-size:13.5px;font-weight:var(--rp-peso-medio);color:var(--rp-tinta);}
+.rp-campo label{font-size:13.5px;font-weight:var(--rp-peso-medio);color:var(--rp-texto);}
 .rp-campo input,.rp-campo select,.rp-campo textarea{
-  font:inherit;font-size:15px;color:var(--rp-tinta);
-  background:var(--rp-blanco);border:1.5px solid var(--rp-linea);border-radius:var(--rp-radio-s);
+  font:inherit;font-size:15px;color:var(--rp-texto);
+  background:var(--rp-superficie);border:1.5px solid var(--rp-borde);border-radius:var(--rp-radio-s);
   padding:11px 14px;transition:border-color var(--rp-dur-rapida) var(--rp-ease);
 }
-.rp-campo input:focus,.rp-campo select:focus,.rp-campo textarea:focus{outline:none;border-color:var(--rp-azul);box-shadow:0 0 0 3px var(--rp-azul-aire);}
+.rp-campo input:focus,.rp-campo select:focus,.rp-campo textarea:focus{outline:none;border-color:var(--rp-azul);box-shadow:0 0 0 3px var(--rp-acento-aire);}
 
 /* ---- Nivel de madurez --------------------------------------------------------- */
 .rp-nivel{
@@ -198,8 +201,8 @@ p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
 
 /* ---- Estructura --------------------------------------------------------------- */
 .rp-contenedor{max-width:var(--rp-ancho-pagina);margin:0 auto;padding:0 var(--rp-e-6);}
-.rp-seccion{padding:var(--rp-e-9) 0;border-bottom:1px solid var(--rp-linea);}
-.rp-seccion-alt{background:var(--rp-papel-alt);}
+.rp-seccion{padding:var(--rp-e-9) 0;border-bottom:1px solid var(--rp-borde);}
+.rp-seccion-alt{background:var(--rp-superficie-2);}
 .rp-separador{height:1px;background:var(--rp-borde);border:0;margin:var(--rp-e-7) 0;}
 .rp-rejilla{display:grid;gap:var(--rp-e-5);}
 @media (min-width:760px){ .rp-rejilla-2{grid-template-columns:repeat(2,1fr);} }

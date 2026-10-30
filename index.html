@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script src="assets/marca/tema.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rubén Ponce · Sostenibilidad corporativa</title>
 <meta name="description" content="Aprende y comunica las bases de la sostenibilidad corporativa. Herramientas interactivas para trabajar los estándares GRI, IFRS S1/S2, TNFD, TCFD y CSRD.">
@@ -489,6 +490,33 @@
   }
   .photo-credit a{color:inherit;}
 
+
+  /* ===== MODO OSCURO (lo activa assets/marca/tema.js) ===== */
+  .nav-tema{display:flex;align-items:center;margin-left:20px;}
+  @media(max-width:860px){ .nav-tema{margin-left:auto;margin-right:8px;} }
+  html[data-theme="dark"]{
+    --paper:#0B1220; --paper-alt:#0F1828; --line:#24324A; --ink:#E8EEF7; --ink-muted:#A9B6CB; --blue-soft:#15284A;
+    --rp-borde:#24324A; --rp-texto-2:#A9B6CB; --rp-enlace:#6FB2E8; --rp-superficie:#121C2E;
+    color-scheme:dark;
+  }
+  html[data-theme="dark"] header{background:rgba(11,18,32,.82);}
+  html[data-theme="dark"] .hero{background:#0F4A7F;}
+  html[data-theme="dark"] .nav-links a:hover,
+  html[data-theme="dark"] .course-featured .tag,
+  html[data-theme="dark"] .access-step .step-n{color:#6FB2E8;}
+  html[data-theme="dark"] .access-step::before{background:#6FB2E8;}
+  html[data-theme="dark"] .tool-cta{color:#6FB2E8;border-color:#6FB2E8;}
+  html[data-theme="dark"] .tool-cta:hover{background:#1567B0;border-color:#1567B0;color:#FFFFFF;}
+  html[data-theme="dark"] .tool-cta.disabled{color:var(--ink-muted);border-color:var(--line);}
+  html[data-theme="dark"] .tool-card:hover{background:rgba(111,178,232,.05);}
+  html[data-theme="dark"] .status-dot::before{background:#6FB2E8;}
+  html[data-theme="dark"] .status-dot.soon::before{background:#4A5872;}
+  html[data-theme="dark"] .course-track::before{background:#4A5872;}
+  html[data-theme="dark"] .contact-email{color:#6FB2E8;border-bottom-color:#6FB2E8;}
+  html[data-theme="dark"] .logo-mark,
+  html[data-theme="dark"] .about-mark-img,
+  html[data-theme="dark"] .footer-logo{content:url("assets/marca/isotipo-blanco.svg");}
+  @media (prefers-reduced-motion: reduce){ html{transition:none;} }
 </style>
 </head>
 <body>
@@ -506,6 +534,7 @@
       <a href="https://www.linkedin.com/in/ruben-isai-ponce-barcelo" target="_blank" rel="noopener" onclick="closeNav()">LinkedIn</a>
       <a href="#contacto" class="nav-cta" onclick="closeNav()">Escríbeme</a>
     </nav>
+    <span class="nav-tema" data-rp-tema></span>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
         <path class="bar bar1" d="M3 6h18"/>

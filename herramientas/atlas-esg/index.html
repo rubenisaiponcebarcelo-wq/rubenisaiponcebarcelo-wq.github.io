@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-rp-herramienta="atlas">
 <head>
 <meta charset="UTF-8">
+<script src="../../assets/marca/tema.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atlas ESG · Rubén Ponce</title>
 <link rel="icon" href="../../assets/marca/favicon.ico" sizes="any">
@@ -452,6 +454,23 @@
   .sidebar .rp-home:hover{background:rgba(255,255,255,.08); opacity:1;}
   .sidebar .rp-home-texto i{color:#8FC6F0; opacity:1;}
 
+
+/* ── Modo oscuro (lo activa assets/marca/tema.js) ── */
+html[data-theme="dark"]{
+  --paper:#0B1220; --paper-2:#0F1828; --ink:#E8EEF7; --muted:#A9B6CB; --line:#24324A; --white:#121C2E;
+  --papel:#0B1220; --papel-alt:#0F1828; --tinta:#E8EEF7; --tinta-media:#A9B6CB; --linea:#24324A; --azul-aire:#15284A;
+  --rp-borde:#24324A; --rp-texto-2:#A9B6CB; --rp-enlace:#6FB2E8; --rp-superficie:#121C2E;
+  color-scheme:dark;
+}
+.brand-block{display:flex !important;flex-direction:row !important;align-items:center !important;justify-content:space-between !important;gap:12px;}
+html[data-theme="dark"] .rp-tema-btn{color:#C9D2E0;border-color:rgba(255,255,255,.2);}
+html[data-theme="dark"] :is(.mode-hint-bar,.panel,.export-group button,.export-group a,.zoom-controls,.zoom-controls button,table.matrix,.matrix-toggle,.panel-close,.compare-controls select,.compare-swap,.compare-theme-card){
+  background:#121C2E !important;color:#E8EEF7 !important;border-color:#24324A !important;}
+html[data-theme="dark"] table.matrix th.std-row{background:#121C2E !important;color:#E8EEF7 !important;}
+html[data-theme="dark"] table.matrix th.std-row *{color:#E8EEF7 !important;}
+html[data-theme="dark"] .theme-node circle,
+html[data-theme="dark"] .node-circle[fill="#fff"]{fill:#121C2E !important;}
+html[data-theme="dark"] body{background:#0B1220;color:#E8EEF7;}
 </style>
 </head>
 <body>
@@ -459,6 +478,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="brand-block">
       <a class="rp-home" href="../../" title="Ir al inicio de Rubén Ponce"><svg class="rp-iso" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><defs><clipPath id="rpDiscAtl"><circle cx="50" cy="50" r="40.75"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="4.9"><circle cx="50" cy="50" r="43.2"/><path d="M 2 50 C 8 60 14 68.4 24 68.9 C 34 69.4 41 64.5 50 58.7 C 58.5 53.2 66 47.9 76 47.9 C 85 47.9 91 51.5 98 60" clip-path="url(#rpDiscAtl)"/></g></svg><span class="rp-home-texto"><b>Rubén Ponce</b><i>Atlas ESG</i></span></a>
+      <span data-rp-tema></span>
     </div>
     <div class="title-block">
       <h1>Atlas ESG</h1>

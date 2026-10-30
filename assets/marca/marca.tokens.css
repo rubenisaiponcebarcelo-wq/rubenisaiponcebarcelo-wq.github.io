@@ -100,15 +100,46 @@
 }
 
 /* ---- 10. Alias semánticos ---------------------------------------------------- */
-:root{
+/* Los componentes se escriben contra estos alias; el modo oscuro los reasigna. */
+:root,
+[data-theme="light"]{
   --rp-fondo:        var(--rp-papel);
   --rp-superficie:   var(--rp-blanco);
   --rp-superficie-2: var(--rp-papel-alt);
   --rp-texto:        var(--rp-tinta);
   --rp-texto-2:      var(--rp-tinta-media);
   --rp-borde:        var(--rp-linea);
+  --rp-acento:       var(--rp-azul);           /* fondos de botón, barras de progreso */
+  --rp-acento-texto: var(--rp-blanco);
+  --rp-enlace:       var(--rp-azul);           /* azul cuando es TEXTO sobre el fondo */
+  --rp-acento-aire:  var(--rp-azul-aire);      /* chips, tarjeta destacada, citas */
+  --rp-banda:        var(--rp-azul);           /* banda del hero y portadas */
+  --rp-cabecera:     rgba(251,252,254,.82);    /* cabecera fija translúcida */
+  --rp-pilar-1-texto: var(--rp-pilar-1); --rp-pilar-2-texto: var(--rp-pilar-2);
+  --rp-pilar-3-texto: var(--rp-pilar-3); --rp-pilar-4-texto: var(--rp-pilar-4);
+  color-scheme: light;
+}
+
+/* ---- 11. Modo oscuro ----------------------------------------------------------- */
+/* Lo elige el visitante con el botón de tema (assets/marca/tema.js). Misma marca:
+   azul marino profundo, el Azul Ponce como acento y sin latón.
+   Contrastes: texto 16,1:1 · texto 2 9,1:1 · enlace #6FB2E8 8,2:1 · blanco sobre banda 9,1:1 */
+[data-theme="dark"]{
+  --rp-fondo:        #0B1220;
+  --rp-superficie:   #121C2E;
+  --rp-superficie-2: #0F1828;
+  --rp-texto:        #E8EEF7;
+  --rp-texto-2:      #A9B6CB;
+  --rp-borde:        #24324A;
   --rp-acento:       var(--rp-azul);
   --rp-acento-texto: var(--rp-blanco);
+  --rp-enlace:       #6FB2E8;
+  --rp-acento-aire:  #15284A;
+  --rp-banda:        var(--rp-azul-profundo);
+  --rp-cabecera:     rgba(11,18,32,.82);
+  --rp-pilar-1-texto: #8FB8E8; --rp-pilar-2-texto: #5CC1C4;
+  --rp-pilar-3-texto: #B3A6E6; --rp-pilar-4-texto: #A7C66B;
+  color-scheme: dark;
 }
 
 @media (prefers-reduced-motion: reduce){

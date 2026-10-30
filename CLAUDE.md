@@ -41,6 +41,11 @@ y las cuatro rutas de especialización del curso.
   `../../assets/marca/marca.tokens.css` y `../../assets/marca/herramienta.css`. Esa capa le pone la
   cabecera de la landing, la banda azul (`#screen-intro` en diagnósticos, `.rp-hero` en las de consulta)
   y la tipografía. Una herramienta nueva debe cargarla igual.
+- **Modo oscuro:** cada página carga `assets/marca/tema.js` en el `<head>` (antes del CSS). Pone
+  `data-theme="light|dark"` en `<html>`, recuerda la elección en `localStorage` (`rp-tema`) y coloca el botón en
+  cada elemento con `data-rp-tema` (si no hay, flota abajo a la izquierda). Las herramientas llevan
+  `data-rp-herramienta="diagnostico|glosario|tracker|atlas"` en `<html>` para que `herramienta.css` sepa qué
+  variables propias reasignar. Una herramienta nueva: escribe colores contra los alias `--rp-*` y pruébala en los dos modos.
 - **Atlas ESG y el curso** conservan su diseño propio (Barlow; el Atlas usa latón para la familia ISSB)
   por decisión de Rubén. Solo se les cambió el favicon.
 - **Cita exacta:** toda afirmación normativa lleva el párrafo o la página del estándar.
