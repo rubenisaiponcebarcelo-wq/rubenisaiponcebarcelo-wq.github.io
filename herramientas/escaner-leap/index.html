@@ -302,8 +302,8 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
   </ol>
 
   <div class="aviso" role="note">
-    <b>Versión beta.</b> Las calificaciones de materialidad son preliminares. Antes de publicar se
-    sustituyen por la base de conocimiento ENCORE 2024, actividad por actividad.
+    <b>Datos de ENCORE, versión de mayo de 2026.</b> Las calificaciones describen a tu sector en general,
+    no a tu empresa: sirven para saber por dónde empezar a revisar.
   </div>
 </div>
 
@@ -450,6 +450,7 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
     <summary>Qué es y cómo se calcula</summary>
     <div class="cuerpo">
       <p>Cada sector se asocia a una o varias actividades de la Clasificación Industrial Internacional Uniforme (CIIU / ISIC rev. 4). Para cada actividad, ENCORE califica qué tan material es su dependencia de 25 servicios ecosistémicos y su contribución a 13 presiones sobre la naturaleza, en cinco niveles: muy alta, alta, media, baja y muy baja.</p>
+      <p>Cada sector del escáner agrupa una o varias actividades CIIU de ENCORE y toma, para cada servicio y cada presión, la calificación más alta entre ellas. Así el resultado no pasa por alto una dependencia que solo es fuerte en una parte del sector.</p>
       <p>El escáner muestra solo las dependencias y presiones con materialidad media o mayor, ordenadas de mayor a menor, y traduce cada una a un riesgo físico (dependencias) o de transición (impactos) en lenguaje de negocio.</p>
       <p>El mapa de sectores ubica a cada sector con dos índices de 0 a 100: la suma de sus calificaciones de dependencia y la suma de sus calificaciones de presión (muy alta = 4, alta = 3, media = 2), escaladas al sector más alto. Sirve para comparar sectores entre sí, no es una medida absoluta. La huella por ámbito muestra la calificación más alta dentro de cada grupo de servicios y presiones.</p>
       <p>Tus respuestas sobre agua y áreas protegidas no cambian la calificación sectorial. Solo marcan los temas que tu ubicación podría intensificar y que conviene revisar primero en la fase L.</p>
@@ -458,8 +459,8 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
   <details>
     <summary>Fuente de datos y licencia</summary>
     <div class="cuerpo">
-      <p>Calificaciones de materialidad: base de conocimiento ENCORE, actualización 2024, publicada por Global Canopy, UNEP FI y UNEP-WCMC bajo licencia Creative Commons Atribución-CompartirIgual 4.0 (CC BY-SA 4.0).</p>
-      <span class="ref">ENCORE Partners (Global Canopy, UNEP FI y UNEP-WCMC) (2024). ENCORE: Exploring Natural Capital Opportunities, Risks and Exposure. encorenature.org</span>
+      <p>Calificaciones de materialidad: base de conocimiento ENCORE, versión de mayo de 2026, actualizada dentro del proyecto SUSTAIN de Horizonte Europa y publicada por los socios de ENCORE bajo licencia Creative Commons Atribución-CompartirIgual 4.0 (CC BY-SA 4.0).</p>
+      <span class="ref">ENCORE Partners (Global Canopy, UNEP FI y UNEP-WCMC) (2026). ENCORE: Exploring Natural Capital Opportunities, Risks and Exposure. Base de conocimiento, versión de mayo de 2026. encorenature.org</span>
       <p style="margin-top:10px">La tabla de calificaciones adaptada en esta herramienta se comparte bajo la misma licencia. La lectura de riesgo y los textos son elaboración propia.</p>
     </div>
   </details>
@@ -474,14 +475,14 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
   <details>
     <summary>Contexto normativo</summary>
     <div class="cuerpo">
-      <p>IFRS S1 ya exige divulgar los riesgos y oportunidades de sostenibilidad materiales, incluidos los relacionados con la naturaleza. El ISSB prepara requisitos específicos de naturaleza que se apoyan en el marco TNFD, con un borrador para consulta pública previsto para octubre de 2026.</p>
+      <p>IFRS S1 ya exige divulgar los riesgos y oportunidades de sostenibilidad materiales, incluidos los relacionados con la naturaleza. El 22 de octubre de 2026 el ISSB puso a consulta el proyecto ED 2026/1, una Declaración de Práctica sobre información relacionada con la naturaleza que se apoya en el marco TNFD; los comentarios cierran el 19 de febrero de 2027. <a href="https://www.ifrs.org/news-and-events/news/2026/10/issb-consults-on-proposals-nature-related-disclosures/" target="_blank" rel="noopener">Anuncio del ISSB</a>.</p>
     </div>
   </details>
 </section>
 
 <footer>
   <span>Rubén Ponce · Sostenibilidad corporativa</span>
-  <span class="mono">Escáner LEAP · beta 0.1 · oct 2026</span>
+  <span class="mono">Escáner LEAP · v1.0 · datos ENCORE mayo 2026</span>
 </footer>
 
 </main>
@@ -508,7 +509,16 @@ var SERV = {
   bioc: {n:"Control biológico", r:"La pérdida de enemigos naturales de plagas aumenta pérdidas y gasto en agroquímicos."},
   nurs: {n:"Mantenimiento de hábitats de cría", r:"Sin manglares, arrecifes y zonas de crianza, las poblaciones que capturas o cultivas se reducen."},
   rec:  {n:"Servicios recreativos", r:"El atractivo del destino depende de ecosistemas sanos; su deterioro reduce la demanda turística."},
-  vis:  {n:"Belleza escénica", r:"Playas, arrecifes y paisajes degradados restan valor a la oferta y al precio por noche."}
+  vis:  {n:"Belleza escénica", r:"Playas, arrecifes y paisajes degradados restan valor a la oferta y al precio por noche."},
+  gen:  {n:"Material genético", r:"Semillas, razas y cepas de las que depende tu producto vienen de la diversidad genética; si se pierde, hay menos opciones para adaptarse a plagas y al clima."},
+  clima:{n:"Regulación del clima global", r:"Bosques, suelos y océanos que almacenan carbono frenan el cambio climático; si se degradan, crecen los riesgos físicos para tu operación."},
+  aire: {n:"Filtración del aire", r:"La vegetación retiene contaminantes del aire cerca de tus sitios; si se pierde, empeora la calidad del aire para trabajadores y vecinos."},
+  resid:{n:"Remediación de residuos sólidos", r:"Dependes de que los ecosistemas descompongan o asimilen residuos; si se saturan, sube el costo de manejarlos y disponer de ellos."},
+  ener: {n:"Energía animal", r:"Tu operación usa animales de trabajo o de carga; su salud y su disponibilidad condicionan la producción."},
+  ruido:{n:"Atenuación del ruido", r:"La vegetación amortigua el ruido de tu operación; sin ella aumentan las quejas y las condiciones que imponen las autoridades locales."},
+  sens: {n:"Mitigación de otras molestias (luz, olores)", r:"La vegetación reduce la contaminación lumínica y otras molestias; si se pierde, aumentan los conflictos con comunidades cercanas."},
+  edu:  {n:"Servicios educativos y científicos", r:"Tu actividad aprovecha ecosistemas para enseñar o investigar; si se degradan, ese valor se reduce."},
+  espi: {n:"Servicios espirituales, artísticos y simbólicos", r:"El valor cultural de los ecosistemas sostiene tu oferta o tu relación con las comunidades; si se deterioran, esa relación se debilita."}
 };
 
 /* ---------- Catálogo de presiones (impactos) ---------- */
@@ -528,48 +538,50 @@ var PRES = {
   aext: {n:"Extracción de recursos abióticos", r:"Permisos de extracción más difíciles y compromisos de restauración al cierre."}
 };
 
-/* ---------- Sectores (calificaciones PRELIMINARES, a sustituir por ENCORE 2024) ---------- */
+/* ---------- Sectores: calificaciones de ENCORE (versión de mayo de 2026), generadas por script.
+   Cada sector toma la calificación más alta entre sus actividades CIIU y solo conserva media o mayor.
+   Orden: calificación y, a igualdad, número de actividades del sector que la tienen. ---------- */
 var SECT = [
-  {id:"agri", n:"Agricultura (cultivos)", g:"Primario", isic:"A 011–012",
-   d:{ws:"VH",poll:"H",soilq:"VH",rpr:"H",wfr:"H",bioc:"H"}, p:{land:"VH",wu:"VH",nut:"VH",tox:"H",ghg:"H",inv:"M"}},
-  {id:"gana", n:"Ganadería", g:"Primario", isic:"A 014",
-   d:{ws:"VH",bio:"H",rpr:"H",soilq:"H",dil:"M"}, p:{land:"VH",ghg:"VH",nut:"VH",wu:"H",inv:"M"}},
-  {id:"pesc", n:"Pesca y acuicultura", g:"Primario", isic:"A 031–032",
-   d:{nurs:"VH",bio:"VH",wp:"H",ws:"H",dil:"M"}, p:{bext:"VH",nut:"H",sea:"H",inv:"H",tox:"M"}},
-  {id:"mine", n:"Minería metálica", g:"Extractivo", isic:"B 07",
-   d:{ws:"VH",ssr:"H",wfr:"H",dil:"H",flood:"H"}, p:{land:"VH",aext:"VH",tox:"VH",wu:"VH",dist:"H",sw:"H"}},
-  {id:"petr", n:"Petróleo y gas", g:"Extractivo", isic:"B 06",
-   d:{ws:"H",dil:"H",storm:"H",flood:"M"}, p:{ghg:"VH",tox:"H",air:"H",sea:"H",land:"H",dist:"M"}},
-  {id:"alim", n:"Alimentos y bebidas", g:"Manufactura", isic:"C 10–11",
-   d:{ws:"VH",wp:"H",dil:"H",bio:"M",wfr:"M"}, p:{wu:"VH",nut:"H",sw:"H",ghg:"M",tox:"M"}},
-  {id:"text", n:"Textil y confección", g:"Manufactura", isic:"C 13–14",
-   d:{ws:"H",dil:"H",wp:"M"}, p:{tox:"VH",wu:"H",ghg:"H",sw:"M"}},
-  {id:"pape", n:"Papel y celulosa", g:"Manufactura", isic:"C 17",
-   d:{ws:"VH",bio:"H",dil:"H",wfr:"M"}, p:{wu:"VH",tox:"H",ghg:"H",air:"M",sw:"M"}},
-  {id:"quim", n:"Química", g:"Manufactura", isic:"C 20",
-   d:{ws:"H",dil:"H",flood:"M"}, p:{tox:"VH",ghg:"H",air:"H",wu:"H",sw:"M"}},
-  {id:"ceme", n:"Cemento y minerales no metálicos", g:"Manufactura", isic:"C 23",
-   d:{ws:"M",ssr:"M",dil:"M",flood:"M"}, p:{ghg:"VH",aext:"H",air:"H",land:"M",dist:"M"}},
-  {id:"acer", n:"Siderurgia y metalurgia", g:"Manufactura", isic:"C 24",
-   d:{ws:"H",dil:"H",flood:"M"}, p:{ghg:"VH",air:"H",tox:"H",wu:"H",sw:"H"}},
-  {id:"elec", n:"Electrónica", g:"Manufactura", isic:"C 26",
-   d:{ws:"H",wp:"M",dil:"M",flood:"M"}, p:{tox:"H",wu:"H",sw:"H",ghg:"M"}},
-  {id:"auto", n:"Automotriz y autopartes", g:"Manufactura", isic:"C 29",
-   d:{ws:"M",dil:"M",flood:"M",storm:"M"}, p:{ghg:"M",tox:"M",sw:"M",air:"M"}},
-  {id:"fosi", n:"Generación eléctrica fósil", g:"Energía y agua", isic:"D 3510",
-   d:{ws:"VH",dil:"H",flood:"M",storm:"M"}, p:{ghg:"VH",air:"VH",wu:"H",tox:"M"}},
-  {id:"hidr", n:"Generación hidroeléctrica", g:"Energía y agua", isic:"D 3510",
-   d:{ws:"VH",wfr:"VH",ssr:"H",rpr:"H"}, p:{fw:"VH",land:"H",dist:"M"}},
-  {id:"reno", n:"Solar y eólica", g:"Energía y agua", isic:"D 3510",
-   d:{storm:"M",flood:"M",ssr:"M"}, p:{land:"H",dist:"M",sw:"M"}},
-  {id:"agua", n:"Agua y saneamiento", g:"Energía y agua", isic:"E 36–37",
-   d:{ws:"VH",wp:"VH",wfr:"H",dil:"H"}, p:{wu:"VH",nut:"H",tox:"M",ghg:"M"}},
-  {id:"cons", n:"Construcción y parques industriales", g:"Infraestructura y servicios", isic:"F 41–42",
-   d:{ssr:"H",flood:"H",storm:"H",lcr:"M",ws:"M"}, p:{land:"VH",aext:"H",dist:"H",sw:"H",ghg:"M"}},
-  {id:"tran", n:"Transporte y logística", g:"Infraestructura y servicios", isic:"H 49–52",
-   d:{flood:"H",storm:"H",ssr:"M",lcr:"M"}, p:{ghg:"VH",air:"H",dist:"H",inv:"M"}},
-  {id:"turi", n:"Turismo y hotelería", g:"Infraestructura y servicios", isic:"I 55–56",
-   d:{vis:"VH",rec:"VH",ws:"H",storm:"H",flood:"H",ssr:"M"}, p:{land:"H",wu:"H",sw:"H",nut:"M",dist:"M"}}
+  {id:"agri", n:"Agricultura (cultivos)", g:"Primario", isic:"A 011–012", na:8,
+   d:{bio:"VH",clima:"VH",gen:"VH",lcr:"VH",rpr:"VH",soilq:"VH",ssr:"VH",storm:"VH",wfr:"VH",wp:"VH",ws:"VH",poll:"VH",bioc:"H",flood:"H",aire:"M",dil:"M",ener:"M",resid:"M"}, p:{inv:"VH",nut:"VH",wu:"VH",air:"H",fw:"H",ghg:"H",land:"H",sw:"H",tox:"H",dist:"M"}},
+  {id:"gana", n:"Ganadería", g:"Primario", isic:"A 014", na:7,
+   d:{bio:"VH",rpr:"VH",ssr:"VH",espi:"VH",edu:"VH",storm:"H",wfr:"H",wp:"H",ws:"H",soilq:"H",aire:"M",bioc:"M",clima:"M",flood:"M",gen:"M",lcr:"M",resid:"M"}, p:{land:"VH",sw:"VH",air:"H",ghg:"H",inv:"H",nut:"H",tox:"H",wu:"H",fw:"H",dist:"M"}},
+  {id:"pesc", n:"Pesca y acuicultura", g:"Primario", isic:"A 031–032", na:2,
+   d:{bio:"VH",clima:"VH",resid:"VH",rpr:"VH",ssr:"VH",wp:"VH",edu:"VH",espi:"VH",nurs:"VH",bioc:"H",flood:"H",gen:"H",lcr:"H",storm:"H",wfr:"H",ws:"H",dil:"M",soilq:"M",aire:"M"}, p:{bext:"VH",dist:"H",fw:"H",inv:"H",sea:"H",sw:"H",tox:"H",nut:"H",ghg:"M",wu:"M",air:"M",land:"M"}},
+  {id:"mine", n:"Minería metálica", g:"Extractivo", isic:"B 07", na:2,
+   d:{rpr:"VH",wp:"VH",clima:"H",flood:"H",wfr:"H",ws:"H",dil:"M",ssr:"M",storm:"M"}, p:{dist:"VH",fw:"VH",sea:"VH",sw:"VH",tox:"VH",aext:"H",air:"H",ghg:"M",land:"M",wu:"M"}},
+  {id:"petr", n:"Petróleo y gas", g:"Extractivo", isic:"B 06", na:2,
+   d:{clima:"H",flood:"H",dil:"M",wfr:"M",ws:"M"}, p:{dist:"VH",fw:"VH",sea:"VH",tox:"VH",air:"H",ghg:"H",sw:"M",wu:"M"}},
+  {id:"alim", n:"Alimentos y bebidas", g:"Manufactura", isic:"C 10–11", na:12,
+   d:{wp:"VH",gen:"VH",wfr:"H",ws:"H",flood:"M",resid:"M",storm:"M",rpr:"M"}, p:{nut:"VH",sw:"M",wu:"M",dist:"M",tox:"M",air:"M",bext:"M",ghg:"M"}},
+  {id:"text", n:"Textil y confección", g:"Manufactura", isic:"C 13–14", na:5,
+   d:{edu:"VH",flood:"M",storm:"M",wfr:"M",wp:"M",ws:"M",resid:"M"}, p:{dist:"M",sw:"M",tox:"M",wu:"M",air:"M",nut:"M"}},
+  {id:"pape", n:"Papel y celulosa", g:"Manufactura", isic:"C 17", na:1,
+   d:{flood:"M",resid:"M",rpr:"M",storm:"M",wfr:"M",ws:"M"}, p:{air:"H",sw:"H",dist:"M",ghg:"M",tox:"M",wu:"M"}},
+  {id:"quim", n:"Química", g:"Manufactura", isic:"C 20", na:5,
+   d:{wfr:"H",ws:"H",flood:"M",storm:"M",wp:"M",ssr:"M",resid:"M",rpr:"M"}, p:{dist:"VH",tox:"VH",nut:"VH",wu:"H",air:"M",ghg:"M",sw:"M"}},
+  {id:"ceme", n:"Cemento y minerales no metálicos", g:"Manufactura", isic:"C 23", na:2,
+   d:{espi:"VH",flood:"M",resid:"M",storm:"M",wfr:"M",wp:"M",ws:"M",rpr:"M"}, p:{tox:"VH",air:"H",ghg:"H",dist:"M",sw:"M",wu:"M",fw:"M",nut:"M"}},
+  {id:"acer", n:"Siderurgia y metalurgia", g:"Manufactura", isic:"C 24", na:3,
+   d:{wfr:"H",ws:"H",flood:"M",rpr:"M",storm:"M",wp:"M",aire:"M",ssr:"M"}, p:{dist:"VH",tox:"VH",air:"H",ghg:"H",nut:"M",sw:"M",wu:"M"}},
+  {id:"elec", n:"Electrónica", g:"Manufactura", isic:"C 26", na:8,
+   d:{flood:"M",storm:"M",wfr:"M",wp:"M",ws:"M"}, p:{tox:"H",air:"H",dist:"M",ghg:"M",wu:"M"}},
+  {id:"auto", n:"Automotriz y autopartes", g:"Manufactura", isic:"C 29", na:3,
+   d:{flood:"M",storm:"M",wfr:"M",wp:"M",ssr:"M"}, p:{dist:"VH",tox:"M"}},
+  {id:"fosi", n:"Generación eléctrica fósil", g:"Energía y agua", isic:"D 3510 · generación fósil", na:1,
+   d:{wfr:"H",ws:"H",clima:"M",flood:"M",resid:"M",ssr:"M",wp:"M"}, p:{air:"VH",dist:"VH",ghg:"VH",tox:"VH",sw:"H",fw:"M",land:"M",wu:"M"}},
+  {id:"hidr", n:"Generación hidroeléctrica", g:"Energía y agua", isic:"D 3510 · hidroeléctrica", na:1,
+   d:{flood:"VH",ssr:"VH",wfr:"VH",ws:"VH",clima:"M",storm:"M"}, p:{dist:"H",fw:"H",land:"M"}},
+  {id:"reno", n:"Solar y eólica", g:"Energía y agua", isic:"D 3510 · solar y eólica", na:2,
+   d:{clima:"VH",flood:"H",lcr:"M",ssr:"M",storm:"M",wfr:"M",ruido:"M",ws:"M"}, p:{land:"H",dist:"M",sea:"M"}},
+  {id:"agua", n:"Agua y saneamiento", g:"Energía y agua", isic:"E 36–37", na:2,
+   d:{resid:"VH",rpr:"VH",wp:"VH",flood:"H",wfr:"H",storm:"H",aire:"M",dil:"M",ssr:"M",ws:"M"}, p:{dist:"VH",tox:"VH",inv:"VH",nut:"VH",fw:"H",ghg:"H",land:"H",air:"M",sea:"M",sw:"M"}},
+  {id:"cons", n:"Construcción y parques industriales", g:"Infraestructura y servicios", isic:"F 41–42", na:4,
+   d:{rpr:"VH",flood:"H",ssr:"H",storm:"H",clima:"M",wfr:"M",wp:"M",ws:"M"}, p:{dist:"VH",fw:"VH",ghg:"H",tox:"H",sea:"M",sw:"M"}},
+  {id:"tran", n:"Transporte y logística", g:"Infraestructura y servicios", isic:"H 49–52", na:13,
+   d:{rpr:"VH",vis:"VH",rec:"VH",flood:"H",storm:"H",ssr:"H",clima:"M",wfr:"M",wp:"M",aire:"M",ener:"M"}, p:{air:"VH",dist:"VH",inv:"VH",ghg:"H",land:"M",wu:"M",nut:"M",sea:"M",sw:"M",fw:"M",tox:"M"}},
+  {id:"turi", n:"Turismo y hotelería", g:"Infraestructura y servicios", isic:"I 55–56", na:6,
+   d:{rec:"VH",vis:"VH",wp:"VH",espi:"VH",rpr:"VH",edu:"VH",clima:"H",aire:"H",flood:"H",ssr:"H",storm:"H",ruido:"M",sens:"M",ws:"M",resid:"M",wfr:"M"}, p:{sw:"M",inv:"M"}}
 ];
 
 /* País → código ISO 3166-1 alfa-3 (enlace al mapa de Protected Planet) */
@@ -585,11 +597,11 @@ var ETQ = {VH:"Muy alta",H:"Alta",M:"Media",L:"Baja"};
 
 /* Ámbitos para la huella: qué dependencias y presiones agrupa cada uno */
 var AMBITOS = [
-  {n:"Agua",                 d:["ws","wp","wfr"],            p:["wu","fw","nut","tox"]},
-  {n:"Suelo y tierra",       d:["soilq","ssr"],              p:["land","aext","sw"]},
-  {n:"Biodiversidad",        d:["poll","bioc","nurs","bio"], p:["bext","inv"]},
-  {n:"Clima y aire",         d:["rpr","lcr","dil"],          p:["ghg","air"]},
-  {n:"Costas y paisaje",     d:["flood","storm","vis","rec"],p:["sea","dist"]}
+  {n:"Agua",                 d:["ws","wp","wfr"],                                p:["wu","fw","nut","tox"]},
+  {n:"Suelo y tierra",       d:["soilq","ssr","resid"],                          p:["land","aext","sw"]},
+  {n:"Biodiversidad",        d:["poll","bioc","nurs","bio","gen","ener"],        p:["bext","inv"]},
+  {n:"Clima y aire",         d:["rpr","lcr","dil","clima","aire"],               p:["ghg","air"]},
+  {n:"Costas y paisaje",     d:["flood","storm","vis","rec","ruido","sens","edu","espi"], p:["sea","dist"]}
 ];
 
 /* Índice relativo 0–100: suma de pesos de materialidad, escalada al sector más alto */
@@ -732,7 +744,7 @@ function render(animar){
   var s = SECT.filter(function(x){return x.id === $("sector").value;})[0];
   var estado = $("estado").value, agua = valorRadio("agua"), anp = valorRadio("anp");
 
-  $("isic-ayuda").textContent = "Actividad de referencia CIIU/ISIC rev. 4: " + s.isic;
+  $("isic-ayuda").textContent = "Actividades CIIU/ISIC rev. 4: " + s.isic + " (" + s.na + (s.na === 1 ? " actividad" : " actividades") + " en ENCORE).";
   actualizarLink();
   $("tag-ejemplo").hidden = !esEjemplo;
 

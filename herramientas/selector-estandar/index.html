@@ -348,6 +348,7 @@ var INTERNOS = {
   s1:{t:"Autodiagnóstico inicial NIIF S1", u:"../diagnostico-s1/"},
   s2:{t:"Autodiagnóstico inicial NIIF S2", u:"../diagnostico-s2/"},
   tnfd:{t:"Autodiagnóstico inicial TNFD", u:"../diagnostico-tnfd/"},
+  leap:{t:"Escáner LEAP de tu sector", u:"../escaner-leap/"},
   tracker:{t:"Tracker del ISSB", u:"../tracker-issb/"},
   atlas:{t:"Atlas ESG: dónde se traslapan los estándares", u:"../atlas-esg/"}
 };
@@ -413,7 +414,7 @@ function evaluar(){
   var eT = 2, porT = "Aplica si descubres que tu negocio o tu cadena de suministro dependen de la naturaleza o la afectan de forma importante.";
   if(natur === "si"){ eT = 3; porT = "Tu negocio depende directamente de recursos naturales. TNFD ordena cómo identificar y reportar esas dependencias, tus impactos y los riesgos que generan. La NIIF S1 ya pide divulgar los riesgos de sostenibilidad materiales, incluidos los de naturaleza."; }
   else if(natur === "no"){ eT = 1; porT = "Tu negocio no depende directamente de recursos naturales. Revisa tu cadena de suministro antes de descartarlo."; }
-  r.push({id:"tnfd", n:"Recomendaciones TNFD", quien:"Taskforce on Nature-related Financial Disclosures", e:eT, por:porT, ext:["tnfd"], int:["tnfd"]});
+  r.push({id:"tnfd", n:"Recomendaciones TNFD", quien:"Taskforce on Nature-related Financial Disclosures", e:eT, por:porT, ext:["tnfd"], int:["leap","tnfd"]});
 
   /* CDP */
   var eC = 1, porC = "Nadie en tu cadena de clientes te lo pide. Si llega un cuestionario de CDP, la información que prepares para la NIIF S2 te sirve para responderlo.";

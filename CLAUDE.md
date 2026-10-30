@@ -23,14 +23,14 @@ archivo/<slug>/index.html       piezas retiradas: sin enlace desde la landing, c
 | `herramientas/diagnostico-tnfd/` | Autodiagnóstico inicial TNFD (15 preguntas) | Registro en Google Sheets |
 | `herramientas/diagnostico-s1/` | Autodiagnóstico inicial IFRS S1 (15 preguntas) | Registro en Google Sheets, campo `diagnostico: "NIIF S1"` |
 | `herramientas/diagnostico-s2/` | Autodiagnóstico inicial IFRS S2 (16 preguntas) | Registro en Google Sheets, campo `diagnostico: "NIIF S2"` |
-| `herramientas/escaner-leap/` | Escáner LEAP | Sin enlace en la landing («Próximamente») hasta sustituir sus calificaciones preliminares por ENCORE 2024 |
+| `herramientas/escaner-leap/` | Escáner LEAP | Sin registro. Calificaciones de ENCORE (versión de mayo de 2026, CC BY-SA 4.0) por sector: la más alta entre sus actividades CIIU. Para actualizar, volver a generar `SECT` desde los CSV 06 y 07 de ENCORE |
 | `herramientas/glosario-esg/` | Glosario ESG | |
 | `herramientas/tracker-issb/` | Tracker de adopción del ISSB | |
 | `cursos/de-cero-a-profesional/` | Curso De cero a profesional | Diseño congelado; guarda respuestas en Google Sheets |
 | `archivo/diagnostico-s1-s2/` | Diagnóstico combinado S1+S2 | Retirado el 13 oct 2026; se conserva por si se reactiva |
 | `archivo/diagnostico-s1-completo/`, `archivo/diagnostico-s2-completo/` | Versiones completas (44 y 57 preguntas) | Base del futuro diagnóstico completo de paga; en la landing figura «En construcción» sin enlace |
 
-Sin enlace en la landing: **Escáner LEAP** (Próximamente), **Diagnóstico completo NIIF S1 y S2**
+Sin enlace en la landing: **Diagnóstico completo NIIF S1 y S2**
 (En construcción), **Diagnóstico integrado ISSB (S1 y S2)** (Próximamente) y las cuatro rutas de
 especialización del curso.
 
