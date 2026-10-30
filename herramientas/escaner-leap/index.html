@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="es" data-rp-herramienta="escaner">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/marca/tema.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escáner LEAP · Rubén Ponce</title>
+<meta name="description" content="Elige tu sector y ve de qué servicios de la naturaleza depende, qué presiones ejerce sobre ella y qué pediría un reporte alineado a TNFD. Datos de ENCORE.">
+<meta property="og:site_name" content="Rubén Ponce">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Escáner LEAP · Rubén Ponce">
+<meta property="og:description" content="Dependencias e impactos sobre la naturaleza de tu sector, con datos de ENCORE y la fase LEAP de TNFD en la que estás.">
+<meta property="og:image" content="https://rubenisaiponcebarcelo-wq.github.io/assets/marca/og-image.png">
+<link rel="icon" href="../../assets/marca/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../../assets/marca/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/marca/favicon-180.png">
+<meta name="theme-color" content="#1567B0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/marca/marca.tokens.css">
+<style>
+/* Layout: herramienta en modo claro de la marca Rubén Ponce. Columna única de lectura (máx. 880px),
+   formulario arriba, resultado abajo en dos bloques (dependencias / impactos), franja LEAP y metodología. */
+:root{
+  --n1:var(--rp-nivel-1); --n2:var(--rp-nivel-2); --n3:var(--rp-nivel-3); --n4:var(--rp-nivel-4);
+  --n1-txt:var(--rp-nivel-1-texto); --n2-txt:var(--rp-nivel-2-texto); --n3-txt:var(--rp-nivel-3-texto); --n4-txt:var(--rp-nivel-4-texto);
+  --fondo:var(--rp-fondo); --superficie:var(--rp-superficie); --superficie-2:var(--rp-superficie-2);
+  --texto:var(--rp-texto); --texto-2:var(--rp-texto-2); --rail:var(--rp-texto-2);
+  --borde:var(--rp-borde); --borde-fuerte:#C3D0E2;
+  --acento:var(--rp-enlace); --acento-aire:var(--rp-acento-aire); --acento-fuerte:var(--rp-azul-profundo);
+  --boton:var(--rp-acento); --boton-texto:var(--rp-acento-texto);
+  --aviso-fondo:var(--rp-alerta-aire); --aviso-texto:var(--rp-alerta); --aviso-borde:#F0D9B5;
+  --sombra:var(--rp-sombra-s);
+  --sans:var(--rp-fuente-texto); --display:var(--rp-fuente-display); --mono:var(--rp-fuente-mono);
+}
+:root[data-theme="dark"]{
+  --borde-fuerte:#33445F; --acento-fuerte:#9CCBF0;
+  --aviso-fondo:rgba(240,184,102,.12); --aviso-texto:#F0B866; --aviso-borde:rgba(240,184,102,.3);
+  --sombra:none;
+  /* En oscuro la escala de nivel se invierte: más materialidad, más brillo */
+  --n1:#1B2A42; --n1-txt:#C9D2E0; --n2:#2A4F7A; --n2-txt:#E8EEF7; --n3:#3F82C4; --n3-txt:#FFFFFF; --n4:#8FC3EE; --n4-txt:#0B1220;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--fondo);color:var(--texto);
+  font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+.envoltura{
+  max-width:880px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0 64px;
+}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px;border-radius:4px}
+a{color:var(--acento)}
+.mono{font-family:var(--mono)}
+
+/* Encabezado: cabecera fija y banda azul (capa assets/marca/herramienta.css) */
+header.site .nav-row{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:880px;margin:0 auto;
+  padding:14px max(16px,env(safe-area-inset-left,0px));}
+header.site .brand{color:var(--rp-enlace);display:inline-flex;align-items:center;gap:10px;text-decoration:none;}
+.rp-home-texto b{font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.rp-home-texto i{font-style:normal;font-size:10px;letter-spacing:.04em;text-transform:uppercase}
+.cabecera{padding-block:0 28px;border-bottom:1px solid var(--borde)}
+.rp-hero .chip{background:rgba(255,255,255,.14);color:#FFFFFF}
+.lockup{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.lockup .nombre{font-weight:600;font-size:1rem;letter-spacing:-.01em;line-height:1.2}
+.lockup .sub{font-size:.625rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-2)}
+.eyebrow{font-family:var(--mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rail);margin:0 0 8px;display:flex;gap:10px;flex-wrap:wrap}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,7vw,3.25rem);line-height:1.04;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
+.entrada{font-size:1.0625rem;color:var(--texto-2);max-width:60ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{display:inline-flex;padding:4px 11px;border-radius:999px;font-size:.75rem;font-weight:500;background:var(--acento-aire);color:var(--acento-fuerte)}
+
+.aviso{
+  margin-top:22px;padding:12px 14px;border-radius:10px;
+  background:var(--aviso-fondo);color:var(--aviso-texto);border:1px solid var(--aviso-borde);
+  font-size:.875rem;line-height:1.5;
+}
+.aviso b{font-weight:600}
+
+/* Secciones */
+section{padding-block:36px;border-bottom:1px solid var(--borde)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--display);font-weight:600;font-size:1.75rem;line-height:1.12;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:1.125rem;margin:0 0 4px;letter-spacing:-.005em}
+.intro{color:var(--texto-2);margin:0 0 22px;max-width:62ch}
+
+/* Formulario */
+.form{display:grid;gap:22px}
+.campo{display:grid;gap:8px;min-width:0}
+.etq{font-weight:600;font-size:.9375rem;display:flex;gap:10px;align-items:baseline}
+.etq .paso{font-family:var(--mono);font-size:.6875rem;color:var(--acento);font-weight:500;letter-spacing:.06em}
+.ayuda{font-size:.8125rem;color:var(--texto-2);margin:-2px 0 0}
+select{
+  width:100%;font:inherit;font-size:1rem;color:var(--texto);background:var(--superficie);
+  border:1px solid var(--borde-fuerte);border-radius:10px;padding:12px 40px 12px 14px;
+  appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--texto-2) 50%),linear-gradient(135deg,var(--texto-2) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%;
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat;
+}
+.dos{display:grid;gap:22px}
+@media (min-width:680px){.dos{grid-template-columns:1fr 1fr}}
+.segmento{display:flex;border:1px solid var(--borde-fuerte);border-radius:10px;overflow:hidden;background:var(--superficie)}
+.segmento input{position:absolute;opacity:0;pointer-events:none}
+.segmento label{
+  flex:1;text-align:center;padding:10px 6px;font-size:.875rem;font-weight:500;cursor:pointer;
+  color:var(--texto-2);border-right:1px solid var(--borde);user-select:none;
+}
+.segmento label:last-of-type{border-right:0}
+.segmento input:checked + label{background:var(--boton);color:var(--boton-texto)}
+.segmento input:focus-visible + label{outline:2px solid var(--acento);outline-offset:-3px}
+/* Cinta LEAP del encabezado */
+.cinta{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.cinta li{
+  position:relative;display:grid;gap:2px;padding:10px 10px 12px;border-radius:10px;
+  background:var(--superficie-2);border:1px solid var(--borde);min-width:0;
+}
+.cinta .l{font-family:var(--mono);font-size:1.25rem;font-weight:500;line-height:1;color:var(--rail)}
+.cinta .t{font-size:.75rem;font-weight:500;color:var(--texto-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cinta .nota{font-size:.625rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--boton-texto);opacity:.85}
+.cinta li.activa{background:var(--boton);border-color:var(--boton)}
+.cinta li.activa .l,.cinta li.activa .t{color:var(--boton-texto)}
+
+/* Visuales del resultado */
+.visuales{display:grid;gap:16px;margin-top:20px}
+@media (min-width:820px){.visuales{grid-template-columns:3fr 2fr}}
+.fig{margin:0;padding:16px;border:1px solid var(--borde);border-radius:14px;background:var(--superficie);min-width:0;display:grid;gap:12px;align-content:start}
+.fig figcaption{display:grid;gap:2px}
+.fig figcaption b{font-weight:600;font-size:1rem}
+.fig figcaption span{font-size:.8125rem;color:var(--texto-2);line-height:1.4}
+.mapa svg{width:100%;height:auto;display:block;overflow:visible}
+.mapa .eje{stroke:var(--borde-fuerte);stroke-width:1}
+.mapa .media{stroke:var(--borde-fuerte);stroke-width:1;stroke-dasharray:3 4}
+.mapa .cuad{fill:var(--rail);font-family:var(--sans);font-size:10px;font-weight:500}
+.mapa .etq-eje{fill:var(--texto-2);font-family:var(--mono);font-size:9.5px;letter-spacing:.06em}
+.mapa .zona{fill:var(--acento-aire)}
+.mapa .pt{fill:var(--n2);stroke:var(--superficie);stroke-width:1.5;cursor:pointer;transition:r .15s}
+.mapa .pt:hover,.mapa .pt:focus-visible{fill:var(--n3);outline:none}
+.mapa .pt.sel{fill:var(--boton);stroke:var(--superficie);stroke-width:2.5}
+.mapa .halo{fill:none;stroke:var(--acento);stroke-width:1.5;opacity:.45}
+.mapa .rotulo{fill:var(--texto);font-family:var(--sans);font-size:12px;font-weight:600}
+.mapa .rotulo-fondo{fill:var(--superficie);opacity:.9}
+.huella{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:6px;align-items:center}
+.huella .h{font-family:var(--mono);font-size:.625rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rail);text-align:center}
+.huella .h:first-child{text-align:left}
+.huella .amb{font-size:.875rem;font-weight:500;line-height:1.25}
+.huella .celda{
+  height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:600;background:var(--superficie-2);color:var(--rail);
+}
+.huella .celda.VH{background:var(--n4);color:var(--n4-txt)}
+.huella .celda.H{background:var(--n3);color:var(--n3-txt)}
+.huella .celda.M{background:var(--n2);color:var(--n2-txt)}
+
+.def{font-size:.8125rem;color:var(--texto-2);line-height:1.5;margin:4px 0 0}
+details.guia{border:0;margin:0}
+details.guia summary{padding:2px 0;font-size:.8125rem;font-weight:600;color:var(--acento);justify-content:flex-start;gap:6px}
+details.guia summary::after{content:"+";font-size:.75rem;color:var(--acento)}
+details.guia[open] summary::after{content:"–"}
+details.guia ol{margin:8px 0 8px;padding-left:20px;font-size:.8125rem;color:var(--texto-2);line-height:1.5;display:grid;gap:4px}
+details.guia p{margin:0 0 8px;font-size:.8125rem;color:var(--texto-2);line-height:1.5}
+.fuente-def{display:block;font-family:var(--mono);font-size:.6875rem;color:var(--rail)}
+.acciones{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;
+  font:inherit;font-size:.9375rem;font-weight:600;line-height:1;cursor:pointer;border:1px solid transparent;
+}
+.btn.p{background:var(--boton);color:var(--boton-texto)}
+.btn.s{background:transparent;color:var(--texto);border-color:var(--borde-fuerte)}
+.btn:hover{filter:brightness(1.05)}
+
+/* Resumen */
+.resumen{
+  display:grid;gap:14px;padding:20px;border-radius:14px;background:var(--superficie);
+  border:1px solid var(--borde);box-shadow:var(--sombra);
+}
+.resumen .lin{font-size:1.125rem;line-height:1.45;margin:0;max-width:60ch}
+.resumen .lin b{font-weight:600}
+.metricas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.metrica{padding:12px;border-radius:10px;background:var(--superficie-2)}
+.metrica .v{font-size:1.5rem;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.metrica .k{font-size:.75rem;color:var(--texto-2);line-height:1.3;margin-top:4px}
+.tag-ejemplo{
+  justify-self:start;font-family:var(--mono);font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--rail);border:1px dashed var(--borde-fuerte);padding:3px 8px;border-radius:6px;
+}
+
+/* Listas de resultado */
+.bloques{display:grid;gap:28px;margin-top:28px}
+@media (min-width:820px){.bloques{grid-template-columns:1fr 1fr;gap:24px}}
+.bloque{min-width:0}
+.bloque .cab{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:2px solid var(--texto);padding-bottom:8px;margin-bottom:4px}
+.bloque .cab span{font-family:var(--mono);font-size:.6875rem;color:var(--rail);letter-spacing:.06em;text-transform:uppercase}
+.item{padding-block:14px;border-bottom:1px solid var(--borde);display:grid;gap:6px}
+.item .fila{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.item .nom{font-weight:600;font-size:1rem;line-height:1.3}
+.item .lect{font-size:.875rem;color:var(--texto-2);line-height:1.5;margin:0}
+.nivel{
+  flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:76px;
+  padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:600;white-space:nowrap;
+}
+.nivel.VH{background:var(--n4);color:var(--n4-txt)}
+.nivel.H{background:var(--n3);color:var(--n3-txt)}
+.nivel.M{background:var(--n2);color:var(--n2-txt)}
+.nivel.L{background:var(--n1);color:var(--n1-txt)}
+.marca-loc{
+  justify-self:start;display:inline-flex;gap:6px;align-items:center;font-size:.75rem;font-weight:500;
+  padding:2px 9px;border-radius:6px;background:var(--aviso-fondo);color:var(--aviso-texto);
+}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:16px;font-size:.75rem;color:var(--texto-2);align-items:center}
+.leyenda .nivel{min-width:0}
+
+/* LEAP */
+.leap{display:grid;gap:0;border:1px solid var(--borde);border-radius:14px;overflow:hidden;background:var(--superficie)}
+@media (min-width:760px){.leap{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.fase{padding:18px;border-bottom:1px solid var(--borde);display:grid;gap:8px;align-content:start;min-width:0}
+@media (min-width:760px){.fase{border-bottom:0;border-right:1px solid var(--borde)}.fase:last-child{border-right:0}}
+.fase:last-child{border-bottom:0}
+.fase .letra{font-family:var(--mono);font-size:.75rem;color:var(--acento);letter-spacing:.08em;font-weight:500}
+.fase h3{font-size:1.0625rem}
+.fase p{margin:0;font-size:.875rem;color:var(--texto-2);line-height:1.5}
+.estado{justify-self:start;display:inline-flex;padding:3px 9px;border-radius:6px;font-size:.75rem;font-weight:500}
+.estado.hecho{background:var(--acento-aire);color:var(--acento-fuerte)}
+.estado.pend{background:var(--superficie-2);color:var(--texto-2);border:1px solid var(--borde)}
+
+/* Divulgación */
+.citas{display:grid;gap:12px}
+.cita{border-left:3px solid var(--acento);background:var(--acento-aire);padding:12px 16px;border-radius:0 10px 10px 0;font-size:.9375rem;line-height:1.5}
+.cita .fuente{display:block;margin-top:6px;font-family:var(--mono);font-size:.6875rem;color:var(--texto-2)}
+
+/* Cierre */
+.cierre{display:grid;gap:16px;padding:24px;border-radius:14px;background:var(--superficie-2)}
+.cierre p{margin:0;max-width:60ch}
+.pasos{margin:0;padding-left:22px;display:grid;gap:10px;max-width:62ch;font-size:.9375rem;color:var(--texto-2)}
+.pasos b{color:var(--texto);font-weight:600}
+.contacto{display:grid;gap:12px}
+.contacto[hidden]{display:none}
+.contacto .dos{gap:12px}
+.contacto input{
+  width:100%;font:inherit;font-size:1rem;color:var(--texto);background:var(--superficie);
+  border:1px solid var(--borde-fuerte);border-radius:10px;padding:11px 14px;
+}
+.contacto label{font-size:.8125rem;font-weight:500;display:grid;gap:6px}
+.ok{font-size:.875rem;color:var(--texto-2)}
+
+/* Metodología */
+#metodologia details{border-top:1px solid var(--borde)}
+#metodologia details:last-of-type{border-bottom:1px solid var(--borde)}
+summary{cursor:pointer;padding:16px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--rail)}
+details[open] summary::after{content:"–"}
+details .cuerpo{padding-bottom:18px;color:var(--texto-2);font-size:.9375rem;max-width:66ch}
+details .cuerpo p{margin:0 0 10px}
+.ref{font-family:var(--mono);font-size:.75rem;color:var(--texto);background:var(--superficie-2);padding:10px 12px;border-radius:8px;display:block;overflow-wrap:anywhere}
+
+footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
+
+@media (prefers-reduced-motion:no-preference){
+  #resultado.actualizado .bloques,#resultado.actualizado .resumen{animation:entra .35s ease-out}
+  @keyframes entra{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+}
+</style>
+<link rel="stylesheet" href="../../assets/marca/herramienta.css">
+</head>
+<body>
+
+
+
+<header class="site">
+  <div class="nav-row">
+    <a class="brand" href="../../" title="Ir al inicio de Rubén Ponce">
+      <svg class="rp-iso" viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><defs><clipPath id="rpDiscLeap"><circle cx="50" cy="50" r="40.75"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="4.9"><circle cx="50" cy="50" r="43.2"/><path d="M 2 50 C 8 60 14 68.4 24 68.9 C 34 69.4 41 64.5 50 58.7 C 58.5 53.2 66 47.9 76 47.9 C 85 47.9 91 51.5 98 60" clip-path="url(#rpDiscLeap)"/></g></svg>
+      <span class="rp-home-texto"><b>Rubén Ponce</b><i>Escáner LEAP</i></span>
+    </a>
+    <div class="rp-acciones-cabecera"><a class="back-link" href="../../">← Volver al inicio</a><span data-rp-tema></span></div>
+  </div>
+</header>
+
+<div class="envoltura">
+
+<div class="cabecera">
+  <div class="rp-hero">
+  <p class="eyebrow">Naturaleza · TNFD</p>
+  <h1>Escáner LEAP</h1>
+  <p class="lede">
+    Elige tu sector y responde dos preguntas sobre tu ubicación. En dos minutos ves de qué servicios
+    de la naturaleza depende tu negocio, qué presiones ejerce sobre ella y qué te pediría un reporte alineado a TNFD.
+  </p>
+  <div class="chips"><span class="chip">TNFD</span><span class="chip">ENCORE</span><span class="chip">IFRS S1</span></div>
+  </div>
+
+  <ol class="cinta" aria-label="Fases LEAP de TNFD">
+    <li><span class="l">L</span><span class="t">Localizar</span></li>
+    <li class="activa"><span class="l">E</span><span class="t">Evaluar</span><span class="nota">Este escáner</span></li>
+    <li><span class="l">A</span><span class="t">Analizar</span></li>
+    <li><span class="l">P</span><span class="t">Preparar</span></li>
+  </ol>
+
+  <div class="aviso" role="note">
+    <b>Versión beta.</b> Las calificaciones de materialidad son preliminares. Antes de publicar se
+    sustituyen por la base de conocimiento ENCORE 2024, actividad por actividad.
+  </div>
+</div>
+
+<main>
+
+<section id="entrada" aria-labelledby="t-entrada">
+  <h2 id="t-entrada">Tu operación</h2>
+  <p class="intro">Responde con lo que sepas. El resultado se calcula en tu navegador: nada se guarda ni se envía.</p>
+
+  <form class="form" id="formulario" novalidate>
+    <div class="campo">
+      <label class="etq" for="sector"><span class="paso">01</span>Sector principal</label>
+      <select id="sector" name="sector"></select>
+      <p class="ayuda" id="isic-ayuda"></p>
+    </div>
+
+    <div class="campo">
+      <label class="etq" for="estado"><span class="paso">02</span>País de tu operación principal</label>
+      <select id="estado" name="estado"></select>
+      <p class="ayuda">Sirve para llevarte directo al mapa de áreas protegidas de tu país en la pregunta 04.</p>
+    </div>
+
+    <div class="dos">
+      <fieldset class="campo" style="border:0;padding:0;margin:0">
+        <legend class="etq" style="padding:0;margin-bottom:8px"><span class="paso">03</span>¿Operas en zonas con escasez de agua?</legend>
+        <div class="segmento" role="radiogroup">
+          <input type="radio" name="agua" id="agua-si" value="si"><label for="agua-si">Sí</label>
+          <input type="radio" name="agua" id="agua-no" value="no"><label for="agua-no">No</label>
+          <input type="radio" name="agua" id="agua-ns" value="ns" checked><label for="agua-ns">No lo sé</label>
+        </div>
+        <p class="def">Una zona tiene estrés hídrico alto cuando los usuarios extraen el 40 % o más del agua renovable disponible cada año, y extremadamente alto a partir del 80 %.</p>
+        <details class="guia">
+          <summary>¿Cómo lo reviso?</summary>
+          <ol>
+            <li>Abre el <a href="https://www.wri.org/applications/aqueduct/water-risk-atlas/" target="_blank" rel="noopener">Aqueduct Water Risk Atlas</a> del World Resources Institute.</li>
+            <li>Busca la dirección de tu planta o sitio y activa el indicador <i>Baseline water stress</i>.</li>
+            <li>Si aparece en <i>High</i> o <i>Extremely high</i>, marca «Sí».</li>
+          </ol>
+          <p>Alternativa: el <a href="https://waterriskfilter.panda.org" target="_blank" rel="noopener">Water Risk Filter</a> de WWF permite cargar varios sitios a la vez.</p>
+          <span class="fuente-def">Definición: WRI, Aqueduct · estrés hídrico de línea base</span>
+        </details>
+      </fieldset>
+      <fieldset class="campo" style="border:0;padding:0;margin:0">
+        <legend class="etq" style="padding:0;margin-bottom:8px"><span class="paso">04</span>¿Cerca de áreas naturales protegidas?</legend>
+        <div class="segmento" role="radiogroup">
+          <input type="radio" name="anp" id="anp-si" value="si"><label for="anp-si">Sí</label>
+          <input type="radio" name="anp" id="anp-no" value="no"><label for="anp-no">No</label>
+          <input type="radio" name="anp" id="anp-ns" value="ns" checked><label for="anp-ns">No lo sé</label>
+        </div>
+        <p class="def">Cuenta si tu sitio está dentro o colinda con un área protegida nacional o subnacional, o con un humedal Ramsar. También si está aguas arriba de una en la misma cuenca.</p>
+        <details class="guia">
+          <summary>¿Cómo lo reviso?</summary>
+          <ol>
+            <li>Abre <a id="link-pp" href="https://www.protectedplanet.net" target="_blank" rel="noopener">Protected Planet</a>, la base mundial de áreas protegidas de UNEP-WCMC.</li>
+            <li>Acerca el mapa a la ubicación de tu sitio y revisa si algún polígono lo toca o queda muy cerca.</li>
+            <li>Si lo toca, colinda o está aguas arriba, marca «Sí».</li>
+          </ol>
+          <p>No hay una distancia única aceptada. Ante la duda, marca «Sí» y revísalo en la fase L.</p>
+          <span class="fuente-def">Base: World Database on Protected Areas (WDPA)</span>
+        </details>
+      </fieldset>
+    </div>
+
+    <div class="acciones">
+      <button class="btn p" type="submit">Ver mi resultado</button>
+      <button class="btn s" type="button" id="reiniciar">Reiniciar</button>
+    </div>
+  </form>
+</section>
+
+<section id="resultado" aria-labelledby="t-resultado" aria-live="polite">
+  <h2 id="t-resultado">Resultado</h2>
+  <p class="intro" id="res-intro"></p>
+
+  <div class="resumen">
+    <span class="tag-ejemplo" id="tag-ejemplo">Ejemplo precargado</span>
+    <p class="lin" id="res-linea"></p>
+    <div class="metricas">
+      <div class="metrica"><div class="v" id="m-dep">0</div><div class="k">dependencias de materialidad alta o muy alta</div></div>
+      <div class="metrica"><div class="v" id="m-imp">0</div><div class="k">presiones de materialidad alta o muy alta</div></div>
+      <div class="metrica"><div class="v" id="m-loc">0</div><div class="k">temas que tu ubicación intensifica</div></div>
+    </div>
+  </div>
+
+  <div class="visuales">
+    <figure class="fig">
+      <figcaption><b>Mapa de sectores</b><span>Tu sector frente a los otros 19. Toca un punto para cambiar de sector.</span></figcaption>
+      <div id="mapa" class="mapa"></div>
+    </figure>
+    <figure class="fig">
+      <figcaption><b>Huella por ámbito</b><span>La materialidad más alta en cada ámbito de la naturaleza.</span></figcaption>
+      <div id="huella" class="huella" role="table" aria-label="Huella por ámbito"></div>
+    </figure>
+  </div>
+
+  <div class="bloques">
+    <div class="bloque">
+      <div class="cab"><h3>Dependencias</h3><span>Riesgo físico</span></div>
+      <div id="lista-dep"></div>
+    </div>
+    <div class="bloque">
+      <div class="cab"><h3>Impactos</h3><span>Riesgo de transición</span></div>
+      <div id="lista-imp"></div>
+    </div>
+  </div>
+
+  <div class="leyenda" aria-label="Escala de materialidad">
+    <span>Materialidad ENCORE:</span>
+    <span class="nivel VH">Muy alta</span><span class="nivel H">Alta</span><span class="nivel M">Media</span><span class="nivel L">Baja</span>
+  </div>
+</section>
+
+<section id="leap" aria-labelledby="t-leap">
+  <h2 id="t-leap">Dónde quedas en LEAP</h2>
+  <p class="intro">LEAP es el método de TNFD para evaluar la relación con la naturaleza. Este escáner cubre parte de la fase E a nivel sectorial; lo demás depende de tus sitios y tu cadena de valor.</p>
+  <div class="leap" id="leap-fases"></div>
+</section>
+
+<section id="divulgar" aria-labelledby="t-div">
+  <h2 id="t-div">Qué te pediría un reporte</h2>
+  <p class="intro">Las recomendaciones de TNFD que este resultado empieza a alimentar (traducción libre del inglés).</p>
+  <div class="citas" id="citas"></div>
+</section>
+
+<section id="siguiente" aria-labelledby="t-sig">
+  <div class="cierre">
+    <h2 id="t-sig" style="margin:0">Del sector a tus sitios</h2>
+    <p>Este resultado describe a tu sector, no a tu empresa. Tu exposición real depende de dónde están tus
+    operaciones, de tus proveedores y del estado de los ecosistemas a su alrededor. Para avanzar por tu cuenta:</p>
+    <ol class="pasos">
+      <li><b>Haz tu lista de sitios.</b> Plantas, almacenes, campos y proveedores clave, con su ubicación.</li>
+      <li><b>Pasa cada sitio por los mapas.</b> Repite las preguntas 03 y 04 sitio por sitio con Aqueduct y Protected Planet.</li>
+      <li><b>Valida con tus datos.</b> Para las dependencias y presiones de materialidad alta, junta consumo de agua, descargas y superficie ocupada.</li>
+      <li><b>Consulta la guía LEAP de TNFD.</b> Explica cada fase con ejemplos: <a href="https://tnfd.global" target="_blank" rel="noopener">tnfd.global</a>.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="metodologia" aria-labelledby="t-met">
+  <h2 id="t-met">Metodología</h2>
+  <p class="intro">Qué hace la herramienta, de dónde salen los datos y qué no puede decirte.</p>
+
+  <details>
+    <summary>Qué es y cómo se calcula</summary>
+    <div class="cuerpo">
+      <p>Cada sector se asocia a una o varias actividades de la Clasificación Industrial Internacional Uniforme (CIIU / ISIC rev. 4). Para cada actividad, ENCORE califica qué tan material es su dependencia de 25 servicios ecosistémicos y su contribución a 13 presiones sobre la naturaleza, en cinco niveles: muy alta, alta, media, baja y muy baja.</p>
+      <p>El escáner muestra solo las dependencias y presiones con materialidad media o mayor, ordenadas de mayor a menor, y traduce cada una a un riesgo físico (dependencias) o de transición (impactos) en lenguaje de negocio.</p>
+      <p>El mapa de sectores ubica a cada sector con dos índices de 0 a 100: la suma de sus calificaciones de dependencia y la suma de sus calificaciones de presión (muy alta = 4, alta = 3, media = 2), escaladas al sector más alto. Sirve para comparar sectores entre sí, no es una medida absoluta. La huella por ámbito muestra la calificación más alta dentro de cada grupo de servicios y presiones.</p>
+      <p>Tus respuestas sobre agua y áreas protegidas no cambian la calificación sectorial. Solo marcan los temas que tu ubicación podría intensificar y que conviene revisar primero en la fase L.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Fuente de datos y licencia</summary>
+    <div class="cuerpo">
+      <p>Calificaciones de materialidad: base de conocimiento ENCORE, actualización 2024, publicada por Global Canopy, UNEP FI y UNEP-WCMC bajo licencia Creative Commons Atribución-CompartirIgual 4.0 (CC BY-SA 4.0).</p>
+      <span class="ref">ENCORE Partners (Global Canopy, UNEP FI y UNEP-WCMC) (2024). ENCORE: Exploring Natural Capital Opportunities, Risks and Exposure. encorenature.org</span>
+      <p style="margin-top:10px">La tabla de calificaciones adaptada en esta herramienta se comparte bajo la misma licencia. La lectura de riesgo y los textos son elaboración propia.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Limitaciones</summary>
+    <div class="cuerpo">
+      <p>Es un filtro sectorial. No usa las coordenadas de tus sitios, no evalúa el estado de los ecosistemas ni la cadena de suministro, y no sustituye una evaluación LEAP completa.</p>
+      <p>Para instituciones financieras, la exposición se evalúa sobre la cartera: el escáner sirve para revisar sector por sector los créditos o inversiones más relevantes.</p>
+      <p>El resultado orienta; no certifica cumplimiento con TNFD ni con ninguna norma.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Contexto normativo</summary>
+    <div class="cuerpo">
+      <p>IFRS S1 ya exige divulgar los riesgos y oportunidades de sostenibilidad materiales, incluidos los relacionados con la naturaleza. El ISSB prepara requisitos específicos de naturaleza que se apoyan en el marco TNFD, con un borrador para consulta pública previsto para octubre de 2026.</p>
+    </div>
+  </details>
+</section>
+
+<footer>
+  <span>Rubén Ponce · Sostenibilidad corporativa</span>
+  <span class="mono">Escáner LEAP · beta 0.1 · oct 2026</span>
+  <p class="rp-aviso-uso" style="flex-basis:100%">Para mayores de 18 años. Esta herramienta no guarda datos personales: lo que eliges se procesa en tu navegador. <a href="../../privacidad/">Aviso de privacidad</a></p>
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- Catálogo de servicios ecosistémicos (dependencias) ---------- */
+var SERV = {
+  ws:   {n:"Suministro de agua", r:"Menos agua disponible o de peor calidad puede frenar la producción y elevar costos de abasto y tratamiento."},
+  bio:  {n:"Provisión de biomasa", r:"Tus insumos vienen de cultivos, bosques o pesquerías; su degradación se traduce en escasez y volatilidad de precios."},
+  poll: {n:"Polinización", r:"La pérdida de polinizadores reduce rendimientos de cultivo y la calidad del producto."},
+  soilq:{n:"Regulación de la calidad del suelo", r:"Suelos empobrecidos bajan la productividad y obligan a gastar más en fertilización."},
+  ssr:  {n:"Retención de suelo y sedimentos", r:"Sin cobertura vegetal aumentan deslaves, azolve y daños a infraestructura."},
+  rpr:  {n:"Regulación del patrón de lluvias", r:"La deforestación regional altera las lluvias de las que dependen tus cultivos o tu abasto de agua."},
+  lcr:  {n:"Regulación del clima local", r:"Menos vegetación significa más calor extremo en sitio: estrés térmico, más energía para enfriar y menor productividad."},
+  wp:   {n:"Purificación del agua", r:"Si los ecosistemas dejan de filtrar el agua, tu costo de tratamiento sube y pueden aparecer restricciones de uso."},
+  wfr:  {n:"Regulación de flujos hídricos", r:"Caudales menos estables implican estiajes más severos y menor certeza en la disponibilidad de agua."},
+  flood:{n:"Mitigación de inundaciones", r:"Humedales, manglares y cuencas degradadas protegen menos; sube el riesgo de daños por inundación."},
+  storm:{n:"Mitigación de tormentas", r:"Sin barreras naturales costeras, huracanes y marejadas causan más daño a activos y operaciones."},
+  dil:  {n:"Dilución por la atmósfera y los ecosistemas", r:"Tu operación depende de que el ambiente absorba descargas y emisiones; si se satura, llegan límites más estrictos."},
+  bioc: {n:"Control biológico", r:"La pérdida de enemigos naturales de plagas aumenta pérdidas y gasto en agroquímicos."},
+  nurs: {n:"Mantenimiento de hábitats de cría", r:"Sin manglares, arrecifes y zonas de crianza, las poblaciones que capturas o cultivas se reducen."},
+  rec:  {n:"Servicios recreativos", r:"El atractivo del destino depende de ecosistemas sanos; su deterioro reduce la demanda turística."},
+  vis:  {n:"Belleza escénica", r:"Playas, arrecifes y paisajes degradados restan valor a la oferta y al precio por noche."}
+};
+
+/* ---------- Catálogo de presiones (impactos) ---------- */
+var PRES = {
+  land: {n:"Uso de suelo terrestre", r:"Cambiar o ocupar suelo natural atrae escrutinio de inversionistas, compromisos de cero deforestación y permisos más exigentes."},
+  fw:   {n:"Uso de áreas de agua dulce", r:"Embalses y obras en ríos enfrentan oposición social y condiciones ambientales más estrictas."},
+  sea:  {n:"Uso del lecho marino", r:"Operar sobre el fondo marino expone a restricciones en zonas de conservación y a mayores costos de mitigación."},
+  ghg:  {n:"Emisiones de GEI", r:"Precio al carbono, metas de clientes y bancos, y obligaciones de reporte bajo IFRS S2."},
+  air:  {n:"Contaminantes atmosféricos (no GEI)", r:"Normas de calidad del aire más estrictas, inversión en control de emisiones y conflictos con comunidades."},
+  tox:  {n:"Contaminantes tóxicos al agua y al suelo", r:"Pasivos ambientales, remediación, sanciones y pérdida de licencia social."},
+  nut:  {n:"Nutrientes al agua y al suelo", r:"Descargas de nitrógeno y fósforo enfrentan límites de vertido y exigencias de compradores."},
+  sw:   {n:"Residuos sólidos", r:"Responsabilidad extendida del productor, costos de disposición y metas de economía circular."},
+  dist: {n:"Perturbaciones (ruido, luz)", r:"Afectaciones a fauna y vecinos que derivan en condicionantes de operación y conflictos locales."},
+  wu:   {n:"Volumen de agua usada", r:"Concesiones más restrictivas, tarifas al alza y competencia con otros usuarios de la cuenca."},
+  inv:  {n:"Introducción de especies invasoras", r:"Controles fitosanitarios, costos de erradicación y responsabilidad por daños a ecosistemas."},
+  bext: {n:"Extracción de recursos bióticos", r:"Vedas, cuotas y certificaciones de sostenibilidad condicionan el acceso al recurso y al mercado."},
+  aext: {n:"Extracción de recursos abióticos", r:"Permisos de extracción más difíciles y compromisos de restauración al cierre."}
+};
+
+/* ---------- Sectores (calificaciones PRELIMINARES, a sustituir por ENCORE 2024) ---------- */
+var SECT = [
+  {id:"agri", n:"Agricultura (cultivos)", g:"Primario", isic:"A 011–012",
+   d:{ws:"VH",poll:"H",soilq:"VH",rpr:"H",wfr:"H",bioc:"H"}, p:{land:"VH",wu:"VH",nut:"VH",tox:"H",ghg:"H",inv:"M"}},
+  {id:"gana", n:"Ganadería", g:"Primario", isic:"A 014",
+   d:{ws:"VH",bio:"H",rpr:"H",soilq:"H",dil:"M"}, p:{land:"VH",ghg:"VH",nut:"VH",wu:"H",inv:"M"}},
+  {id:"pesc", n:"Pesca y acuicultura", g:"Primario", isic:"A 031–032",
+   d:{nurs:"VH",bio:"VH",wp:"H",ws:"H",dil:"M"}, p:{bext:"VH",nut:"H",sea:"H",inv:"H",tox:"M"}},
+  {id:"mine", n:"Minería metálica", g:"Extractivo", isic:"B 07",
+   d:{ws:"VH",ssr:"H",wfr:"H",dil:"H",flood:"H"}, p:{land:"VH",aext:"VH",tox:"VH",wu:"VH",dist:"H",sw:"H"}},
+  {id:"petr", n:"Petróleo y gas", g:"Extractivo", isic:"B 06",
+   d:{ws:"H",dil:"H",storm:"H",flood:"M"}, p:{ghg:"VH",tox:"H",air:"H",sea:"H",land:"H",dist:"M"}},
+  {id:"alim", n:"Alimentos y bebidas", g:"Manufactura", isic:"C 10–11",
+   d:{ws:"VH",wp:"H",dil:"H",bio:"M",wfr:"M"}, p:{wu:"VH",nut:"H",sw:"H",ghg:"M",tox:"M"}},
+  {id:"text", n:"Textil y confección", g:"Manufactura", isic:"C 13–14",
+   d:{ws:"H",dil:"H",wp:"M"}, p:{tox:"VH",wu:"H",ghg:"H",sw:"M"}},
+  {id:"pape", n:"Papel y celulosa", g:"Manufactura", isic:"C 17",
+   d:{ws:"VH",bio:"H",dil:"H",wfr:"M"}, p:{wu:"VH",tox:"H",ghg:"H",air:"M",sw:"M"}},
+  {id:"quim", n:"Química", g:"Manufactura", isic:"C 20",
+   d:{ws:"H",dil:"H",flood:"M"}, p:{tox:"VH",ghg:"H",air:"H",wu:"H",sw:"M"}},
+  {id:"ceme", n:"Cemento y minerales no metálicos", g:"Manufactura", isic:"C 23",
+   d:{ws:"M",ssr:"M",dil:"M",flood:"M"}, p:{ghg:"VH",aext:"H",air:"H",land:"M",dist:"M"}},
+  {id:"acer", n:"Siderurgia y metalurgia", g:"Manufactura", isic:"C 24",
+   d:{ws:"H",dil:"H",flood:"M"}, p:{ghg:"VH",air:"H",tox:"H",wu:"H",sw:"H"}},
+  {id:"elec", n:"Electrónica", g:"Manufactura", isic:"C 26",
+   d:{ws:"H",wp:"M",dil:"M",flood:"M"}, p:{tox:"H",wu:"H",sw:"H",ghg:"M"}},
+  {id:"auto", n:"Automotriz y autopartes", g:"Manufactura", isic:"C 29",
+   d:{ws:"M",dil:"M",flood:"M",storm:"M"}, p:{ghg:"M",tox:"M",sw:"M",air:"M"}},
+  {id:"fosi", n:"Generación eléctrica fósil", g:"Energía y agua", isic:"D 3510",
+   d:{ws:"VH",dil:"H",flood:"M",storm:"M"}, p:{ghg:"VH",air:"VH",wu:"H",tox:"M"}},
+  {id:"hidr", n:"Generación hidroeléctrica", g:"Energía y agua", isic:"D 3510",
+   d:{ws:"VH",wfr:"VH",ssr:"H",rpr:"H"}, p:{fw:"VH",land:"H",dist:"M"}},
+  {id:"reno", n:"Solar y eólica", g:"Energía y agua", isic:"D 3510",
+   d:{storm:"M",flood:"M",ssr:"M"}, p:{land:"H",dist:"M",sw:"M"}},
+  {id:"agua", n:"Agua y saneamiento", g:"Energía y agua", isic:"E 36–37",
+   d:{ws:"VH",wp:"VH",wfr:"H",dil:"H"}, p:{wu:"VH",nut:"H",tox:"M",ghg:"M"}},
+  {id:"cons", n:"Construcción y parques industriales", g:"Infraestructura y servicios", isic:"F 41–42",
+   d:{ssr:"H",flood:"H",storm:"H",lcr:"M",ws:"M"}, p:{land:"VH",aext:"H",dist:"H",sw:"H",ghg:"M"}},
+  {id:"tran", n:"Transporte y logística", g:"Infraestructura y servicios", isic:"H 49–52",
+   d:{flood:"H",storm:"H",ssr:"M",lcr:"M"}, p:{ghg:"VH",air:"H",dist:"H",inv:"M"}},
+  {id:"turi", n:"Turismo y hotelería", g:"Infraestructura y servicios", isic:"I 55–56",
+   d:{vis:"VH",rec:"VH",ws:"H",storm:"H",flood:"H",ssr:"M"}, p:{land:"H",wu:"H",sw:"H",nut:"M",dist:"M"}}
+];
+
+/* País → código ISO 3166-1 alfa-3 (enlace al mapa de Protected Planet) */
+var PAISES = [
+  ["América del Norte",[["Canadá","CAN"],["Estados Unidos","USA"],["México","MEX"]]],
+  ["Centroamérica",[["Belice","BLZ"],["Costa Rica","CRI"],["El Salvador","SLV"],["Guatemala","GTM"],["Honduras","HND"],["Nicaragua","NIC"],["Panamá","PAN"]]],
+  ["Caribe",[["Antigua y Barbuda","ATG"],["Bahamas","BHS"],["Barbados","BRB"],["Cuba","CUB"],["Dominica","DMA"],["Granada","GRD"],["Haití","HTI"],["Jamaica","JAM"],["Puerto Rico","PRI"],["República Dominicana","DOM"],["San Cristóbal y Nieves","KNA"],["San Vicente y las Granadinas","VCT"],["Santa Lucía","LCA"],["Trinidad y Tobago","TTO"]]],
+  ["América del Sur",[["Argentina","ARG"],["Bolivia","BOL"],["Brasil","BRA"],["Chile","CHL"],["Colombia","COL"],["Ecuador","ECU"],["Guyana","GUY"],["Paraguay","PRY"],["Perú","PER"],["Surinam","SUR"],["Uruguay","URY"],["Venezuela","VEN"]]],
+  ["Otros",[["Varios países",""]]]
+];
+
+var ETQ = {VH:"Muy alta",H:"Alta",M:"Media",L:"Baja"};
+
+/* Ámbitos para la huella: qué dependencias y presiones agrupa cada uno */
+var AMBITOS = [
+  {n:"Agua",                 d:["ws","wp","wfr"],            p:["wu","fw","nut","tox"]},
+  {n:"Suelo y tierra",       d:["soilq","ssr"],              p:["land","aext","sw"]},
+  {n:"Biodiversidad",        d:["poll","bioc","nurs","bio"], p:["bext","inv"]},
+  {n:"Clima y aire",         d:["rpr","lcr","dil"],          p:["ghg","air"]},
+  {n:"Costas y paisaje",     d:["flood","storm","vis","rec"],p:["sea","dist"]}
+];
+
+/* Índice relativo 0–100: suma de pesos de materialidad, escalada al sector más alto */
+var PESO = {VH:4,H:3,M:2,L:1};
+function suma(o){ return Object.keys(o).reduce(function(a,k){return a + PESO[o[k]];},0); }
+var MAXD = Math.max.apply(null, SECT.map(function(s){return suma(s.d);}));
+var MAXP = Math.max.apply(null, SECT.map(function(s){return suma(s.p);}));
+SECT.forEach(function(s){ s.xd = Math.round(suma(s.d)/MAXD*100); s.yp = Math.round(suma(s.p)/MAXP*100); });
+
+var SVGNS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, txt){
+  var e = document.createElementNS(SVGNS, tag);
+  for(var k in attrs){ e.setAttribute(k, attrs[k]); }
+  if(txt != null){ e.textContent = txt; }
+  return e;
+}
+
+function renderMapa(selId){
+  var W = 360, H = 290, pl = 30, pr = 14, pt = 14, pb = 34;
+  var iw = W - pl - pr, ih = H - pt - pb;
+  var X = function(v){ return pl + v/100*iw; }, Y = function(v){ return pt + ih - v/100*ih; };
+  var svg = el("svg", {viewBox:"0 0 "+W+" "+H, role:"img", "aria-label":"Mapa de sectores por índice de dependencia e impacto"});
+
+  svg.appendChild(el("rect", {class:"zona", x:X(50), y:Y(100), width:iw/2, height:ih/2, rx:6}));
+  svg.appendChild(el("line", {class:"media", x1:X(50), y1:Y(0), x2:X(50), y2:Y(100)}));
+  svg.appendChild(el("line", {class:"media", x1:X(0), y1:Y(50), x2:X(100), y2:Y(50)}));
+  svg.appendChild(el("line", {class:"eje", x1:X(0), y1:Y(0), x2:X(100), y2:Y(0)}));
+  svg.appendChild(el("line", {class:"eje", x1:X(0), y1:Y(0), x2:X(0), y2:Y(100)}));
+
+  svg.appendChild(el("text", {class:"cuad", x:X(98), y:Y(96), "text-anchor":"end"}, "Depende y presiona"));
+  svg.appendChild(el("text", {class:"cuad", x:X(2),  y:Y(96)}, "Presiona más"));
+  svg.appendChild(el("text", {class:"cuad", x:X(98), y:Y(3), "text-anchor":"end"}, "Depende más"));
+  svg.appendChild(el("text", {class:"cuad", x:X(2),  y:Y(3)}, "Exposición menor"));
+
+  svg.appendChild(el("text", {class:"etq-eje", x:X(100), y:H-8, "text-anchor":"end"}, "DEPENDENCIA →"));
+  svg.appendChild(el("text", {class:"etq-eje", x:X(0), y:H-8}, "0"));
+  var ey = el("text", {class:"etq-eje", x:10, y:Y(100), "text-anchor":"end", transform:"rotate(-90 10 "+Y(100)+")"}, "IMPACTO →");
+  svg.appendChild(ey);
+
+  var sel = null;
+  SECT.forEach(function(s){
+    if(s.id === selId){ sel = s; return; }
+    var c = el("circle", {class:"pt", cx:X(s.xd), cy:Y(s.yp), r:5.5, tabindex:0, role:"button", "aria-label":s.n});
+    c.appendChild(el("title", {}, s.n + " · dependencia " + s.xd + ", impacto " + s.yp));
+    var ir = function(){ $("sector").value = s.id; esEjemplo = false; render(true); };
+    c.addEventListener("click", ir);
+    c.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); ir(); } });
+    svg.appendChild(c);
+  });
+
+  if(sel){
+    var cx = X(sel.xd), cy = Y(sel.yp);
+    svg.appendChild(el("circle", {class:"halo", cx:cx, cy:cy, r:13}));
+    svg.appendChild(el("circle", {class:"pt sel", cx:cx, cy:cy, r:7.5}));
+    var derecha = cx > W/2;
+    var tx = derecha ? cx - 18 : cx + 18, ty = Math.max(pt + 12, Math.min(cy + 4, pt + ih - 6));
+    var t = el("text", {class:"rotulo", x:tx, y:ty, "text-anchor": derecha ? "end" : "start"}, sel.n);
+    svg.appendChild(t);
+  }
+  var cont = $("mapa"); cont.textContent = ""; cont.appendChild(svg);
+  if(sel){
+    var t2 = svg.querySelector(".rotulo"), f2 = svg.querySelector(".rotulo-fondo");
+    if(t2 && !f2){
+      try{ var b = t2.getBBox(); svg.insertBefore(el("rect", {class:"rotulo-fondo", x:b.x-4, y:b.y-2, width:b.width+8, height:b.height+4, rx:4}), t2); }catch(e){}
+    }
+  }
+}
+
+function maxNivel(obj, claves){
+  var mejor = null;
+  claves.forEach(function(k){ if(obj[k] && (!mejor || PESO[obj[k]] > PESO[mejor])){ mejor = obj[k]; } });
+  return mejor;
+}
+
+function renderHuella(s){
+  var c = $("huella"); c.textContent = "";
+  ["Ámbito","Depende","Presiona"].forEach(function(h){
+    var d = document.createElement("div"); d.className = "h"; d.setAttribute("role","columnheader"); d.textContent = h; c.appendChild(d);
+  });
+  AMBITOS.forEach(function(a){
+    var n = document.createElement("div"); n.className = "amb"; n.setAttribute("role","rowheader"); n.textContent = a.n; c.appendChild(n);
+    [maxNivel(s.d, a.d), maxNivel(s.p, a.p)].forEach(function(v){
+      var d = document.createElement("div"); d.setAttribute("role","cell");
+      d.className = "celda" + (v ? " " + v : "");
+      d.textContent = v ? ETQ[v] : "Baja o nula";
+      c.appendChild(d);
+    });
+  });
+}
+var ORDEN = {VH:4,H:3,M:2,L:1};
+var AGUA = ["ws","wp","wfr","wu"];
+var SENSIBLE = ["land","dist","inv","bext","nut","tox","fw","sea"];
+
+var $ = function(id){return document.getElementById(id);};
+var esEjemplo = true;
+
+/* ---------- Construir selects ---------- */
+function llenarSelects(){
+  var sel = $("sector"), grupos = {};
+  SECT.forEach(function(s){
+    if(!grupos[s.g]){ grupos[s.g] = document.createElement("optgroup"); grupos[s.g].label = s.g; sel.appendChild(grupos[s.g]); }
+    var o = document.createElement("option"); o.value = s.id; o.textContent = s.n; grupos[s.g].appendChild(o);
+  });
+  sel.value = "alim";
+  var est = $("estado");
+  PAISES.forEach(function(g){
+    var og = document.createElement("optgroup"); og.label = g[0];
+    g[1].forEach(function(p){ var o = document.createElement("option"); o.value = p[0]; o.dataset.iso = p[1]; o.textContent = p[0]; og.appendChild(o); });
+    est.appendChild(og);
+  });
+  est.value = "México";
+}
+
+function actualizarLink(){
+  var o = $("estado").selectedOptions[0], iso = o ? o.dataset.iso : "", a = $("link-pp");
+  if(iso){ a.href = "https://www.protectedplanet.net/country/" + iso; a.textContent = "Protected Planet · " + o.value; }
+  else { a.href = "https://www.protectedplanet.net"; a.textContent = "Protected Planet"; }
+}
+
+function valorRadio(n){ var r = document.querySelector('input[name="'+n+'"]:checked'); return r ? r.value : "ns"; }
+
+function ordenar(obj){
+  return Object.keys(obj).map(function(k){return {k:k,v:obj[k]};})
+    .sort(function(a,b){return ORDEN[b.v]-ORDEN[a.v];});
+}
+
+function item(nombre, nivel, lectura, marca){
+  var d = document.createElement("div"); d.className = "item";
+  var f = document.createElement("div"); f.className = "fila";
+  var n = document.createElement("span"); n.className = "nom"; n.textContent = nombre;
+  var b = document.createElement("span"); b.className = "nivel " + nivel; b.textContent = ETQ[nivel];
+  f.appendChild(n); f.appendChild(b); d.appendChild(f);
+  var p = document.createElement("p"); p.className = "lect"; p.textContent = lectura; d.appendChild(p);
+  if(marca){ var m = document.createElement("span"); m.className = "marca-loc"; m.textContent = marca; d.appendChild(m); }
+  return d;
+}
+
+/* ---------- Render ---------- */
+function render(animar){
+  var s = SECT.filter(function(x){return x.id === $("sector").value;})[0];
+  var estado = $("estado").value, agua = valorRadio("agua"), anp = valorRadio("anp");
+
+  $("isic-ayuda").textContent = "Actividad de referencia CIIU/ISIC rev. 4: " + s.isic;
+  actualizarLink();
+  $("tag-ejemplo").hidden = !esEjemplo;
+
+  var deps = ordenar(s.d), imps = ordenar(s.p);
+  var nLoc = 0;
+
+  var ld = $("lista-dep"); ld.textContent = "";
+  deps.forEach(function(x){
+    var marca = null;
+    if(agua === "si" && AGUA.indexOf(x.k) > -1){ marca = "Escasez de agua: se intensifica"; nLoc++; }
+    ld.appendChild(item(SERV[x.k].n, x.v, SERV[x.k].r, marca));
+  });
+
+  var li = $("lista-imp"); li.textContent = "";
+  imps.forEach(function(x){
+    var marca = null;
+    if(agua === "si" && AGUA.indexOf(x.k) > -1){ marca = "Escasez de agua: se intensifica"; nLoc++; }
+    else if(anp === "si" && SENSIBLE.indexOf(x.k) > -1){ marca = "Zona sensible: prioridad alta"; nLoc++; }
+    li.appendChild(item(PRES[x.k].n, x.v, PRES[x.k].r, marca));
+  });
+
+  var altasD = deps.filter(function(x){return ORDEN[x.v] >= 3;}).length;
+  var altasI = imps.filter(function(x){return ORDEN[x.v] >= 3;}).length;
+  $("m-dep").textContent = altasD;
+  $("m-imp").textContent = altasI;
+  $("m-loc").textContent = (agua === "ns" && anp === "ns") ? "–" : nLoc;
+
+  var topD = SERV[deps[0].k].n.toLowerCase(), topI = PRES[imps[0].k].n.toLowerCase();
+  var linea = $("res-linea"); linea.textContent = "";
+  linea.append("En ");
+  var b1 = document.createElement("b"); b1.textContent = s.n.toLowerCase(); linea.appendChild(b1);
+  linea.append(", la dependencia más material es ");
+  var b2 = document.createElement("b"); b2.textContent = topD; linea.appendChild(b2);
+  linea.append(" y la presión más material es ");
+  var b3 = document.createElement("b"); b3.textContent = topI; linea.appendChild(b3);
+  linea.append(".");
+
+  $("res-intro").textContent = s.n + " · operación principal en " + (estado === "Varios países" ? "varios países" : estado) + ".";
+
+  renderMapa(s.id);
+  renderHuella(s);
+  renderLeap(agua, anp, estado);
+  renderCitas(s, deps, imps);
+
+  if(animar){
+    var r = $("resultado"); r.classList.remove("actualizado"); void r.offsetWidth; r.classList.add("actualizado");
+  }
+}
+
+function renderLeap(agua, anp, estado){
+  var sabeLoc = (agua !== "ns" && anp !== "ns");
+  var fases = [
+    {l:"L", t:"Localizar", ok:false, est:"Pendiente",
+     p: sabeLoc ? "Ya identificaste las condiciones de tu sitio principal. Falta ubicar cada instalación y proveedor clave y cruzarlos con mapas de estrés hídrico, áreas protegidas e integridad ecosistémica."
+                : "Primero ubica tus sitios y proveedores clave, y crúzalos con mapas de estrés hídrico y de áreas naturales protegidas."},
+    {l:"E", t:"Evaluar", ok:true, est:"Cubierto a nivel sector",
+     p:"Este escáner identifica dependencias e impactos típicos de tu actividad. Falta validarlos con datos propios: consumo de agua, descargas, superficie ocupada."},
+    {l:"A", t:"Analizar", ok:false, est:"Orientativo",
+     p:"Las lecturas de riesgo son una primera hipótesis. El análisis formal estima probabilidad e impacto financiero de cada riesgo y oportunidad."},
+    {l:"P", t:"Preparar", ok:false, est:"Pendiente",
+     p:"Con L, E y A completas defines estrategia, metas y qué divulgar. Abajo están las recomendaciones de TNFD que aplican."}
+  ];
+  var c = $("leap-fases"); c.textContent = "";
+  fases.forEach(function(f){
+    var d = document.createElement("div"); d.className = "fase";
+    d.innerHTML = '<span class="letra"></span><h3></h3><span class="estado"></span><p></p>';
+    d.querySelector(".letra").textContent = f.l;
+    d.querySelector("h3").textContent = f.t;
+    var e = d.querySelector(".estado"); e.textContent = f.est; e.classList.add(f.ok ? "hecho" : "pend");
+    d.querySelector("p").textContent = f.p;
+    c.appendChild(d);
+  });
+}
+
+function renderCitas(s, deps, imps){
+  var citas = [
+    {t:"Describir las dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza identificados a corto, mediano y largo plazo.",
+     f:"TNFD · Recomendaciones (2023) · Estrategia A"},
+    {t:"Divulgar las ubicaciones de activos y actividades en la operación directa, y donde sea posible en la cadena de valor, que cumplen los criterios de ubicación prioritaria.",
+     f:"TNFD · Recomendaciones (2023) · Estrategia D"},
+    {t:"Describir los procesos para identificar, evaluar y priorizar dependencias, impactos, riesgos y oportunidades en la operación directa y en la cadena de valor.",
+     f:"TNFD · Recomendaciones (2023) · Gestión de riesgos e impactos A(i) y A(ii)"},
+    {t:"Divulgar las métricas usadas para evaluar y gestionar dependencias e impactos sobre la naturaleza.",
+     f:"TNFD · Recomendaciones (2023) · Métricas y objetivos B"}
+  ];
+  var c = $("citas"); c.textContent = "";
+  citas.forEach(function(x){
+    var d = document.createElement("div"); d.className = "cita";
+    d.textContent = x.t;
+    var sp = document.createElement("span"); sp.className = "fuente"; sp.textContent = x.f; d.appendChild(sp);
+    c.appendChild(d);
+  });
+}
+
+/* ---------- Eventos ---------- */
+$("formulario").addEventListener("submit", function(e){
+  e.preventDefault(); esEjemplo = false; render(true);
+  $("resultado").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
+});
+["sector","estado"].forEach(function(id){ $(id).addEventListener("change", function(){ esEjemplo = false; render(true); }); });
+document.querySelectorAll('input[type="radio"]').forEach(function(r){ r.addEventListener("change", function(){ esEjemplo = false; render(true); }); });
+$("reiniciar").addEventListener("click", function(){
+  $("sector").value = "alim"; $("estado").value = "México";
+  $("agua-ns").checked = true; $("anp-ns").checked = true;
+  esEjemplo = true; render(true);
+});
+
+llenarSelects();
+render(false);
+})();
+</script>
+
+</body>
+</html>

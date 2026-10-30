@@ -330,3 +330,11 @@ html[data-theme="dark"][data-rp-herramienta="tracker"]{
 [data-theme="dark"][data-rp-herramienta="tracker"] .dot[style*="#E3EAF2" i]{background:#1F2B40 !important;box-shadow:inset 0 0 0 1px #3A4A66;}
 [data-theme="dark"][data-rp-herramienta="tracker"] .dot[style*="#A9C6E2" i]{background:#2E5F92 !important;}
 [data-theme="dark"][data-rp-herramienta="tracker"] .dot[style*="#0F4A7F" i]{background:#8FC4F2 !important;}
+
+/* ============================================================================
+   5. AVISO DE USO (herramientas sin registro)
+   ----------------------------------------------------------------------------
+   <p class="rp-aviso-uso">Para mayores de 18 años… <a href="../../privacidad/">Aviso de privacidad</a></p>
+   ============================================================================ */
+.rp-aviso-uso{font-family:var(--rp-fuente-texto,'DM Sans',sans-serif);font-size:13px;line-height:1.55;color:var(--rp-texto-2,#5C6B85);margin:18px 0 0;max-width:60ch;}
+.rp-aviso-uso a{color:var(--rp-enlace,#1567B0);}
