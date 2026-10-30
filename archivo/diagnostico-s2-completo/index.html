@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es" data-rp-herramienta="diagnostico">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script src="../../assets/marca/tema.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autodiagnóstico IFRS S2 · Rubén Ponce</title>
+<link rel="icon" href="../../assets/marca/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../../assets/marca/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/marca/favicon-180.png">
+
+<meta name="theme-color" content="#1567B0">
+<meta name="description" content="Autodiagnóstico de madurez frente a IFRS S2: nivel por pilar, brechas y plan de acción climático, con la cita exacta de cada requisito.">
+<meta property="og:site_name" content="Rubén Ponce">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Autodiagnóstico IFRS S2 · Rubén Ponce">
+<meta property="og:description" content="Evalúa tu preparación frente a IFRS S2 y recibe un plan de acción por pilar.">
+<meta name="twitter:card" content="summary">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1B2D;--blue:#1567B0;--mid:#256FB4;--sky:#6FB2E8;
+  --cream:#F1F4FA;--sand:#DFE6F0;--white:#FBFCFE;--text:#0F1B2D;--text-light:#5C6B85;
+  --p1:#1567B0;--p2:#0E6A6F;--p3:#5B4B8B;--p4:#4D6B1F;
+  --p1-bg:#E6F0F9;--p2-bg:#E1F0EE;--p3-bg:#EDE9F4;--p4-bg:#EEF3E4;
+  --s1:#1567B0;--s2:#0E6A6F;
+  --lv0:#5C6B85;--lv0-bg:#F1F4FA;
+  --lv1:#256FB4;--lv1-bg:#E6F0F9;
+  --lv2:#1567B0;--lv2-bg:#DCE9F6;
+  --lv3:#0F4A7F;--lv3-bg:#CFE0F2;
+  --lv4:#0B3A64;--lv4-bg:#BFD6EE;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:var(--navy);color:var(--text);min-height:100vh;}
+
+/* ── INTRO ── */
+#screen-intro{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:var(--navy);position:relative;overflow:hidden;padding:2rem;}
+#screen-intro::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(21,101,192,.3) 0%,transparent 70%);pointer-events:none;}
+.intro-badge{font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sky);border:1px solid rgba(79,195,247,.4);padding:.4rem 1rem;border-radius:2px;margin-bottom:2rem;opacity:0;animation:fadeUp .6s ease .2s forwards;}
+.intro-logo{display:flex;gap:10px;align-items:center;margin-bottom:2rem;opacity:0;animation:fadeUp .6s ease .4s forwards;}
+.norm-badge{padding:.3rem .8rem;border-radius:3px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.1rem;}
+.norm-s1{background:var(--s1);color:white;}.norm-s2{background:var(--s2);color:white;}
+.norm-sep{color:rgba(255,255,255,.3);font-size:1.2rem;}
+.intro-title{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:clamp(2.4rem,6.4vw,4.8rem);font-weight:600;letter-spacing:-.02em;color:var(--white);text-align:center;line-height:1.1;max-width:800px;margin-bottom:1.2rem;opacity:0;animation:fadeUp .6s ease .6s forwards;}
+.intro-title em{font-style:normal;color:var(--sky);}
+.intro-desc{font-size:.95rem;font-weight:300;color:rgba(250,251,255,.65);text-align:center;max-width:640px;line-height:1.7;margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s ease .8s forwards;}
+.intro-stats{display:flex;gap:2rem;margin-bottom:1.8rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .6s ease 1s forwards;}
+.stat{text-align:center;}
+.stat-n{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:2rem;font-weight:700;color:var(--sky);display:block;}
+.stat-label{font-size:.68rem;font-weight:400;letter-spacing:.08em;color:rgba(250,251,255,.45);text-transform:uppercase;}
+.intro-frameworks{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s ease 1.1s forwards;}
+.fw-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;padding:.28rem .65rem;border-radius:2px;border:1px solid;color:rgba(250,251,255,.7);}
+.fw-s1{background:rgba(21,101,192,.2);border-color:rgba(21,101,192,.4);}
+.fw-s2{background:rgba(0,121,107,.2);border-color:rgba(0,121,107,.4);}
+.fw-other{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);}
+.btn-start{background:var(--sky);color:var(--navy);border:none;padding:1rem 3rem;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:3px;transition:all .2s ease;opacity:0;animation:fadeUp .6s ease 1.2s forwards;}
+.btn-start:hover{background:#6FB2E8;transform:translateY(-2px);box-shadow:0 8px 24px rgba(79,195,247,.4);}
+
+/* ── REGISTRO ── */
+#screen-register{display:none;min-height:100vh;background:var(--navy);align-items:center;justify-content:center;padding:2rem;position:relative;}
+#screen-register::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(21,101,192,.2) 0%,transparent 70%);pointer-events:none;}
+.register-card{background:var(--white);border-radius:12px;padding:3rem;width:100%;max-width:540px;position:relative;z-index:1;box-shadow:0 24px 80px rgba(0,0,0,.45);}
+.register-header{text-align:center;margin-bottom:2rem;}
+.reg-logos{display:flex;gap:8px;justify-content:center;margin-bottom:1rem;}
+.reg-badge{padding:.2rem .6rem;border-radius:2px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.8rem;}
+.reg-s1{background:var(--s1);color:white;}.reg-s2{background:var(--s2);color:white;}
+.register-header h2{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:1.8rem;font-weight:700;color:var(--text);margin-bottom:.5rem;}
+.register-header p{font-size:.85rem;color:var(--text-light);line-height:1.5;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{margin-bottom:1.1rem;}
+.form-group label{display:block;font-size:.73rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-light);margin-bottom:.35rem;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.75rem .9rem;border:1.5px solid var(--sand);border-radius:4px;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:.88rem;color:var(--text);background:var(--cream);transition:border-color .15s;outline:none;appearance:none;-webkit-appearance:none;resize:vertical;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);background:var(--white);}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(74,85,104,.4);}
+.register-privacy{display:flex;align-items:flex-start;gap:.6rem;margin:1.2rem 0;font-size:.77rem;color:var(--text-light);line-height:1.5;}
+.register-privacy input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--blue);cursor:pointer;}
+.btn-register{width:100%;background:var(--blue);color:white;border:none;padding:.95rem;border-radius:4px;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.btn-register:hover{background:var(--mid);transform:translateY(-1px);}
+.btn-register:disabled{background:var(--sand);color:var(--text-light);cursor:not-allowed;transform:none;}
+.reg-msg{display:none;border-radius:4px;padding:.7rem 1rem;font-size:.82rem;margin-top:.8rem;text-align:center;}
+.reg-error{background:#F1F4FA;border:1px solid #FBE9E7;color:#5C6B85;}
+.reg-ok{background:#E6F0F9;border:1px solid var(--blue);color:var(--blue);}
+.sending-overlay{display:none;position:fixed;inset:0;background:rgba(10,37,64,.92);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+.sending-overlay.active{display:flex;}
+.spinner{width:40px;height:40px;border:3px solid rgba(79,195,247,.3);border-top-color:var(--sky);border-radius:50%;animation:spin .8s linear infinite;}
+.sending-text{color:var(--white);font-size:.9rem;text-align:center;max-width:280px;}
+
+/* ── QUIZ ── */
+#screen-quiz{display:none;background:var(--cream);min-height:100vh;}
+.quiz-header{background:var(--navy);padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;gap:1rem;}
+.header-brand{display:flex;align-items:center;gap:8px;color:var(--white);font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:1rem;font-weight:600;flex-shrink:0;}
+.header-badges{display:flex;gap:3px;}
+.hbadge{font-family:'JetBrains Mono',monospace;font-size:.55rem;font-weight:700;padding:.15rem .35rem;border-radius:2px;}
+.hb-s1{background:var(--s1);color:white;}.hb-s2{background:var(--s2);color:white;}
+.progress-wrap{flex:1;max-width:380px;}
+.progress-label{display:flex;justify-content:space-between;font-size:.68rem;color:rgba(250,251,255,.55);margin-bottom:5px;}
+.progress-bar{height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--sky);border-radius:2px;transition:width .4s ease;width:0%;}
+.header-counter{font-size:.72rem;color:rgba(250,251,255,.5);white-space:nowrap;}
+.pillar-nav{background:var(--white);border-bottom:1px solid var(--sand);padding:0 1.5rem;display:flex;overflow-x:auto;}
+.pillar-tab{padding:.9rem 1.2rem;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-light);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:.4rem;}
+.pillar-tab:hover{color:var(--blue);}
+.pillar-tab.active{color:var(--blue);border-bottom-color:var(--blue);}
+.tab-done{width:14px;height:14px;background:var(--blue);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:.55rem;color:white;flex-shrink:0;}
+.pillar-tab.done .tab-done{display:flex;}
+.quiz-content{max-width:900px;margin:0 auto;padding:2rem 1.5rem 6rem;}
+.pillar-section{display:none;}.pillar-section.active{display:block;}
+.pillar-header{display:flex;align-items:flex-start;gap:1.2rem;margin-bottom:2rem;padding:1.75rem;border-radius:8px;}
+.pillar-header.p1{background:var(--p1-bg);}.pillar-header.p2{background:var(--p2-bg);}
+.pillar-header.p3{background:var(--p3-bg);}.pillar-header.p4{background:var(--p4-bg);}
+.pillar-icon{font-size:2.2rem;flex-shrink:0;line-height:1;}
+.pillar-info h2{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:.3rem;}
+.pillar-header.p1 .pillar-info h2{color:var(--p1);}
+.pillar-header.p2 .pillar-info h2{color:var(--p2);}
+.pillar-header.p3 .pillar-info h2{color:var(--p3);}
+.pillar-header.p4 .pillar-info h2{color:var(--p4);}
+.pillar-info p{font-size:.84rem;color:var(--text-light);line-height:1.6;margin-bottom:.6rem;}
+.pillar-meta{display:flex;gap:.4rem;flex-wrap:wrap;}
+.pillar-tag{font-size:.63rem;font-weight:600;letter-spacing:.05em;padding:.2rem .55rem;border-radius:2px;background:rgba(255,255,255,.7);}
+.norm-ref-tag{font-size:.63rem;font-weight:700;padding:.18rem .5rem;border-radius:2px;}
+.nr-s1{background:rgba(21,101,192,.15);color:var(--s1);}
+.nr-s2{background:rgba(0,121,107,.15);color:var(--s2);}
+.nr-both{background:rgba(106,27,154,.12);color:var(--p3);}
+
+/* ── ÁREA DE REVELACIÓN (antes "divulgación recomendada") ── */
+.revelation-area{background:var(--white);border-radius:8px;margin-bottom:1.25rem;overflow:hidden;border:1px solid var(--sand);}
+.revelation-label{padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.9rem;border-bottom:1px solid var(--sand);background:rgba(245,247,251,.6);}
+.disc-badge{min-width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;color:white;margin-top:2px;}
+.disc-info{flex:1;}
+.area-label-chip{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:2px;background:rgba(10,37,64,.08);color:var(--text-light);margin-bottom:.3rem;display:inline-block;}
+.disc-title{font-size:.86rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:.2rem;}
+.disc-ref{font-size:.7rem;color:var(--text-light);}
+
+.question-block{padding:1.25rem 1.25rem 0 1.5rem;border-bottom:1px solid var(--sand);}
+.question-block:last-child{border-bottom:none;}
+.q-header{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.9rem;}
+.q-code-block{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;}
+.q-code{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:600;padding:.25rem .5rem;border-radius:4px;border:1px solid;white-space:nowrap;}
+.code-p1{background:var(--p1-bg);color:var(--p1);border-color:rgba(21,101,192,.25);}
+.code-p2{background:var(--p2-bg);color:var(--p2);border-color:rgba(0,121,107,.25);}
+.code-p3{background:var(--p3-bg);color:var(--p3);border-color:rgba(106,27,154,.25);}
+.code-p4{background:var(--p4-bg);color:var(--p4);border-color:rgba(77,107,31,.25);}
+.q-seq{font-size:.58rem;color:var(--text-light);font-family:'JetBrains Mono',monospace;}
+.q-body{flex:1;}
+.question-text{font-size:.88rem;color:var(--text);line-height:1.6;margin-bottom:.3rem;}
+.q-ref{font-size:.67rem;color:var(--text-light);font-style:italic;display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;}
+.q-ref-tag{background:var(--sand);padding:.08rem .4rem;border-radius:2px;font-style:normal;font-weight:600;font-size:.6rem;letter-spacing:.04em;color:#33415C;}
+.options{display:flex;gap:.6rem;flex-wrap:wrap;padding-left:56px;margin-bottom:.7rem;}
+.option-btn{padding:.5rem .95rem;border-radius:4px;border:1.5px solid var(--sand);background:var(--cream);font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s;color:var(--text-light);}
+.option-btn:hover{border-color:var(--blue);color:var(--blue);background:#E6F0F9;}
+.option-btn.selected.opt-0{border-color:#B3261E;background:#F1F4FA;color:#5C6B85;}
+.option-btn.selected.opt-1{border-color:#4D6B1F;background:#E6F0F9;color:#256FB4;}
+.option-btn.selected.opt-2{border-color:#A15C00;background:#DCE9F6;color:#1567B0;}
+.option-btn.selected.opt-3{border-color:#146B41;background:#E4F3EB;color:#0F4A7F;}
+
+/* ── CAMPO DE COMENTARIOS ── */
+.comment-wrap{padding:0 1.25rem 1rem 58px;}
+.comment-toggle{background:none;border:none;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:.72rem;color:var(--text-light);cursor:pointer;padding:.2rem 0;display:flex;align-items:center;gap:.3rem;opacity:.7;transition:opacity .15s;}
+.comment-toggle:hover{opacity:1;color:var(--blue);}
+.comment-toggle.has-text{color:var(--blue);opacity:1;}
+.comment-box{display:none;margin-top:.4rem;}
+.comment-box.open{display:block;}
+.comment-box textarea{width:100%;padding:.6rem .8rem;border:1.5px solid var(--sand);border-radius:4px;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:.8rem;color:var(--text);background:var(--cream);resize:vertical;min-height:56px;outline:none;transition:border-color .15s;line-height:1.5;}
+.comment-box textarea:focus{border-color:var(--blue);background:var(--white);}
+.comment-box textarea::placeholder{color:rgba(74,85,104,.35);font-style:italic;}
+.comment-char{font-size:.65rem;color:var(--text-light);margin-top:.2rem;text-align:right;}
+
+.quiz-nav{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--sand);padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;z-index:50;}
+.btn-nav{padding:.7rem 1.75rem;border-radius:4px;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.05em;}
+.btn-prev{background:transparent;border:1.5px solid var(--sand);color:var(--text-light);}
+.btn-prev:hover{border-color:#5C6B85;color:#5C6B85;}
+.btn-next{background:var(--blue);border:none;color:white;}
+.btn-next:hover{background:var(--mid);transform:translateY(-1px);}
+.btn-next:disabled{background:var(--sand);color:var(--text-light);cursor:not-allowed;transform:none;}
+.nav-hint{font-size:.75rem;color:var(--text-light);text-align:center;}
+
+/* ── RESULTADOS ── */
+#screen-results{display:none;background:var(--cream);min-height:100vh;}
+.results-hero{background:var(--navy);padding:3.5rem 2rem 2.5rem;text-align:center;position:relative;overflow:hidden;}
+.results-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(21,101,192,.35) 0%,transparent 60%);}
+.results-hero-content{position:relative;z-index:1;}
+.user-chip{display:inline-flex;align-items:center;gap:.5rem;background:rgba(79,195,247,.12);border:1px solid rgba(79,195,247,.25);border-radius:20px;padding:.3rem .9rem;margin-bottom:1.2rem;font-size:.78rem;color:rgba(250,251,255,.75);}
+.user-chip strong{color:var(--sky);}
+.results-badge{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);border:1px solid rgba(79,195,247,.3);padding:.3rem .85rem;border-radius:2px;margin-bottom:1.2rem;}
+.results-title{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:600;color:var(--white);margin-bottom:.6rem;}
+.results-level{font-size:1rem;font-weight:300;color:var(--sky);margin-bottom:.8rem;}
+.results-score-big{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:4.5rem;font-weight:700;color:var(--sky);line-height:1;}
+.results-score-label{font-size:.75rem;color:rgba(250,251,255,.45);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem;margin-bottom:1rem;}
+.results-content{max-width:940px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+.section-title{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:1.5rem;font-weight:600;color:var(--text);margin-bottom:1.2rem;margin-top:2rem;padding-bottom:.5rem;border-bottom:1px solid var(--sand);}
+
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.pillar-card{background:var(--white);border-radius:8px;padding:1.4rem;border:1px solid var(--sand);text-align:center;position:relative;overflow:hidden;}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.pillar-card.p1::before{background:var(--p1);}.pillar-card.p2::before{background:var(--p2);}
+.pillar-card.p3::before{background:var(--p3);}.pillar-card.p4::before{background:var(--p4);}
+.pillar-card-icon{font-size:1.8rem;margin-bottom:.6rem;display:block;}
+.pillar-card-name{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:.6rem;}
+.pillar-card-score{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:2.6rem;font-weight:700;line-height:1;margin-bottom:.3rem;}
+.p1 .pillar-card-score{color:var(--p1);}.p2 .pillar-card-score{color:var(--p2);}
+.p3 .pillar-card-score{color:var(--p3);}.p4 .pillar-card-score{color:var(--p4);}
+.pillar-card-lv{font-size:.7rem;color:var(--text-light);margin-bottom:.5rem;}
+.pillar-card-bar{height:5px;background:var(--sand);border-radius:3px;overflow:hidden;}
+.pillar-card-fill{height:100%;border-radius:3px;}
+.p1 .pillar-card-fill{background:var(--p1);}.p2 .pillar-card-fill{background:var(--p2);}
+.p3 .pillar-card-fill{background:var(--p3);}.p4 .pillar-card-fill{background:var(--p4);}
+
+.norm-split{background:var(--white);border-radius:8px;border:1px solid var(--sand);margin-bottom:1.5rem;overflow:hidden;}
+.norm-split-header{padding:1rem 1.4rem;border-bottom:1px solid var(--sand);display:flex;align-items:center;gap:.7rem;}
+.norm-split-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--sand);}
+.norm-split-col{background:var(--white);padding:1.2rem 1.4rem;}
+.nsc-label{display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem;}
+.nsc-score{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:2rem;font-weight:700;}
+.nsc-s1{color:var(--s1);}.nsc-s2{color:var(--s2);}
+.nsc-bar{height:6px;background:var(--sand);border-radius:3px;overflow:hidden;margin-top:.5rem;}
+.nsc-fill-s1{height:100%;border-radius:3px;background:var(--s1);}
+.nsc-fill-s2{height:100%;border-radius:3px;background:var(--s2);}
+
+.heatmap-section{background:var(--white);border-radius:8px;border:1px solid var(--sand);margin-bottom:1.5rem;overflow:hidden;}
+.heatmap-header{padding:1.1rem 1.4rem;border-bottom:1px solid var(--sand);display:flex;align-items:center;gap:.7rem;}
+.heatmap-grid{padding:1.2rem 1.4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.6rem;}
+.hm-cell{border-radius:6px;padding:.8rem 1rem;display:flex;align-items:center;gap:.7rem;border:1px solid transparent;}
+.hm-cell.lvl-0{background:var(--lv0-bg);border-color:#FBE9E740;}
+.hm-cell.lvl-1{background:var(--lv1-bg);border-color:#FCF1E040;}
+.hm-cell.lvl-2{background:var(--lv2-bg);border-color:#A15C0040;}
+.hm-cell.lvl-3{background:var(--lv3-bg);border-color:#E4F3EB40;}
+.hm-badge{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:white;flex-shrink:0;}
+.hm-code{font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:600;display:block;margin-top:3px;opacity:.7;}
+.hm-info{flex:1;min-width:0;}
+.hm-disc{font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.1rem;}
+.hm-text{font-size:.72rem;color:var(--text-light);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.hm-pct{font-size:1.1rem;font-weight:700;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;flex-shrink:0;}
+.lvl-0 .hm-pct{color:var(--lv0);}.lvl-1 .hm-pct{color:var(--lv1);}
+.lvl-2 .hm-pct{color:var(--lv2);}.lvl-3 .hm-pct{color:var(--lv3);}
+
+.detail-section{background:var(--white);border-radius:8px;border:1px solid var(--sand);margin-bottom:1rem;overflow:hidden;}
+.detail-header{padding:1rem 1.4rem;border-bottom:1px solid var(--sand);display:flex;align-items:center;gap:.7rem;cursor:pointer;user-select:none;transition:background .15s;}
+.detail-header:hover{background:var(--cream);}
+.detail-toggle{margin-left:auto;font-size:.75rem;color:var(--text-light);transition:transform .2s;}
+.detail-header.open .detail-toggle{transform:rotate(180deg);}
+.detail-body{display:none;}
+.detail-header.open+.detail-body{display:block;}
+.detail-row{padding:.85rem 1.4rem;display:flex;align-items:flex-start;gap:.8rem;border-bottom:1px solid var(--sand);}
+.detail-row:last-child{border-bottom:none;}
+.detail-code{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;padding:.2rem .4rem;border-radius:3px;border:1px solid;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.detail-q{flex:1;}
+.detail-qtext{font-size:.82rem;color:var(--text);line-height:1.4;margin-bottom:.2rem;}
+.detail-qref{font-size:.64rem;color:var(--text-light);font-style:italic;}
+.detail-comment{font-size:.75rem;color:var(--blue);margin-top:.3rem;font-style:italic;background:var(--p1-bg);padding:.3rem .6rem;border-radius:3px;border-left:2px solid var(--blue);}
+.detail-ans{flex-shrink:0;text-align:right;min-width:90px;}
+.ans-chip{font-size:.7rem;font-weight:600;padding:.22rem .55rem;border-radius:3px;white-space:nowrap;display:block;margin-bottom:.3rem;}
+.ans-0{background:var(--lv0-bg);color:var(--lv0);}
+.ans-1{background:var(--lv1-bg);color:var(--lv1);}
+.ans-2{background:var(--lv2-bg);color:var(--lv2);}
+.ans-3{background:var(--lv3-bg);color:var(--lv3);}
+.detail-bar{width:60px;height:4px;background:var(--sand);border-radius:2px;overflow:hidden;margin-left:auto;}
+.detail-fill{height:100%;border-radius:2px;}
+
+/* ═══ TABLA ÍNDICE ═══ */
+.index-section{background:var(--white);border-radius:8px;border:1px solid var(--sand);margin-bottom:1.5rem;overflow:hidden;}
+.index-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--sand);background:var(--navy);}
+.index-header h3{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:1.2rem;color:var(--white);}
+.index-header p{font-size:.75rem;color:rgba(250,251,255,.55);margin-top:.2rem;}
+.index-legend{padding:.75rem 1.5rem;border-bottom:1px solid var(--sand);display:flex;gap:1.5rem;flex-wrap:wrap;background:rgba(245,247,251,.5);}
+.legend-item{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-light);}
+.legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+.index-table{width:100%;border-collapse:collapse;font-size:.78rem;}
+.index-table th{background:var(--navy);color:rgba(250,251,255,.85);font-weight:600;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1rem;text-align:left;border-right:1px solid rgba(255,255,255,.08);}
+.index-table th:last-child{border-right:none;}
+.index-table td{padding:.6rem 1rem;border-bottom:1px solid var(--sand);border-right:1px solid var(--sand);vertical-align:middle;line-height:1.35;}
+.index-table td:last-child{border-right:none;}
+.index-table tr:last-child td{border-bottom:none;}
+.index-table tr:hover td{background:var(--cream);}
+.idx-code{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.67rem;padding:.2rem .45rem;border-radius:3px;border:1px solid;white-space:nowrap;}
+.idx-pillar-band{width:5px;min-width:5px;padding:0!important;}
+.idx-qtext{color:var(--text);font-size:.78rem;line-height:1.4;}
+.idx-comment{font-size:.7rem;color:var(--blue);font-style:italic;margin-top:.2rem;}
+.idx-ref{color:var(--text-light);font-size:.68rem;font-style:italic;}
+.idx-score{text-align:center;font-weight:700;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:1rem;}
+.idx-bar{height:5px;background:var(--sand);border-radius:2px;overflow:hidden;margin-top:3px;}
+.idx-bar-fill{height:100%;border-radius:2px;}
+.idx-group-header td{background:var(--navy);color:var(--sky);font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;letter-spacing:.1em;padding:.5rem 1rem;}
+.idx-disc-header td{font-size:.72rem;font-weight:600;letter-spacing:.05em;padding:.5rem 1rem;border-bottom:1px solid var(--sand);}
+
+/* ═══ PLAN DE ACCIÓN DOBLE ═══ */
+.action-plan-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-bottom:1.5rem;}
+.q-eq,.detail-eq,.idx-eq{font-size:.66rem;color:var(--text-light);margin-top:.3rem;padding-left:.5rem;border-left:2px solid var(--sand);}
+@media(max-width:700px){.action-plan-grid{grid-template-columns:1fr;}}
+.action-plan-col{background:var(--white);border-radius:8px;border:1px solid var(--sand);overflow:hidden;}
+.plan-header{padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.7rem;border-bottom:1px solid var(--sand);}
+.plan-header-s1{background:rgba(21,101,192,.07);}
+.plan-header-s2{background:rgba(0,121,107,.07);}
+.plan-score{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:1.8rem;font-weight:700;margin-left:auto;flex-shrink:0;}
+.plan-score-s1{color:var(--s1);}.plan-score-s2{color:var(--s2);}
+.plan-items{padding:0;}
+.plan-item{padding:1rem 1.4rem;border-bottom:1px solid var(--sand);display:flex;gap:.8rem;align-items:flex-start;}
+.plan-item:last-child{border-bottom:none;}
+.plan-item-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:white;flex-shrink:0;margin-top:1px;}
+.pi-urgent{background:#5C6B85;}
+.pi-high{background:#A15C00;}
+.pi-medium{background:#1567B0;}
+.pi-low{background:#146B41;}
+.plan-item-body h4{font-size:.84rem;font-weight:600;margin-bottom:.2rem;color:var(--text);}
+.plan-item-body p{font-size:.78rem;color:var(--text-light);line-height:1.55;}
+.plan-item-body .para-refs{margin-top:.35rem;display:flex;flex-wrap:wrap;gap:.3rem;}
+.para-ref{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;padding:.1rem .4rem;border-radius:3px;}
+.pref-s1{background:var(--p1-bg);color:var(--s1);}
+.pref-s2{background:var(--p2-bg);color:var(--s2);}
+.plan-empty{padding:2rem 1.4rem;text-align:center;color:var(--lv3);font-size:.88rem;}
+
+.results-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;}
+.btn-action{padding:.8rem 1.75rem;border-radius:4px;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.05em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;border:none;}
+.btn-primary{background:var(--blue);color:white;}.btn-primary:hover{background:var(--mid);}
+.btn-secondary{background:transparent;border:1.5px solid var(--blue)!important;color:var(--blue);}.btn-secondary:hover{background:var(--p1-bg);}
+
+.nivel-tag{display:inline-block;padding:.28rem .8rem;border-radius:3px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;}
+.nivel-0{background:var(--lv0-bg);color:var(--lv0);}
+.nivel-1{background:var(--lv1-bg);color:var(--lv1);}
+.nivel-2{background:var(--lv2-bg);color:var(--lv2);}
+.nivel-3{background:var(--lv3-bg);color:var(--lv3);}
+.nivel-4{background:var(--lv4-bg);color:var(--lv4);}
+
+/* Info box Google Sheets */
+.sheets-info{background:var(--p2-bg);border:1px solid rgba(0,121,107,.3);border-radius:6px;padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:.82rem;color:var(--s2);line-height:1.6;}
+.sheets-info strong{display:block;margin-bottom:.3rem;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media print{.quiz-nav,.results-actions,.pillar-nav,.quiz-header,.sheets-info{display:none!important;}#screen-results{display:block!important;}.detail-body{display:block!important;}body{background:white;}.results-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.action-plan-grid{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:640px){.intro-stats{gap:1.2rem;}.form-row{grid-template-columns:1fr;}.quiz-header{flex-wrap:wrap;}.progress-wrap{order:3;width:100%;}.options{flex-direction:column;padding-left:0;}.option-btn{width:100%;}.comment-wrap{padding:0 1rem .8rem 1rem;}.heatmap-grid{grid-template-columns:1fr;}.norm-split-grid{grid-template-columns:1fr;}}
+
+  /* ══════════════════════════════════════════════════════════════════════
+     REDISEÑO · marca Rubén Ponce v1.1
+     El problema que resuelve: había tarjetas claras flotando sobre un fondo
+     oscuro, sin relación entre sí. Ahora hay un solo suelo —papel— y el azul
+     profundo se reserva para las bandas de cabecera, que sí son deliberadas.
+     No altera preguntas, cálculos ni datos.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  :root{
+    --papel:#FBFCFE;
+    --papel-alt:#F1F4FA;
+    --tinta:#0F1B2D;
+    --tinta-media:#5C6B85;
+    --linea:#DFE6F0;
+    --azul:#1567B0;
+    --azul-hondo:#0F4A7F;
+    --azul-aire:#E6F0F9;
+    --sombra:0 1px 2px rgba(15,27,45,.06);
+    --sombra-m:0 4px 16px rgba(15,27,45,.08);
+  }
+
+  body{background:var(--papel-alt); color:var(--tinta);}
+
+  /* ── Portada ─────────────────────────────────────────────────────────── */
+  #screen-intro{
+    background:
+      radial-gradient(ellipse 900px 520px at 50% -8%, var(--azul-aire), transparent 62%),
+      var(--papel);
+    padding:3rem 1.5rem;
+  }
+  .intro-badge{
+    color:var(--azul-hondo);
+    background:var(--azul-aire);
+    border:1px solid #BFD6EE;
+    border-radius:999px;
+    padding:.45rem 1rem;
+  }
+  .intro-title{
+    color:var(--tinta); letter-spacing:-.02em;
+    max-width:18ch; text-wrap:balance; margin-left:auto; margin-right:auto;
+  }
+  .intro-title em{color:var(--azul); font-style:normal;}
+  .intro-desc{color:var(--tinta-media); font-weight:400;}
+  .intro-stats .stat-n{color:var(--azul-hondo); font-variant-numeric:tabular-nums;}
+  .intro-stats .stat-label{color:var(--tinta-media);}
+  .intro-frameworks .fw-tag{
+    background:#FFFFFF; color:var(--tinta-media);
+    border:1px solid var(--linea); border-radius:999px;
+  }
+  .intro-frameworks .fw-s1, .intro-frameworks .fw-s2{
+    background:var(--azul-aire); color:var(--azul-hondo); border-color:#BFD6EE;
+  }
+  .btn-start{
+    background:var(--azul); color:#FFFFFF;
+    border-radius:999px; padding:.95rem 2.6rem;
+    box-shadow:var(--sombra-m);
+    transition:background .18s ease, transform .18s ease;
+  }
+  .btn-start:hover{background:var(--azul-hondo); transform:translateY(-1px);}
+
+  /* ── Registro ────────────────────────────────────────────────────────── */
+  #screen-register{
+    background:
+      radial-gradient(ellipse 900px 520px at 50% -8%, var(--azul-aire), transparent 62%),
+      var(--papel);
+  }
+  .register-card{
+    background:#FFFFFF;
+    border:1px solid var(--linea);
+    border-radius:18px;
+    padding:2.4rem 2.2rem;
+    box-shadow:var(--sombra-m);
+    max-width:560px;
+  }
+  .register-card .form-group input,
+  .register-card .form-group select{
+    border-radius:8px; padding:.7rem .85rem; font-size:.9rem;
+    border:1px solid #C3D0E2; background:#FFFFFF;
+  }
+  .register-card .form-group input:focus,
+  .register-card .form-group select:focus{
+    border-color:var(--azul); box-shadow:0 0 0 3px rgba(21,103,176,.12);
+  }
+  .register-card .form-group label{color:var(--tinta-media);}
+  .btn-register{border-radius:999px; padding:.9rem; font-size:.85rem;}
+
+  /* ── Bandas de cabecera: azul profundo, deliberado ──────────────────── */
+  .quiz-header{
+    background:var(--azul-hondo);
+    border-bottom:1px solid rgba(255,255,255,.14);
+    padding:.85rem 1.5rem;
+  }
+  .results-hero{background:var(--azul-hondo);}
+  .index-header{background:var(--azul-hondo);}
+  .index-table th{background:var(--azul-hondo);}
+
+  /* ── Cuerpo del cuestionario ─────────────────────────────────────────── */
+  #screen-quiz{background:var(--papel-alt);}
+  .pillar-nav{
+    background:#FFFFFF;
+    border-bottom:1px solid var(--linea);
+    position:sticky; top:56px; z-index:90;
+  }
+  .revelation-area,
+  .pillar-card,
+  .norm-split,
+  .heatmap-section,
+  .detail-section,
+  .index-section,
+  .action-plan-col{
+    border:1px solid var(--linea);
+    border-radius:14px;
+    box-shadow:var(--sombra);
+  }
+  .quiz-nav{
+    background:rgba(255,255,255,.94);
+    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    border-top:1px solid var(--linea);
+  }
+  .btn-next, .btn-primary{border-radius:999px; padding-left:1.6rem; padding-right:1.6rem;}
+  .btn-next:hover, .btn-primary:hover{background:var(--azul-hondo);}
+
+  /* ── Foco visible en todo lo interactivo ─────────────────────────────── */
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  select:focus-visible, textarea:focus-visible, summary:focus-visible{
+    outline:2px solid var(--azul); outline-offset:3px; border-radius:8px;
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+
+  /* ── Bloque de marca: isotipo + nombre, enlazado al inicio ───────────── */
+  .rp-home{
+    display:inline-flex; align-items:center; gap:10px;
+    text-decoration:none; color:inherit; flex:none;
+    border-radius:999px; padding:4px 6px 4px 4px; margin-left:-4px;
+    transition:background .18s ease, opacity .18s ease;
+  }
+  .rp-home:hover{opacity:.82;}
+  .rp-home .rp-iso{flex:none;}
+  .rp-home-texto{display:flex; flex-direction:column; line-height:1.15; text-align:left;}
+  .rp-home-texto b{font-size:13.5px; font-weight:600; letter-spacing:-.01em;}
+  .rp-home-texto i{
+    font-style:normal; font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:9px; letter-spacing:.14em; text-transform:uppercase; opacity:.62;
+  }
+
+  .quiz-header .rp-home{color:#FFFFFF;}
+  .quiz-header .rp-home:hover{background:rgba(255,255,255,.12); opacity:1;}
+  .quiz-header .rp-home-texto i{opacity:.72;}
+  .hb-sep{width:1px; height:26px; background:rgba(255,255,255,.24); margin:0 4px; flex:none;}
+  .hb-titulo{font-size:.9rem; font-weight:600; white-space:nowrap;}
+  #screen-intro > .rp-home{
+    color:var(--azul-hondo); margin-bottom:1.6rem;
+  }
+  #screen-intro > .rp-home .rp-home-texto i{color:var(--tinta-media); opacity:1;}
+  .register-card > .rp-home{
+    color:var(--azul-hondo); margin-bottom:1.2rem;
+    padding-bottom:1rem; border-bottom:1px solid var(--linea);
+    width:100%; border-radius:0;
+  }
+  .register-card > .rp-home .rp-home-texto i{color:var(--tinta-media); opacity:1;}
+
+</style>
+<link rel="stylesheet" href="../../assets/marca/marca.tokens.css">
+<link rel="stylesheet" href="../../assets/marca/herramienta.css">
+</head>
+<body>
+
+<div class="sending-overlay" id="sending-overlay">
+  <div class="spinner"></div>
+  <span class="sending-text">Guardando tus respuestas…</span>
+</div>
+
+<!-- ═══ INTRO ═══ -->
+<div id="screen-intro">
+  <div class="rp-tema-esquina rp-tema-claro" data-rp-tema></div>
+  <a class="rp-home" href="../../" title="Ir al inicio de Rubén Ponce"><svg class="rp-iso" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><defs><clipPath id="rpDiscS12p"><circle cx="50" cy="50" r="40.75"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="4.9"><circle cx="50" cy="50" r="43.2"/><path d="M 2 50 C 8 60 14 68.4 24 68.9 C 34 69.4 41 64.5 50 58.7 C 58.5 53.2 66 47.9 76 47.9 C 85 47.9 91 51.5 98 60" clip-path="url(#rpDiscS12p)"/></g></svg><span class="rp-home-texto"><b>Rubén Ponce</b><i>Sostenibilidad corporativa</i></span></a>
+
+  <span class="intro-badge">NIIF S2 · norma del ISSB publicada en junio de 2023</span>
+  <div class="intro-logo">
+    <span class="norm-badge norm-s2">NIIF S2</span>
+  </div>
+  <h1 class="intro-title">Autodiagnóstico de<br>preparación <em>NIIF S2</em></h1>
+  <p class="intro-desc">Evalúa qué tan preparada está tu organización para divulgar información relacionada con el clima conforme a la NIIF S2. Las preguntas cubren gobernanza, estrategia y análisis de escenarios, gestión del riesgo, emisiones de GEI, y métricas y objetivos; cada una cita el párrafo que la sustenta. Al terminar ves tu nivel por pilar y un plan de acción ordenado por prioridad. Si un requisito tiene equivalente en la NIIF S1, se indica al pie de la pregunta.</p>
+  <div class="intro-stats">
+    <div class="stat"><span class="stat-n">4</span><span class="stat-label">Pilares</span></div>
+    <div class="stat"><span class="stat-n" id="stat-areas">—</span><span class="stat-label">Áreas de Revelación</span></div>
+    <div class="stat"><span class="stat-n" id="stat-preguntas">—</span><span class="stat-label">Preguntas</span></div>
+    <div class="stat"><span class="stat-n">~20'</span><span class="stat-label">Duración</span></div>
+  </div>
+  <div class="intro-frameworks">
+    <span class="fw-tag fw-s2">NIIF S2 · §1-37</span>
+    <span class="fw-tag fw-other">TCFD</span><span class="fw-tag fw-other">GHG Protocol</span>
+    <span class="fw-tag fw-other">SASB</span><span class="fw-tag fw-other">SBTi</span><span class="fw-tag fw-other">Acuerdo de París</span>
+  </div>
+  <button class="btn-start" onclick="goToRegister()">Iniciar diagnóstico →</button>
+</div>
+
+<!-- ═══ REGISTRO ═══ -->
+<div id="screen-register">
+  <div class="register-card">
+    <div class="rp-tema-esquina" data-rp-tema></div>
+    <a class="rp-home" href="../../" title="Ir al inicio de Rubén Ponce"><svg class="rp-iso" viewBox="0 0 100 100" width="26" height="26" aria-hidden="true"><defs><clipPath id="rpDiscS12r"><circle cx="50" cy="50" r="40.75"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="4.9"><circle cx="50" cy="50" r="43.2"/><path d="M 2 50 C 8 60 14 68.4 24 68.9 C 34 69.4 41 64.5 50 58.7 C 58.5 53.2 66 47.9 76 47.9 C 85 47.9 91 51.5 98 60" clip-path="url(#rpDiscS12r)"/></g></svg><span class="rp-home-texto"><b>Rubén Ponce</b><i>Sostenibilidad corporativa</i></span></a>
+
+    <div class="register-header">
+      <div class="reg-logos"><span class="reg-badge reg-s2">NIIF S2</span></div>
+      <h2>Antes de empezar</h2>
+      <p>Estos datos se guardan junto con tus resultados. Solo Rubén Ponce tiene acceso a ellos.</p>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Nombre *</label><input type="text" id="f-name" placeholder="Ana García"></div>
+      <div class="form-group"><label>Cargo</label><input type="text" id="f-cargo" placeholder="Dir. Sostenibilidad"></div>
+    </div>
+    <div class="form-group"><label>Correo electrónico *</label><input type="email" id="f-email" placeholder="ana@empresa.com"></div>
+    <div class="form-group"><label>Empresa / Organización *</label><input type="text" id="f-empresa" placeholder="Nombre de la organización"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Sector</label>
+        <select id="f-sector">
+          <option value="">— Selecciona —</option>
+          <option>Agroindustria y alimentos</option><option>Minería y recursos naturales</option>
+          <option>Energía (petróleo, gas, renovables)</option><option>Manufactura</option>
+          <option>Construcción e infraestructura</option><option>Servicios financieros y banca</option>
+          <option>Gestión de activos e inversiones</option><option>Seguros</option>
+          <option>Consultoría y servicios profesionales</option><option>Gobierno y sector público</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group"><label>País</label><input type="text" id="f-pais" placeholder="México"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>¿Ya reportan con TCFD?</label>
+        <select id="f-tcfd">
+          <option value="">— Selecciona —</option>
+          <option>Sí, completamente</option><option>Sí, parcialmente</option>
+          <option>En proceso</option><option>No</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Aplicación NIIF S2</label>
+        <select id="f-niif">
+          <option value="">— Selecciona —</option>
+          <option>Ya aplicable (2024)</option><option>Periodo 2025</option>
+          <option>Adopción voluntaria</option><option>Evaluando</option><option>No aplica aún</option>
+        </select>
+      </div>
+    </div>
+    <div class="register-privacy">
+      <input type="checkbox" id="f-privacy" onchange="checkPrivacy()">
+      <span>Acepto que mis datos, respuestas y comentarios se guarden para este diagnóstico. No se comparten con terceros.</span>
+    </div>
+    <button class="btn-register" id="btn-register" onclick="submitRegister()" disabled>Comenzar diagnóstico →</button>
+    <div class="reg-msg reg-error" id="reg-error"></div>
+    <div class="reg-msg reg-ok" id="reg-ok">✓ Datos registrados. Iniciando diagnóstico…</div>
+  </div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div id="screen-quiz">
+  <header class="quiz-header">
+    <div class="header-brand"><a class="rp-home" href="../../" title="Ir al inicio de Rubén Ponce"><svg class="rp-iso" viewBox="0 0 100 100" width="24" height="24" aria-hidden="true"><defs><clipPath id="rpDiscS12"><circle cx="50" cy="50" r="40.75"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="4.9"><circle cx="50" cy="50" r="43.2"/><path d="M 2 50 C 8 60 14 68.4 24 68.9 C 34 69.4 41 64.5 50 58.7 C 58.5 53.2 66 47.9 76 47.9 C 85 47.9 91 51.5 98 60" clip-path="url(#rpDiscS12)"/></g></svg><span class="rp-home-texto"><b>Rubén Ponce</b><i>NIIF S2</i></span></a><span class="hb-sep"></span><div class="header-badges"><span class="hbadge hb-s2">S2</span></div><span class="hb-titulo">Diagnóstico NIIF S2</span></div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Progreso</span><span id="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <span class="header-counter" id="q-counter">0</span>
+    <span data-rp-tema></span>
+  </header>
+  <nav class="pillar-nav">
+    <div class="pillar-tab active" id="tab-0" onclick="jumpToSection(0)">🏛 Gobernanza <span class="tab-done">✓</span></div>
+    <div class="pillar-tab" id="tab-1" onclick="jumpToSection(1)">🗺 Estrategia <span class="tab-done">✓</span></div>
+    <div class="pillar-tab" id="tab-2" onclick="jumpToSection(2)">⚖️ Gestión del Riesgo <span class="tab-done">✓</span></div>
+    <div class="pillar-tab" id="tab-3" onclick="jumpToSection(3)">📊 Métricas y Objetivos <span class="tab-done">✓</span></div>
+  </nav>
+  <div class="quiz-content" id="quiz-content"></div>
+  <div class="quiz-nav">
+    <button class="btn-nav btn-prev" onclick="prevSection()" id="btn-prev" style="visibility:hidden">← Anterior</button>
+    <span class="nav-hint" id="nav-hint"></span>
+    <button class="btn-nav btn-next" onclick="nextSection()" id="btn-next" disabled>Siguiente →</button>
+  </div>
+</div>
+
+<!-- ═══ RESULTADOS ═══ -->
+<div id="screen-results">
+  <div class="results-hero">
+    <div class="rp-tema-esquina rp-tema-claro" data-rp-tema></div>
+    <div class="results-hero-content">
+      <div class="user-chip">👤 <strong id="chip-name">—</strong> · <span id="chip-empresa">—</span></div>
+      <span class="results-badge">Diagnóstico NIIF S2 completado</span>
+      <h1 class="results-title">Tu perfil de preparación NIIF S2</h1>
+      <div class="results-level" id="r-level">—</div>
+      <div class="results-score-big" id="r-score">—</div>
+      <div class="results-score-label">Índice global de preparación</div>
+    </div>
+  </div>
+  <div class="results-content">
+
+    <div class="sheets-info">
+      <strong>Tus resultados se enviaron para su registro</strong>
+      Para conservar una copia, usa «Imprimir / PDF» al final de la página. Este autodiagnóstico orienta sobre tu nivel de preparación; no certifica el cumplimiento de la NIIF S2 ni sustituye una revisión independiente.
+    </div>
+
+    <h3 class="section-title">📊 Puntuación por pilar</h3>
+    <div class="results-grid" id="results-grid"></div>
+
+    <h3 class="section-title">🗺 Mapa de calor por área de revelación</h3>
+    <div class="heatmap-section">
+      <div class="heatmap-header"><span>🌡</span><h3 style="font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:1.1rem;">Estado de todas las áreas de revelación NIIF S2</h3></div>
+      <div class="heatmap-grid" id="heatmap-grid"></div>
+    </div>
+
+    <h3 class="section-title">🔍 Detalle por pilar</h3>
+    <div id="detail-sections"></div>
+
+    <h3 class="section-title">📋 Índice de referencia — Preguntas × Párrafos NIIF S2</h3>
+    <div class="index-section">
+      <div class="index-header">
+        <h3>Tabla índice completa</h3>
+        <p>Todas las preguntas con su código, la referencia de la NIIF S2, tu respuesta y tus comentarios. El código se lee: pilar · área · párrafo · número de pregunta.</p>
+      </div>
+      <div class="index-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lv0)"></div> No implementado (0)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lv1)"></div> En evaluación (1)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lv2)"></div> Parcialmente (2)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lv3)"></div> Implementado (3)</div>
+        <div class="legend-item" style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-light)">💬 = incluye comentario</div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="index-table" id="index-table">
+          <thead>
+            <tr>
+              <th style="width:5px;padding:0"></th>
+              <th style="width:115px">Código</th>
+              <th>Pregunta y comentario</th>
+              <th style="width:210px">Referencia NIIF</th>
+              <th style="width:80px;text-align:center">Puntuación</th>
+              <th style="width:75px">Avance</th>
+            </tr>
+          </thead>
+          <tbody id="index-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="section-title">🎯 Plan de acción — NIIF S2</h3>
+    <div class="action-plan-grid" id="action-plan-grid"></div>
+
+    <div class="results-actions">
+      <button class="btn-action btn-primary" onclick="window.print()">🖨 Imprimir / PDF</button>
+      <button class="btn-action btn-secondary" onclick="restartQuiz()">↩ Nuevo diagnóstico</button>
+      <a href="https://www.ifrs.org/issued-standards/ifrs-sustainability-disclosure-standards/" target="_blank" class="btn-action btn-secondary">📄 ifrs.org/ISSB</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxp61jFSLHIFbDIn9IbAalmRJZsRfHqCvidY5e0dwAq6aWPGTHfdo08PzhIe-l32WSQXg/exec";
+// ═══════════════════════════════════
+
+const NORMA='S2';
+const NORMA_NOMBRE='Información sobre el Clima';
+
+const OPTS=[
+  {label:'✗ No / No aplica',cls:'opt-0',val:0},
+  {label:'◔ En evaluación', cls:'opt-1',val:1},
+  {label:'◑ Parcialmente',  cls:'opt-2',val:2},
+  {label:'✓ Implementado',  cls:'opt-3',val:3}
+];
+
+const pillars=[
+{id:'GOB',name:'Gobernanza',color:'#1567B0',colorClass:'p1',icon:'🏛',
+ description:'Divulgar los procesos, controles y procedimientos de gobernanza que la entidad utiliza para supervisar, gestionar y vigilar los riesgos y oportunidades relacionados con el clima.',
+ tags:['NIIF S2 §5-7'],
+ disclosures:[
+  {letter:'A',src:'A',norm:'S2',para:'§6a',ref:'NIIF S2 §5-6a',
+   text:'Supervisión del órgano de gobernanza sobre los riesgos y oportunidades relacionados con el clima',
+   questions:[
+    {text:'¿El órgano de gobernanza tiene responsabilidades formalmente asignadas —en mandatos, términos de referencia o descripciones de funciones— sobre la supervisión de los riesgos y oportunidades relacionados con el clima?',para:'S2·§6a(i)',ref:'NIIF S2 §6a(i) — Reflejo formal de responsabilidades en mandatos y políticas',norm:'S2',eq:'NIIF S1 §27a(i)'},
+    {text:'¿El consejo determina formalmente si dispone de las competencias adecuadas —o si las desarrollará— para supervisar las estrategias de respuesta a los riesgos y oportunidades relacionados con el clima?',para:'S2·§6a(ii)',ref:'NIIF S2 §6a(ii) — Determinación de competencias del órgano de gobernanza',norm:'S2',eq:'NIIF S1 §27a(ii)'},
+    {text:'¿El órgano de gobernanza recibe información periódica, estructurada y con frecuencia definida sobre los riesgos y oportunidades relacionados con el clima?',para:'S2·§6a(iii)',ref:'NIIF S2 §6a(iii) — Frecuencia y forma de la información al órgano de gobernanza',norm:'S2',eq:'NIIF S1 §27a(iii)'},
+    {text:'¿El consejo considera explícitamente los riesgos y oportunidades relacionados con el clima al supervisar la estrategia, las transacciones importantes y los procesos de gestión de riesgos, incluyendo las compensaciones (trade-offs)?',para:'S2·§6a(iv)',ref:'NIIF S2 §6a(iv) — Integración en supervisión estratégica y consideración de trade-offs',norm:'S2',eq:'NIIF S1 §27a(iv)'},
+    {text:'¿El órgano de gobernanza supervisa el establecimiento de objetivos relacionados con el clima y controla el avance hacia su consecución?',para:'S2·§6a(v)',ref:'NIIF S2 §6a(v) — Supervisión del establecimiento y seguimiento de objetivos climáticos',norm:'S2',eq:'NIIF S1 §27a(v)'},
+    {text:'¿Las métricas de desempeño climático están formalmente vinculadas a las políticas de remuneración de consejeros y/o altos directivos?',para:'S2·§6a(v)',ref:'NIIF S2 §6a(v) + §29g — Métricas climáticas en las políticas de remuneración',norm:'S2',eq:'NIIF S1 §27a(v)'}
+   ]},
+  {letter:'B',src:'B',norm:'S2',para:'§6b',ref:'NIIF S2 §6b-7',
+   text:'Papel de la gerencia en la gestión de los riesgos y oportunidades relacionados con el clima',
+   questions:[
+    {text:'¿La responsabilidad de gestionar los riesgos y oportunidades relacionados con el clima está delegada en un cargo específico o comité, con mecanismos de supervisión claramente definidos sobre dicho cargo?',para:'S2·§6b(i)',ref:'NIIF S2 §6b(i) — Delegación de responsabilidad a cargo/comité con supervisión definida',norm:'S2',eq:'NIIF S1 §27b(i)'},
+    {text:'¿La gerencia cuenta con controles y procedimientos formales para apoyar la supervisión de los riesgos y oportunidades relacionados con el clima, integrados con otras funciones internas?',para:'S2·§6b(ii)',ref:'NIIF S2 §6b(ii) — Controles/procedimientos de gestión integrados con otras funciones internas',norm:'S2',eq:'NIIF S1 §27b(ii)'},
+    {text:'¿Se evita la duplicidad innecesaria en la información de gobernanza cuando la supervisión del clima se gestiona de forma integrada con la de otros riesgos de sostenibilidad, proporcionando información consolidada?',para:'S2·§7',ref:'NIIF S2 §7 — Evitar duplicidad en información de gobernanza integrada',norm:'S2',eq:'NIIF S1 §B42(b)'},
+    {text:'¿La gerencia reporta periódicamente al órgano de gobernanza sobre los riesgos, oportunidades, métricas y avances climáticos con información cuantitativa y cualitativa?',para:'S2·§6a(iii)',ref:'NIIF S2 §6a(iii) — Flujo de información estructurada de gerencia al órgano de gobernanza',norm:'S2',eq:'NIIF S1 §27a(iii)'}
+   ]}
+ ]},
+{id:'EST',name:'Estrategia',color:'#0E6A6F',colorClass:'p2',icon:'🗺',
+ description:'Divulgar el enfoque para gestionar los riesgos y oportunidades relacionados con el clima, sus efectos sobre el modelo de negocio, la cadena de valor, la estrategia y la planificación financiera, y la resiliencia climática.',
+ tags:['NIIF S2 §8-23','GHG Protocol'],
+ disclosures:[
+  {letter:'A',src:'A',norm:'S2',para:'§10-12',ref:'NIIF S2 §10-12',
+   text:'Identificación de riesgos y oportunidades relacionados con el clima',
+   questions:[
+    {text:'¿La organización ha identificado y descrito todos los riesgos y oportunidades relacionados con el clima que podrían afectar razonablemente sus perspectivas?',para:'S2·§10a',ref:'NIIF S2 §10a — Descripción de riesgos y oportunidades climáticos identificados',norm:'S2',eq:'NIIF S1 §30a'},
+    {text:'¿Para cada riesgo climático identificado, se ha clasificado explícitamente si es un riesgo físico (agudo o crónico) o de transición (político, legal, tecnológico, de mercado, reputacional)?',para:'S2·§10b',ref:'NIIF S2 §10b + §3a — Clasificación de riesgos físicos vs. transición climática',norm:'S2'},
+    {text:'¿Se han especificado los horizontes temporales (corto, mediano y largo plazo) para cada riesgo y oportunidad climática, con definiciones propias vinculadas a los horizontes de planificación estratégica?',para:'S2·§10c-d',ref:'NIIF S2 §10c-d — Horizontes temporales y sus definiciones en la organización',norm:'S2',eq:'NIIF S1 §30b-c'},
+    {text:'¿Se utiliza toda la información razonable y sustentable disponible para identificar los riesgos y oportunidades climáticos, sin incurrir en costos o esfuerzos desproporcionados?',para:'S2·§11',ref:'NIIF S2 §11 — Información razonable y sustentable sin esfuerzo desproporcionado',norm:'S2',eq:'NIIF S1 §B8-B10'},
+    {text:'¿Se ha consultado y documentado la guía sectorial de la NIIF S2 (derivada de las Normas SASB) al identificar los riesgos y oportunidades climáticos relevantes para el sector?',para:'S2·§12',ref:'NIIF S2 §12 — Aplicabilidad de los temas de la guía sectorial',norm:'S2',eq:'NIIF S1 §55'}
+   ]},
+  {letter:'B',src:'B',norm:'S2',para:'§13',ref:'NIIF S2 §13',
+   text:'Efectos sobre el modelo de negocio y la cadena de valor',
+   questions:[
+    {text:'¿Se han descrito los efectos actuales y previstos de los riesgos y oportunidades relacionados con el clima sobre el modelo de negocio y la cadena de valor?',para:'S2·§13a',ref:'NIIF S2 §13a — Efectos actuales y previstos sobre modelo de negocio y cadena de valor',norm:'S2',eq:'NIIF S1 §32a'},
+    {text:'¿Se han identificado las zonas geográficas, instalaciones o tipos de activos donde se concentran los riesgos y oportunidades climáticos en el modelo de negocio y la cadena de valor?',para:'S2·§13b',ref:'NIIF S2 §13b — Concentración por geografía, instalaciones y tipos de activos',norm:'S2',eq:'NIIF S1 §32b'}
+   ]},
+  {letter:'C',src:'C',norm:'S2',para:'§14',ref:'NIIF S2 §14',
+   text:'Estrategia, toma de decisiones y plan de transición climática',
+   questions:[
+    {text:'¿Se describe cómo la organización ha respondido y prevé responder a los riesgos y oportunidades relacionados con el clima en su estrategia y toma de decisiones, incluyendo las compensaciones (trade-offs) consideradas?',para:'S2·§14a',ref:'NIIF S2 §14a — Respuesta estratégica a los riesgos y oportunidades climáticos',norm:'S2',eq:'NIIF S1 §33a-c'},
+    {text:'¿Se revelan los cambios actuales y previstos en el modelo de negocio (CAPEX, I+D, asignación de recursos, desinversiones) para abordar los riesgos y oportunidades climáticos?',para:'S2·§14a(i)',ref:'NIIF S2 §14a(i) — Cambios en modelo de negocio y asignación de recursos para clima',norm:'S2'},
+    {text:'¿La organización cuenta con un plan de transición climática con objetivos, acciones, recursos, supuestos clave y dependencias para la transición hacia una economía con menos emisiones de carbono?',para:'S2·§14a(iv)',ref:'NIIF S2 §14a(iv) — Plan de transición climática con objetivos, supuestos y dependencias',norm:'S2'},
+    {text:'¿Se describen los esfuerzos directos (cambios en procesos, equipos, instalaciones) e indirectos (trabajo con clientes y cadena de suministro) de reducción y adaptación al cambio climático?',para:'S2·§14a(ii-iii)',ref:'NIIF S2 §14a(ii)-(iii) — Esfuerzos directos e indirectos de reducción y adaptación climática',norm:'S2'},
+    {text:'¿Se reporta el progreso cuantitativo y cualitativo alcanzado respecto a los planes climáticos revelados en periodos anteriores, con análisis de avances, revisiones y desviaciones?',para:'S2·§14c',ref:'NIIF S2 §14c — Progreso cuantitativo/cualitativo respecto a planes de periodos anteriores',norm:'S2',eq:'NIIF S1 §33b'}
+   ]},
+  {letter:'D',src:'D',norm:'S2',para:'§15-21',ref:'NIIF S2 §15-21',
+   text:'Efectos sobre la situación financiera, el rendimiento financiero y los flujos de efectivo',
+   questions:[
+    {text:'¿Se describen los efectos actuales de los riesgos y oportunidades relacionados con el clima sobre la situación financiera, el rendimiento financiero y los flujos de efectivo del periodo?',para:'S2·§16a',ref:'NIIF S2 §16a — Efectos financieros actuales en el periodo sobre el que se informa',norm:'S2',eq:'NIIF S1 §35a'},
+    {text:'¿Se identifican los riesgos y oportunidades climáticos para los cuales existe riesgo significativo de ajuste material en los importes en libros de activos y pasivos en el próximo periodo anual?',para:'S2·§16b',ref:'NIIF S2 §16b — Riesgo de ajuste material en activos/pasivos en el próximo periodo',norm:'S2',eq:'NIIF S1 §35b'},
+    {text:'¿Se revela cómo se espera que cambie la situación financiera a corto, mediano y largo plazo por efecto del clima, considerando planes de inversión, desinversión y fuentes de financiación para implementar la estrategia?',para:'S2·§16c',ref:'NIIF S2 §16c — Efectos financieros previstos: inversiones, desinversiones y financiación futura',norm:'S2',eq:'NIIF S1 §35c'},
+    {text:'¿Se proporciona información cuantitativa sobre los efectos financieros relacionados con el clima, o se justifica explícitamente su omisión (efectos no identificables por separado, alto nivel de incertidumbre, o falta de capacidades)?',para:'S2·§19-21',ref:'NIIF S2 §19-21 — Información cuantitativa o justificación documentada de su omisión',norm:'S2',eq:'NIIF S1 §38-40'}
+   ]},
+  {letter:'E',src:'E',norm:'S2',para:'§22+§B1-B18',ref:'NIIF S2 §22 + §B1-B18',
+   text:'Resiliencia climática y análisis de escenarios',
+   questions:[
+    {text:'¿Se ha realizado un análisis de escenarios climáticos para evaluar la resiliencia de la estrategia y el modelo de negocio, con un enfoque proporcional a la exposición al riesgo y las capacidades disponibles?',para:'S2·§22·S2·§B1-B2',ref:'NIIF S2 §22 + §B1-B2 — Análisis de escenarios climáticos proporcional a exposición y capacidades',norm:'S2'},
+    {text:'¿Los escenarios incluyen un rango diverso, con al menos uno alineado con el último acuerdo internacional sobre cambio climático (ej. 1.5°C o 2°C del Acuerdo de París)?',para:'S2·§22b(i)(2-4)',ref:'NIIF S2 §22b(i)(2)-(4) — Rango diverso de escenarios incluyendo alineado con el Acuerdo de París',norm:'S2'},
+    {text:'¿Se revelan los datos de entrada, supuestos clave (políticas climáticas, macroeconomía, uso de energía, tecnología), horizontes temporales y alcance de las operaciones incluidas?',para:'S2·§22b',ref:'NIIF S2 §22b — Datos de entrada, supuestos, horizontes y alcance del análisis de escenarios',norm:'S2'},
+    {text:'¿Se evalúa y revela la resiliencia de la estrategia: implicaciones para el modelo de negocio, áreas de incertidumbre, y capacidad de ajustar la estrategia, redistribuir activos y responder financieramente?',para:'S2·§22a',ref:'NIIF S2 §22a — Evaluación de resiliencia: implicaciones, incertidumbre y capacidad de adaptación',norm:'S2'},
+    {text:'¿El análisis de escenarios está alineado con el ciclo de planificación estratégica, se actualiza al menos en cada ciclo, y se evalúa anualmente la resiliencia (aunque el análisis completo sea plurianual)?',para:'S2·§B18',ref:'NIIF S2 §B18 — Periodicidad: ciclo estratégico + evaluación anual de resiliencia',norm:'S2'}
+   ]}
+ ]},
+{id:'RIE',name:'Gestión del Riesgo',color:'#5B4B8B',colorClass:'p3',icon:'⚖️',
+ description:'Divulgar los procesos para identificar, evaluar, priorizar y supervisar los riesgos y oportunidades relacionados con el clima, y cómo se integran en la gestión global de riesgos de la entidad.',
+ tags:['NIIF S2 §24-26'],
+ disclosures:[
+  {letter:'A',src:'A',norm:'S2',para:'§25a',ref:'NIIF S2 §25a',
+   text:'Procesos para identificar, evaluar, priorizar y supervisar riesgos climáticos',
+   questions:[
+    {text:'¿Existen procesos y políticas formales para identificar, evaluar, priorizar y supervisar los riesgos relacionados con el clima, con definición de datos de entrada, métricas y fuentes de datos?',para:'S2·§25a(i)',ref:'NIIF S2 §25a(i) — Procesos formales documentados con datos de entrada y métricas definidos',norm:'S2',eq:'NIIF S1 §44a(i)'},
+    {text:'¿La organización utiliza el análisis de escenarios climáticos para fundamentar la identificación de riesgos en sus procesos de gestión de riesgos?',para:'S2·§25a(ii)',ref:'NIIF S2 §25a(ii) — Uso de análisis de escenarios climáticos en identificación de riesgos',norm:'S2',eq:'NIIF S1 §44a(ii)'},
+    {text:'¿Se evalúan la naturaleza, probabilidad y magnitud de los efectos de los riesgos relacionados con el clima con criterios cualitativos y/o cuantitativos definidos?',para:'S2·§25a(iii)',ref:'NIIF S2 §25a(iii) — Evaluación de naturaleza, probabilidad y magnitud con criterios definidos',norm:'S2',eq:'NIIF S1 §44a(iii)'},
+    {text:'¿Los riesgos relacionados con el clima se priorizan en relación con otros riesgos corporativos, con criterios de comparación documentados?',para:'S2·§25a(iv)',ref:'NIIF S2 §25a(iv) — Priorización de riesgos climáticos frente a otros riesgos corporativos',norm:'S2',eq:'NIIF S1 §44a(iv)'},
+    {text:'¿Existe supervisión continua de los riesgos relacionados con el clima, y se revelan los cambios en los procesos de identificación/evaluación respecto al periodo anterior?',para:'S2·§25a(v-vi)',ref:'NIIF S2 §25a(v)-(vi) — Supervisión continua y cambios en procesos respecto al periodo previo',norm:'S2',eq:'NIIF S1 §44a(v)-(vi)'}
+   ]},
+  {letter:'B',src:'B',norm:'S2',para:'§25b',ref:'NIIF S2 §25b',
+   text:'Procesos para identificar, evaluar, priorizar y supervisar oportunidades climáticas',
+   questions:[
+    {text:'¿Existen procesos formales para identificar, evaluar, priorizar y supervisar las oportunidades relacionadas con el clima, distinguibles de los procesos para riesgos?',para:'S2·§25b',ref:'NIIF S2 §25b — Procesos formales para identificación de oportunidades climáticas',norm:'S2',eq:'NIIF S1 §44b'},
+    {text:'¿Se utiliza el análisis de escenarios climáticos para identificar oportunidades relacionadas con el clima (productos y servicios de bajas emisiones, eficiencia energética, nuevos mercados, adaptación)?',para:'S2·§25b',ref:'NIIF S2 §25b — Uso de análisis de escenarios para identificar oportunidades climáticas',norm:'S2'}
+   ]},
+  {letter:'C',src:'C',norm:'S2',para:'§25c-26',ref:'NIIF S2 §25c + §26',
+   text:'Integración en el proceso global de gestión de riesgos',
+   questions:[
+    {text:'¿Los procesos de identificación, evaluación, priorización y seguimiento de riesgos y oportunidades relacionados con el clima están formalmente integrados en el proceso global de gestión de riesgos (ERM)?',para:'S2·§25c',ref:'NIIF S2 §25c — Integración formal en el proceso global de gestión de riesgos (ERM)',norm:'S2',eq:'NIIF S1 §44c'},
+    {text:'¿El proceso de gestión de riesgos integrado retroalimenta activamente las decisiones estratégicas, operativas y de asignación de capital frente al clima?',para:'S2·§25c',ref:'NIIF S2 §25c — Retroalimentación de gestión de riesgos en decisiones estratégicas y de capital',norm:'S2',eq:'NIIF S1 §44c'},
+    {text:'¿Se evita la duplicidad innecesaria en la información de gestión de riesgos cuando los procesos climáticos se gestionan de forma integrada, revelando información consolidada?',para:'S2·§26',ref:'NIIF S2 §26 — Evitar duplicidad en información de gestión de riesgos integrada',norm:'S2',eq:'NIIF S1 §B42(b)'},
+    {text:'¿Los cambios en los procesos de gestión de riesgos climáticos respecto al periodo anterior están documentados, justificados y revelados?',para:'S2·§25a(vi)',ref:'NIIF S2 §25a(vi) — Revelación de cambios en procesos respecto al periodo anterior',norm:'S2',eq:'NIIF S1 §44a(vi)'}
+   ]}
+ ]},
+{id:'MET',name:'Métricas y Objetivos',color:'#4D6B1F',colorClass:'p4',icon:'📊',
+ description:'Divulgar las métricas y los objetivos para analizar y gestionar los riesgos y oportunidades relacionados con el clima, incluyendo las emisiones de GEI y el progreso hacia objetivos establecidos o requeridos por ley o regulación.',
+ tags:['NIIF S2 §27-37','GHG Protocol','SBTi'],
+ disclosures:[
+  {letter:'A',src:'B',norm:'S2',para:'§29a+§B19-B57',ref:'NIIF S2 §29a + §B19-B57',
+   text:'Emisiones de gases de efecto invernadero: Alcances 1, 2 y 3',
+   questions:[
+    {text:'¿Se revelan las emisiones brutas absolutas de GEI de Alcance 1, Alcance 2 y Alcance 3, en toneladas métricas de CO₂ equivalente, medidas conforme al Protocolo GEI: Norma Corporativa (2004)?',para:'S2·§29a(i-ii)',ref:'NIIF S2 §29a(i)-(ii) — Emisiones GEI brutas Alcance 1, 2 y 3 en CO₂eq (Protocolo GEI 2004)',norm:'S2'},
+    {text:'¿Se revela el enfoque de medición, datos de entrada (primarios vs. secundarios), supuestos clave y factores de emisión utilizados, explicando por qué se eligió ese enfoque?',para:'S2·§29a(iii)·S2·§B26-B29',ref:'NIIF S2 §29a(iii) + §B26-B29 — Enfoque, datos de entrada, supuestos y factores de emisión utilizados',norm:'S2'},
+    {text:'¿Las emisiones de Alcance 1 y 2 están desagregadas entre el grupo consolidado y otras participadas? ¿Las de Alcance 2 se revelan por ubicación (location-based) con información sobre instrumentos contractuales?',para:'S2·§29a(iv-v)·S2·§B30-B31',ref:'NIIF S2 §29a(iv)-(v) + §B30-B31 — Desagregación Alcance 1/2 por entidad; Alcance 2 por ubicación',norm:'S2'},
+    {text:'¿Se revelan las categorías de Alcance 3 incluidas (de las 15 del Protocolo GEI), con información sobre datos primarios vs. secundarios verificados y el marco de priorización de datos aplicado?',para:'S2·§29a(vi)·S2·§B32-B57',ref:'NIIF S2 §29a(vi) + §B32-B57 — Categorías Alcance 3, datos primarios/secundarios y marco de priorización',norm:'S2'},
+    {text:'¿Si la organización participa en gestión de activos, banca comercial o seguros, revela las emisiones financiadas (Categoría 15) desagregadas por sector industrial (GICS), clase de activo y metodología de asignación?',para:'S2·§29a(vi)(2)·S2·§B58-B63',ref:'NIIF S2 §29a(vi)(2) + §B58-B63 — Emisiones financiadas por sector/clase de activo para sector financiero',norm:'S2'}
+   ]},
+  {letter:'B',src:'C',norm:'S2',para:'§29b-g+§B64-B65',ref:'NIIF S2 §29b-g + §B64-B65',
+   text:'Métricas intersectoriales del clima: exposición, CAPEX, precio del carbono y remuneración',
+   questions:[
+    {text:'¿Se revela el importe y porcentaje de activos o actividades vulnerables a riesgos de transición climáticos, y el importe y porcentaje vulnerables a riesgos físicos climáticos?',para:'S2·§29b-c',ref:'NIIF S2 §29b-c — Activos/actividades vulnerables a riesgos de transición y físicos climáticos',norm:'S2'},
+    {text:'¿Se revela el importe y porcentaje de activos o actividades alineados con oportunidades climáticas, y el gasto de capital (CAPEX), financiación e inversión destinados a gestionar los riesgos y oportunidades climáticos?',para:'S2·§29d-e',ref:'NIIF S2 §29d-e — Activos alineados con oportunidades y despliegue de capital (CAPEX) climático',norm:'S2'},
+    {text:'¿Se revela si la organización aplica un precio interno del carbono en decisiones de inversión, precios de transferencia o análisis de escenarios, y el precio por tonelada métrica de GEI utilizado?',para:'S2·§29f',ref:'NIIF S2 §29f — Precio interno del carbono: aplicación y valor por tCO₂eq utilizado',norm:'S2'},
+    {text:'¿Se revela si las consideraciones climáticas se tienen en cuenta en la remuneración ejecutiva y el porcentaje de remuneración vinculado a consideraciones climáticas?',para:'S2·§29g',ref:'NIIF S2 §29g — Remuneración ejecutiva vinculada a consideraciones y métricas climáticas',norm:'S2',eq:'NIIF S1 §27a(v)'}
+   ]},
+  {letter:'C',src:'D',norm:'S2',para:'§32',ref:'NIIF S2 §32',
+   text:'Métricas basadas en el sector industrial',
+   questions:[
+    {text:'¿La organización revela las métricas basadas en el sector industrial asociadas a su modelo de negocio y actividades, según la guía sectorial de la NIIF S2 (derivada de las Normas SASB)?',para:'S2·§32',ref:'NIIF S2 §32 — Métricas sectoriales de la guía basada en la industria',norm:'S2',eq:'NIIF S1 §48'}
+   ]},
+  {letter:'D',src:'E',norm:'S2',para:'§33-37',ref:'NIIF S2 §33-37',
+   text:'Objetivos climáticos',
+   questions:[
+    {text:'¿La organización ha establecido objetivos climáticos cuantitativos y/o cualitativos, incluyendo objetivos de reducción de emisiones de GEI y cualquier objetivo requerido por ley o regulación?',para:'S2·§33',ref:'NIIF S2 §33 — Establecimiento de objetivos climáticos y de reducción de GEI',norm:'S2',eq:'NIIF S1 §51'},
+    {text:'¿Para cada objetivo climático se revela: la métrica utilizada, el objetivo específico, el periodo de aplicación, el periodo base, los hitos intermedios, los resultados obtenidos y cualquier revisión del objetivo?',para:'S2·§33a-h',ref:'NIIF S2 §33a-h — Características completas de cada objetivo: métrica, periodo, base, hitos, resultados',norm:'S2',eq:'NIIF S1 §51a-g'},
+    {text:'¿Para los objetivos de GEI, se especifica si son brutos o netos, qué alcances y gases cubren, y si son absolutos o de intensidad? Si son netos, ¿se revela también el objetivo bruto asociado?',para:'S2·§36·S2·§B68-B69',ref:'NIIF S2 §36 + §B68-B69 — Objetivos GEI: tipo (bruto/neto), alcances, gases y objetivo bruto obligatorio',norm:'S2'},
+    {text:'¿Se revela el uso previsto de créditos de carbono para alcanzar objetivos netos: medida de dependencia, régimen verificador, tipo de crédito (naturaleza vs. tecnológico) y supuestos de permanencia?',para:'S2·§36e·S2·§B70-B71',ref:'NIIF S2 §36e + §B70-B71 — Créditos de carbono: dependencia, verificación, tipo y permanencia',norm:'S2'},
+    {text:'¿Los objetivos de GEI están basados en ciencia (SBTi u equivalente) o siguen un enfoque de descarbonización sectorial, han sido validados por terceros, y existe un proceso de revisión periódica definido?',para:'S2·§33·S2·§34·S2·§36d',ref:'NIIF S2 §33 + §34 + §36d — Objetivos basados en ciencia, descarbonización sectorial, validación y revisión periódica',norm:'S2'}
+   ]}
+ ]}
+];
+
+const answers = {};
+const comments = {};
+let currentSection = 0;
+let userData = {};
+const TOTAL_Q = pillars.reduce((t,p) => t + p.disclosures.reduce((s,d) => s + d.questions.length, 0), 0);
+
+function makeCode(pid, dl, para, qi) {
+  const p = para.split('·')[0].trim();
+  return `${pid}·${dl}·${p}·Q${qi+1}`;
+}
+function codeClass(pi) { return ['code-p1','code-p2','code-p3','code-p4'][pi]; }
+
+// ── NAV ──
+function goToRegister() {
+  document.getElementById('screen-intro').style.display='none';
+  document.getElementById('screen-register').style.display='flex';
+}
+function checkPrivacy() {
+  document.getElementById('btn-register').disabled = !document.getElementById('f-privacy').checked;
+}
+async function submitRegister() {
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const empresa=document.getElementById('f-empresa').value.trim();
+  const errEl=document.getElementById('reg-error');
+  if(!name||!email||!empresa){errEl.textContent='Completa los campos obligatorios (*).';errEl.style.display='block';return;}
+  if(!email.includes('@')){errEl.textContent='Ingresa un correo válido.';errEl.style.display='block';return;}
+  errEl.style.display='none';
+  userData={name,email,empresa,
+    cargo:document.getElementById('f-cargo').value.trim(),
+    sector:document.getElementById('f-sector').value,
+    pais:document.getElementById('f-pais').value.trim(),
+    tcfd:document.getElementById('f-tcfd').value,
+    niif_aplicacion:document.getElementById('f-niif').value,
+    fecha:new Date().toLocaleString('es-MX')};
+  if(APPS_SCRIPT_URL!=='PEGA_TU_URL_AQUI'){
+    document.getElementById('sending-overlay').classList.add('active');
+    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tipo:'registro',diagnostico:'NIIF '+NORMA,...userData})});}catch(e){}
+    document.getElementById('sending-overlay').classList.remove('active');
+    document.getElementById('reg-ok').style.display='block';
+    await delay(1000);
+  }
+  document.getElementById('screen-register').style.display='none';
+  document.getElementById('screen-quiz').style.display='block';
+  renderSections(); showSection(0);
+}
+
+// ── RENDER QUIZ ──
+function renderSections() {
+  const c=document.getElementById('quiz-content');
+  c.innerHTML='';
+  pillars.forEach((p,pi) => {
+    const sec=document.createElement('div');
+    sec.className=`pillar-section ${pi===0?'active':''}`;
+    sec.id=`section-${pi}`;
+    const tagsHtml=(p.tags||[]).map(t=>`<span class="pillar-tag">${t}</span>`).join('');
+    let html=`<div class="pillar-header ${p.colorClass}">
+      <div class="pillar-icon">${p.icon}</div>
+      <div class="pillar-info"><h2>Pilar ${pi+1}: ${p.name}</h2><p>${p.description}</p>
+      <div class="pillar-meta">${tagsHtml}</div></div></div>`;
+
+    p.disclosures.forEach((d,di) => {
+      const normTag=d.norm==='S1'?`<span class="norm-ref-tag nr-s1">NIIF S1</span>`:
+                    d.norm==='S2'?`<span class="norm-ref-tag nr-s2">NIIF S2</span>`:
+                    `<span class="norm-ref-tag nr-both">S1 + S2</span>`;
+      html+=`<div class="revelation-area">
+        <div class="revelation-label">
+          <div class="disc-badge" style="background:${p.color}">${d.letter}</div>
+          <div class="disc-info">
+            <span class="area-label-chip">Área de Revelación ${p.id}-${d.letter}</span>
+            <div class="disc-title">${d.text}</div>
+            <div class="disc-ref">${normTag} 📎 ${d.ref}</div>
+          </div>
+        </div>`;
+      d.questions.forEach((q,qi) => {
+        const key=`${pi}-${di}-${qi}`;
+        const code=makeCode(p.id,d.letter,q.para,qi);
+        const optsHtml=OPTS.map(o=>`<button class="option-btn ${o.cls}" onclick="selectAnswer('${key}',${o.val},this)">${o.label}</button>`).join('');
+        html+=`<div class="question-block">
+          <div class="q-header">
+            <div class="q-code-block">
+              <span class="q-code ${codeClass(pi)}">${code}</span>
+              <span class="q-seq">#${qi+1}</span>
+            </div>
+            <div class="q-body">
+              <div class="question-text">${q.text}</div>
+              <div class="q-ref"><span class="q-ref-tag">${q.norm}</span>${q.ref}</div>
+              ${q.eq?`<div class="q-eq">Requisito de la NIIF ${NORMA}. También se relaciona con ${q.eq}.</div>`:''}
+            </div>
+          </div>
+          <div class="options">${optsHtml}</div>
+        </div>
+        <div class="comment-wrap">
+          <button class="comment-toggle" id="ctoggle-${key}" onclick="toggleComment('${key}')">
+            💬 <span>Agregar comentario</span>
+          </button>
+          <div class="comment-box" id="cbox-${key}">
+            <textarea id="ctxt-${key}" placeholder="Comentario opcional — contexto, evidencias, observaciones o pasos en progreso…" maxlength="400" oninput="updateComment('${key}')"></textarea>
+            <div class="comment-char" id="cchar-${key}">0 / 400</div>
+          </div>
+        </div>`;
+      });
+      html+=`</div>`;
+    });
+    sec.innerHTML=html;
+    c.appendChild(sec);
+  });
+}
+
+function selectAnswer(key,val,btn) {
+  btn.closest('.options').querySelectorAll('.option-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[key]=val;
+  updateProgress(); checkNavState();
+}
+
+function toggleComment(key) {
+  const box=document.getElementById(`cbox-${key}`);
+  const btn=document.getElementById(`ctoggle-${key}`);
+  const isOpen=box.classList.toggle('open');
+  if(isOpen) document.getElementById(`ctxt-${key}`).focus();
+}
+
+function updateComment(key) {
+  const txt=document.getElementById(`ctxt-${key}`).value;
+  comments[key]=txt;
+  const charEl=document.getElementById(`cchar-${key}`);
+  if(charEl) charEl.textContent=`${txt.length} / 400`;
+  const btn=document.getElementById(`ctoggle-${key}`);
+  if(btn){
+    btn.classList.toggle('has-text', txt.trim().length>0);
+    btn.querySelector('span').textContent=txt.trim().length>0?'Editar comentario':'Agregar comentario';
+  }
+}
+
+function updateProgress() {
+  const answered=Object.keys(answers).length;
+  const pct=Math.round((answered/TOTAL_Q)*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=pct+'%';
+  document.getElementById('q-counter').textContent=`${answered} / ${TOTAL_Q}`;
+}
+function getSectionCount(si) {
+  let total=0,answered=0;
+  pillars[si].disclosures.forEach((d,di)=>d.questions.forEach((q,qi)=>{total++;if(answers[`${si}-${di}-${qi}`]!==undefined)answered++;}));
+  return {total,answered};
+}
+function checkNavState() {
+  const {total,answered}=getSectionCount(currentSection);
+  const done=answered===total;
+  const btn=document.getElementById('btn-next');
+  btn.disabled=!done;
+  btn.textContent=done?(currentSection===pillars.length-1?'Ver resultados →':'Siguiente sección →'):'Siguiente →';
+  document.getElementById('nav-hint').textContent=done?`✓ ${answered}/${total} respondidas`:`${answered}/${total} — completa todas para continuar`;
+  document.getElementById('btn-prev').style.visibility=currentSection>0?'visible':'hidden';
+}
+function showSection(idx) {
+  document.querySelectorAll('.pillar-section').forEach((s,i)=>s.classList.toggle('active',i===idx));
+  document.querySelectorAll('.pillar-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  currentSection=idx; checkNavState(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function jumpToSection(idx){showSection(idx);}
+function nextSection(){
+  document.getElementById(`tab-${currentSection}`).classList.add('done');
+  currentSection<pillars.length-1?showSection(currentSection+1):showResults();
+}
+function prevSection(){if(currentSection>0)showSection(currentSection-1);}
+
+// ── RESULTS ──
+async function showResults() {
+  document.getElementById('screen-quiz').style.display='none';
+  document.getElementById('screen-results').style.display='block';
+  window.scrollTo({top:0});
+  document.getElementById('chip-name').textContent=userData.name||'—';
+  document.getElementById('chip-empresa').textContent=userData.empresa||'—';
+
+  const pillarScores=pillars.map((p,pi)=>{
+    const discScores=p.disclosures.map((d,di)=>{
+      let sum=0;
+      d.questions.forEach((q,qi)=>sum+=(answers[`${pi}-${di}-${qi}`]||0));
+      return {pct:Math.round((sum/(d.questions.length*3))*100),letter:d.letter,text:d.text,ref:d.ref,para:d.para,norm:d.norm,
+        questions:d.questions.map((q,qi)=>({text:q.text,ref:q.ref,para:q.para,norm:q.norm,eq:q.eq,
+          val:answers[`${pi}-${di}-${qi}`]||0,
+          comment:comments[`${pi}-${di}-${qi}`]||'',
+          code:makeCode(p.id,d.letter,q.para,qi)}))};
+    });
+    let tMax=0,tSum=0;
+    p.disclosures.forEach((d,di)=>d.questions.forEach((q,qi)=>{tMax+=3;tSum+=(answers[`${pi}-${di}-${qi}`]||0);}));
+    return {pct:Math.round((tSum/tMax)*100),discScores};
+  });
+
+  const overall=Math.round(pillarScores.reduce((a,b)=>a+b.pct,0)/pillars.length);
+
+  // Puntuación de la norma
+  let nSum=0,nMax=0;
+  pillars.forEach((p,pi)=>p.disclosures.forEach((d,di)=>d.questions.forEach((q,qi)=>{
+    nSum+=answers[`${pi}-${di}-${qi}`]||0; nMax+=3;
+  })));
+  const normPct=Math.round((nSum/nMax)*100);
+
+  const {level,lc}=getLevel(overall);
+  document.getElementById('r-score').textContent=overall+'%';
+  document.getElementById('r-level').innerHTML=`<span class="nivel-tag ${lc}">${level}</span>`;
+
+  // Pillar cards
+  const grid=document.getElementById('results-grid');
+  grid.innerHTML='';
+  pillars.forEach((p,pi)=>{
+    const s=pillarScores[pi];
+    grid.innerHTML+=`<div class="pillar-card ${p.colorClass}">
+      <span class="pillar-card-icon">${p.icon}</span>
+      <div class="pillar-card-name">${p.name}</div>
+      <div class="pillar-card-score">${s.pct}%</div>
+      <div class="pillar-card-lv">${getLevel(s.pct).level}</div>
+      <div class="pillar-card-bar"><div class="pillar-card-fill" style="width:${s.pct}%"></div></div>
+    </div>`;
+  });
+
+  // Heatmap
+  const hm=document.getElementById('heatmap-grid');
+  hm.innerHTML='';
+  pillars.forEach((p,pi)=>{
+    pillarScores[pi].discScores.forEach(d=>{
+      const lvl=d.pct<25?0:d.pct<50?1:d.pct<75?2:3;
+      hm.innerHTML+=`<div class="hm-cell lvl-${lvl}">
+        <div>
+          <div class="hm-badge" style="background:${p.color}">${d.letter}</div>
+          <span class="hm-code" style="color:${p.color}">${p.id}·${d.letter}</span>
+        </div>
+        <div class="hm-info">
+          <div class="hm-disc" style="color:${p.color}">${p.id} · ${d.norm==='S1'?'S1':d.norm==='S2'?'S2':'S1+S2'}</div>
+          <div class="hm-text">${d.text}</div>
+        </div>
+        <div class="hm-pct">${d.pct}%</div>
+      </div>`;
+    });
+  });
+
+  // Detalle
+  const det=document.getElementById('detail-sections');
+  det.innerHTML='';
+  pillars.forEach((p,pi)=>{
+    const s=pillarScores[pi];
+    let rows='';
+    s.discScores.forEach(d=>{
+      d.questions.forEach(q=>{
+        const labels=['No/No aplica','En evaluación','Parcialmente','Implementado'];
+        const barPct=Math.round((q.val/3)*100);
+        const nb=q.norm==='S1'?`<span class="reg-badge reg-s1" style="font-size:.55rem;padding:.1rem .3rem">S1</span>`:
+                 q.norm==='S2'?`<span class="reg-badge reg-s2" style="font-size:.55rem;padding:.1rem .3rem">S2</span>`:
+                 `<span class="reg-badge reg-s1" style="font-size:.55rem;padding:.1rem .3rem;margin-right:2px">S1</span><span class="reg-badge reg-s2" style="font-size:.55rem;padding:.1rem .3rem">S2</span>`;
+        const commentHtml=q.comment?`<div class="detail-comment">💬 ${q.comment}</div>`:'';
+        rows+=`<div class="detail-row">
+          <span class="detail-code ${codeClass(pi)}" style="border-color:${p.color}40;color:${p.color}">${q.code}</span>
+          <div class="detail-q">
+            <div class="detail-qtext">${q.text}</div>
+            <div class="detail-qref">${nb} 📎 ${q.ref}</div>
+            ${q.eq?`<div class="detail-eq">También se relaciona con ${q.eq}</div>`:''}
+            ${commentHtml}
+          </div>
+          <div class="detail-ans">
+            <span class="ans-chip ans-${q.val}">${labels[q.val]}</span>
+            <div class="detail-bar"><div class="detail-fill" style="width:${barPct}%;background:${p.color}"></div></div>
+          </div>
+        </div>`;
+      });
+    });
+    det.innerHTML+=`<div class="detail-section">
+      <div class="detail-header" onclick="toggleDetail(this)">
+        <span style="font-size:1.1rem">${p.icon}</span>
+        <h3 style="font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-weight:600;color:${p.color};font-size:1.1rem;">${p.name}</h3>
+        <span class="nivel-tag ${getLevel(s.pct).lc}" style="margin-left:.5rem">${s.pct}%</span>
+        <span class="detail-toggle">▼</span>
+      </div>
+      <div class="detail-body">${rows}</div>
+    </div>`;
+  });
+
+  // Tabla índice
+  const tbody=document.getElementById('index-tbody');
+  tbody.innerHTML='';
+  const ansLabels=['✗ No (0)','◔ En eval. (1)','◑ Parcial (2)','✓ Impl. (3)'];
+  const ansColors=[['var(--lv0-bg)','var(--lv0)'],['var(--lv1-bg)','var(--lv1)'],['var(--lv2-bg)','var(--lv2)'],['var(--lv3-bg)','var(--lv3)']];
+  pillars.forEach((p,pi)=>{
+    tbody.innerHTML+=`<tr class="idx-group-header"><td colspan="6">${p.icon} PILAR ${pi+1}: ${p.id} — ${p.name.toUpperCase()} · Score: ${pillarScores[pi].pct}%</td></tr>`;
+    p.disclosures.forEach((d,di)=>{
+      const ds=pillarScores[pi].discScores[di];
+      const nl=d.norm==='S1'?'NIIF S1':d.norm==='S2'?'NIIF S2':'NIIF S1 + S2';
+      tbody.innerHTML+=`<tr class="idx-disc-header" style="background:${p.color}10">
+        <td style="background:${p.color};width:5px;padding:0"></td>
+        <td colspan="2" style="color:${p.color}"><strong>${p.id}·${d.letter}·${d.para}</strong> · ${nl} — ${d.text}</td>
+        <td style="color:${p.color};font-size:.68rem;font-style:italic">${d.ref}</td>
+        <td style="text-align:center;color:${p.color};font-weight:700">${ds.pct}%</td>
+        <td><div style="height:5px;background:var(--sand);border-radius:2px;overflow:hidden"><div style="height:100%;width:${ds.pct}%;background:${p.color};border-radius:2px"></div></div></td>
+      </tr>`;
+      d.questions.forEach((q,qi)=>{
+        const key=`${pi}-${di}-${qi}`;
+        const val=answers[key]||0;
+        const code=makeCode(p.id,d.letter,q.para,qi);
+        const barW=Math.round((val/3)*100);
+        const cmnt=comments[key]||'';
+        const cmntHtml=cmnt?`<div class="idx-comment">💬 ${cmnt}</div>`:'';
+        tbody.innerHTML+=`<tr>
+          <td class="idx-pillar-band" style="background:${p.color}50"></td>
+          <td><span class="idx-code ${codeClass(pi)}" style="border-color:${p.color}35">${code}</span></td>
+          <td class="idx-qtext">${q.text}${cmntHtml}</td>
+          <td class="idx-ref">${q.ref}${q.eq?`<div class="idx-eq">↔ ${q.eq}</div>`:''}</td>
+          <td class="idx-score" style="background:${ansColors[val][0]};color:${ansColors[val][1]}">${ansLabels[val]}</td>
+          <td><div class="idx-bar"><div class="idx-bar-fill" style="width:${barW}%;background:${p.color}"></div></div></td>
+        </tr>`;
+      });
+    });
+  });
+
+  // ═══ PLAN DE ACCIÓN DOBLE ═══
+  buildActionPlans(pillarScores, normPct);
+
+  // Google Sheets
+  if(APPS_SCRIPT_URL!=='PEGA_TU_URL_AQUI'){
+    // Construir objeto plano con cada respuesta + comentario por código
+    const detail={};
+    pillars.forEach((p,pi)=>p.disclosures.forEach((d,di)=>d.questions.forEach((q,qi)=>{
+      const key=`${pi}-${di}-${qi}`;
+      const code=makeCode(p.id,d.letter,q.para,qi);
+      detail[`resp_${code}`]=answers[key]||0;
+      if(comments[key]) detail[`comt_${code}`]=comments[key];
+    })));
+    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({tipo:'resultados',diagnostico:'NIIF '+NORMA,...userData,
+        score_global:overall+'%',nivel:level,niif_s2:normPct+'%',
+        gobernanza:pillarScores[0].pct+'%',estrategia:pillarScores[1].pct+'%',
+        gestion_riesgos:pillarScores[2].pct+'%',metricas_objetivos:pillarScores[3].pct+'%',
+        ...detail})});}catch(e){}
+  }
+}
+
+// ══ PLAN DE ACCIÓN SEPARADO S1 / S2 ══
+function buildActionPlans(pillarScores, normPct) {
+  const container=document.getElementById('action-plan-grid');
+  const low=[];
+  pillars.forEach((p,pi)=>{
+    p.disclosures.forEach((d,di)=>{
+      d.questions.forEach((q,qi)=>{
+        const val=answers[`${pi}-${di}-${qi}`]||0;
+        if(val<2) low.push({code:makeCode(p.id,d.letter,q.para,qi),text:q.text,ref:q.ref,para:q.para,val,pilarName:p.name,discText:d.text,discSrc:d.src||d.letter});
+      });
+    });
+  });
+  const plan=buildNormPlan(NORMA, normPct, low);
+  const lo=NORMA.toLowerCase();
+  container.innerHTML=`
+    <div class="action-plan-col">
+      <div class="plan-header plan-header-${lo}">
+        <div>
+          <span class="reg-badge reg-${lo}" style="margin-bottom:.3rem;display:inline-block">NIIF ${NORMA}</span>
+          <div style="font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:1rem;color:var(--${lo})">${NORMA_NOMBRE}</div>
+          <div style="font-size:.72rem;color:var(--text-light)">${getLevel(normPct).level}</div>
+        </div>
+        <div class="plan-score plan-score-${lo}">${normPct}%</div>
+      </div>
+      <div class="plan-items">${plan||`<div class="plan-empty">No hay brechas: todas las preguntas están en «Parcialmente» o «Implementado».</div>`}</div>
+    </div>`;
+}
+
+function buildNormPlan(norm, pct, lowItems) {
+  if(!lowItems.length) return '';
+  let html='';
+
+  // Agrupar por pilar y área de revelación
+  const byDisc={};
+  lowItems.forEach(item=>{
+    const grp=item.pilarName+' · '+item.discText;
+    if(!byDisc[grp]) byDisc[grp]={items:[],discText:item.discText,pilarName:item.pilarName};
+    byDisc[grp].items.push(item);
+  });
+
+  // Determinar prioridad
+  function getPriority(items){
+    const avgVal=items.reduce((s,i)=>s+i.val,0)/items.length;
+    if(avgVal<0.5) return 'urgent';
+    if(avgVal<1) return 'high';
+    if(avgVal<1.5) return 'medium';
+    return 'low';
+  }
+  function getPriorityLabel(pr){
+    if(pr==='urgent') return '🔴 URGENTE';
+    if(pr==='high')   return '🟠 ALTA';
+    if(pr==='medium') return '🔵 MEDIA';
+    return '🟢 BAJA';
+  }
+
+  // Textos de acción específicos por grupo
+  const actionTexts={
+    'S1_GOB': {
+      A: 'Asigna formalmente las responsabilidades de sostenibilidad en mandatos del consejo (§27a(i)), define la frecuencia y formato de información que recibe el órgano de gobernanza (§27a(iii)), y vincula las métricas de sostenibilidad a la remuneración ejecutiva (§27a(v)).',
+      B: 'Establece el cargo o comité responsable de gestionar los riesgos de sostenibilidad con mecanismos de supervisión claros (§27b(i)) e implementa controles y procedimientos de gestión integrados con finanzas, auditoría y riesgos corporativos (§27b(ii)).'
+    },
+    'S1_EST': {
+      A: 'Documenta los riesgos y oportunidades de sostenibilidad materiales (§30a), define los horizontes temporales con criterios propios vinculados a la planificación estratégica (§30b-c), y consulta las Normas SASB de tu sector como fuente de guía obligatoria (§55).',
+      B: 'Describe los efectos actuales y previstos sobre el modelo de negocio y la cadena de valor (§32a-b), e identifica las concentraciones geográficas y por tipo de activo donde se localizan los riesgos (§32b).',
+      C: 'Documenta las compensaciones (trade-offs) consideradas en la estrategia (§33c), reporta el progreso cuantitativo hacia planes anteriores (§33b), y revisa si existe un plan de transición implícito que deba formalizarse.',
+      D: 'Cuantifica los efectos financieros actuales sobre la situación financiera y los flujos de efectivo (§35a-b), planifica cómo revelar los efectos previstos a largo plazo (§35c), y establece un protocolo de congruencia con los estados financieros (§23 + §B42).'
+    },
+    'S1_RIE': {
+      A: 'Documenta formalmente los procesos de identificación y evaluación de riesgos de sostenibilidad con criterios de probabilidad y magnitud definidos (§44a(i-iii)), y establece un mecanismo de priorización comparativa frente a otros riesgos corporativos (§44a(iv)).',
+      B: 'Desarrolla procesos formales para identificar oportunidades, distintos a los de riesgos (§44b), y vincula las oportunidades identificadas a decisiones de inversión y planes de acción concretos.',
+      C: 'Integra formalmente los procesos de sostenibilidad en el marco ERM corporativo (§44c), establece un flujo de retroalimentación hacia las decisiones estratégicas, y documenta los cambios en los procesos respecto al periodo anterior (§44a(vi)).'
+    },
+    'S1_MET': {
+      A: 'Identifica las métricas requeridas por las NIIF aplicables y las propias métricas para cada riesgo material (§46a-b), documenta la definición, tipo y método de cálculo de cada métrica propia (§50), y establece un proceso de congruencia temporal con revisión de métricas sustituidas (§52-53).',
+      D: 'Identifica y revela las métricas sectoriales de las Normas SASB aplicables a tu sector (§48-49), asegura la comparabilidad con el sector, y proporciona información comparativa del periodo anterior para todas las métricas (§70 + §B49-B54).',
+      E: 'Formaliza objetivos cuantitativos y cualitativos con todos sus atributos requeridos: métrica, periodo, base, hitos intermedios y mecanismo de revisión (§51a-g). Documenta los resultados obtenidos frente a cada objetivo.'
+    },
+    'S2_GOB': {
+      A: 'Incorpora en los mandatos del consejo la supervisión específica de riesgos climáticos (§6a(i-ii)), establece qué información climática recibe el consejo y con qué frecuencia (§6a(iii)), y vincula las métricas climáticas a la remuneración ejecutiva, revelando el porcentaje vinculado (§29g).',
+      B: 'Designa formalmente el cargo o comité responsable de gestionar los riesgos climáticos con mecanismos de supervisión definidos (§6b(i)), e implementa controles y procedimientos de gestión climática integrados con las funciones de finanzas y riesgos (§6b(ii)).'
+    },
+    'S2_EST': {
+      A: 'Clasifica cada riesgo climático como físico (agudo/crónico) o de transición (político, legal, tecnológico, de mercado, reputacional) (§10b + §3a), y especifica los horizontes temporales para cada riesgo y oportunidad climática (§10c-d).',
+      B: 'Describe los efectos actuales y previstos de los riesgos y oportunidades climáticos sobre el modelo de negocio y cadena de valor, con identificación de concentraciones geográficas e instalaciones específicas (§13a-b).',
+      C: 'Desarrolla un plan de transición climática formal con objetivos, acciones, recursos, supuestos clave y dependencias (§14a(iv)). Describe los esfuerzos directos e indirectos de reducción (§14a(ii-iii)) y reporta el progreso cuantitativo hacia planes anteriores (§14c).',
+      D: 'Cuantifica los efectos financieros actuales de los riesgos climáticos (§16a-b), planifica la revelación de efectos previstos a corto, mediano y largo plazo incluyendo planes de inversión y desinversión (§16c), y justifica explícitamente si no se proporciona información cuantitativa (§19-21).',
+      E: 'Inicia el análisis de escenarios climáticos con escenarios cualitativos proporcionales a tus capacidades (§22 + §B1-B7). Incluye al menos un escenario alineado con el Acuerdo de París (§22b(i)(2-4)). Documenta datos de entrada, supuestos clave y horizontes temporales (§22b). Alinea el ciclo del análisis con tu planificación estratégica y realiza evaluaciones anuales de resiliencia (§B18).'
+    },
+    'S2_RIE': {
+      A: 'Documenta los procesos de identificación y evaluación de riesgos climáticos con datos de entrada y criterios de probabilidad/magnitud definidos (§25a(i-iii)), integra el análisis de escenarios en la identificación de riesgos (§25a(ii)), y establece un registro de cambios en los procesos respecto al periodo anterior (§25a(vi)).',
+      B: 'Desarrolla procesos para identificar oportunidades climáticas usando el análisis de escenarios (§25b), y vincula las oportunidades identificadas a decisiones concretas de CAPEX u otras inversiones.',
+      C: 'Integra formalmente los procesos de gestión de riesgos climáticos en el marco ERM corporativo (§25c), establece un flujo de retroalimentación hacia las decisiones estratégicas, y documenta los cambios en los procesos respecto al periodo anterior (§25a(vi) + §26).'
+    },
+    'S2_MET': {
+      B: 'Establece el inventario de GEI con Alcance 1 y 2 usando el Protocolo GEI 2004 (§29a(i-ii)). Documenta el enfoque de medición, datos de entrada y factores de emisión (§29a(iii) + §B26-B29). Añade Alcance 2 location-based (§29a(v) + §B30-B31). Extiende a Alcance 3 identificando las categorías más relevantes de las 15 del Protocolo GEI, priorizando datos primarios vs. secundarios verificados (§29a(vi) + §B32-B57).',
+      C: 'Calcula y revela los activos vulnerables a riesgos de transición y físicos (§29b-c), la exposición a oportunidades y el CAPEX climático (§29d-e), aplica un precio interno del carbono en las decisiones de inversión (§29f), y documenta la vinculación de la remuneración ejecutiva a métricas climáticas con el porcentaje específico (§29g).',
+      D: 'Adopta e implementa las métricas de las Normas SASB aplicables a tu sector para revelaciones climáticas (§32). Asegura la comparabilidad sectorial y proporciona información comparativa del periodo anterior.',
+      E: 'Formaliza objetivos de reducción de GEI especificando si son brutos o netos, los alcances cubiertos, los gases incluidos y si son absolutos o de intensidad (§33 + §36). Si los objetivos son netos, revela también el objetivo bruto asociado (§36c + §B68-B69). Documenta el uso previsto de créditos de carbono con la medida de dependencia, el régimen verificador y el tipo de crédito (§36e + §B70-B71). Considera la validación por SBTi para objetivos basados en ciencia (§34 + §36d).'
+    }
+  };
+
+  // Generar ítems del plan
+  Object.entries(byDisc).forEach(([grpKey,grp])=>{
+    const priority=getPriority(grp.items);
+    const pilLetter=grp.pilarName.includes('Gobernanza')?'GOB':grp.pilarName.includes('Estrategia')?'EST':grp.pilarName.includes('Riesgo')?'RIE':'MET';
+    const discLetter=grp.items[0].code.split('·')[1];
+    const actionKey=`${norm}_${pilLetter}`;
+    const actionText=(actionTexts[actionKey]||{})[grp.items[0].discSrc];
+
+    // Referencias de los párrafos de las preguntas con brecha
+    const paraRefs=[...new Set(grp.items.map(i=>i.para.split('·')[0].trim()))].slice(0,4);
+    const refsHtml=paraRefs.map(pr=>`<span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">${pr}</span>`).join('');
+
+    const iconMap={urgent:'⚡',high:'▲',medium:'●',low:'○'};
+    const cssMap={urgent:'pi-urgent',high:'pi-high',medium:'pi-medium',low:'pi-low'};
+
+    html+=`<div class="plan-item">
+      <div class="plan-item-icon ${cssMap[priority]}">${iconMap[priority]}</div>
+      <div class="plan-item-body">
+        <h4>${getPriorityLabel(priority)} · ${grp.pilarName} — Área ${discLetter}</h4>
+        <h4 style="font-weight:400;color:var(--text-light);font-size:.78rem;margin-bottom:.35rem">${grp.discText}</h4>
+        <p>${actionText||`Esta área tiene ${grp.items.length} pregunta(s) respondidas como «No» o «En evaluación». Asigna un responsable y una fecha a cada requisito pendiente.`}</p>
+        <div class="para-refs">${refsHtml}</div>
+      </div>
+    </div>`;
+  });
+
+  // Ítem final de cierre según nivel
+  if(pct<40){
+    html+=`<div class="plan-item">
+      <div class="plan-item-icon pi-urgent">📅</div>
+      <div class="plan-item-body">
+        <h4>🔴 URGENTE · Hoja de ruta de adopción ${norm}</h4>
+        <p>Con ${pct} % de preparación, el primer paso es una hoja de ruta de adopción de la NIIF ${norm}: hitos trimestrales, presupuesto y un responsable por pilar. Si nadie en el equipo ha trabajado antes con la norma, conviene apoyarse en un asesor externo para definir el alcance inicial.</p>
+        <div class="para-refs"><span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">${norm==='S1'?'S1 §72':'S2 §C1'}</span></div>
+      </div>
+    </div>`;
+  } else if(pct<70){
+    html+=`<div class="plan-item">
+      <div class="plan-item-icon pi-medium">🔍</div>
+      <div class="plan-item-body">
+        <h4>🔵 MEDIA · Revisión de materialidad y aseguramiento externo</h4>
+        <p>Cuando cierres las brechas de arriba, revisa formalmente qué información es material (NIIF S1 §17-19${norm==='S2'?', criterio que también rige para la NIIF S2':''}) y evalúa contratar un aseguramiento limitado de las métricas principales con un tercero independiente.</p>
+        <div class="para-refs"><span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">S1 §17-19</span></div>
+      </div>
+    </div>`;
+  } else {
+    html+=`<div class="plan-item">
+      <div class="plan-item-icon pi-low">✅</div>
+      <div class="plan-item-body">
+        <h4>🟢 BAJA · Declaración de cumplimiento NIIF ${norm}</h4>
+        <p>${norm==='S1'?'Tu organización está cerca de poder declarar, de forma explícita y sin reservas, que cumple las Normas NIIF de Información a Revelar sobre Sostenibilidad (NIIF S1 §72). Esa declaración exige cumplir todos los requisitos aplicables, así que primero cierra las brechas restantes.':'Ya puedes preparar la publicación completa de tus revelaciones climáticas. Si tienes operaciones en la Unión Europea, revisa también lo que exige la ESRS E1, que la NIIF S1 reconoce como fuente de guía (§C2).'}</p>
+        <div class="para-refs"><span class="para-ref ${norm==='S1'?'pref-s1':'pref-s2'}">${norm==='S1'?'S1 §72':'S1 §C2'}</span></div>
+      </div>
+    </div>`;
+  }
+
+  return html;
+}
+
+function toggleDetail(h){h.classList.toggle('open');}
+
+function getLevel(pct){
+  if(pct<20) return {level:'Fase Inicial',lc:'nivel-0'};
+  if(pct<40) return {level:'Emergente',lc:'nivel-1'};
+  if(pct<60) return {level:'En Desarrollo',lc:'nivel-2'};
+  if(pct<80) return {level:'Avanzado',lc:'nivel-3'};
+  return {level:'Listo para ISSB',lc:'nivel-4'};
+}
+
+function restartQuiz(){
+  for(const k in answers) delete answers[k];
+  for(const k in comments) delete comments[k];
+  userData={}; currentSection=0;
+  document.getElementById('screen-results').style.display='none';
+  document.getElementById('screen-intro').style.display='flex';
+}
+function delay(ms){return new Promise(r=>setTimeout(r,ms));}
+document.getElementById('stat-areas').textContent=pillars.reduce((t,p)=>t+p.disclosures.length,0);
+document.getElementById('stat-preguntas').textContent=TOTAL_Q;
+document.getElementById('q-counter').textContent=`0 / ${TOTAL_Q}`;
+</script>
+</body>
+</html>
