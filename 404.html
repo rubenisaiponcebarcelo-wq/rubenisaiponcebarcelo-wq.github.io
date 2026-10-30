@@ -7,27 +7,31 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/marca/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/marca/favicon.svg">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#1567B0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/marca/marca.tokens.css">
+<link rel="stylesheet" href="/assets/marca/marca-componentes.css">
 <style>
-  html,body{margin:0;min-height:100%;background:#000;color:#fff;font-family:'Barlow','Segoe UI',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
-  main{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:32px 16px;text-align:center;}
-  img{width:56px;height:56px;}
-  h1{margin:8px 0 0;font-weight:600;font-size:clamp(2.25rem,7vw,3.5rem);letter-spacing:-2px;line-height:1;}
-  p{margin:0;max-width:34rem;font-weight:300;font-size:16px;line-height:1.45;color:rgba(255,255,255,.82);}
-  a.btn{margin-top:8px;display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:10px 18px;background:#fff;color:#000;font-weight:600;font-size:14px;text-decoration:none;transition:background .25s;}
-  a.btn:hover{background:#D3B07E;}
-  a.btn:focus-visible{outline:1.5px solid rgba(255,255,255,.8);outline-offset:4px;}
+  body{min-height:100svh;display:flex;flex-direction:column;}
+  .rp-banda{flex:1;display:flex;align-items:center;padding:96px 0;}
+  .rp-display{color:var(--rp-blanco);margin:0 0 20px;}
+  .rp-banda p{font-size:18px;max-width:36rem;margin:0 0 36px;}
 </style>
 </head>
 <body>
-<main>
-  <img src="/assets/marca/isotipo-laton.svg" alt="Rubén Ponce">
-  <h1>Esta página no existe</h1>
-  <p>Puede que la dirección haya cambiado: todas las herramientas y cursos están ahora en un solo sitio, en el catálogo de la página principal.</p>
-  <a class="btn" href="/#indice">Ver el catálogo completo</a>
+<header class="rp-cabecera">
+  <div class="rp-contenedor rp-cabecera-fila">
+    <a class="rp-marca" href="/"><img src="/assets/marca/isotipo-azul.svg" alt=""><span class="rp-marca-nombre">Rubén Ponce</span></a>
+  </div>
+</header>
+<main class="rp-banda">
+  <div class="rp-contenedor">
+    <h1 class="rp-display">Esta página no existe.</h1>
+    <p>Puede que la dirección haya cambiado: todas las herramientas y cursos están ahora en un solo sitio, en el índice completo de la página principal.</p>
+    <a class="rp-btn rp-btn-blanco" href="/#herramientas">Ver todas las herramientas</a>
+  </div>
 </main>
 </body>
 </html>

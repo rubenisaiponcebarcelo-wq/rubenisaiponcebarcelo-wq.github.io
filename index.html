@@ -4,812 +4,837 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rubén Ponce · Sostenibilidad corporativa</title>
-<meta name="description" content="Aprende y comunica las bases de la sostenibilidad corporativa. Cursos y herramientas interactivas para trabajar los estándares GRI, IFRS S1/S2, TNFD, TCFD y CSRD.">
+<meta name="description" content="Aprende y comunica las bases de la sostenibilidad corporativa. Herramientas interactivas para trabajar los estándares GRI, IFRS S1/S2, TNFD, TCFD y CSRD.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rubén Ponce">
 <meta property="og:title" content="Rubén Ponce · Sostenibilidad corporativa">
-<meta property="og:description" content="Cursos y herramientas interactivas para trabajar los estándares GRI, IFRS S1/S2, TNFD, TCFD y CSRD.">
+<meta property="og:description" content="Aprende y comunica las bases de la sostenibilidad corporativa. Herramientas interactivas para trabajar los estándares GRI, IFRS S1/S2, TNFD, TCFD y CSRD.">
 <meta property="og:url" content="https://rubenisaiponcebarcelo-wq.github.io/">
 <meta property="og:image" content="https://rubenisaiponcebarcelo-wq.github.io/assets/marca/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rubén Ponce · Sostenibilidad corporativa">
-<meta name="twitter:description" content="Cursos y herramientas interactivas para trabajar los estándares internacionales de sostenibilidad.">
+<meta name="twitter:description" content="Aprende y comunica las bases de la sostenibilidad corporativa, con herramientas interactivas.">
 <link rel="icon" href="assets/marca/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="assets/marca/favicon.svg">
 <link rel="apple-touch-icon" href="assets/marca/favicon-180.png">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#1567B0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
-/* ============================================================
-   BASE
-   ============================================================ */
-:root{
-  --font-heading:'Barlow','Segoe UI',system-ui,sans-serif;
-  --font-body:'Barlow', sans-serif;
-  --ease:cubic-bezier(.22,.7,.2,1);
-}
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-html,body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:var(--font-body);
-  -webkit-font-smoothing:antialiased;
-}
-img,svg{display:block;max-width:100%;}
-a{color:inherit;text-decoration:none;}
-::selection{background:#fff;color:#000;}
-:focus-visible{outline:1.5px solid rgba(255,255,255,.8);outline-offset:4px;border-radius:6px;}
-::-webkit-scrollbar{width:10px;}
-::-webkit-scrollbar-track{background:#000;}
-::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:20px;border:3px solid #000;}
-*{scrollbar-color:rgba(255,255,255,.18) #000;scrollbar-width:thin;}
+  :root{
+    --blue:#1567B0;
+    --blue-deep:#0F4A7F;
+    --blue-soft:#E6F0F9;
+    --paper:#FBFCFE;
+    --paper-alt:#F1F4FA;
+    --line:#DFE6F0;
+    --ink:#0F1B2D;
+    --ink-muted:#5C6B85;
+    --white:#FFFFFF;
+    --white-muted:#C9E1F5;
 
-.h{font-family:var(--font-heading);font-weight:600;}
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'DM Sans', sans-serif;
 
-/* ============================================================
-   LIQUID GLASS
-   ============================================================ */
-.liquid-glass{
-  background:rgba(255,255,255,.01);
-  background-blend-mode:luminosity;
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  box-shadow:inset 0 1px 1px rgba(255,255,255,.1);
-  position:relative;
-  overflow:hidden;
-}
-.liquid-glass::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  padding:1.4px;
-  background:linear-gradient(180deg,
-    rgba(255,255,255,.45) 0%,
-    rgba(255,255,255,.15) 20%,
-    rgba(255,255,255,0) 40%,
-    rgba(255,255,255,0) 60%,
-    rgba(255,255,255,.15) 80%,
-    rgba(255,255,255,.45) 100%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
-}
-.liquid-glass-strong{
-  background:rgba(255,255,255,.01);
-  background-blend-mode:luminosity;
-  -webkit-backdrop-filter:blur(50px);
-  backdrop-filter:blur(50px);
-  box-shadow:4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);
-  position:relative;
-  overflow:hidden;
-}
-.liquid-glass-strong::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  padding:1.4px;
-  background:linear-gradient(180deg,
-    rgba(255,255,255,.5) 0%,
-    rgba(255,255,255,.2) 20%,
-    rgba(255,255,255,0) 40%,
-    rgba(255,255,255,0) 60%,
-    rgba(255,255,255,.2) 80%,
-    rgba(255,255,255,.5) 100%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
-}
+    --maxw:1180px;
+    --ease:cubic-bezier(.22,.7,.2,1);
+  }
 
-/* ============================================================
-   REVEAL (blur / fade / rise)
-   ============================================================ */
-.reveal{
-  opacity:0;
-  filter:blur(10px);
-  transform:translateY(20px);
-  transition:opacity .8s var(--ease), filter .8s var(--ease), transform .8s var(--ease);
-  transition-delay:var(--d,0s);
-}
-.reveal.in{opacity:1;filter:blur(0);transform:none;}
-.blur-word{
-  display:inline-block;
-  margin-right:.28em;
-  opacity:0;
-  filter:blur(10px);
-  transform:translateY(50px);
-  transition:opacity .7s var(--ease), filter .7s var(--ease), transform .7s var(--ease);
-  transition-delay:var(--d,0s);
-}
-.blur-word.in{opacity:1;filter:blur(0);transform:none;}
-[data-blur]{display:flex;flex-wrap:wrap;row-gap:.1em;}
-[data-blur].center{justify-content:center;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  ::selection{background:var(--blue);color:var(--white);}
+  :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px;}
+  ::-webkit-scrollbar{width:11px;}
+  ::-webkit-scrollbar-track{background:var(--paper);}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:20px;border:3px solid var(--paper);}
+  ::-webkit-scrollbar-thumb:hover{background:var(--blue);}
+  *{scrollbar-color:var(--line) var(--paper);scrollbar-width:thin;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
 
-/* ============================================================
-   MEDIA BACKDROP
-   ============================================================ */
-.media-stack{position:absolute;inset:0;z-index:0;overflow:hidden;}
-.media-stack .frame{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:opacity 1.2s linear;
-}
-.media-stack .frame.on{opacity:1;}
-.media-stack img{
-  width:100%;height:100%;
-  object-fit:cover;
-  filter:brightness(.52) saturate(.85) contrast(1.05);
-  transform:scale(1.04);
-  transition:transform 9s linear;
-}
-.media-stack .frame.on img{transform:scale(1.14);}
-.scrim{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:
-    radial-gradient(120% 80% at 50% 0%, rgba(0,0,0,.25) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.85) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.3) 35%, rgba(0,0,0,.45) 65%, rgba(0,0,0,.92) 100%);
-}
+  /* ===== HEADER ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,252,254,0.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .logo-mark{width:27px;height:27px;flex:0 0 auto;}
+  .nav-name{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:17px;
+    letter-spacing:-.01em;
+    color:var(--ink);
+  }
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{
+    font-family:var(--font-body);
+    font-size:14.5px;
+    font-weight:500;
+    text-decoration:none;
+    color:var(--ink-muted);
+    transition:color .2s var(--ease);
+  }
+  .nav-links a:hover{color:var(--blue);}
+  .nav-cta{
+    background:var(--blue);
+    color:var(--white) !important;
+    padding:10px 20px;
+    border-radius:999px;
+    transition:background .2s var(--ease), transform .2s var(--ease);
+  }
+  .nav-cta:hover{background:var(--blue-deep);transform:translateY(-1px);}
+  .nav-toggle{display:none;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px;}
+  .nav-toggle svg{width:22px;height:22px;}
+  .nav-toggle .bar{transform-origin:12px 12px;transition:transform .25s var(--ease), opacity .2s ease;}
+  .nav-toggle.open .bar1{transform:translateY(6px) rotate(45deg);}
+  .nav-toggle.open .bar2{opacity:0;}
+  .nav-toggle.open .bar3{transform:translateY(-6px) rotate(-45deg);}
 
-/* ============================================================
-   NAV
-   ============================================================ */
-.nav{
-  position:fixed;top:16px;left:0;right:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 32px;
-}
-@media (min-width:1024px){.nav{padding:0 64px;}}
-.nav-mark{
-  height:48px;width:48px;border-radius:999px;
-  display:flex;align-items:center;justify-content:center;
-  flex:none;
-}
-.nav-mark img{width:26px;height:26px;}
-.nav-pill{
-  display:none;
-  border-radius:999px;
-  padding:6px;
-  align-items:center;
-  gap:2px;
-}
-@media (min-width:860px){.nav-pill{display:flex;}}
-.nav-pill a{
-  position:relative;z-index:2;
-  padding:8px 12px;font-size:14px;font-weight:500;color:rgba(255,255,255,.9);
-  border-radius:999px;transition:color .25s var(--ease), background .25s var(--ease);
-}
-.nav-pill a:hover{color:#fff;background:rgba(255,255,255,.07);}
-.nav-cta{
-  position:relative;z-index:2;
-  display:inline-flex;align-items:center;gap:6px;
-  background:#fff;color:#000 !important;
-  border-radius:999px;padding:8px 14px;
-  font-size:14px;font-weight:600;
-  transition:transform .25s var(--ease), opacity .25s var(--ease);
-}
-.nav-cta:hover{transform:translateY(-1px);opacity:.9;background:#fff;}
-.nav-cta svg{width:15px;height:15px;}
-.nav-slot{height:48px;width:48px;flex:none;display:flex;justify-content:flex-end;}
-.nav-toggle{
-  height:48px;width:48px;border-radius:999px;
-  background:none;border:0;color:#fff;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  padding:0;
-}
-@media (min-width:860px){.nav-toggle{display:none;}}
-.nav-toggle svg{width:20px;height:20px;position:relative;z-index:2;}
-.mobile-menu{
-  position:fixed;top:76px;right:32px;z-index:49;
-  border-radius:20px;padding:10px;
-  display:none;flex-direction:column;gap:2px;min-width:200px;
-}
-.mobile-menu.open{display:flex;}
-@media (min-width:860px){.mobile-menu.open{display:none;}}
-.mobile-menu a{
-  position:relative;z-index:2;
-  padding:10px 14px;border-radius:12px;
-  font-size:15px;font-weight:500;color:rgba(255,255,255,.92);
-}
-.mobile-menu a:hover{background:rgba(255,255,255,.08);}
+  @media(max-width:860px){
+    .nav-links{
+      position:fixed; inset:64px 0 0 0; height:calc(100vh - 64px);
+      background:var(--paper); flex-direction:column; justify-content:flex-start;
+      padding:36px 32px; gap:26px; transform:translateX(100%);
+      transition:transform .3s var(--ease); border-top:1px solid var(--line);
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-links a{font-size:17px;}
+    .nav-cta{align-self:flex-start;}
+    .nav-toggle{display:block;}
+  }
 
-/* ============================================================
-   SECCIÓN 1 · HERO
-   ============================================================ */
-.hero{
-  position:relative;
-  height:100svh;min-height:660px;
-  overflow:hidden;background:#000;
-}
-.hero .media-stack{inset:auto;left:50%;top:0;width:120%;height:120%;transform:translateX(-50%);}
-.hero .media-stack img{object-position:center top;}
-.hero-content{position:relative;z-index:10;display:flex;flex-direction:column;height:100%;}
-.hero-main{
-  flex:1;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:96px 16px 0;text-align:center;
-}
-.badge{
-  display:inline-flex;align-items:center;gap:10px;
-  border-radius:999px;padding:5px 14px 5px 5px;
-}
-.badge-new{
-  position:relative;z-index:2;
-  background:#fff;color:#000;border-radius:999px;
-  padding:2px 10px;font-size:11px;font-weight:600;letter-spacing:.02em;
-}
-.badge-text{position:relative;z-index:2;font-size:13px;font-weight:300;color:rgba(255,255,255,.92);}
-.headline{
-  margin:24px 0 0;
-  max-width:52rem;
-  font-family:var(--font-heading);font-weight:600;
-  font-size:3.75rem;line-height:.8;letter-spacing:-4px;color:#fff;
-}
-@media (min-width:768px){.headline{font-size:4.5rem;}}
-@media (min-width:1024px){.headline{font-size:5.5rem;}}
-.lede{
-  margin:18px 0 0;max-width:44rem;
-  font-size:14px;font-weight:300;line-height:1.35;color:#fff;
-}
-@media (min-width:768px){.lede{font-size:16px;}}
-.hero-actions{
-  margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px;
-}
-.btn-glass{
-  display:inline-flex;align-items:center;gap:8px;
-  border-radius:999px;padding:10px 20px;
-  font-size:14px;font-weight:500;color:#fff;
-  transition:transform .3s var(--ease);
-}
-.btn-glass:hover{transform:translateY(-2px);}
-.btn-glass span,.btn-glass svg{position:relative;z-index:2;}
-.btn-glass svg{width:16px;height:16px;}
-.btn-quiet{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:14px;font-weight:400;color:rgba(255,255,255,.92);
-  transition:color .25s var(--ease), gap .25s var(--ease);
-}
-.btn-quiet:hover{color:#fff;gap:11px;}
-.btn-quiet svg{width:15px;height:15px;}
-.stats{margin-top:34px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}
-.stat{
-  border-radius:1.25rem;padding:20px;width:250px;text-align:left;
-}
-.stat > *{position:relative;z-index:2;}
-.stat svg{width:22px;height:22px;color:rgba(255,255,255,.85);}
-.stat-n{
-  font-family:var(--font-heading);font-weight:600;
-  font-size:2.125rem;letter-spacing:-.5px;line-height:1;margin-top:16px;
-}
-.stat-l{margin-top:6px;font-size:12.5px;font-weight:300;line-height:1.3;color:rgba(255,255,255,.8);}
-.hero-trust{
-  display:flex;flex-direction:column;align-items:center;gap:16px;
-  padding:0 16px 32px;
-}
-.trust-pill{border-radius:999px;padding:8px 18px;}
-.trust-pill span{position:relative;z-index:2;font-size:12.5px;font-weight:300;color:rgba(255,255,255,.85);}
-.trust-marks{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:32px;
-}
-@media (min-width:768px){.trust-marks{gap:64px;}}
-.trust-marks span{
-  font-family:var(--font-heading);
-  font-size:1.5rem;letter-spacing:-.01em;color:rgba(255,255,255,.92);white-space:nowrap;font-weight:600;}
-@media (min-width:768px){.trust-marks span{font-size:1.875rem;}}
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:var(--blue);
+    color:var(--white);
+    padding:120px 0 108px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:center;}
+  @media(min-width:980px){
+    .hero-grid{grid-template-columns:1.15fr .85fr;gap:32px;}
+  }
 
-/* ============================================================
-   SECCIÓN 2 · CATÁLOGO
-   ============================================================ */
-.catalog{position:relative;min-height:100svh;overflow:hidden;background:#000;}
-.catalog .media-stack img{filter:brightness(.4) saturate(.7) contrast(1.05) blur(1px);}
-.catalog-content{
-  position:relative;z-index:10;
-  display:flex;flex-direction:column;min-height:100svh;
-  padding:96px 32px 40px;
-}
-@media (min-width:768px){.catalog-content{padding:96px 64px 40px;}}
-@media (min-width:1024px){.catalog-content{padding:96px 80px 40px;}}
-.catalog-label{font-size:14px;color:rgba(255,255,255,.8);margin:0 0 24px;}
-.catalog-h{
-  font-family:var(--font-heading);font-weight:600;
-  font-size:3.75rem;line-height:.9;letter-spacing:-3px;margin:0;
-}
-@media (min-width:768px){.catalog-h{font-size:4.5rem;}}
-@media (min-width:1024px){.catalog-h{font-size:6rem;}}
-.cards{
-  margin-top:64px;
-  display:grid;grid-template-columns:1fr;gap:24px;
-}
-@media (min-width:900px){.cards{grid-template-columns:repeat(3,1fr);}}
-.card{
-  border-radius:1.25rem;padding:24px;min-height:380px;
-  display:flex;flex-direction:column;
-}
-.card > *{position:relative;z-index:2;}
-.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
-.card-icon{
-  height:44px;width:44px;border-radius:.75rem;flex:none;
-  display:flex;align-items:center;justify-content:center;
-}
-.card-icon svg{width:21px;height:21px;position:relative;z-index:2;color:#fff;}
-.tags{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;}
-.tag{
-  border-radius:999px;padding:4px 12px;
-  font-size:11px;color:rgba(255,255,255,.9);white-space:nowrap;
-}
-.tag span{position:relative;z-index:2;}
-.card-spacer{flex:1;min-height:32px;}
-.card-title{
-  font-family:var(--font-heading);font-weight:600;
-  font-size:1.875rem;letter-spacing:-1px;line-height:1;margin:0;
-}
-@media (min-width:768px){.card-title{font-size:2.25rem;}}
-.card-body{
-  margin:12px 0 0;max-width:32ch;
-  font-size:13.5px;font-weight:300;line-height:1.4;color:rgba(255,255,255,.9);
-}
-.card-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;}
-.card-links a{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:12.5px;font-weight:500;color:rgba(255,255,255,.85);
-  border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:2px;
-  transition:color .25s var(--ease), border-color .25s var(--ease), gap .25s var(--ease);
-}
-.card-links a:hover{color:#fff;border-color:rgba(255,255,255,.7);gap:8px;}
-.card-links a svg{width:13px;height:13px;}
-.card-links .soon{
-  font-size:12.5px;font-weight:400;color:rgba(255,255,255,.45);
-  border-bottom:1px solid transparent;padding-bottom:2px;
-}
+  .hero-carousel-stage{
+    position:relative;width:100%;max-width:520px;height:460px;margin:0 auto;
+    perspective:1100px;
+  }
+  .hero-slide{
+    position:absolute;top:50%;left:50%;width:260px;height:420px;margin:-210px 0 0 -130px;
+    border-radius:20px;overflow:hidden;
+    box-shadow:0 20px 40px rgba(6,16,40,.35);
+    background:rgba(255,255,255,.06);
+    transition:transform .7s var(--ease), opacity .7s var(--ease);
+  }
+  .hero-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-slide[data-pos="center"]{transform:translateX(0) translateZ(0) rotateY(0deg) scale(1);z-index:5;opacity:1;}
+  .hero-slide[data-pos="right"]{transform:translateX(170px) translateZ(-120px) rotateY(-32deg) scale(.82);z-index:3;opacity:.85;cursor:pointer;}
+  .hero-slide[data-pos="left"]{transform:translateX(-170px) translateZ(-120px) rotateY(32deg) scale(.82);z-index:3;opacity:.85;cursor:pointer;}
+  .hero-slide[data-pos="hidden"]{transform:translateX(0) translateZ(-260px) scale(.6);opacity:0;z-index:1;pointer-events:none;}
+  .hero-dots{display:flex;justify-content:center;gap:9px;margin-top:16px;}
+  .hero-dot{
+    width:8px;height:8px;border-radius:50%;padding:0;border:none;cursor:pointer;
+    background:rgba(255,255,255,.35);transition:background .2s var(--ease), transform .2s var(--ease);
+  }
+  .hero-dot:hover{background:rgba(255,255,255,.6);}
+  .hero-dot.active{background:var(--white);transform:scale(1.25);}
+  @media(max-width:520px){
+    .hero-carousel-stage{max-width:340px;height:340px;}
+    .hero-slide{width:190px;height:300px;margin:-150px 0 0 -95px;}
+    .hero-slide[data-pos="right"]{transform:translateX(120px) translateZ(-90px) rotateY(-30deg) scale(.8);}
+    .hero-slide[data-pos="left"]{transform:translateX(-120px) translateZ(-90px) rotateY(30deg) scale(.8);}
+  }
 
-/* índice completo */
-.index{margin-top:72px;}
-.tools{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
-.tool{
-  border-radius:1rem;padding:18px 22px;
-  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px 22px;
-}
-.tool > *{position:relative;z-index:2;}
-.tool-n{font-family:'JetBrains Mono',monospace;font-size:12px;color:#C39A5E;}
-.tool-t{font-family:var(--font-heading);font-weight:600;font-size:1.25rem;letter-spacing:-.4px;line-height:1.15;margin:0;}
-.tool-sub{font-weight:400;color:rgba(255,255,255,.6);}
-.tool-d{margin:4px 0 0;max-width:68ch;font-size:13.5px;font-weight:300;line-height:1.4;color:rgba(255,255,255,.82);}
-.tool-cta{
-  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
-  border-radius:999px;padding:8px 14px;
-  font-size:13px;font-weight:600;background:#fff;color:#000;
-  transition:transform .25s var(--ease), background .25s var(--ease);
-}
-.tool-cta:hover{transform:translateY(-1px);background:#D3B07E;}
-.tool-cta svg{width:14px;height:14px;}
-.tool.soon .tool-n,.tool.soon .tool-t{color:rgba(255,255,255,.6);}
-.tool.soon .tool-cta{background:none;color:#C39A5E;border:1px solid rgba(195,154,94,.45);font-weight:500;}
-.tool.soon .tool-cta:hover{transform:none;}
-@media (max-width:640px){
-  .tool{grid-template-columns:auto 1fr;padding:16px 18px;}
-  .tool-cta{grid-column:2;justify-self:start;margin-top:8px;}
-}
+  .hero-inner{position:relative;z-index:1;}
+  .hero-kicker{
+    font-size:15px;
+    font-weight:500;
+    color:var(--white-muted);
+    margin:0 0 18px;
+  }
+  h1.hero-headline{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(42px, 5.4vw, 64px);
+    line-height:1.04;
+    margin:0 0 28px;
+    letter-spacing:-.02em;
+    color:var(--white);
+  }
+  .hero-lede{
+    font-size:18px;
+    line-height:1.6;
+    color:var(--white-muted);
+    max-width:560px;
+    margin:0 0 40px;
+  }
+  .hero-lede strong{color:var(--white);font-weight:600;}
+  .hero-actions{display:flex;align-items:center;gap:30px;flex-wrap:wrap;}
+  .btn-primary{
+    font-family:var(--font-body);
+    font-size:15px;
+    font-weight:600;
+    text-decoration:none;
+    background:var(--white);
+    color:var(--blue);
+    padding:15px 28px;
+    border-radius:999px;
+    transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(10,20,50,.25);}
+  .link-quiet{
+    font-size:15px;
+    font-weight:500;
+    text-decoration:none;
+    color:var(--white-muted);
+    border-bottom:1px solid rgba(255,255,255,.3);
+    padding-bottom:2px;
+    transition:color .2s var(--ease), border-color .2s var(--ease);
+  }
+  .link-quiet:hover{color:var(--white);border-color:var(--white);}
 
-/* pie */
-.foot{
-  margin-top:56px;padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.12);
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
-}
-.foot-left{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;}
-.foot a{font-size:13px;color:rgba(255,255,255,.85);transition:color .25s var(--ease);}
-.foot a:hover{color:#fff;}
-.foot-note{font-size:12px;font-weight:300;color:rgba(255,255,255,.5);}
-.foot-note a{font-size:12px;color:rgba(255,255,255,.6);text-decoration:underline;}
+  /* ===== SECTION HEADERS ===== */
+  .section{padding:100px 0;}
+  .section-head{max-width:640px;margin:0 0 52px;}
+  .section-head h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(28px,3.2vw,38px);
+    line-height:1.15;
+    letter-spacing:-.01em;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .section-head p{
+    color:var(--ink-muted);
+    font-size:16.5px;
+    margin:0;
+  }
 
-/* ============================================================
-   REDUCED MOTION / NO-JS
-   ============================================================ */
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto;}
-  .reveal,.blur-word{opacity:1 !important;filter:none !important;transform:none !important;transition:none !important;}
-  .media-stack img{transition:none;transform:scale(1.06);}
-  .media-stack .frame{transition:none;}
-}
+  /* ===== POSICIONAMIENTO ===== */
+  .position{background:var(--paper);border-bottom:1px solid var(--line);}
+  .position-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .position-grid h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+    margin:0 0 16px;
+  }
+  .position-grid p{
+    font-size:16.5px;
+    color:var(--ink-muted);
+    margin:0 0 16px;
+  }
+  .position-grid p strong{color:var(--ink);font-weight:600;}
+  .frameworks-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px;}
+  .fw-chip{
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink-muted);
+    background:var(--blue-soft);
+    padding:8px 14px;
+    border-radius:999px;
+  }
+
+  /* ===== CURSOS ===== */
+  .courses{background:var(--paper);border-bottom:1px solid var(--line);}
+  .course-featured{
+    display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
+    background:var(--blue-soft);border-radius:20px;padding:32px 36px;margin-bottom:36px;
+  }
+  .course-featured .tag{
+    font-size:12.5px;font-weight:600;color:var(--blue);text-transform:uppercase;
+    letter-spacing:.04em;margin:0 0 10px;
+  }
+  .course-featured h3{
+    font-family:var(--font-display);font-weight:600;font-size:24px;margin:0 0 10px;color:var(--ink);
+  }
+  .course-featured p{color:var(--ink-muted);font-size:15.5px;margin:0;max-width:520px;}
+  .btn-course{
+    font-family:var(--font-body);font-size:15px;font-weight:600;text-decoration:none;
+    background:var(--blue);color:var(--white);padding:14px 26px;border-radius:999px;white-space:nowrap;
+    transition:background .2s var(--ease), transform .2s var(--ease);
+  }
+  .btn-course:hover{background:var(--blue-deep);transform:translateY(-1px);}
+  .course-tracks-label{
+    font-size:13px;font-weight:600;color:var(--ink-muted);text-transform:uppercase;
+    letter-spacing:.04em;margin:0 0 14px;
+  }
+  .course-tracks{display:flex;flex-wrap:wrap;gap:10px;}
+  .course-track{
+    display:flex;align-items:center;gap:8px;
+    font-size:13.5px;color:var(--ink-muted);
+    background:var(--paper-alt);border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+  }
+  .course-track::before{content:'';width:6px;height:6px;border-radius:50%;background:#B7C0D1;flex-shrink:0;}
+  @media(max-width:700px){
+    .course-featured{grid-template-columns:1fr;}
+    .btn-course{justify-self:start;}
+  }
+
+  /* ===== HERRAMIENTAS · index list ===== */
+  .tools{background:var(--paper-alt);border-bottom:1px solid var(--line);}
+  .tool-index{
+    display:flex;
+    flex-direction:column;
+    border-top:1px solid var(--line);
+  }
+  .tool-card{
+    display:grid;
+    grid-template-columns:44px 1.6fr 1fr auto;
+    gap:22px;
+    align-items:center;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    transition:background .18s var(--ease);
+  }
+  .tool-card:hover{background:rgba(21,103,176,.035);}
+  .tool-num{
+    font-family:var(--font-display);
+    font-size:12px;
+    font-weight:500;
+    color:var(--ink-muted);
+  }
+  .tool-main h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:17px;
+    letter-spacing:-.005em;
+    margin:0 0 3px;
+    color:var(--ink);
+  }
+  .tool-main p{
+    color:var(--ink-muted);
+    font-size:13.5px;
+    line-height:1.5;
+    margin:0;
+    max-width:480px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+  }
+  .tool-meta{display:flex;flex-direction:column;gap:9px;align-items:flex-start;justify-content:center;}
+  .status-dot{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;
+    font-weight:500;
+    color:var(--ink-muted);
+  }
+  .status-dot::before{
+    content:'';width:6px;height:6px;border-radius:50%;
+    background:var(--blue);
+  }
+  .status-dot.soon::before{background:#B7C0D1;}
+  .tool-cta{
+    font-family:var(--font-body);
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    color:var(--blue);
+    border:1.5px solid var(--blue);
+    padding:10px 18px;
+    border-radius:999px;
+    white-space:nowrap;
+    transition:background .2s var(--ease), color .2s var(--ease);
+  }
+  .tool-cta:hover{background:var(--blue);color:var(--white);}
+  .tool-cta.disabled{
+    color:var(--ink-muted);
+    border-color:var(--line);
+    cursor:default;
+    pointer-events:none;
+  }
+
+  @media(max-width:860px){
+    .tool-card{grid-template-columns:1fr;gap:10px;padding:18px 0;}
+    .tool-num{order:1;}
+    .tool-main{order:2;}
+    .tool-main p{-webkit-line-clamp:2;}
+    .tool-meta{order:3;flex-direction:column;align-items:flex-start;gap:9px;}
+    .tool-cta{order:4;justify-self:start;}
+    .position-grid{grid-template-columns:1fr;gap:36px;}
+  }
+
+  /* ===== ACCESO · 3 steps ===== */
+  .access{background:var(--paper);border-bottom:1px solid var(--line);}
+  .access-steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:48px;
+  }
+  .access-step{position:relative;padding-top:26px;}
+  .access-step::before{
+    content:'';position:absolute;top:0;left:0;width:36px;height:2px;background:var(--blue);
+  }
+  .access-step .step-n{
+    font-family:var(--font-display);
+    font-size:13px;
+    font-weight:600;
+    color:var(--blue);
+    margin-bottom:14px;
+    display:block;
+  }
+  .access-step h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:19px;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .access-step p{
+    color:var(--ink-muted);
+    font-size:14.5px;
+    margin:0;
+  }
+  @media(max-width:860px){
+    .access-steps{grid-template-columns:1fr;gap:36px;}
+  }
+
+  /* ===== SOBRE MÍ ===== */
+  .about{background:var(--paper-alt);border-bottom:1px solid var(--line);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:56px;
+  }
+  .about-mark{
+    width:112px;height:112px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .about-mark-img{width:100%;height:100%;object-fit:contain;}
+  .about-text p{
+    font-size:16.5px;
+    color:var(--ink-muted);
+    margin:0 0 20px;
+    max-width:640px;
+  }
+  @media(max-width:860px){
+    .about-grid{grid-template-columns:1fr;gap:28px;}
+  }
+
+  /* ===== CONTACTO / FOOTER ===== */
+  .contact{
+    padding:100px 0 60px;
+    background:var(--paper);
+  }
+  .contact h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(30px,3.8vw,44px);
+    max-width:560px;
+    margin:0 0 26px;
+    line-height:1.15;
+    letter-spacing:-.01em;
+    color:var(--ink);
+  }
+  .contact-email{
+    font-family:var(--font-body);
+    font-size:18px;
+    font-weight:600;
+    color:var(--blue);
+    text-decoration:none;
+    border-bottom:1.5px solid var(--blue);
+    padding-bottom:3px;
+  }
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 0;
+    background:var(--paper);
+  }
+  .footer-row{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:12px;
+  }
+  .footer-logo{width:20px;height:20px;opacity:.8;}
+  .footer-left{display:flex;align-items:center;gap:12px;}
+  .footer-note{
+    font-size:13px;
+    color:var(--ink-muted);
+  }
+  .photo-credit{
+    text-align:center;font-size:10.5px;color:var(--ink-muted);opacity:.55;
+    margin:14px 0 0;
+  }
+  .photo-credit a{color:inherit;}
+
 </style>
-<noscript><style>
-  .reveal,.blur-word{opacity:1 !important;filter:none !important;transform:none !important;}
-  .media-stack .frame:first-child{opacity:1;}
-</style></noscript>
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
-<header class="nav">
-  <a href="#top" class="nav-mark liquid-glass" aria-label="Rubén Ponce · inicio">
-    <img src="assets/marca/isotipo-laton.svg" alt="" style="position:relative;z-index:2">
-  </a>
-
-  <nav class="nav-pill liquid-glass" aria-label="Principal">
-    <a href="#catalogo">Catálogo</a>
-    <a href="cursos/de-cero-a-profesional/#inicio">Curso gratuito</a>
-    <a href="https://www.linkedin.com/in/ruben-isai-ponce-barcelo" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:ruben.isai.ponce.barcelo@gmail.com" class="nav-cta">Escríbeme
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="nav-brand">
+      <img src="assets/marca/isotipo-azul.svg" alt="Rubén Ponce" class="logo-mark">
+      <span class="nav-name">Rubén Ponce</span>
     </a>
-  </nav>
-
-  <div class="nav-slot">
-    <button class="nav-toggle liquid-glass" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 7h18"/><path d="M3 12h18"/><path d="M3 17h18"/></svg>
+    <nav class="nav-links" id="navLinks">
+      <a href="#cursos" onclick="closeNav()">Cursos</a>
+      <a href="#herramientas" onclick="closeNav()">Herramientas</a>
+      <a href="#sobre-mi" onclick="closeNav()">Sobre mí</a>
+      <a href="https://www.linkedin.com/in/ruben-isai-ponce-barcelo" target="_blank" rel="noopener" onclick="closeNav()">LinkedIn</a>
+      <a href="#contacto" class="nav-cta" onclick="closeNav()">Escríbeme</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path class="bar bar1" d="M3 6h18"/>
+        <path class="bar bar2" d="M3 12h18"/>
+        <path class="bar bar3" d="M3 18h18"/>
+      </svg>
     </button>
   </div>
 </header>
 
-<div class="mobile-menu liquid-glass-strong" id="mobileMenu">
-  <a href="#catalogo">Catálogo</a>
-  <a href="cursos/de-cero-a-profesional/#inicio">Curso gratuito</a>
-  <a href="https://www.linkedin.com/in/ruben-isai-ponce-barcelo" target="_blank" rel="noopener">LinkedIn</a>
-  <a href="mailto:ruben.isai.ponce.barcelo@gmail.com">Escríbeme</a>
-</div>
-
 <main id="top">
 
-  <!-- ============ SECCIÓN 1 · HERO ============ -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
-    <div class="media-stack" id="heroMedia" aria-hidden="true">
-      <div class="frame"><img src="assets/img/hero-img-wind.jpg" alt=""></div>
-      <div class="frame"><img src="assets/img/hero-img-solar.jpg" alt=""></div>
-      <div class="frame"><img src="assets/img/hero-img-rainforest.jpg" alt=""></div>
-      <div class="frame"><img src="assets/img/hero-img-coral.jpg" alt=""></div>
-    </div>
-    <div class="scrim" aria-hidden="true"></div>
-
-    <div class="hero-content">
-      <div class="hero-main">
-
-        <div class="badge liquid-glass reveal" style="--d:.4s">
-          <span class="badge-new">Nuevo</span>
-          <span class="badge-text">Curso introductorio gratuito · disponible ahora</span>
-        </div>
-
-        <h1 class="headline center" data-blur data-blur-delay="500">Aprende, diagnostica y reporta sostenibilidad</h1>
-
-        <p class="lede reveal" style="--d:.8s">
-          Cursos y herramientas interactivas para trabajar los estándares internacionales de sostenibilidad y clima.
-          Cada herramienta cita el párrafo o la página exacta del estándar que referencia, y corre entera en tu navegador.
+    <div class="wrap hero-grid">
+      <div class="hero-inner">
+        <p class="hero-kicker">Sostenibilidad corporativa</p>
+        <h1 class="hero-headline">Aprende, diagnostica, reporta.</h1>
+        <p class="hero-lede">
+          Un punto de partida para aprender y comunicar las bases de la sostenibilidad corporativa: <strong>cursos y herramientas interactivas</strong> para trabajar diferentes estándares internacionales.
         </p>
-
-        <div class="hero-actions reveal" style="--d:1.1s">
-          <a href="#catalogo" class="btn-glass liquid-glass-strong">
-            <span>Ver el catálogo</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-          </a>
-          <a href="cursos/de-cero-a-profesional/#inicio" class="btn-quiet">
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-            Empezar el curso gratuito
-          </a>
+        <div class="hero-actions">
+          <a href="#herramientas" class="btn-primary">Ver herramientas</a>
+          <a href="mailto:ruben.isai.ponce.barcelo@gmail.com" class="link-quiet">¿Buscas algo específico? Escríbeme →</a>
         </div>
-
-        <div class="stats reveal" style="--d:1.3s">
-          <div class="stat liquid-glass">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 13l9 5 9-5"/>
-            </svg>
-            <div class="stat-n">6 herramientas</div>
-            <div class="stat-l">Activas, gratuitas y sin instalar nada</div>
-          </div>
-          <div class="stat liquid-glass">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>
-              <path d="M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9"/>
-              <path d="M12 3c-2.5 2.5-3.8 5.6-3.8 9s1.3 6.5 3.8 9"/>
-            </svg>
-            <div class="stat-n">10 estándares</div>
-            <div class="stat-l">GRI, IFRS S1/S2, TNFD, CSRD, SASB y más</div>
-          </div>
-        </div>
-
       </div>
-
-      <div class="hero-trust reveal" style="--d:1.4s">
-        <div class="trust-pill liquid-glass">
-          <span>Marcos cubiertos con cita exacta al párrafo o página del estándar</span>
+      <div>
+        <div class="hero-carousel-stage">
+          <div class="hero-slide" data-idx="0"><img src="assets/img/hero-img-wind.jpg" alt="Turbinas eólicas marinas"></div>
+          <div class="hero-slide" data-idx="1"><img src="assets/img/hero-img-solar.jpg" alt="Paneles solares en azotea"></div>
+          <div class="hero-slide" data-idx="2"><img src="assets/img/hero-img-rainforest.jpg" alt="Selva tropical al atardecer"></div>
+          <div class="hero-slide" data-idx="3"><img src="assets/img/hero-img-coral.jpg" alt="Arrecife de coral"></div>
         </div>
-        <div class="trust-marks">
-          <span>GRI</span>
-          <span>IFRS S1</span>
-          <span>IFRS S2</span>
-          <span>TNFD</span>
-          <span>CSRD</span>
+        <div class="hero-dots" role="tablist" aria-label="Galería de imágenes">
+          <button class="hero-dot active" data-idx="0" aria-label="Imagen 1"></button>
+          <button class="hero-dot" data-idx="1" aria-label="Imagen 2"></button>
+          <button class="hero-dot" data-idx="2" aria-label="Imagen 3"></button>
+          <button class="hero-dot" data-idx="3" aria-label="Imagen 4"></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SECCIÓN 2 · CATÁLOGO ============ -->
-  <section class="catalog" id="catalogo">
-    <div class="media-stack" aria-hidden="true">
-      <div class="frame"><img src="assets/img/hero-img-rainforest.jpg" alt=""></div>
-    </div>
-    <div class="scrim" aria-hidden="true"></div>
-
-    <div class="catalog-content">
-
-      <div>
-        <p class="catalog-label reveal">// Catálogo</p>
-        <h2 class="catalog-h" data-blur>Del aprendizaje</h2>
-        <h2 class="catalog-h" data-blur data-blur-start="2">al reporte</h2>
-      </div>
-
-      <div class="cards">
-
-        <!-- 1 · Cursos -->
-        <article class="card liquid-glass reveal">
-          <div class="card-top">
-            <div class="card-icon liquid-glass">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-            </div>
-            <div class="tags">
-              <div class="tag liquid-glass"><span>Gratuito</span></div>
-              <div class="tag liquid-glass"><span>Desde cero</span></div>
-              <div class="tag liquid-glass"><span>A tu ritmo</span></div>
-              <div class="tag liquid-glass"><span>4 rutas en progreso</span></div>
-            </div>
-          </div>
-          <div class="card-spacer"></div>
-          <h3 class="card-title">Cursos</h3>
-          <p class="card-body">
-            Un curso introductorio para aprender las bases de la sostenibilidad corporativa desde cero,
-            sin costo y a tu ritmo. Detrás vienen cuatro rutas de especialización para profundizar por tema.
-          </p>
-          <div class="card-links">
-            <a href="cursos/de-cero-a-profesional/#inicio">
-              Empezar curso
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-            <span class="soon">Rutas · próximamente</span>
-          </div>
-        </article>
-
-        <!-- 2 · Autodiagnósticos -->
-        <article class="card liquid-glass reveal" style="--d:.12s">
-          <div class="card-top">
-            <div class="card-icon liquid-glass">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-            </div>
-            <div class="tags">
-              <div class="tag liquid-glass"><span>TNFD v1.0</span></div>
-              <div class="tag liquid-glass"><span>IFRS S1</span></div>
-              <div class="tag liquid-glass"><span>IFRS S2</span></div>
-              <div class="tag liquid-glass"><span>Plan de acción</span></div>
-              <div class="tag liquid-glass"><span>Cita por párrafo</span></div>
-            </div>
-          </div>
-          <div class="card-spacer"></div>
-          <h3 class="card-title">Autodiagnósticos</h3>
-          <p class="card-body">
-            Evalúa el nivel de madurez de una organización frente a las recomendaciones de cada marco y
-            recibe un plan de acción por pilar, con la cita exacta del requisito detrás de cada brecha.
-          </p>
-          <div class="card-links">
-            <a href="herramientas/diagnostico-tnfd/">
-              TNFD
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-            <a href="herramientas/diagnostico-s1/">
-              IFRS S1
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-            <a href="herramientas/diagnostico-s2/">
-              IFRS S2
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-            <span class="soon">Integrado ISSB · próximamente</span>
-          </div>
-        </article>
-
-        <!-- 3 · Referencia -->
-        <article class="card liquid-glass reveal" style="--d:.24s">
-          <div class="card-top">
-            <div class="card-icon liquid-glass">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
-            </div>
-            <div class="tags">
-              <div class="tag liquid-glass"><span>Atlas ESG</span></div>
-              <div class="tag liquid-glass"><span>Glosario</span></div>
-              <div class="tag liquid-glass"><span>Tracker regulatorio</span></div>
-            </div>
-          </div>
-          <div class="card-spacer"></div>
-          <h3 class="card-title">Referencia</h3>
-          <p class="card-body">
-            El mapa interactivo de diez estándares y sus conexiones, un glosario con referencia cruzada
-            y el seguimiento de la adopción de IFRS S1 y S2 por jurisdicción.
-          </p>
-          <div class="card-links">
-            <a href="herramientas/atlas-esg/">
-              Atlas ESG
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-            <a href="herramientas/glosario-esg/">
-              Glosario
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-            <a href="herramientas/tracker-issb/">
-              Tracker
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- ============ ÍNDICE COMPLETO ============
-           Para sumar una herramienta: copia un <li class="tool">, cambia número, nombre,
-           descripción y enlace. Si aún no está lista, usa la variante "tool soon". -->
-      <div class="index" id="indice">
-        <p class="catalog-label reveal">// Índice completo</p>
-        <ol class="tools">
-          <li class="tool liquid-glass reveal">
-            <span class="tool-n">01</span>
-            <div class="tool-main">
-              <h3 class="tool-t">Atlas ESG</h3>
-              <p class="tool-d">Mapa interactivo de diez estándares de sostenibilidad y clima, con sus conexiones y puntos de comparación entre marcos.</p>
-            </div>
-            <a class="tool-cta" href="herramientas/atlas-esg/">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-          </li>
-          <li class="tool liquid-glass reveal">
-            <span class="tool-n">02</span>
-            <div class="tool-main">
-              <h3 class="tool-t">Autodiagnóstico TNFD v1.0</h3>
-              <p class="tool-d">Nivel de madurez frente a las recomendaciones TNFD, con plan de acción y cita exacta por pilar.</p>
-            </div>
-            <a class="tool-cta" href="herramientas/diagnostico-tnfd/">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-          </li>
-          <li class="tool liquid-glass reveal">
-            <span class="tool-n">03</span>
-            <div class="tool-main">
-              <h3 class="tool-t">Autodiagnóstico IFRS S1</h3>
-              <p class="tool-d">Requisitos generales de información a revelar sobre sostenibilidad: gobernanza, estrategia, riesgos, métricas y objetivos, con plan de acción por párrafo.</p>
-            </div>
-            <a class="tool-cta" href="herramientas/diagnostico-s1/">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-          </li>
-          <li class="tool liquid-glass reveal">
-            <span class="tool-n">04</span>
-            <div class="tool-main">
-              <h3 class="tool-t">Autodiagnóstico IFRS S2</h3>
-              <p class="tool-d">Información a revelar relacionada con el clima: resiliencia y escenarios, emisiones de alcance 1, 2 y 3, y objetivos climáticos, con plan de acción por prioridad.</p>
-            </div>
-            <a class="tool-cta" href="herramientas/diagnostico-s2/">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-          </li>
-          <li class="tool liquid-glass reveal">
-            <span class="tool-n">05</span>
-            <div class="tool-main">
-              <h3 class="tool-t">Glosario ESG</h3>
-              <p class="tool-d">Términos de sostenibilidad, clima y naturaleza, cada uno con referencia cruzada al estándar donde se define.</p>
-            </div>
-            <a class="tool-cta" href="herramientas/glosario-esg/">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-          </li>
-          <li class="tool liquid-glass reveal">
-            <span class="tool-n">06</span>
-            <div class="tool-main">
-              <h3 class="tool-t">Tracker de adopción del ISSB</h3>
-              <p class="tool-d">Estado de adopción de IFRS S1 y S2 por jurisdicción en América, con la fuente oficial de cada decisión.</p>
-            </div>
-            <a class="tool-cta" href="herramientas/tracker-issb/">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
-          </li>
-          <li class="tool soon liquid-glass reveal">
-            <span class="tool-n">07</span>
-            <div class="tool-main">
-              <h3 class="tool-t">Diagnóstico integrado ISSB <span class="tool-sub">(S1 y S2)</span></h3>
-              <p class="tool-d">La evaluación conjunta de IFRS S1 y S2 en un solo recorrido, para equipos que reportan ambos estándares a la vez.</p>
-            </div>
-            <span class="tool-cta" aria-disabled="true">Próximamente</span>
-          </li>
-        </ol>
-      </div>
-
-      <footer class="foot">
-        <div class="foot-left">
-          <a href="mailto:ruben.isai.ponce.barcelo@gmail.com">ruben.isai.ponce.barcelo@gmail.com</a>
-          <a href="https://www.linkedin.com/in/ruben-isai-ponce-barcelo" target="_blank" rel="noopener">LinkedIn</a>
+  <!-- ===== POSICIONAMIENTO ===== -->
+  <section class="section position">
+    <div class="wrap">
+      <div class="position-grid">
+        <div>
+          <h3>Qué es esto</h3>
+          <p>Un repertorio de <strong>cursos y herramientas</strong> para la sostenibilidad corporativa: desde un curso introductorio gratuito hasta herramientas interactivas para mapear un marco, o autoevaluar el nivel de madurez de una organización frente a IFRS S1, IFRS S2 o TNFD.</p>
+          <p>No son plantillas genéricas. Cada herramienta cita el párrafo o la página exacta del estándar que referencia, y corre entera en tu navegador: no sube datos a ningún servidor externo.</p>
         </div>
-        <p class="foot-note">
-          © <span id="year"></span> Rubén Ponce · Fotos vía
-          <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>
-        </p>
-      </footer>
+        <div>
+          <h3>Marcos que cubren</h3>
+          <div class="frameworks-list">
+            <span class="fw-chip">GRI 2 / 101 / 102</span>
+            <span class="fw-chip">TCFD</span>
+            <span class="fw-chip">IFRS S1</span>
+            <span class="fw-chip">IFRS S2</span>
+            <span class="fw-chip">TNFD v1.0</span>
+            <span class="fw-chip">ESRS 1 / 2 / E1</span>
+            <span class="fw-chip">CSRD</span>
+            <span class="fw-chip">SASB</span>
+            <span class="fw-chip">SBTi</span>
+            <span class="fw-chip">CDP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===== CURSOS ===== -->
+  <section class="section courses" id="cursos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Cursos y rutas de especialización</h2>
+        <p>Un curso introductorio gratuito para empezar, y cuatro rutas de especialización en desarrollo para profundizar por tema.</p>
+      </div>
+
+      <div class="course-featured">
+        <div>
+          <p class="tag">Gratuito · Activo</p>
+          <h3>Curso introductorio a la sostenibilidad corporativa</h3>
+          <p>Aprende las bases de la sostenibilidad corporativa desde cero, a tu ritmo.</p>
+        </div>
+        <a href="cursos/de-cero-a-profesional/#inicio" class="btn-course">Empezar curso →</a>
+      </div>
+
+      <p class="course-tracks-label">Rutas de especialización · en progreso</p>
+      <div class="course-tracks">
+        <span class="course-track">Ruta de especialización 1</span>
+        <span class="course-track">Ruta de especialización 2</span>
+        <span class="course-track">Ruta de especialización 3</span>
+        <span class="course-track">Ruta de especialización 4</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HERRAMIENTAS ===== -->
+  <section class="section tools" id="herramientas">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>El índice completo</h2>
+        <p>Elige la que corresponda a lo que necesitas resolver. Las marcadas "Próximamente" están en construcción.</p>
+      </div>
+
+      <div class="tool-index">
+        <!-- Para sumar una herramienta: copia un bloque tool-card y ajusta número, nombre, texto y enlace.
+             Si aún no está lista, deja el enlace vacío en el script o usa la variante "Próximamente". -->
+
+        <div class="tool-card">
+          <span class="tool-num">01</span>
+          <div class="tool-main">
+            <h3>Atlas ESG</h3>
+            <p>Mapa interactivo de diez estándares de sostenibilidad y clima, con sus conexiones, jerarquía interna y puntos de comparación entre marcos.</p>
+          </div>
+          <div class="tool-meta">
+            <span class="status-dot">Activa</span>
+          </div>
+          <a href="herramientas/atlas-esg/" class="tool-cta">Acceder →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="tool-num">02</span>
+          <div class="tool-main">
+            <h3>Autodiagnóstico TNFD v1.0</h3>
+            <p>Evalúa el nivel de madurez frente a las recomendaciones TNFD, con plan de acción y cita exacta por pilar.</p>
+          </div>
+          <div class="tool-meta">
+            <span class="status-dot">Activa</span>
+          </div>
+          <a href="herramientas/diagnostico-tnfd/" class="tool-cta">Acceder →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="tool-num">03</span>
+          <div class="tool-main">
+            <h3>Autodiagnóstico IFRS S1</h3>
+            <p>Revisión de los requisitos generales de divulgación de sostenibilidad, con priorización de brechas y plan de acción por párrafo.</p>
+          </div>
+          <div class="tool-meta">
+            <span class="status-dot">Activa</span>
+          </div>
+          <a href="herramientas/diagnostico-s1/" class="tool-cta">Acceder →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="tool-num">04</span>
+          <div class="tool-main">
+            <h3>Autodiagnóstico IFRS S2</h3>
+            <p>Diagnóstico de las divulgaciones relacionadas con el clima bajo IFRS S2: escenarios, emisiones y objetivos, con plan de acción por prioridad.</p>
+          </div>
+          <div class="tool-meta">
+            <span class="status-dot">Activa</span>
+          </div>
+          <a href="herramientas/diagnostico-s2/" class="tool-cta">Acceder →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="tool-num">05</span>
+          <div class="tool-main">
+            <h3>Glosario ESG</h3>
+            <p>Términos y definiciones de sostenibilidad y clima explicados en un solo lugar, con referencia cruzada a los estándares donde aparecen.</p>
+          </div>
+          <div class="tool-meta">
+            <span class="status-dot">Activa</span>
+          </div>
+          <a href="herramientas/glosario-esg/" class="tool-cta">Acceder →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="tool-num">06</span>
+          <div class="tool-main">
+            <h3>Tracker de regulaciones IFRS S1/S2</h3>
+            <p>Seguimiento del estado de adopción y los plazos regulatorios de IFRS S1 y S2 por jurisdicción.</p>
+          </div>
+          <div class="tool-meta">
+            <span class="status-dot">Activa</span>
+          </div>
+          <a href="herramientas/tracker-issb/" class="tool-cta">Acceder →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="tool-num">07</span>
+          <div class="tool-main">
+            <h3>Diagnóstico integrado ISSB (S1 y S2)</h3>
+            <p>La evaluación conjunta de IFRS S1 y S2 en un solo recorrido, para equipos que reportan ambos estándares a la vez.</p>
+          </div>
+          <div class="tool-meta">
+            <span class="status-dot soon">Próximamente</span>
+          </div>
+          <span class="tool-cta disabled" aria-disabled="true">Próximamente</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACCESO ===== -->
+  <section class="section access">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>De aprender a reportar</h2>
+      </div>
+      <div class="access-steps">
+        <div class="access-step">
+          <span class="step-n">01</span>
+          <h3>Aprende las bases</h3>
+          <p>Empieza con el curso introductorio gratuito, o ve directo a la herramienta que necesitas.</p>
+        </div>
+        <div class="access-step">
+          <span class="step-n">02</span>
+          <h3>Diagnostica y reporta</h3>
+          <p>Usa las herramientas interactivas para autoevaluar, mapear o construir tu reporte.</p>
+        </div>
+        <div class="access-step">
+          <span class="step-n">03</span>
+          <h3>Todo en tu navegador</h3>
+          <p>Sin instalar nada. Tus datos se quedan en tu equipo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE MÍ ===== -->
+  <section class="section about" id="sobre-mi">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Rubén Ponce</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-mark" aria-hidden="true">
+          <img src="assets/marca/isotipo-azul.svg" alt="" class="about-mark-img">
+        </div>
+        <div class="about-text">
+          <p>Ingeniero Ambiental por el ITESO, con una certificación del MIT en sostenibilidad y participación en el programa de aceleración para Chief Sustainability Officer de la Bolsa Institucional de Valores (BIVA). Ayuda a organizaciones a identificar riesgos climáticos y ambientales, y a traducirlos en decisiones concretas.</p>
+          <p>Su trabajo conecta la sostenibilidad corporativa con resultados medibles: desde la evaluación de riesgos ESG hasta la elaboración de reportes bajo los principales estándares internacionales, pasando por estrategias de economía circular y reducción de emisiones. Estas herramientas y cursos nacen de esa misma experiencia: la sostenibilidad, explicada con la misma precisión con la que se aplica en campo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="contact" id="contacto">
+    <div class="wrap">
+      <h2>¿Algo que no encuentras en el catálogo?<br>Escríbeme directamente.</h2>
+      <a href="mailto:ruben.isai.ponce.barcelo@gmail.com" class="contact-email">ruben.isai.ponce.barcelo@gmail.com</a>
     </div>
   </section>
 
 </main>
 
+<footer>
+  <div class="wrap footer-row">
+    <div class="footer-left">
+      <img src="assets/marca/isotipo-azul.svg" alt="Rubén Ponce" class="footer-logo">
+      <span class="footer-note">Sostenibilidad corporativa</span>
+    </div>
+    <span class="footer-note" id="year"></span>
+  </div>
+  <p class="photo-credit">Fotos vía <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>, uso libre</p>
+</footer>
+
 <script>
-(function(){
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---- menú móvil ---- */
-  var toggle = document.getElementById('navToggle');
-  var menu = document.getElementById('mobileMenu');
-  function closeMenu(){
-    menu.classList.remove('open');
-    toggle.setAttribute('aria-expanded','false');
-    toggle.setAttribute('aria-label','Abrir menú');
-  }
-  toggle.addEventListener('click', function(){
-    var open = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+    navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   });
-  menu.addEventListener('click', function(e){ if(e.target.tagName === 'A') closeMenu(); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+  function closeNav(){
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Abrir menú');
+  }
 
-  /* ---- texto palabra por palabra con blur ---- */
-  document.querySelectorAll('[data-blur]').forEach(function(el){
-    var start = Number(el.dataset.blurStart || 0);
-    var base = Number(el.dataset.blurDelay || 0);
-    var words = el.textContent.trim().split(/\s+/);
-    el.textContent = '';
-    words.forEach(function(w, i){
-      var span = document.createElement('span');
-      span.className = 'blur-word';
-      span.textContent = w;
-      span.style.setProperty('--d', (base + (start + i) * 100) + 'ms');
-      el.appendChild(span);
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const carouselDots = document.querySelectorAll('.hero-dot');
+  const slideCount = heroSlides.length;
+  let centerIdx = 0;
+  let carouselTimer;
+  function updateCarousel(){
+    heroSlides.forEach(slide => {
+      const i = Number(slide.dataset.idx);
+      const diff = ((i - centerIdx) % slideCount + slideCount) % slideCount;
+      let pos = 'hidden';
+      if(diff === 0) pos = 'center';
+      else if(diff === 1) pos = 'right';
+      else if(diff === slideCount - 1) pos = 'left';
+      slide.dataset.pos = pos;
+    });
+    carouselDots.forEach(dot => dot.classList.toggle('active', Number(dot.dataset.idx) === centerIdx));
+  }
+  function goToSlide(i){
+    centerIdx = ((i % slideCount) + slideCount) % slideCount;
+    updateCarousel();
+  }
+  function nextSlide(){
+    goToSlide(centerIdx + 1);
+  }
+  function resetCarouselTimer(){
+    clearInterval(carouselTimer);
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      carouselTimer = setInterval(nextSlide, 5000);
+    }
+  }
+  carouselDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      goToSlide(Number(dot.dataset.idx));
+      resetCarouselTimer();
     });
   });
-
-  /* ---- revelado por intersección ---- */
-  if(reduced || !('IntersectionObserver' in window)){
-    document.querySelectorAll('.reveal, .blur-word').forEach(function(el){ el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(!entry.isIntersecting) return;
-        var el = entry.target;
-        io.unobserve(el);
-        if(el.hasAttribute('data-blur')){
-          el.querySelectorAll('.blur-word').forEach(function(w){ w.classList.add('in'); });
-        } else {
-          el.classList.add('in');
-        }
-      });
-    }, {threshold:0.1});
-    document.querySelectorAll('.reveal, [data-blur]').forEach(function(el){ io.observe(el); });
-  }
-
-  /* ---- fondo: secuencia de imágenes con fundido ---- */
-  document.querySelectorAll('.media-stack').forEach(function(stack){
-    var frames = stack.querySelectorAll('.frame');
-    if(!frames.length) return;
-    var i = 0;
-    function show(n){
-      frames.forEach(function(f, k){ f.classList.toggle('on', k === n); });
-    }
-    var first = frames[0].querySelector('img');
-    function start(){ show(0); }
-    if(first && !first.complete){
-      first.addEventListener('load', start, {once:true});
-      first.addEventListener('error', start, {once:true});
-    } else {
-      requestAnimationFrame(start);
-    }
-    if(frames.length > 1 && !reduced){
-      setInterval(function(){
-        i = (i + 1) % frames.length;
-        show(i);
-      }, 7000);
-    }
+  heroSlides.forEach(slide => {
+    slide.addEventListener('click', () => {
+      if(slide.dataset.pos === 'left' || slide.dataset.pos === 'right'){
+        goToSlide(Number(slide.dataset.idx));
+        resetCarouselTimer();
+      }
+    });
   });
-})();
+  if(slideCount){
+    updateCarousel();
+    resetCarouselTimer();
+  }
 </script>
 
 </body>

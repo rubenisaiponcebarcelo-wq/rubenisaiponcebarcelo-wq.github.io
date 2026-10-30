@@ -1,7 +1,7 @@
 /* ============================================================================
    MARCA RUBÉN PONCE · Tokens de diseño
    Única fuente de verdad de color, tipografía, espacio, radios y sombras.
-   v1.0 · 2026-09-02
+   v2.0 · 2026-10-29 · alineada a la landing publicada
    ----------------------------------------------------------------------------
    Cómo se usa:
      <link rel="stylesheet" href="marca.tokens.css">
@@ -9,111 +9,98 @@
 
    Regla: en el código nunca se escribe un color en hexadecimal. Siempre
    var(--rp-...). Si un color no existe aquí, no es de la marca.
+
+   Cambios frente a v1.1: tipografía Space Grotesk (titulares) + DM Sans
+   (texto) en lugar de Barlow; sin latón ni modo noche. Todo es claro,
+   con el Azul Ponce como único acento.
    ============================================================================ */
 
 :root{
 
   /* ---- 1. COLOR · Núcleo ------------------------------------------------- */
-  --rp-azul:            #1567B0;  /* Azul Ponce. Primario. 5.84:1 sobre blanco */
+  --rp-azul:            #1567B0;  /* Azul Ponce. Único acento. 5.84:1 sobre blanco */
   --rp-azul-profundo:   #0F4A7F;  /* Hover, textos azules grandes. 9.11:1      */
-  --rp-azul-aire:       #E6F0F9;  /* Fondos suaves, chips, filas activas       */
-  --rp-azul-claro:      #6FB2E8;  /* Azul SOBRE fondo oscuro. 9.21:1 sobre #000 */
+  --rp-azul-aire:       #E6F0F9;  /* Fondos suaves, chips, tarjeta destacada   */
+  --rp-azul-tenue:      #C9E1F5;  /* Texto secundario SOBRE banda azul. 4.3:1: solo texto ≥ 18px */
 
-  --rp-laton:           #C39A5E;  /* Latón. Acento. Solo sobre oscuro o decorativo */
-  --rp-laton-texto:     #7A5C2E;  /* Versión legible del latón sobre blanco. 6.18:1 */
-  --rp-laton-aire:      #F5EDE0;  /* Fondo suave de acento                     */
-  --rp-laton-claro:     #D3B07E;  /* Latón sobre negro: hover y énfasis. 10,7:1 */
-
-  /* ---- 2. COLOR · Neutros claros (documentos, apps, presentaciones) ------ */
+  /* ---- 2. COLOR · Neutros ------------------------------------------------- */
   --rp-tinta:           #0F1B2D;  /* Texto principal. 17.3:1 sobre blanco      */
   --rp-tinta-media:     #5C6B85;  /* Texto secundario. 5.39:1 sobre blanco     */
+  --rp-gris-apagado:    #B7C0D1;  /* Punto de "próximamente", decorativo       */
   --rp-linea:           #DFE6F0;  /* Bordes, separadores                       */
-  --rp-papel-alt:       #F1F4FA;  /* Superficie secundaria                     */
+  --rp-papel-alt:       #F1F4FA;  /* Superficie secundaria, secciones alternas */
   --rp-papel:           #FBFCFE;  /* Fondo de página                           */
   --rp-blanco:          #FFFFFF;
 
-  /* ---- 3. COLOR · Modo noche (landing y piezas editoriales) -------------- */
-  --rp-noche:           #000000;  /* Fondo. Negro puro, no gris                */
-  --rp-noche-texto:     #FFFFFF;
-  --rp-noche-texto-2:   #C9D2E0;  /* Secundario. 13.8:1                        */
-  --rp-noche-texto-3:   #A8B4C8;  /* Terciario / pies. 10.0:1                  */
-  --rp-noche-vidrio:    rgba(255,255,255,.045);
-  --rp-noche-linea:     rgba(255,255,255,.14);
-
-  /* ---- 4. COLOR · Semánticos (estados en herramientas) ------------------- */
+  /* ---- 3. COLOR · Semánticos (estados en herramientas) ------------------- */
   --rp-ok:              #146B41;  --rp-ok-aire:     #E4F3EB;
   --rp-alerta:          #A15C00;  --rp-alerta-aire: #FCF1E0;
-  --rp-riesgo:          #B3261E;  --rp-riesgo-aire: #FBE9E7;
+  --rp-riesgo:          #B3261E;  --rp-riesgo-aire: #FBE9E7;  /* Solo brechas frente a requisitos obligatorios */
   --rp-info:            var(--rp-azul); --rp-info-aire: var(--rp-azul-aire);
-  /* equivalentes para modo noche */
-  --rp-ok-noche:        #7FD1A8;
-  --rp-alerta-noche:    #F5C97A;
-  --rp-riesgo-noche:    #F2B8B5;
 
-  /* ---- 5. COLOR · Escala de madurez (autodiagnósticos) ------------------- */
+  /* ---- 4. COLOR · Escala de madurez (autodiagnósticos) ------------------- */
   /* Monocromo azul: la madurez sube, el azul se satura. No usar semáforo. */
-  --rp-nivel-1:         #D6E4F2;  --rp-nivel-1-texto: #0F1B2D;  /* Inicial   */
-  --rp-nivel-2:         #86B4DA;  --rp-nivel-2-texto: #0F1B2D;  /* En marcha */
+  --rp-nivel-1:         #D6E4F2;  --rp-nivel-1-texto: #0F1B2D;  /* Inicial     */
+  --rp-nivel-2:         #86B4DA;  --rp-nivel-2-texto: #0F1B2D;  /* En marcha   */
   --rp-nivel-3:         #2F7CBF;  --rp-nivel-3-texto: #FFFFFF;  /* Consolidado */
-  --rp-nivel-4:         #0F4A7F;  --rp-nivel-4-texto: #FFFFFF;  /* Avanzado  */
+  --rp-nivel-4:         #0F4A7F;  --rp-nivel-4-texto: #FFFFFF;  /* Avanzado    */
 
-  /* ---- 5 bis. COLOR · Categóricos de pilar ------------------------------- */
-  /* Para marcos con 4 pilares (TNFD, TCFD, IFRS S2: gobernanza, estrategia,
-     riesgos, métricas). Categóricos, no ordinales: no implican jerarquía.
-     Todos ≥ 5,8:1 sobre blanco. No usar más de cuatro; si un marco tiene más
-     categorías, se agrupan.                                                  */
+  /* ---- 5. COLOR · Categóricos de pilar ----------------------------------- */
+  /* Para marcos con 4 pilares (gobernanza, estrategia, riesgos, métricas).
+     Categóricos, no ordinales. Todos ≥ 5,8:1 sobre blanco. Máximo cuatro.  */
   --rp-pilar-1:  #1567B0;  --rp-pilar-1-aire: #E6F0F9;  /* Gobernanza  */
   --rp-pilar-2:  #0E6A6F;  --rp-pilar-2-aire: #E1F0EE;  /* Estrategia  */
-  --rp-pilar-3:  #7A5C2E;  --rp-pilar-3-aire: #F5EDE0;  /* Riesgos     */
-  --rp-pilar-4:  #5B4B8B;  --rp-pilar-4-aire: #EDE9F4;  /* Métricas    */
+  --rp-pilar-3:  #5B4B8B;  --rp-pilar-3-aire: #EDE9F4;  /* Riesgos     */
+  --rp-pilar-4:  #4D6B1F;  --rp-pilar-4-aire: #EEF3E4;  /* Métricas    */
 
   /* ---- 6. TIPOGRAFÍA ----------------------------------------------------- */
-  /* Una sola familia: el titular se distingue por peso, no por fuente. */
-  --rp-fuente-display:  'Barlow','Segoe UI',system-ui,-apple-system,sans-serif;
-  --rp-fuente-texto:    'Barlow', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --rp-fuente-mono:     'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  /* Dos familias: Space Grotesk para titulares, DM Sans para todo lo demás. */
+  --rp-fuente-display:  'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --rp-fuente-texto:    'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --rp-fuente-mono:     'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace; /* solo códigos técnicos */
 
-  /* Escala tipográfica (razón 1.25, base 16px) */
+  /* Escala tipográfica (base 16px) */
   --rp-t-12: .75rem;    --rp-t-14: .875rem;  --rp-t-16: 1rem;
   --rp-t-18: 1.125rem;  --rp-t-20: 1.25rem;  --rp-t-24: 1.5rem;
   --rp-t-30: 1.875rem;  --rp-t-38: 2.375rem; --rp-t-48: 3rem;
-  --rp-t-60: 3.75rem;   --rp-t-76: 4.75rem;
+  --rp-t-64: 4rem;
 
-  --rp-peso-ligero: 300; --rp-peso-normal: 400;
-  --rp-peso-medio: 500;  --rp-peso-fuerte: 600;
+  --rp-peso-normal: 400; --rp-peso-medio: 500;
+  --rp-peso-fuerte: 600; --rp-peso-display: 700;  /* 700 solo en el titular principal */
 
-  --rp-alto-titulo: 1.06;
+  --rp-alto-titulo: 1.04;
+  --rp-alto-subtitulo: 1.15;
   --rp-alto-texto:  1.6;
   --rp-track-titulo: -.02em;
-  --rp-track-etiqueta: .14em;   /* versalitas de sección */
+  --rp-track-subtitulo: -.01em;
+  --rp-track-etiqueta: .04em;   /* etiquetas en mayúsculas: "RUTAS DE ESPECIALIZACIÓN" */
 
   /* ---- 7. ESPACIO (base 4px) --------------------------------------------- */
   --rp-e-1: 4px;   --rp-e-2: 8px;   --rp-e-3: 12px;  --rp-e-4: 16px;
   --rp-e-5: 24px;  --rp-e-6: 32px;  --rp-e-7: 48px;  --rp-e-8: 64px;
-  --rp-e-9: 96px;  --rp-e-10: 128px;
+  --rp-e-9: 100px; --rp-e-10: 120px;
 
   --rp-ancho-texto: 68ch;    /* largo de línea máximo cómodo */
-  --rp-ancho-pagina: 1200px; /* contenedor estándar          */
+  --rp-ancho-pagina: 1180px; /* contenedor estándar          */
 
   /* ---- 8. RADIOS Y SOMBRAS ----------------------------------------------- */
-  --rp-radio-xs: 6px;  --rp-radio-s: 10px;  --rp-radio-m: 16px;
-  --rp-radio-l: 24px;  --rp-radio-pastilla: 999px;
+  --rp-radio-xs: 6px;  --rp-radio-s: 10px;  --rp-radio-m: 14px;
+  --rp-radio-l: 20px;  --rp-radio-pastilla: 999px;
 
   --rp-sombra-s: 0 1px 2px rgba(15,27,45,.06), 0 1px 1px rgba(15,27,45,.04);
   --rp-sombra-m: 0 4px 16px rgba(15,27,45,.08);
-  --rp-sombra-l: 0 16px 48px rgba(15,27,45,.12);
+  --rp-sombra-l: 0 20px 40px rgba(6,16,40,.18);
+  --rp-sombra-boton: 0 10px 24px rgba(10,20,50,.25);
 
   /* ---- 9. MOVIMIENTO ------------------------------------------------------ */
   --rp-ease:      cubic-bezier(.22,.7,.2,1);
-  --rp-dur-rapida: .18s;
+  --rp-dur-rapida: .2s;
   --rp-dur-media:  .35s;
-  --rp-dur-lenta:  .8s;
+  --rp-dur-lenta:  .7s;
 }
 
-/* ---- 10. Alias semánticos por tema --------------------------------------- */
-/* Se escribe el componente contra estos alias y el tema los reasigna.        */
-:root,
-[data-tema="claro"]{
+/* ---- 10. Alias semánticos ---------------------------------------------------- */
+:root{
   --rp-fondo:        var(--rp-papel);
   --rp-superficie:   var(--rp-blanco);
   --rp-superficie-2: var(--rp-papel-alt);
@@ -122,17 +109,6 @@
   --rp-borde:        var(--rp-linea);
   --rp-acento:       var(--rp-azul);
   --rp-acento-texto: var(--rp-blanco);
-}
-
-[data-tema="noche"]{
-  --rp-fondo:        var(--rp-noche);
-  --rp-superficie:   var(--rp-noche-vidrio);
-  --rp-superficie-2: var(--rp-noche-vidrio);
-  --rp-texto:        var(--rp-noche-texto);
-  --rp-texto-2:      var(--rp-noche-texto-2);
-  --rp-borde:        var(--rp-noche-linea);
-  --rp-acento:       var(--rp-blanco);
-  --rp-acento-texto: var(--rp-noche);
 }
 
 @media (prefers-reduced-motion: reduce){

@@ -1,0 +1,246 @@
+/* ============================================================================
+   MARCA RUBÉN PONCE · Capa "estilo landing" para herramientas
+   v2.0 · 2026-10-29
+   ----------------------------------------------------------------------------
+   Se carga DESPUÉS del <style> propio de cada herramienta:
+     <link rel="stylesheet" href="../../assets/marca/marca.tokens.css">
+     <link rel="stylesheet" href="../../assets/marca/herramienta.css">
+   Lleva a cada herramienta el lenguaje de la landing: Space Grotesk en
+   titulares, DM Sans en texto, papel claro, Azul Ponce como único acento,
+   botones en pastilla, bordes de línea y radios de 14–20px.
+   No toca preguntas, cálculos, datos ni integraciones.
+   ============================================================================ */
+
+/* ── 1. Tipografía base ───────────────────────────────────────────────────── */
+body{font-family:var(--rp-fuente-texto);-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:var(--rp-fuente-display);}
+::selection{background:var(--rp-azul);color:var(--rp-blanco);}
+
+/* Bloque de marca: isotipo + "Rubén Ponce", como en la landing */
+.rp-home{gap:10px !important;}
+.rp-home-texto b{font-family:var(--rp-fuente-display);font-size:16px !important;font-weight:600 !important;letter-spacing:-.01em !important;}
+.rp-home-texto i{font-family:var(--rp-fuente-texto) !important;font-size:11.5px !important;letter-spacing:0 !important;text-transform:none !important;font-style:normal;}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   2. AUTODIAGNÓSTICOS (S1, S2, TNFD)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Portada = hero de la landing: banda azul, texto blanco ── */
+#screen-intro{
+  background:var(--rp-azul) !important;
+  color:var(--rp-blanco);
+  padding:clamp(72px,10vw,120px) 24px !important;
+}
+#screen-intro::before{display:none !important;}
+#screen-intro > .rp-home,
+#screen-intro > .rp-home .rp-home-texto i{color:var(--rp-blanco) !important;}
+#screen-intro > .rp-home .rp-home-texto i{color:var(--rp-azul-tenue) !important;opacity:1 !important;}
+#screen-intro .intro-badge{
+  background:none !important;border:0 !important;padding:0 !important;border-radius:0 !important;
+  font-family:var(--rp-fuente-texto);font-size:15px !important;font-weight:500 !important;
+  letter-spacing:0 !important;text-transform:none !important;color:var(--rp-azul-tenue) !important;
+}
+#screen-intro .intro-title{
+  font-family:var(--rp-fuente-display) !important;font-weight:700 !important;
+  font-size:clamp(40px,5.4vw,64px) !important;line-height:1.04 !important;letter-spacing:-.02em !important;
+  color:var(--rp-blanco) !important;
+}
+#screen-intro .intro-title em{color:var(--rp-blanco) !important;font-style:normal;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:.12em;text-decoration-color:rgba(255,255,255,.45);}
+#screen-intro .intro-desc{color:var(--rp-azul-tenue) !important;font-size:18px !important;line-height:1.6 !important;font-weight:400 !important;}
+#screen-intro .stat-n{font-family:var(--rp-fuente-display) !important;color:var(--rp-blanco) !important;font-weight:700 !important;}
+#screen-intro .stat-label{color:var(--rp-azul-tenue) !important;font-size:13px !important;letter-spacing:.04em !important;}
+#screen-intro .norm-badge,#screen-intro .logo-block span{font-family:var(--rp-fuente-display) !important;}
+#screen-intro .norm-badge{background:rgba(255,255,255,.14) !important;color:var(--rp-blanco) !important;border-radius:999px !important;padding:6px 16px !important;font-size:15px !important;font-weight:600 !important;}
+#screen-intro .fw-tag{
+  background:rgba(255,255,255,.1) !important;color:var(--rp-blanco) !important;
+  border:1px solid rgba(255,255,255,.22) !important;border-radius:999px !important;
+  font-family:var(--rp-fuente-texto);font-size:13px !important;font-weight:500 !important;letter-spacing:0 !important;padding:7px 14px !important;
+}
+#screen-intro .btn-start{
+  background:var(--rp-blanco) !important;color:var(--rp-azul) !important;
+  font-family:var(--rp-fuente-texto) !important;font-size:15px !important;font-weight:600 !important;
+  letter-spacing:0 !important;text-transform:none !important;
+  border-radius:999px !important;padding:15px 30px !important;box-shadow:none !important;
+}
+#screen-intro .btn-start:hover{transform:translateY(-2px) !important;box-shadow:var(--rp-sombra-boton) !important;background:var(--rp-blanco) !important;}
+
+/* ── Registro: papel, tarjeta blanca con línea ── */
+#screen-register{background:var(--rp-papel-alt) !important;}
+#screen-register::before{display:none !important;}
+.register-card{
+  background:var(--rp-blanco) !important;border:1px solid var(--rp-linea) !important;
+  border-radius:var(--rp-radio-l) !important;box-shadow:var(--rp-sombra-m) !important;
+}
+.register-card > .rp-home{color:var(--rp-tinta) !important;}
+.register-header h2{font-family:var(--rp-fuente-display) !important;font-weight:600 !important;letter-spacing:-.01em !important;color:var(--rp-tinta) !important;}
+.register-header p{font-size:15px !important;color:var(--rp-tinta-media) !important;}
+.form-group label{
+  font-size:13.5px !important;font-weight:500 !important;letter-spacing:0 !important;
+  text-transform:none !important;color:var(--rp-tinta) !important;
+}
+.form-group input,.form-group select,.form-group textarea{
+  font-family:var(--rp-fuente-texto) !important;font-size:15px !important;
+  border:1.5px solid var(--rp-linea) !important;border-radius:var(--rp-radio-s) !important;background:var(--rp-blanco) !important;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rp-azul) !important;box-shadow:0 0 0 3px var(--rp-azul-aire) !important;}
+.register-privacy{font-size:13.5px !important;}
+.btn-register{
+  font-family:var(--rp-fuente-texto) !important;font-size:15px !important;font-weight:600 !important;
+  letter-spacing:0 !important;text-transform:none !important;border-radius:999px !important;padding:15px !important;
+  background:var(--rp-azul) !important;
+}
+.btn-register:hover{background:var(--rp-azul-profundo) !important;}
+.btn-register:disabled{background:var(--rp-linea) !important;color:var(--rp-tinta-media) !important;}
+.reg-badge,.hbadge{font-family:var(--rp-fuente-texto) !important;border-radius:999px !important;font-weight:600 !important;}
+
+/* ── Cabecera del cuestionario = cabecera de la landing ── */
+.quiz-header{
+  background:rgba(251,252,254,.9) !important;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rp-linea) !important;
+  color:var(--rp-tinta) !important;min-height:64px;
+}
+.quiz-header .rp-home,.quiz-header .header-brand{color:var(--rp-tinta) !important;}
+.quiz-header .rp-home:hover{background:var(--rp-azul-aire) !important;}
+.quiz-header .rp-home-texto i{color:var(--rp-tinta-media) !important;opacity:1 !important;}
+.hb-sep{background:var(--rp-linea) !important;}
+.hb-titulo{font-family:var(--rp-fuente-display);color:var(--rp-tinta) !important;}
+.progress-label,.progress-label span,.header-counter{color:var(--rp-tinta-media) !important;font-family:var(--rp-fuente-texto) !important;letter-spacing:0 !important;}
+.progress-bar{background:var(--rp-linea) !important;}
+.progress-fill{background:var(--rp-azul) !important;}
+.pillar-nav{top:64px !important;}
+.pillar-tab{
+  font-family:var(--rp-fuente-texto) !important;font-size:14.5px !important;font-weight:500 !important;
+  letter-spacing:0 !important;text-transform:none !important;color:var(--rp-tinta-media);
+}
+.pillar-tab:hover,.pillar-tab.active{color:var(--rp-azul) !important;}
+
+/* ── Cuerpo ── */
+#screen-quiz,#screen-results{background:var(--rp-papel) !important;}
+.pillar-header{border-radius:var(--rp-radio-l) !important;}
+.pillar-info h2{font-family:var(--rp-fuente-display) !important;font-weight:600 !important;letter-spacing:-.01em !important;}
+.revelation-area,.pillar-card,.heatmap-section,.detail-section,.index-section,.action-plan-col,.norm-split{
+  border:1px solid var(--rp-linea) !important;border-radius:var(--rp-radio-m) !important;box-shadow:none !important;background:var(--rp-blanco) !important;
+}
+.disc-title{font-family:var(--rp-fuente-display);font-weight:600 !important;}
+.question-text{font-size:15px !important;line-height:1.6 !important;}
+.option-btn{
+  font-family:var(--rp-fuente-texto) !important;font-size:13.5px !important;font-weight:500 !important;
+  border-radius:999px !important;border:1.5px solid var(--rp-linea) !important;background:var(--rp-blanco) !important;
+  padding:8px 16px !important;
+}
+.option-btn:hover{border-color:var(--rp-azul) !important;color:var(--rp-azul) !important;background:var(--rp-azul-aire) !important;}
+.option-btn.selected{border-color:var(--rp-azul) !important;}
+.comment-toggle{font-family:var(--rp-fuente-texto) !important;font-size:13px !important;}
+.comment-box textarea{font-family:var(--rp-fuente-texto) !important;font-size:14px !important;border-radius:var(--rp-radio-s) !important;background:var(--rp-blanco) !important;}
+.btn-nav,.btn-action{
+  font-family:var(--rp-fuente-texto) !important;font-size:15px !important;font-weight:600 !important;
+  letter-spacing:0 !important;text-transform:none !important;border-radius:999px !important;
+}
+.btn-next,.btn-primary{background:var(--rp-azul) !important;color:var(--rp-blanco) !important;}
+.btn-next:hover,.btn-primary:hover{background:var(--rp-azul-profundo) !important;}
+.btn-next:disabled{background:var(--rp-linea) !important;color:var(--rp-tinta-media) !important;}
+.btn-prev,.btn-secondary{background:transparent !important;color:var(--rp-azul) !important;border:1.5px solid var(--rp-azul) !important;}
+.btn-prev:hover,.btn-secondary:hover{background:var(--rp-azul) !important;color:var(--rp-blanco) !important;}
+
+/* ── Resultados: hero azul como la landing ── */
+.results-hero{background:var(--rp-azul) !important;}
+.results-title,.results-score-big{font-family:var(--rp-fuente-display) !important;letter-spacing:-.02em !important;}
+.results-title{font-weight:700 !important;}
+.results-badge{font-family:var(--rp-fuente-texto) !important;letter-spacing:0 !important;text-transform:none !important;font-size:15px !important;color:var(--rp-azul-tenue) !important;background:none !important;border:0 !important;padding:0 !important;}
+.results-score-label{color:var(--rp-azul-tenue) !important;letter-spacing:.04em !important;}
+.results-score-big{color:var(--rp-blanco) !important;}
+.user-chip{border-radius:999px !important;background:rgba(255,255,255,.12) !important;border:1px solid rgba(255,255,255,.22) !important;color:var(--rp-blanco) !important;}
+.user-chip strong,.user-chip span{color:var(--rp-blanco) !important;}
+.results-hero::before,.results-hero::after{opacity:.35;}
+.section-title{
+  font-family:var(--rp-fuente-display) !important;font-weight:600 !important;
+  font-size:clamp(22px,2.4vw,28px) !important;letter-spacing:-.01em !important;color:var(--rp-tinta) !important;
+  text-transform:none !important;
+}
+.pillar-card-score,.hm-pct,.plan-score,.nsc-score,.idx-score{font-family:var(--rp-fuente-display) !important;}
+.index-header{background:var(--rp-blanco) !important;border-bottom:1px solid var(--rp-linea) !important;}
+.index-header h3{font-family:var(--rp-fuente-display) !important;color:var(--rp-tinta) !important;}
+.index-header p{color:var(--rp-tinta-media) !important;}
+.index-table th{
+  background:var(--rp-papel-alt) !important;color:var(--rp-tinta-media) !important;
+  font-family:var(--rp-fuente-texto) !important;font-size:12px !important;letter-spacing:.04em !important;
+  border-bottom:1px solid var(--rp-linea) !important;
+}
+.idx-group-header td{font-family:var(--rp-fuente-texto) !important;letter-spacing:.04em !important;}
+.sheets-info{background:var(--rp-azul-aire) !important;border:1px solid transparent !important;color:var(--rp-tinta) !important;border-radius:var(--rp-radio-m) !important;}
+.sheets-info strong{color:var(--rp-azul) !important;}
+.spinner{border-color:rgba(255,255,255,.3) !important;border-top-color:var(--rp-blanco) !important;}
+.sending-overlay{background:rgba(21,103,176,.92) !important;}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   3. HERRAMIENTAS DE CONSULTA (Glosario, Tracker y las que vengan)
+   Cabecera fija clara + encabezado en banda azul (.rp-hero), como la landing.
+   ══════════════════════════════════════════════════════════════════════════ */
+html,body{overflow-x:clip;}
+.rp-home-texto{display:flex;flex-direction:column;line-height:1.15;text-align:left;}
+.rp-home-texto b{color:var(--rp-tinta);}
+.rp-home-texto i{color:var(--rp-tinta-media);opacity:1;}
+#screen-intro .rp-home-texto b{color:var(--rp-blanco) !important;}
+#screen-intro .rp-home-texto i{color:var(--rp-azul-tenue) !important;}
+
+header.site,.topbar{
+  position:sticky !important;top:0;z-index:60;
+  background:rgba(251,252,254,.82) !important;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rp-linea) !important;
+  min-height:64px;box-shadow:none !important;
+}
+header.site .brand,.topbar .tb-marca{color:var(--rp-azul) !important;display:inline-flex;align-items:center;gap:10px;text-decoration:none;}
+header.site .brand svg,.topbar .tb-marca svg{width:27px;height:27px;}
+.back-link{
+  font-family:var(--rp-fuente-texto) !important;font-size:14.5px !important;font-weight:500 !important;
+  letter-spacing:0 !important;text-transform:none !important;color:var(--rp-tinta-media) !important;
+  border:0 !important;padding:8px 0 !important;
+}
+.back-link:hover{color:var(--rp-azul) !important;}
+.tb-nav a{
+  font-family:var(--rp-fuente-texto) !important;font-size:14.5px !important;font-weight:500 !important;
+  letter-spacing:0 !important;text-transform:none !important;color:var(--rp-tinta-media) !important;
+}
+.tb-nav a:hover{color:var(--rp-azul) !important;}
+.tb-sello{
+  font-family:var(--rp-fuente-texto) !important;font-size:13px !important;font-weight:500 !important;
+  letter-spacing:0 !important;text-transform:none !important;
+  background:var(--rp-azul-aire) !important;color:var(--rp-azul-profundo) !important;border:0 !important;border-radius:999px !important;padding:7px 14px !important;
+}
+
+/* Banda azul a todo lo ancho, aunque viva dentro de un contenedor */
+.rp-hero{
+  position:relative;isolation:isolate;
+  padding:clamp(56px,8vw,96px) 0 clamp(48px,6vw,80px) !important;margin:0 0 40px !important;
+  color:var(--rp-blanco);
+}
+.hero:has(> .rp-hero),.wrap:has(> .rp-hero){padding-top:0 !important;margin-top:0 !important;}
+.rp-hero::before{
+  content:'';position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);
+  background:var(--rp-azul);z-index:-1;
+}
+.rp-hero .eyebrow{
+  font-family:var(--rp-fuente-texto) !important;font-size:15px !important;font-weight:500 !important;
+  letter-spacing:0 !important;text-transform:none !important;color:var(--rp-azul-tenue) !important;margin:0 0 18px !important;
+}
+.rp-hero .eyebrow::before,.rp-hero .eyebrow::after{display:none !important;}
+.rp-hero h1{
+  font-family:var(--rp-fuente-display) !important;font-weight:700 !important;
+  font-size:clamp(40px,5.4vw,64px) !important;line-height:1.04 !important;letter-spacing:-.02em !important;
+  color:var(--rp-blanco) !important;margin:0 0 24px !important;max-width:20ch;
+}
+.rp-hero h1 em{color:var(--rp-blanco) !important;font-weight:700 !important;font-style:normal;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:.12em;text-decoration-color:rgba(255,255,255,.45);}
+.rp-hero .lede{color:var(--rp-azul-tenue) !important;font-size:18px !important;line-height:1.6 !important;max-width:640px;margin:0 !important;}
+
+/* Etiquetas pequeñas en mayúsculas: tracking de la landing */
+.node-field-label,.kpi-label,.foot-meta,.result-count{letter-spacing:.04em !important;}
+.term-name,.detail-name,.kpi-num,.mp-name{font-family:var(--rp-fuente-display) !important;}
+
+@media print{
+  .rp-hero::before{display:none;}
+  .rp-hero,.rp-hero *{color:var(--rp-tinta) !important;}
+  .results-hero{background:#fff !important;color:var(--rp-tinta) !important;border-bottom:2px solid var(--rp-azul);}
+  .results-hero *{color:var(--rp-tinta) !important;}
+}

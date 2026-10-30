@@ -32,10 +32,17 @@ y las cuatro rutas de especialización del curso.
 
 ## Reglas
 
-- **Marca:** la fuente de verdad es la carpeta `Marca personal/` (v1.1) del proyecto local; `assets/marca/`
-  es una copia de lo necesario. Barlow en todo (titulares SemiBold 600, sin cursivas), azul `#1567B0`
-  en piezas claras, latón `#C39A5E` como acento sobre oscuro. Las herramientas van en modo claro con
-  bandas azules; el negro es solo para la landing y portadas.
+- **Marca v2.0 (29 oct 2026): la landing es la referencia visual.** Fuente de verdad: la carpeta
+  `Marca personal/` del proyecto local; `assets/marca/` es una copia de lo necesario (tokens, componentes,
+  isotipos, favicons, og-image). Space Grotesk en titulares (700 el principal, 600 el resto), DM Sans en
+  texto, JetBrains Mono solo en códigos técnicos. Papel claro, Azul Ponce `#1567B0` como único acento,
+  banda azul a todo lo ancho para abrir cada pieza, botones en pastilla. Sin latón, sin negro, sin Barlow.
+- **Capa de herramientas:** cada herramienta carga, después de su `<style>` propio,
+  `../../assets/marca/marca.tokens.css` y `../../assets/marca/herramienta.css`. Esa capa le pone la
+  cabecera de la landing, la banda azul (`#screen-intro` en diagnósticos, `.rp-hero` en las de consulta)
+  y la tipografía. Una herramienta nueva debe cargarla igual.
+- **Atlas ESG y el curso** conservan su diseño propio (Barlow; el Atlas usa latón para la familia ISSB)
+  por decisión de Rubén. Solo se les cambió el favicon.
 - **Cita exacta:** toda afirmación normativa lleva el párrafo o la página del estándar.
 - **Texto para el estudiante:** nada de notas de producción, de piloto o de revisión en el texto visible.
 - **Enlaces internos relativos:** desde una herramienta, el inicio es `../../`. Nunca URLs absolutas

@@ -1,8 +1,7 @@
 /* ============================================================================
    MARCA RUBÉN PONCE · Componentes base
    Requiere marca.tokens.css cargado antes.
-   Todo componente funciona en [data-tema="claro"] y [data-tema="noche"].
-   v1.0
+   v2.0 · 2026-10-29 · componentes tomados de la landing publicada
    ============================================================================ */
 
 /* ---- Reset mínimo --------------------------------------------------------- */
@@ -18,117 +17,125 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 img,svg,video{display:block;max-width:100%;}
-a{color:var(--rp-azul);text-decoration:none;}
-a:hover{text-decoration:underline;}
-[data-tema="noche"] a{color:var(--rp-azul-claro);}
-:focus-visible{outline:2px solid var(--rp-azul);outline-offset:3px;border-radius:var(--rp-radio-xs);}
-[data-tema="noche"] :focus-visible{outline-color:#fff;}
+a{color:var(--rp-azul);}
+::selection{background:var(--rp-azul);color:var(--rp-blanco);}
+:focus-visible{outline:2px solid var(--rp-azul);outline-offset:3px;border-radius:2px;}
 
 /* ---- Tipografía ----------------------------------------------------------- */
-.rp-display{                       /* Titular grande. Barlow SemiBold.         */
+.rp-display{                       /* Titular principal. Space Grotesk 700.     */
   font-family:var(--rp-fuente-display);
-  font-weight:600;
+  font-weight:var(--rp-peso-display);
+  font-size:clamp(42px,5.4vw,64px);
   line-height:var(--rp-alto-titulo);
   letter-spacing:var(--rp-track-titulo);
   margin:0;
 }
 h1,h2,h3,h4{
-  font-family:var(--rp-fuente-texto);
+  font-family:var(--rp-fuente-display);
   font-weight:var(--rp-peso-fuerte);
-  line-height:1.2;
-  letter-spacing:var(--rp-track-titulo);
+  line-height:var(--rp-alto-subtitulo);
+  letter-spacing:var(--rp-track-subtitulo);
   color:var(--rp-texto);
   margin:0 0 var(--rp-e-3);
 }
-h1{font-size:var(--rp-t-38);}
-h2{font-size:var(--rp-t-30);}
+h1{font-size:clamp(32px,4vw,44px);font-weight:var(--rp-peso-display);letter-spacing:var(--rp-track-titulo);}
+h2{font-size:clamp(28px,3.2vw,38px);}
 h3{font-size:var(--rp-t-20);}
 h4{font-size:var(--rp-t-16);}
 p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
-.rp-guia{                          /* Versalita de sección: "// Catálogo"      */
-  font-size:var(--rp-t-12);
-  font-weight:var(--rp-peso-medio);
+.rp-guia{                          /* Etiqueta de sección: "RUTAS DE ESPECIALIZACIÓN" */
+  font-size:13px;
+  font-weight:var(--rp-peso-fuerte);
   letter-spacing:var(--rp-track-etiqueta);
   text-transform:uppercase;
   color:var(--rp-texto-2);
   margin:0 0 var(--rp-e-3);
 }
+.rp-guia-acento{color:var(--rp-azul);}
 .rp-entradilla{font-size:var(--rp-t-18);color:var(--rp-texto-2);}
 .rp-pie{font-size:var(--rp-t-12);color:var(--rp-texto-2);}
 
 /* ---- Marca ---------------------------------------------------------------- */
-.rp-marca{display:inline-flex;align-items:center;gap:var(--rp-e-3);}
-.rp-marca svg,.rp-marca img{width:32px;height:32px;flex:none;}
-.rp-marca-nombre{font-weight:var(--rp-peso-fuerte);font-size:var(--rp-t-18);letter-spacing:-.01em;}
-.rp-marca-descriptor{
-  display:block;font-size:10.5px;font-weight:var(--rp-peso-medio);
-  letter-spacing:var(--rp-track-etiqueta);text-transform:uppercase;color:var(--rp-texto-2);
-}
+.rp-marca{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--rp-tinta);}
+.rp-marca svg,.rp-marca img{width:27px;height:27px;flex:none;}
+.rp-marca-nombre{font-family:var(--rp-fuente-display);font-weight:var(--rp-peso-fuerte);font-size:17px;letter-spacing:-.01em;}
 
-/* ---- Botones -------------------------------------------------------------- */
+/* ---- Cabecera fija (la de la landing) -------------------------------------- */
+.rp-cabecera{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,252,254,.82);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rp-linea);
+}
+.rp-cabecera-fila{display:flex;align-items:center;justify-content:space-between;gap:var(--rp-e-4);min-height:64px;}
+
+/* ---- Banda azul (hero de landing y portada de herramienta) ----------------- */
+.rp-banda{background:var(--rp-azul);color:var(--rp-blanco);}
+.rp-banda h1,.rp-banda h2,.rp-banda h3{color:var(--rp-blanco);}
+.rp-banda p{color:var(--rp-azul-tenue);}
+.rp-banda strong{color:var(--rp-blanco);}
+
+/* ---- Botones (todos en pastilla) ------------------------------------------- */
 .rp-btn{
   display:inline-flex;align-items:center;gap:var(--rp-e-2);
-  padding:10px 18px;
-  border:1px solid transparent;border-radius:var(--rp-radio-pastilla);
-  font-family:inherit;font-size:var(--rp-t-14);font-weight:var(--rp-peso-fuerte);
-  line-height:1;cursor:pointer;text-decoration:none;
+  padding:14px 26px;
+  border:1.5px solid transparent;border-radius:var(--rp-radio-pastilla);
+  font-family:var(--rp-fuente-texto);font-size:15px;font-weight:var(--rp-peso-fuerte);
+  line-height:1;cursor:pointer;text-decoration:none;white-space:nowrap;
   transition:transform var(--rp-dur-rapida) var(--rp-ease),
              background var(--rp-dur-rapida) var(--rp-ease),
-             opacity var(--rp-dur-rapida) var(--rp-ease);
+             color var(--rp-dur-rapida) var(--rp-ease),
+             box-shadow var(--rp-dur-rapida) var(--rp-ease);
 }
-.rp-btn:hover{transform:translateY(-1px);text-decoration:none;}
-.rp-btn-primario{background:var(--rp-acento);color:var(--rp-acento-texto);}
-.rp-btn-primario:hover{background:var(--rp-azul-profundo);color:#fff;}
-[data-tema="noche"] .rp-btn-primario:hover{background:#fff;color:#000;opacity:.9;}
-.rp-btn-secundario{background:transparent;color:var(--rp-texto);border-color:var(--rp-borde);}
-.rp-btn-secundario:hover{background:var(--rp-superficie-2);}
-.rp-btn-texto{background:none;padding:10px 4px;color:var(--rp-azul);}
-[data-tema="noche"] .rp-btn-texto{color:#fff;}
+.rp-btn:hover{transform:translateY(-1px);}
+.rp-btn:disabled,.rp-btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed;transform:none;}
+.rp-btn-primario{background:var(--rp-azul);color:var(--rp-blanco);}
+.rp-btn-primario:hover{background:var(--rp-azul-profundo);}
+.rp-btn-contorno{background:transparent;color:var(--rp-azul);border-color:var(--rp-azul);padding:10px 18px;font-size:14px;}
+.rp-btn-contorno:hover{background:var(--rp-azul);color:var(--rp-blanco);}
+.rp-btn-blanco{background:var(--rp-blanco);color:var(--rp-azul);}          /* sobre banda azul */
+.rp-btn-blanco:hover{transform:translateY(-2px);box-shadow:var(--rp-sombra-boton);}
+.rp-enlace-tenue{                                                           /* sobre banda azul */
+  color:var(--rp-azul-tenue);text-decoration:none;font-weight:var(--rp-peso-medio);
+  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;
+}
+.rp-enlace-tenue:hover{color:var(--rp-blanco);border-color:var(--rp-blanco);}
 
-/* ---- Chips / etiquetas de marco ------------------------------------------- */
+/* ---- Chips ------------------------------------------------------------------ */
 .rp-chip{
   display:inline-flex;align-items:center;gap:6px;
-  padding:5px 12px;border-radius:var(--rp-radio-pastilla);
-  background:var(--rp-azul-aire);color:var(--rp-azul-profundo);
-  border:1px solid transparent;
-  font-size:var(--rp-t-12);font-weight:var(--rp-peso-medio);line-height:1.4;
+  padding:8px 14px;border-radius:var(--rp-radio-pastilla);
+  background:var(--rp-azul-aire);color:var(--rp-tinta-media);
+  font-size:13px;font-weight:var(--rp-peso-medio);line-height:1.3;
 }
-[data-tema="noche"] .rp-chip{
-  background:var(--rp-noche-vidrio);color:var(--rp-noche-texto-2);
-  border-color:var(--rp-noche-linea);
-}
-.rp-chip-acento{background:var(--rp-laton-aire);color:var(--rp-laton-texto);}
-[data-tema="noche"] .rp-chip-acento{background:rgba(195,154,94,.14);color:var(--rp-laton);border-color:rgba(195,154,94,.3);}
+.rp-chip-contorno{background:var(--rp-papel-alt);border:1px solid var(--rp-linea);}
 
-/* ---- Tarjeta -------------------------------------------------------------- */
+/* ---- Estado: activa / próximamente ------------------------------------------ */
+.rp-punto{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:var(--rp-peso-medio);color:var(--rp-tinta-media);}
+.rp-punto::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--rp-azul);}
+.rp-punto-apagado::before{background:var(--rp-gris-apagado);}
+
+/* ---- Tarjetas ---------------------------------------------------------------- */
 .rp-tarjeta{
   background:var(--rp-superficie);
   border:1px solid var(--rp-borde);
-  border-radius:var(--rp-radio-m);
-  padding:var(--rp-e-5);
-}
-[data-tema="claro"] .rp-tarjeta{box-shadow:var(--rp-sombra-s);}
-.rp-tarjeta-titulo{font-size:var(--rp-t-20);font-weight:var(--rp-peso-fuerte);margin:0 0 var(--rp-e-2);}
-
-/* Vidrio líquido: solo en modo noche y solo sobre imagen o fondo con textura. */
-.rp-vidrio{
-  position:relative;overflow:hidden;
-  background:rgba(255,255,255,.01);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  box-shadow:inset 0 1px 1px rgba(255,255,255,.12);
   border-radius:var(--rp-radio-l);
+  padding:var(--rp-e-6);
 }
-.rp-vidrio::before{
-  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;
-  background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 40%,
-             rgba(255,255,255,0) 60%,rgba(255,255,255,.45));
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
+.rp-tarjeta-destacada{background:var(--rp-azul-aire);border-color:transparent;}
+.rp-tarjeta-titulo{font-family:var(--rp-fuente-display);font-size:var(--rp-t-24);font-weight:var(--rp-peso-fuerte);margin:0 0 var(--rp-e-2);}
 
-/* ---- Cita al estándar (el sello de la marca) ------------------------------ */
-/* Toda afirmación normativa lleva su referencia exacta. Este es el componente. */
+/* ---- Lista índice (filas separadas por línea, como el catálogo) -------------- */
+.rp-indice{border-top:1px solid var(--rp-linea);}
+.rp-indice > *{border-bottom:1px solid var(--rp-linea);padding:16px 0;transition:background var(--rp-dur-rapida) var(--rp-ease);}
+.rp-indice > *:hover{background:rgba(21,103,176,.035);}
+
+/* ---- Paso numerado (línea azul de 36px arriba) ------------------------------- */
+.rp-paso{position:relative;padding-top:26px;}
+.rp-paso::before{content:'';position:absolute;top:0;left:0;width:36px;height:2px;background:var(--rp-azul);}
+.rp-paso-n{font-family:var(--rp-fuente-display);font-size:13px;font-weight:var(--rp-peso-fuerte);color:var(--rp-azul);display:block;margin-bottom:14px;}
+
+/* ---- Cita al estándar (el sello de la marca) ---------------------------------- */
 .rp-cita{
   border-left:3px solid var(--rp-azul);
   background:var(--rp-azul-aire);
@@ -137,18 +144,23 @@ p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
   font-size:var(--rp-t-14);
   color:var(--rp-tinta);
 }
-[data-tema="noche"] .rp-cita{
-  background:var(--rp-noche-vidrio);color:var(--rp-noche-texto-2);
-  border-left-color:var(--rp-laton);
-}
 .rp-cita-fuente{
   display:block;margin-top:var(--rp-e-2);
   font-family:var(--rp-fuente-mono);font-size:var(--rp-t-12);
   color:var(--rp-tinta-media);
 }
-[data-tema="noche"] .rp-cita-fuente{color:var(--rp-noche-texto-3);}
 
-/* ---- Nivel de madurez ------------------------------------------------------ */
+/* ---- Campos de formulario ----------------------------------------------------- */
+.rp-campo{display:flex;flex-direction:column;gap:6px;}
+.rp-campo label{font-size:13.5px;font-weight:var(--rp-peso-medio);color:var(--rp-tinta);}
+.rp-campo input,.rp-campo select,.rp-campo textarea{
+  font:inherit;font-size:15px;color:var(--rp-tinta);
+  background:var(--rp-blanco);border:1.5px solid var(--rp-linea);border-radius:var(--rp-radio-s);
+  padding:11px 14px;transition:border-color var(--rp-dur-rapida) var(--rp-ease);
+}
+.rp-campo input:focus,.rp-campo select:focus,.rp-campo textarea:focus{outline:none;border-color:var(--rp-azul);box-shadow:0 0 0 3px var(--rp-azul-aire);}
+
+/* ---- Nivel de madurez --------------------------------------------------------- */
 .rp-nivel{
   display:inline-flex;align-items:center;justify-content:center;
   min-width:26px;padding:3px 10px;border-radius:var(--rp-radio-pastilla);
@@ -159,46 +171,47 @@ p{margin:0 0 var(--rp-e-4);max-width:var(--rp-ancho-texto);}
 .rp-nivel-3{background:var(--rp-nivel-3);color:var(--rp-nivel-3-texto);}
 .rp-nivel-4{background:var(--rp-nivel-4);color:var(--rp-nivel-4-texto);}
 
-/* ---- Estados --------------------------------------------------------------- */
+/* ---- Estados ------------------------------------------------------------------ */
 .rp-estado{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;
-  border-radius:var(--rp-radio-xs);font-size:var(--rp-t-12);font-weight:var(--rp-peso-medio);}
+  border-radius:var(--rp-radio-pastilla);font-size:var(--rp-t-12);font-weight:var(--rp-peso-medio);}
 .rp-estado-ok{background:var(--rp-ok-aire);color:var(--rp-ok);}
 .rp-estado-alerta{background:var(--rp-alerta-aire);color:var(--rp-alerta);}
 .rp-estado-riesgo{background:var(--rp-riesgo-aire);color:var(--rp-riesgo);}
-[data-tema="noche"] .rp-estado-ok{background:rgba(127,209,168,.12);color:var(--rp-ok-noche);}
-[data-tema="noche"] .rp-estado-alerta{background:rgba(245,201,122,.12);color:var(--rp-alerta-noche);}
-[data-tema="noche"] .rp-estado-riesgo{background:rgba(242,184,181,.12);color:var(--rp-riesgo-noche);}
 
-/* ---- Tabla ----------------------------------------------------------------- */
+/* ---- Tabla -------------------------------------------------------------------- */
 .rp-tabla{width:100%;border-collapse:collapse;font-size:var(--rp-t-14);}
 .rp-tabla th{
   text-align:left;padding:10px 12px;
   font-size:var(--rp-t-12);font-weight:var(--rp-peso-fuerte);
-  letter-spacing:.06em;text-transform:uppercase;color:var(--rp-texto-2);
+  letter-spacing:var(--rp-track-etiqueta);text-transform:uppercase;color:var(--rp-texto-2);
   border-bottom:1px solid var(--rp-borde);
 }
 .rp-tabla td{padding:12px;border-bottom:1px solid var(--rp-borde);vertical-align:top;}
-.rp-tabla tbody tr:hover{background:var(--rp-superficie-2);}
+.rp-tabla tbody tr:hover{background:rgba(21,103,176,.035);}
 .rp-tabla .num{text-align:right;font-variant-numeric:tabular-nums;}
 
-/* ---- Cifra destacada -------------------------------------------------------- */
-.rp-cifra{font-family:var(--rp-fuente-display);font-weight:600;
+/* ---- Cifra destacada ---------------------------------------------------------- */
+.rp-cifra{font-family:var(--rp-fuente-display);font-weight:var(--rp-peso-display);
   font-variant-numeric:tabular-nums;
-  font-size:var(--rp-t-60);line-height:1;letter-spacing:-.03em;color:var(--rp-texto);}
+  font-size:var(--rp-t-64);line-height:1;letter-spacing:var(--rp-track-titulo);color:var(--rp-texto);}
 .rp-cifra-pie{font-size:var(--rp-t-14);color:var(--rp-texto-2);margin-top:var(--rp-e-2);}
 
-/* ---- Estructura -------------------------------------------------------------- */
-.rp-contenedor{max-width:var(--rp-ancho-pagina);margin:0 auto;padding:0 var(--rp-e-5);}
-.rp-seccion{padding:var(--rp-e-9) 0;}
+/* ---- Estructura --------------------------------------------------------------- */
+.rp-contenedor{max-width:var(--rp-ancho-pagina);margin:0 auto;padding:0 var(--rp-e-6);}
+.rp-seccion{padding:var(--rp-e-9) 0;border-bottom:1px solid var(--rp-linea);}
+.rp-seccion-alt{background:var(--rp-papel-alt);}
 .rp-separador{height:1px;background:var(--rp-borde);border:0;margin:var(--rp-e-7) 0;}
 .rp-rejilla{display:grid;gap:var(--rp-e-5);}
 @media (min-width:760px){ .rp-rejilla-2{grid-template-columns:repeat(2,1fr);} }
 @media (min-width:1000px){ .rp-rejilla-3{grid-template-columns:repeat(3,1fr);} }
+@media (max-width:640px){ .rp-contenedor{padding:0 var(--rp-e-4);} }
 
 /* ---- Impresión ---------------------------------------------------------------- */
 @media print{
   body{background:#fff;color:#000;}
   .rp-no-imprimir{display:none !important;}
-  .rp-tarjeta{box-shadow:none;border-color:#ccc;}
+  .rp-cabecera{position:static;backdrop-filter:none;}
+  .rp-banda{background:#fff;color:var(--rp-tinta);border-bottom:2px solid var(--rp-azul);}
+  .rp-banda h1,.rp-banda h2,.rp-banda p{color:var(--rp-tinta);}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;color:#555;}
 }
