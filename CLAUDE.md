@@ -19,16 +19,20 @@ archivo/<slug>/index.html       piezas retiradas: sin enlace desde la landing, c
 | Ruta | Pieza | Notas |
 |---|---|---|
 | `herramientas/atlas-esg/` | Atlas ESG | Diseño congelado: no tocar salvo petición expresa |
-| `herramientas/diagnostico-tnfd/` | Autodiagnóstico TNFD v1.0 | Registro en Google Sheets |
-| `herramientas/diagnostico-s1/` | Autodiagnóstico IFRS S1 | Registro en Google Sheets, campo `diagnostico: "NIIF S1"` |
-| `herramientas/diagnostico-s2/` | Autodiagnóstico IFRS S2 | Registro en Google Sheets, campo `diagnostico: "NIIF S2"` |
+| `herramientas/selector-estandar/` | Selector de estándar | Sin registro. Copia los países de `tracker-issb` (`COUNTRIES`): al actualizar el Tracker, actualizar también el selector |
+| `herramientas/diagnostico-tnfd/` | Autodiagnóstico inicial TNFD (15 preguntas) | Registro en Google Sheets |
+| `herramientas/diagnostico-s1/` | Autodiagnóstico inicial IFRS S1 (15 preguntas) | Registro en Google Sheets, campo `diagnostico: "NIIF S1"` |
+| `herramientas/diagnostico-s2/` | Autodiagnóstico inicial IFRS S2 (16 preguntas) | Registro en Google Sheets, campo `diagnostico: "NIIF S2"` |
+| `herramientas/escaner-leap/` | Escáner LEAP | Sin enlace en la landing («Próximamente») hasta sustituir sus calificaciones preliminares por ENCORE 2024 |
 | `herramientas/glosario-esg/` | Glosario ESG | |
 | `herramientas/tracker-issb/` | Tracker de adopción del ISSB | |
 | `cursos/de-cero-a-profesional/` | Curso De cero a profesional | Diseño congelado; guarda respuestas en Google Sheets |
 | `archivo/diagnostico-s1-s2/` | Diagnóstico combinado S1+S2 | Retirado el 13 oct 2026; se conserva por si se reactiva |
+| `archivo/diagnostico-s1-completo/`, `archivo/diagnostico-s2-completo/` | Versiones completas (44 y 57 preguntas) | Base del futuro diagnóstico completo de paga; en la landing figura «En construcción» sin enlace |
 
-Próximamente (solo en la landing, sin carpeta todavía): **Diagnóstico integrado ISSB (S1 y S2)**
-y las cuatro rutas de especialización del curso.
+Sin enlace en la landing: **Escáner LEAP** (Próximamente), **Diagnóstico completo NIIF S1 y S2**
+(En construcción), **Diagnóstico integrado ISSB (S1 y S2)** (Próximamente) y las cuatro rutas de
+especialización del curso.
 
 ## Reglas
 
@@ -54,6 +58,12 @@ y las cuatro rutas de especialización del curso.
   al propio dominio, para que el sitio funcione igual en local y en Pages.
 - **Registros:** los diagnósticos envían a un Apps Script de Google (`APPS_SCRIPT_URL`). No cambiar
   el endpoint ni los nombres de campo sin avisar a Rubén: alimentan su hoja de cálculo.
+- **Privacidad y mayoría de edad:** toda herramienta con registro lleva una casilla obligatoria
+  «Soy mayor de 18 años y acepto el aviso de privacidad» que enlaza a `privacidad/`, y envía
+  `mayor_de_edad: "Sí"`. Las herramientas sin registro llevan el aviso `<p class="rp-aviso-uso">`
+  (capa `herramienta.css`, sección 5). Si una herramienta nueva recaba datos distintos, actualizar `privacidad/`.
+- **Diagnósticos iniciales:** una o dos preguntas por área; resultados con nivel por pilar, mapa de calor
+  y primeros pasos (máximo cuatro áreas en S1/S2, una por pilar en TNFD). Envían `version: "inicial"`.
 - **Al probar los diagnósticos**, interceptar `fetch` en el navegador para no escribir datos de prueba
   en la hoja real.
 
