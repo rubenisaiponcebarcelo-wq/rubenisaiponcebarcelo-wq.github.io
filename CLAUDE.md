@@ -7,7 +7,7 @@ Es HTML estático: no hay build, ni dependencias, ni framework. Cada página es 
 ## Estructura
 
 ```
-index.html                      landing (modo noche, marca v1.1)
+index.html                      landing (marca v2.0)
 404.html                        página de error con la marca
 assets/marca/                   isotipo, favicons, og-image, tokens CSS, capa de herramientas y tema.js
 assets/img/                     fotos del fondo de la landing (Wikimedia Commons, crédito en el pie)
@@ -58,10 +58,11 @@ especialización del curso.
   al propio dominio, para que el sitio funcione igual en local y en Pages.
 - **Registros:** los diagnósticos envían a un Apps Script de Google (`APPS_SCRIPT_URL`). No cambiar
   el endpoint ni los nombres de campo sin avisar a Rubén: alimentan su hoja de cálculo.
-- **Privacidad y mayoría de edad:** toda herramienta con registro lleva una casilla obligatoria
-  «Soy mayor de 18 años y acepto el aviso de privacidad» que enlaza a `privacidad/`, y envía
-  `mayor_de_edad: "Sí"`. Las herramientas sin registro llevan el aviso `<p class="rp-aviso-uso">`
-  (capa `herramienta.css`, sección 5). Si una herramienta nueva recaba datos distintos, actualizar `privacidad/`.
+- **Descargo y mayoría de edad:** no hay página de aviso de privacidad ni se nombra a Rubén; por decisión
+  suya basta un descargo pequeño y discreto al fondo de cada herramienta y del curso (no en la landing):
+  `<p class="rp-descargo">` justo antes de `</body>` (capa `herramienta.css`, sección 5; el curso lo lleva
+  con estilo en línea y el Atlas dentro de su barra lateral). Con registro: casilla obligatoria «Soy mayor
+  de 18 años y acepto que mis datos…» y envío de `mayor_de_edad: "Sí"`.
 - **Diagnósticos iniciales:** una o dos preguntas por área; resultados con nivel por pilar, mapa de calor
   y primeros pasos (máximo cuatro áreas en S1/S2, una por pilar en TNFD). Envían `version: "inicial"`.
 - **Al probar los diagnósticos**, interceptar `fetch` en el navegador para no escribir datos de prueba
