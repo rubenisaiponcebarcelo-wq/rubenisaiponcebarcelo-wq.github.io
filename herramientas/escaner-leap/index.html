@@ -43,6 +43,7 @@
 }
 
 *{box-sizing:border-box}
+section[hidden]{display:none !important}
 body{
   margin:0;background:var(--fondo);color:var(--texto);
   font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
@@ -374,12 +375,11 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
   </form>
 </section>
 
-<section id="resultado" aria-labelledby="t-resultado" aria-live="polite">
+<section id="resultado" aria-labelledby="t-resultado" aria-live="polite" hidden>
   <h2 id="t-resultado">Resultado</h2>
   <p class="intro" id="res-intro"></p>
 
   <div class="resumen">
-    <span class="tag-ejemplo" id="tag-ejemplo">Ejemplo precargado</span>
     <p class="lin" id="res-linea"></p>
     <div class="metricas">
       <div class="metrica"><div class="v" id="m-dep">0</div><div class="k">dependencias de materialidad alta o muy alta</div></div>
@@ -401,11 +401,11 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
 
   <div class="bloques">
     <div class="bloque">
-      <div class="cab"><h3>Dependencias</h3><span>Riesgo físico</span></div>
+      <div class="cab"><h3>Dependencias</h3></div>
       <div id="lista-dep"></div>
     </div>
     <div class="bloque">
-      <div class="cab"><h3>Impactos</h3><span>Riesgo de transición</span></div>
+      <div class="cab"><h3>Impactos</h3></div>
       <div id="lista-imp"></div>
     </div>
   </div>
@@ -416,13 +416,13 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
   </div>
 </section>
 
-<section id="leap" aria-labelledby="t-leap">
+<section id="leap" aria-labelledby="t-leap" hidden>
   <h2 id="t-leap">Dónde quedas en LEAP</h2>
   <p class="intro">LEAP es el método de TNFD para evaluar la relación con la naturaleza. Este escáner cubre parte de la fase E a nivel sectorial; lo demás depende de tus sitios y tu cadena de valor.</p>
   <div class="leap" id="leap-fases"></div>
 </section>
 
-<section id="divulgar" aria-labelledby="t-div">
+<section id="divulgar" aria-labelledby="t-div" hidden>
   <h2 id="t-div">Qué te pediría un reporte</h2>
   <p class="intro">Las recomendaciones de TNFD que este resultado empieza a alimentar (traducción libre del inglés).</p>
   <div class="citas" id="citas"></div>
@@ -451,7 +451,7 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
     <div class="cuerpo">
       <p>Cada sector se asocia a una o varias actividades de la Clasificación Industrial Internacional Uniforme (CIIU / ISIC rev. 4). Para cada actividad, ENCORE califica qué tan material es su dependencia de 25 servicios ecosistémicos y su contribución a 13 presiones sobre la naturaleza, en cinco niveles: muy alta, alta, media, baja y muy baja.</p>
       <p>Cada sector del escáner agrupa una o varias actividades CIIU de ENCORE y toma, para cada servicio y cada presión, la calificación más alta entre ellas. Así el resultado no pasa por alto una dependencia que solo es fuerte en una parte del sector.</p>
-      <p>El escáner muestra solo las dependencias y presiones con materialidad media o mayor, ordenadas de mayor a menor, y traduce cada una a un riesgo físico (dependencias) o de transición (impactos) en lenguaje de negocio.</p>
+      <p>El escáner muestra solo las dependencias y presiones con materialidad media o mayor, ordenadas de mayor a menor, y explica en lenguaje de negocio qué riesgo representa cada una para tu operación.</p>
       <p>El mapa de sectores ubica a cada sector con dos índices de 0 a 100: la suma de sus calificaciones de dependencia y la suma de sus calificaciones de presión (muy alta = 4, alta = 3, media = 2), escaladas al sector más alto. Sirve para comparar sectores entre sí, no es una medida absoluta. La huella por ámbito muestra la calificación más alta dentro de cada grupo de servicios y presiones.</p>
       <p>Tus respuestas sobre agua y áreas protegidas no cambian la calificación sectorial. Solo marcan los temas que tu ubicación podría intensificar y que conviene revisar primero en la fase L.</p>
     </div>
@@ -479,6 +479,15 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--texto-2);display:flex;fle
     </div>
   </details>
 </section>
+
+<nav class="rp-relacionadas" aria-label="Herramientas relacionadas">
+  <h2>Sigue con</h2>
+  <ul>
+    <li><a href="../diagnostico-tnfd/"><b>Autodiagnóstico inicial TNFD</b><span>Qué tan preparada está tu organización frente a las recomendaciones TNFD.</span></a></li>
+    <li><a href="../selector-estandar/"><b>Selector de estándar</b><span>Qué estándares te exigen o te convienen según tu país y quién te pide la información.</span></a></li>
+    <li><a href="../glosario-esg/"><b>Glosario ESG</b><span>Los términos de cada estándar, con el marco que los define.</span></a></li>
+  </ul>
+</nav>
 
 <footer>
   <span>Rubén Ponce · Sostenibilidad corporativa</span>
@@ -511,7 +520,7 @@ var SERV = {
   rec:  {n:"Servicios recreativos", r:"El atractivo del destino depende de ecosistemas sanos; su deterioro reduce la demanda turística."},
   vis:  {n:"Belleza escénica", r:"Playas, arrecifes y paisajes degradados restan valor a la oferta y al precio por noche."},
   gen:  {n:"Material genético", r:"Semillas, razas y cepas de las que depende tu producto vienen de la diversidad genética; si se pierde, hay menos opciones para adaptarse a plagas y al clima."},
-  clima:{n:"Regulación del clima global", r:"Bosques, suelos y océanos que almacenan carbono frenan el cambio climático; si se degradan, crecen los riesgos físicos para tu operación."},
+  clima:{n:"Regulación del clima global", r:"Bosques, suelos y océanos que almacenan carbono frenan el cambio climático; si se degradan, crecen los riesgos climáticos para tu operación."},
   aire: {n:"Filtración del aire", r:"La vegetación retiene contaminantes del aire cerca de tus sitios; si se pierde, empeora la calidad del aire para trabajadores y vecinos."},
   resid:{n:"Remediación de residuos sólidos", r:"Dependes de que los ecosistemas descompongan o asimilen residuos; si se saturan, sube el costo de manejarlos y disponer de ellos."},
   ener: {n:"Energía animal", r:"Tu operación usa animales de trabajo o de carga; su salud y su disponibilidad condicionan la producción."},
@@ -746,7 +755,6 @@ function render(animar){
 
   $("isic-ayuda").textContent = "Actividades CIIU/ISIC rev. 4: " + s.isic + " (" + s.na + (s.na === 1 ? " actividad" : " actividades") + " en ENCORE).";
   actualizarLink();
-  $("tag-ejemplo").hidden = !esEjemplo;
 
   var deps = ordenar(s.d), imps = ordenar(s.p);
   var nLoc = 0;
@@ -840,8 +848,12 @@ function renderCitas(s, deps, imps){
 }
 
 /* ---------- Eventos ---------- */
+/* El resultado se despliega al pulsar «Ver mi resultado»; después se actualiza con cada cambio */
+var SECCIONES_RESULTADO = ["resultado","leap","divulgar"];
+function mostrarResultado(si){ SECCIONES_RESULTADO.forEach(function(id){ $(id).hidden = !si; }); }
+var suave = function(){ return matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"; };
 $("formulario").addEventListener("submit", function(e){
-  e.preventDefault(); esEjemplo = false; render(true);
+  e.preventDefault(); esEjemplo = false; render(true); mostrarResultado(true);
   $("resultado").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
 });
 ["sector","estado"].forEach(function(id){ $(id).addEventListener("change", function(){ esEjemplo = false; render(true); }); });
@@ -849,7 +861,8 @@ document.querySelectorAll('input[type="radio"]').forEach(function(r){ r.addEvent
 $("reiniciar").addEventListener("click", function(){
   $("sector").value = "alim"; $("estado").value = "México";
   $("agua-ns").checked = true; $("anp-ns").checked = true;
-  esEjemplo = true; render(true);
+  esEjemplo = true; render(false); mostrarResultado(false);
+  $("entrada").scrollIntoView({behavior: suave(), block:"start"});
 });
 
 llenarSelects();

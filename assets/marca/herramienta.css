@@ -341,3 +341,24 @@ html[data-theme="dark"][data-rp-herramienta="tracker"]{
   opacity:.8;max-width:72ch;margin:24px auto 0;padding:0 16px 20px;text-align:center;}
 .rp-descargo a{color:inherit;}
 @media print{.rp-descargo{display:none;}}
+
+/* ============================================================================
+   6. HERRAMIENTAS RELACIONADAS (bloque «Sigue con» al final de cada herramienta)
+   ----------------------------------------------------------------------------
+   <nav class="rp-relacionadas" aria-label="Herramientas relacionadas">
+     <h2>Sigue con</h2><ul><li><a href="../x/"><b>Nombre</b><span>Para qué sirve</span></a></li></ul>
+   </nav>
+   ============================================================================ */
+.rp-relacionadas{max-width:1120px;margin:48px auto 0;padding:32px 0 8px;border-top:1px solid var(--rp-borde);text-align:left;}
+.rp-relacionadas h2{font-family:var(--rp-fuente-display) !important;font-weight:600;font-size:20px;letter-spacing:-.01em;
+  color:var(--rp-texto) !important;margin:0 0 16px !important;}
+.rp-relacionadas ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.rp-relacionadas a{display:flex;flex-direction:column;gap:4px;height:100%;padding:16px 18px;border-radius:14px;text-decoration:none;
+  background:var(--rp-superficie);border:1px solid var(--rp-borde);transition:border-color .2s,transform .2s;}
+.rp-relacionadas a:hover{border-color:var(--rp-enlace);transform:translateY(-1px);}
+.rp-relacionadas b{font-family:var(--rp-fuente-display);font-weight:600;font-size:15.5px;color:var(--rp-enlace);}
+.rp-relacionadas b::after{content:" →";}
+.rp-relacionadas span{font-family:var(--rp-fuente-texto);font-size:13.5px;line-height:1.5;color:var(--rp-texto-2);}
+@media (prefers-reduced-motion:reduce){.rp-relacionadas a{transition:none;}.rp-relacionadas a:hover{transform:none;}}
+@media print{.rp-relacionadas{display:none;}}
+

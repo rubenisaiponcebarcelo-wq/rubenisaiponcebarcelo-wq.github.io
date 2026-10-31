@@ -80,6 +80,14 @@
     border-top:1px solid rgba(255,255,255,.12);
   }
   .sidebar-contact-label{font-family:'Barlow','Segoe UI',system-ui,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#8A97AC;}
+  .sidebar-relacionadas{margin:4px 0 14px;}
+  .sidebar-relacionadas h2{font-family:'Barlow','Segoe UI',system-ui,sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A9B6CB;margin:0 0 8px;}
+  .sidebar-relacionadas ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .sidebar-relacionadas a{display:flex;flex-direction:column;gap:2px;text-decoration:none;}
+  .sidebar-relacionadas b{font-size:12.5px;font-weight:600;color:#8FB8E8;}
+  .sidebar-relacionadas b::after{content:" →";}
+  .sidebar-relacionadas span{font-size:11px;line-height:1.4;color:#A9B6CB;}
+  .sidebar-relacionadas a:hover b{text-decoration:underline;}
   .sidebar-aviso{font-size:10.5px;opacity:.8;line-height:1.5;color:#A9B6CB;margin:10px 0 0;}
   .sidebar-aviso a{color:#8FB8E8;}
   .sidebar-contact-email{font-family:'Barlow','Segoe UI',system-ui,sans-serif;font-size:11.5px;color:#DFE6F0;word-break:break-all;}
@@ -517,6 +525,15 @@ html[data-theme="dark"] body{background:#0B1220;color:#E8EEF7;}
     <div class="sidebar-actions">
       <div class="hint-toggle" id="expandAllBtn" style="display:none;">Expandir todo</div>
       <div class="hint-toggle" id="collapseAllBtn" style="display:none;">Colapsar todo</div>
+
+      <nav class="sidebar-relacionadas" aria-label="Herramientas relacionadas">
+        <h2>Sigue con</h2>
+        <ul>
+          <li><a href="../selector-estandar/"><b>Selector de estándar</b><span>Qué estándares te exigen o te convienen según tu país y quién te pide la información.</span></a></li>
+          <li><a href="../glosario-esg/"><b>Glosario ESG</b><span>Los términos de cada estándar, con el marco que los define.</span></a></li>
+          <li><a href="../tracker-issb/"><b>Tracker del ISSB</b><span>Qué países de América ya adoptaron las NIIF S1 y S2, y desde cuándo.</span></a></li>
+        </ul>
+      </nav>
       <div class="sidebar-contact">
         <span class="sidebar-contact-label">Correo de contacto</span>
         <span class="sidebar-contact-email">ruben.isai.ponce.barcelo@gmail.com</span>

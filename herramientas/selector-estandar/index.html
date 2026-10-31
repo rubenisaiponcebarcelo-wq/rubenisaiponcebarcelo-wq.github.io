@@ -32,6 +32,7 @@
   --n1:#1B2A42; --n1-txt:#C9D2E0; --n2:#2A4F7A; --n2-txt:#E8EEF7; --n3:#3F82C4; --n3-txt:#FFFFFF; --n4:#8FC3EE; --n4-txt:#0B1220;
 }
 *{box-sizing:border-box}
+section[hidden]{display:none !important}
 body{margin:0;background:var(--rp-fondo);color:var(--rp-texto);font-family:var(--rp-fuente-texto);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--rp-enlace)}
 :focus-visible{outline:2px solid var(--rp-enlace);outline-offset:3px;border-radius:4px}
@@ -206,10 +207,9 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--rp-texto-2);display:flex;
   </form>
 </section>
 
-<section id="resultado" aria-labelledby="t-resultado" aria-live="polite">
+<section id="resultado" aria-labelledby="t-resultado" aria-live="polite" hidden>
   <h2 id="t-resultado">Resultado</h2>
   <div class="resumen">
-    <span class="tag-ejemplo" id="tag-ejemplo">Ejemplo precargado</span>
     <p class="lin" id="res-linea"></p>
     <p class="nota" id="res-nota"></p>
   </div>
@@ -250,6 +250,16 @@ footer{padding-top:28px;font-size:.8125rem;color:var(--rp-texto-2);display:flex;
     </div>
   </details>
 </section>
+
+<nav class="rp-relacionadas" aria-label="Herramientas relacionadas">
+  <h2>Sigue con</h2>
+  <ul>
+    <li><a href="../tracker-issb/"><b>Tracker del ISSB</b><span>Qué países de América ya adoptaron las NIIF S1 y S2, y desde cuándo.</span></a></li>
+    <li><a href="../diagnostico-s1/"><b>Autodiagnóstico inicial NIIF S1</b><span>Qué tan preparada está tu organización frente a los requisitos generales.</span></a></li>
+    <li><a href="../diagnostico-s2/"><b>Autodiagnóstico inicial NIIF S2</b><span>Qué tan preparada está tu organización para divulgar información climática.</span></a></li>
+    <li><a href="../escaner-leap/"><b>Escáner LEAP</b><span>De qué servicios de la naturaleza depende tu sector y qué presiones ejerce, con datos de ENCORE.</span></a></li>
+  </ul>
+</nav>
 
 <footer>
   <span>Rubén Ponce · Sostenibilidad corporativa</span>
@@ -439,7 +449,6 @@ function enlace(o, externo){
 
 function render(animar){
   var res = evaluar();
-  $("tag-ejemplo").hidden = !esEjemplo;
   var orden = res.slice().sort(function(a,b){ return b.e - a.e; });
 
   var exige = orden.filter(function(x){ return x.e === 4; }).map(function(x){ return x.n; });
@@ -487,13 +496,15 @@ function render(animar){
 /* ---------- Eventos ---------- */
 function alCambiar(){ esEjemplo = false; $("sub-ue").hidden = radio("ue") !== "si"; render(true); }
 $("formulario").addEventListener("submit", function(e){
-  e.preventDefault(); esEjemplo = false; render(true);
+  e.preventDefault(); esEjemplo = false; render(true); $("resultado").hidden = false;
   $("resultado").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
 });
 $("pais").addEventListener("change", alCambiar);
 document.querySelectorAll("#formulario input").forEach(function(i){ i.addEventListener("change", alCambiar); });
 $("reiniciar").addEventListener("click", function(){
-  $("formulario").reset(); $("pais").value = "MEX"; $("sub-ue").hidden = true; esEjemplo = true; render(true);
+  $("formulario").reset(); $("pais").value = "MEX"; $("sub-ue").hidden = true; esEjemplo = true; render(false);
+  $("resultado").hidden = true;
+  $("entrada").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
 });
 
 llenarPaises();

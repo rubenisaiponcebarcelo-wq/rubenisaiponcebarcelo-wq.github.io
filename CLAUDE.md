@@ -28,11 +28,10 @@ archivo/<slug>/index.html       piezas retiradas: sin enlace desde la landing, c
 | `herramientas/tracker-issb/` | Tracker de adopción del ISSB | |
 | `cursos/de-cero-a-profesional/` | Curso De cero a profesional | Diseño congelado; guarda respuestas en Google Sheets |
 | `archivo/diagnostico-s1-s2/` | Diagnóstico combinado S1+S2 | Retirado el 13 oct 2026; se conserva por si se reactiva |
-| `archivo/diagnostico-s1-completo/`, `archivo/diagnostico-s2-completo/` | Versiones completas (44 y 57 preguntas) | Base del futuro diagnóstico completo de paga; en la landing figura «En construcción» sin enlace |
+| `archivo/diagnostico-s1-completo/`, `archivo/diagnostico-s2-completo/` | Versiones completas (44 y 57 preguntas) | Base del futuro Diagnóstico integrado ISSB (de paga), que figura «Próximamente» en la landing |
 
-Sin enlace en la landing: **Diagnóstico completo NIIF S1 y S2**
-(En construcción), **Diagnóstico integrado ISSB (S1 y S2)** (Próximamente) y las cuatro rutas de
-especialización del curso.
+Sin enlace en la landing: **Diagnóstico integrado ISSB (S1 y S2)** (Próximamente), que será la versión
+completa de paga, y las cuatro rutas de especialización del curso.
 
 ## Reglas
 
@@ -63,6 +62,13 @@ especialización del curso.
   `<p class="rp-descargo">` justo antes de `</body>` (capa `herramienta.css`, sección 5; el curso lo lleva
   con estilo en línea y el Atlas dentro de su barra lateral). Con registro: casilla obligatoria «Soy mayor
   de 18 años y acepto que mis datos…» y envío de `mayor_de_edad: "Sí"`.
+- **Herramientas relacionadas:** cada herramienta cierra con un bloque «Sigue con»
+  (`<nav class="rp-relacionadas">`, capa `herramienta.css`, sección 6) que enlaza las herramientas que
+  complementan su estándar o su propósito. En los diagnósticos va al final de los resultados; en el Atlas,
+  en la barra lateral (`.sidebar-relacionadas`). Al sumar una herramienta, añadirla en los bloques que
+  correspondan.
+- **Escáner LEAP y Selector:** el resultado se despliega al pulsar «Ver mi resultado» y después se actualiza
+  con cada cambio; «Reiniciar» lo vuelve a ocultar.
 - **Diagnósticos iniciales:** una o dos preguntas por área; resultados con nivel por pilar, mapa de calor
   y primeros pasos (máximo cuatro áreas en S1/S2, una por pilar en TNFD). Envían `version: "inicial"`.
 - **Al probar los diagnósticos**, interceptar `fetch` en el navegador para no escribir datos de prueba
