@@ -157,16 +157,22 @@
   .hero-slide[data-pos="right"]{transform:translateX(170px) translateZ(-120px) rotateY(-32deg) scale(.82);z-index:3;opacity:.85;cursor:pointer;}
   .hero-slide[data-pos="left"]{transform:translateX(-170px) translateZ(-120px) rotateY(32deg) scale(.82);z-index:3;opacity:.85;cursor:pointer;}
   .hero-slide[data-pos="hidden"]{transform:translateX(0) translateZ(-260px) scale(.6);opacity:0;z-index:1;pointer-events:none;}
-  .hero-dots{display:flex;justify-content:center;gap:9px;margin-top:16px;}
+  /* Puntos casi invisibles: la rotación manda; se avivan solo al pasar el cursor o con el teclado */
+  .hero-dots{display:flex;justify-content:center;gap:7px;margin-top:14px;opacity:.35;transition:opacity .25s var(--ease);}
+  .hero-dots:hover,.hero-dots:focus-within{opacity:1;}
   .hero-dot{
-    width:8px;height:8px;border-radius:50%;padding:0;border:none;cursor:pointer;
+    width:5px;height:5px;border-radius:50%;padding:0;border:none;cursor:pointer;
     background:rgba(255,255,255,.35);transition:background .2s var(--ease), transform .2s var(--ease);
   }
-  .hero-dot:hover{background:rgba(255,255,255,.6);}
-  .hero-dot.active{background:var(--white);transform:scale(1.25);}
+  .hero-dot:hover{background:rgba(255,255,255,.7);}
+  .hero-dot.active{background:var(--white);}
   @media(max-width:520px){
-    .hero-carousel-stage{max-width:340px;height:340px;}
-    .hero-slide{width:190px;height:300px;margin:-150px 0 0 -95px;}
+    .hero{padding:56px 0 48px;}
+    .hero-grid{gap:28px;}
+    h1.hero-headline{margin-bottom:20px;}
+    .hero-lede{font-size:16.5px;margin-bottom:28px;}
+    .hero-carousel-stage{max-width:340px;height:300px;}
+    .hero-slide{width:170px;height:270px;margin:-135px 0 0 -85px;}
     .hero-slide[data-pos="right"]{transform:translateX(120px) translateZ(-90px) rotateY(-30deg) scale(.8);}
     .hero-slide[data-pos="left"]{transform:translateX(-120px) translateZ(-90px) rotateY(30deg) scale(.8);}
   }
@@ -246,28 +252,33 @@
     gap:64px;
     align-items:start;
   }
-  .position-grid h3{
-    font-family:var(--font-display);
-    font-weight:600;
-    font-size:15px;
-    color:var(--ink);
-    margin:0 0 16px;
-  }
   .position-grid p{
     font-size:16.5px;
     color:var(--ink-muted);
-    margin:0 0 16px;
+    margin:0;
   }
   .position-grid p strong{color:var(--ink);font-weight:600;}
-  .frameworks-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px;}
+  /* Marcos: franja discreta debajo del texto, como complemento */
+  .frameworks{
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
+    margin-top:32px;padding-top:20px;border-top:1px solid var(--line);
+  }
+  .frameworks-label{
+    font-size:12px;font-weight:600;color:var(--ink-muted);
+    text-transform:uppercase;letter-spacing:.04em;
+  }
+  .frameworks-list{display:flex;flex-wrap:wrap;gap:6px;}
   .fw-chip{
-    font-size:13px;
+    font-size:12px;
     font-weight:500;
     color:var(--ink-muted);
     background:var(--blue-soft);
-    padding:8px 14px;
+    padding:4px 10px;
     border-radius:999px;
+    text-decoration:none;
+    transition:color .2s var(--ease), background .2s var(--ease);
   }
+  a.fw-chip:hover{color:var(--white);background:var(--blue);}
 
   /* ===== CURSOS ===== */
   .courses{background:var(--paper);border-bottom:1px solid var(--line);}
@@ -294,9 +305,11 @@
   }
   .btn-course:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(10,20,50,.25);}
   .course-tracks-label{
+    display:flex;align-items:center;gap:8px;
     font-size:13px;font-weight:600;color:var(--ink-muted);text-transform:uppercase;
-    letter-spacing:.04em;margin:0 0 14px;
+    letter-spacing:.04em;margin:0;
   }
+  .course-track-dot{width:6px;height:6px;border-radius:50%;background:#B7C0D1;flex:none;}
   .course-tracks{display:flex;flex-wrap:wrap;gap:10px;}
   .course-track{
     display:flex;align-items:center;gap:8px;
@@ -316,11 +329,11 @@
   .tool-index{
     display:flex;
     flex-direction:column;
-    border-top:1px solid var(--line);
   }
   .tool-card{
     display:grid;
-    grid-template-columns:44px 1.6fr 1fr auto;
+    grid-template-columns:44px 1fr auto auto;
+    position:relative;
     gap:22px;
     align-items:center;
     padding:16px 0;
@@ -351,9 +364,20 @@
     overflow:hidden;
     text-overflow:ellipsis;
     display:-webkit-box;
-    -webkit-line-clamp:1;
+    -webkit-line-clamp:2;
     -webkit-box-orient:vertical;
   }
+  .tool-main p{max-width:620px;}
+  .tool-meta:empty{display:none;}
+  /* Toda la ficha abre la herramienta: el enlace «Acceder» se extiende sobre ella */
+  a.tool-cta::after{content:'';position:absolute;inset:0;}
+  .tool-card:has(a.tool-cta){cursor:pointer;}
+  .tool-group{
+    font-family:var(--font-body);font-size:12.5px;font-weight:600;color:var(--ink-muted);
+    text-transform:uppercase;letter-spacing:.04em;margin:28px 0 0;padding:0 0 10px;
+    border-bottom:1px solid var(--line);
+  }
+  .tool-group:first-child{margin-top:0;}
   .tool-meta{display:flex;flex-direction:column;gap:9px;align-items:flex-start;justify-content:center;}
   .status-dot{
     display:inline-flex;align-items:center;gap:7px;
@@ -387,13 +411,15 @@
   }
 
   @media(max-width:860px){
-    .tool-card{grid-template-columns:1fr;gap:10px;padding:18px 0;}
-    .tool-num{order:1;}
-    .tool-main{order:2;}
-    .tool-main p{-webkit-line-clamp:2;}
-    .tool-meta{order:3;flex-direction:column;align-items:flex-start;gap:9px;}
-    .tool-cta{order:4;justify-self:start;}
-    .position-grid{grid-template-columns:1fr;gap:36px;}
+    /* En celular: ficha compacta, se toca completa y solo queda una flecha a la derecha */
+    .tool-card{grid-template-columns:1fr auto;gap:6px 12px;padding:16px 0;}
+    .tool-num{display:none;}
+    .tool-main{grid-column:1;grid-row:1;}
+    .tool-meta{grid-column:1;grid-row:2;}
+    .tool-cta{grid-column:2;grid-row:1;align-self:center;border:0;padding:8px 0 8px 8px;font-size:0;}
+    .tool-cta::before{content:'→';font-size:20px;}
+    .tool-cta.disabled{display:none;}
+    .position-grid{grid-template-columns:1fr;gap:16px;}
   }
 
   /* ===== ACCESO · 3 steps ===== */
@@ -427,6 +453,7 @@
     font-size:14.5px;
     margin:0;
   }
+  .access-step p a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:2px;}
   @media(max-width:860px){
     .access-steps{grid-template-columns:1fr;gap:36px;}
   }
@@ -487,8 +514,9 @@
     font-family:var(--font-display);
     font-weight:600;
     font-size:clamp(30px,3.8vw,44px);
-    max-width:560px;
+    max-width:760px;
     margin:0 0 26px;
+    text-wrap:balance;
     line-height:1.15;
     letter-spacing:-.01em;
     color:var(--ink);
@@ -538,13 +566,14 @@
   html[data-theme="dark"] .access-step .step-n{color:#6FB2E8;}
   html[data-theme="dark"] .access-step::before,
   html[data-theme="dark"] .access-steps.animar::before{background:#6FB2E8;}
+  html[data-theme="dark"] .access-step p a{color:#6FB2E8;}
   html[data-theme="dark"] .tool-cta{color:#6FB2E8;border-color:#6FB2E8;}
   html[data-theme="dark"] .tool-cta:hover{background:#1567B0;border-color:#1567B0;color:#FFFFFF;}
   html[data-theme="dark"] .tool-cta.disabled{color:var(--ink-muted);border-color:var(--line);}
   html[data-theme="dark"] .tool-card:hover{background:rgba(111,178,232,.05);}
   html[data-theme="dark"] .status-dot::before{background:#6FB2E8;}
   html[data-theme="dark"] .status-dot.soon::before{background:#4A5872;}
-  html[data-theme="dark"] .course-track::before{background:#4A5872;}
+  html[data-theme="dark"] .course-track-dot{background:#4A5872;}
   html[data-theme="dark"] .contact-email{color:#6FB2E8;border-bottom-color:#6FB2E8;}
   html[data-theme="dark"] .logo-mark,
   html[data-theme="dark"] .about-mark-img,
@@ -587,7 +616,7 @@
         <p class="hero-kicker">Sostenibilidad corporativa</p>
         <h1 class="hero-headline">Aprende, diagnostica, reporta.</h1>
         <p class="hero-lede">
-          Un punto de partida para aprender y comunicar las bases de la sostenibilidad corporativa: <strong>cursos y herramientas interactivas</strong> para trabajar diferentes estándares internacionales.
+          Entiende qué te piden los estándares de sostenibilidad, ubica dónde está tu organización y decide por dónde empezar, con <strong>herramientas interactivas y cursos</strong> que citan la fuente de cada requisito.
         </p>
         <div class="hero-actions">
           <a href="#herramientas" class="btn-primary">Ver herramientas</a>
@@ -624,27 +653,25 @@
   <!-- ===== POSICIONAMIENTO ===== -->
   <section class="section position">
     <div class="wrap">
+      <div class="section-head"><h2>Qué es esto</h2></div>
       <div class="position-grid">
-        <div>
-          <h3>Qué es esto</h3>
           <p>Un compilado de <strong>cursos y herramientas gratuitos y sin fines de lucro</strong> para la sostenibilidad corporativa: desde un curso introductorio hasta herramientas interactivas para mapear un marco, o autoevaluar el nivel de madurez de una organización frente a IFRS S1, IFRS S2 o TNFD.</p>
           <p>Cada herramienta cita el párrafo o la página exacta del estándar que usa y funciona en el navegador, sin instalar nada. Los autodiagnósticos y el curso piden un registro breve y guardan tus respuestas; el Atlas, el Selector de estándar, el Escáner LEAP, el Glosario y el Tracker se consultan sin registro.</p>
-        </div>
-        <div>
-          <h3>Marcos que cubren</h3>
+      </div>
+      <div class="frameworks">
+          <span class="frameworks-label">Marcos que cubren</span>
           <div class="frameworks-list">
-            <span class="fw-chip">GRI 2 / 101 / 102</span>
-            <span class="fw-chip">TCFD</span>
-            <span class="fw-chip">IFRS S1</span>
-            <span class="fw-chip">IFRS S2</span>
-            <span class="fw-chip">TNFD v1.0</span>
-            <span class="fw-chip">ESRS 1 / 2 / E1</span>
-            <span class="fw-chip">CSRD</span>
-            <span class="fw-chip">SASB</span>
-            <span class="fw-chip">SBTi</span>
-            <span class="fw-chip">CDP</span>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-GRI" title="Ver los términos de GRI 2 / 101 / 102 en el Glosario">GRI 2 / 101 / 102</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-TCFD" title="Ver los términos de TCFD en el Glosario">TCFD</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-ISSB" title="Ver los términos de IFRS S1 en el Glosario">IFRS S1</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-ISSB" title="Ver los términos de IFRS S2 en el Glosario">IFRS S2</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-TNFD" title="Ver los términos de TNFD v1.0 en el Glosario">TNFD v1.0</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-ESRS" title="Ver los términos de ESRS 1 / 2 / E1 en el Glosario">ESRS 1 / 2 / E1</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-ESRS" title="Ver los términos de CSRD en el Glosario">CSRD</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-SASB" title="Ver los términos de SASB en el Glosario">SASB</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-SBTI" title="Ver los términos de SBTi en el Glosario">SBTi</a>
+            <a class="fw-chip" href="herramientas/glosario-esg/#marco-CDP" title="Ver los términos de CDP en el Glosario">CDP</a>
           </div>
-        </div>
       </div>
     </div>
   </section>
@@ -654,95 +681,85 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Índice</h2>
-        <p>Comparto estas herramientas para que puedas informarte sobre los estándares de sostenibilidad, evaluar dónde está tu organización y decidir por dónde empezar. Cada una cita la fuente del estándar que usa.</p>
+        <p>Agrupadas por lo que necesitas hacer: orientarte entre los estándares o diagnosticar a tu organización. Cada una cita la fuente del estándar que usa.</p>
       </div>
 
       <div class="tool-index">
         <!-- Para sumar una herramienta: copia un bloque tool-card y ajusta número, nombre, texto y enlace.
              Si aún no está lista, deja el enlace vacío en el script o usa la variante "Próximamente". -->
 
+        <h3 class="tool-group">Para orientarte</h3>
+
         <div class="tool-card">
           <span class="tool-num">01</span>
           <div class="tool-main">
-            <h3>Atlas ESG</h3>
-            <p>Mapa interactivo de diez estándares de sostenibilidad y clima, con sus conexiones, jerarquía interna y puntos de comparación entre marcos.</p>
+            <h3>Selector de estándar</h3>
+            <p>Cinco preguntas sobre tu organización para ver qué estándares de reporte te exigen o te convienen: NIIF S1 y S2, GRI, ESRS, TNFD, CDP y Protocolo de GEI, con la fuente oficial de cada uno.</p>
           </div>
-          <div class="tool-meta">
-            <span class="status-dot">Activa</span>
-          </div>
-          <a href="herramientas/atlas-esg/" class="tool-cta">Acceder →</a>
+          <div class="tool-meta"></div>
+          <a href="herramientas/selector-estandar/" class="tool-cta">Acceder →</a>
         </div>
 
         <div class="tool-card">
           <span class="tool-num">02</span>
           <div class="tool-main">
-            <h3>Selector de estándar</h3>
-            <p>Cinco preguntas sobre tu organización para ver qué estándares de reporte te exigen o te convienen: NIIF S1 y S2, GRI, ESRS, TNFD, CDP y Protocolo de GEI, con la fuente oficial de cada uno.</p>
+            <h3>Atlas ESG</h3>
+            <p>Mapa interactivo de diez estándares de sostenibilidad y clima, con sus conexiones, jerarquía interna y puntos de comparación entre marcos.</p>
           </div>
-          <div class="tool-meta">
-            <span class="status-dot">Activa</span>
-          </div>
-          <a href="herramientas/selector-estandar/" class="tool-cta">Acceder →</a>
+          <div class="tool-meta"></div>
+          <a href="herramientas/atlas-esg/" class="tool-cta">Acceder →</a>
         </div>
 
         <div class="tool-card">
           <span class="tool-num">03</span>
           <div class="tool-main">
-            <h3>Autodiagnóstico inicial TNFD</h3>
-            <p>Primer diagnóstico frente a las recomendaciones TNFD: 15 preguntas, nivel por pilar y un primer paso para cada uno, con la cita de cada recomendación.</p>
+            <h3>Glosario ESG</h3>
+            <p>Términos y definiciones de sostenibilidad y clima explicados en un solo lugar, con referencia cruzada a los estándares donde aparecen.</p>
           </div>
-          <div class="tool-meta">
-            <span class="status-dot">Activa</span>
-          </div>
-          <a href="herramientas/diagnostico-tnfd/" class="tool-cta">Acceder →</a>
+          <div class="tool-meta"></div>
+          <a href="herramientas/glosario-esg/" class="tool-cta">Acceder →</a>
         </div>
 
         <div class="tool-card">
           <span class="tool-num">04</span>
           <div class="tool-main">
-            <h3>Autodiagnóstico inicial IFRS S1</h3>
-            <p>Primer diagnóstico frente a los requisitos generales de la NIIF S1: 15 preguntas, nivel por pilar y primeros pasos, con la cita de cada párrafo.</p>
+            <h3>Tracker de regulaciones IFRS S1/S2</h3>
+            <p>Seguimiento del estado de adopción y los plazos regulatorios de IFRS S1 y S2 por jurisdicción.</p>
           </div>
-          <div class="tool-meta">
-            <span class="status-dot">Activa</span>
-          </div>
-          <a href="herramientas/diagnostico-s1/" class="tool-cta">Acceder →</a>
+          <div class="tool-meta"></div>
+          <a href="herramientas/tracker-issb/" class="tool-cta">Acceder →</a>
         </div>
+
+        <h3 class="tool-group">Para diagnosticar</h3>
 
         <div class="tool-card">
           <span class="tool-num">05</span>
           <div class="tool-main">
-            <h3>Autodiagnóstico inicial IFRS S2</h3>
-            <p>Primer diagnóstico de las divulgaciones climáticas de la NIIF S2: 16 preguntas sobre gobierno, escenarios, emisiones y objetivos, con primeros pasos.</p>
+            <h3>Autodiagnóstico inicial IFRS S1</h3>
+            <p>Para tener una noción de dónde se encuentra tu organización frente a los requisitos generales de la NIIF S1: 15 preguntas, nivel por pilar y primeros pasos.</p>
           </div>
-          <div class="tool-meta">
-            <span class="status-dot">Activa</span>
-          </div>
-          <a href="herramientas/diagnostico-s2/" class="tool-cta">Acceder →</a>
+          <div class="tool-meta"></div>
+          <a href="herramientas/diagnostico-s1/" class="tool-cta">Acceder →</a>
         </div>
 
         <div class="tool-card">
           <span class="tool-num">06</span>
           <div class="tool-main">
-            <h3>Glosario ESG</h3>
-            <p>Términos y definiciones de sostenibilidad y clima explicados en un solo lugar, con referencia cruzada a los estándares donde aparecen.</p>
+            <h3>Autodiagnóstico inicial IFRS S2</h3>
+            <p>Para tener una noción de dónde se encuentra tu organización frente a las divulgaciones climáticas de la NIIF S2: 16 preguntas y primeros pasos.</p>
           </div>
-          <div class="tool-meta">
-            <span class="status-dot">Activa</span>
-          </div>
-          <a href="herramientas/glosario-esg/" class="tool-cta">Acceder →</a>
+          <div class="tool-meta"></div>
+          <a href="herramientas/diagnostico-s2/" class="tool-cta">Acceder →</a>
         </div>
 
         <div class="tool-card">
           <span class="tool-num">07</span>
           <div class="tool-main">
-            <h3>Tracker de regulaciones IFRS S1/S2</h3>
-            <p>Seguimiento del estado de adopción y los plazos regulatorios de IFRS S1 y S2 por jurisdicción.</p>
+            <h3>Autodiagnóstico inicial TNFD</h3>
+            <p>Para tener una noción de dónde se encuentra tu organización frente a las recomendaciones TNFD: 15 preguntas, nivel por pilar y un primer paso para cada uno.</p>
           </div>
-          <div class="tool-meta">
-            <span class="status-dot">Activa</span>
-          </div>
-          <a href="herramientas/tracker-issb/" class="tool-cta">Acceder →</a>
+          <div class="tool-meta"></div>
+          <a href="herramientas/diagnostico-tnfd/" class="tool-cta">Acceder →</a>
         </div>
 
         <div class="tool-card">
@@ -751,9 +768,7 @@
             <h3>Escáner LEAP</h3>
             <p>Dependencias e impactos sobre la naturaleza de tu sector, con datos de ENCORE, y la fase del enfoque LEAP de TNFD en la que estás.</p>
           </div>
-          <div class="tool-meta">
-            <span class="status-dot">Activa</span>
-          </div>
+          <div class="tool-meta"></div>
           <a href="herramientas/escaner-leap/" class="tool-cta">Acceder →</a>
         </div>
 
@@ -778,7 +793,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Cursos y rutas de especialización</h2>
-        <p>Un curso introductorio gratuito para empezar, y cuatro rutas de especialización en desarrollo para profundizar por tema.</p>
+        <p>Un curso introductorio gratuito para entender las bases a tu ritmo.</p>
       </div>
 
       <div class="course-featured">
@@ -790,13 +805,7 @@
         <a href="cursos/de-cero-a-profesional/#inicio" class="btn-course">Empezar curso →</a>
       </div>
 
-      <p class="course-tracks-label">Rutas de especialización · en progreso</p>
-      <div class="course-tracks">
-        <span class="course-track">Ruta de especialización 1</span>
-        <span class="course-track">Ruta de especialización 2</span>
-        <span class="course-track">Ruta de especialización 3</span>
-        <span class="course-track">Ruta de especialización 4</span>
-      </div>
+      <p class="course-tracks-label"><span class="course-track-dot"></span>Rutas de especialización por tema, en preparación</p>
     </div>
   </section>
 
@@ -804,23 +813,23 @@
   <section class="section access">
     <div class="wrap">
       <div class="section-head">
-        <h2>De aprender a reportar</h2>
+        <h2>Por dónde empezar</h2>
       </div>
       <div class="access-steps">
         <div class="access-step">
           <span class="step-n">01</span>
-          <h3>Aprende las bases</h3>
-          <p>Empieza con el curso introductorio gratuito, o ve directo a la herramienta que necesitas.</p>
+          <h3>Oriéntate</h3>
+          <p>Responde el <a href="herramientas/selector-estandar/">Selector de estándar</a> para saber qué marcos te aplican. El Atlas y el Glosario te acompañan cuando los necesites.</p>
         </div>
         <div class="access-step">
           <span class="step-n">02</span>
-          <h3>Diagnostica y reporta</h3>
-          <p>Usa las herramientas interactivas para autoevaluar, mapear o construir tu reporte.</p>
+          <h3>Diagnostica</h3>
+          <p>Con los autodiagnósticos iniciales y el Escáner LEAP ves dónde está tu organización y cuáles son tus primeros pasos.</p>
         </div>
         <div class="access-step">
           <span class="step-n">03</span>
-          <h3>Sin instalar nada</h3>
-          <p>Todo funciona en el navegador, en computadora o en celular.</p>
+          <h3>Aprende</h3>
+          <p>Toma el <a href="cursos/de-cero-a-profesional/#inicio">curso introductorio gratuito</a> para entender las bases y profundizar a tu ritmo.</p>
         </div>
       </div>
     </div>
@@ -847,7 +856,7 @@
   <!-- ===== CONTACTO ===== -->
   <section class="contact" id="contacto">
     <div class="wrap">
-      <h2>¿Algo que no encuentras en el catálogo?<br>Escríbeme directamente.</h2>
+      <h2>¿Hay algo que no encuentras en el catálogo y crees que podría ser útil?<br>Escríbeme directamente.</h2>
       <a href="mailto:ruben.isai.ponce.barcelo@gmail.com" class="contact-email">ruben.isai.ponce.barcelo@gmail.com</a>
     </div>
   </section>

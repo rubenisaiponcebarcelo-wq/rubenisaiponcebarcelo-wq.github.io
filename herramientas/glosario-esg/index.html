@@ -561,6 +561,12 @@ render();
 /* Deep-link support: /glosario-esg.html#term-doble-materialidad opens
    directly scrolled to that entry when arriving from another page. */
 window.addEventListener('load', () => {
+  /* #marco-GRI, #marco-ISSB…: abre el glosario filtrado por ese marco (lo usan los chips de la landing) */
+  if (location.hash.startsWith('#marco-')){
+    const clave = location.hash.slice(7).toUpperCase();
+    if (FRAMEWORKS[clave]){ setFramework(clave); frameworkFilters.scrollIntoView({block:'start'}); }
+    return;
+  }
   if (location.hash.startsWith('#term-')){
     setTimeout(() => {
       const el = document.querySelector(location.hash);
